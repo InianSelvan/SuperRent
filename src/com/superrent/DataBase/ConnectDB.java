@@ -47,6 +47,13 @@ public class ConnectDB extends ReadProperties{
         conn = (Connection) DriverManager.getConnection(db_url+db_name,user,pswd);
         stmt = (Statement) conn.createStatement();
     }
+    
+    public static void clearResultSet() throws SQLException{
+        stmt.closeOnCompletion();
+        rs.close();
+        conn.close();       
+    }
+    
     /**
      * Run the query based on the SQL statement passed and returns the result set
      * @param SQL
@@ -59,6 +66,11 @@ public class ConnectDB extends ReadProperties{
         connect();
         rs = stmt.executeQuery(SQL); 
     }
+    
+    public static void exeUpdate(String SQL) throws ClassNotFoundException, SQLException, IOException{
+        connect();
+        stmt.executeUpdate(SQL);
+    }
     /**
      * After exeQuery the result set gets stored and will be returned when this method is called
      * @return ResultSet of he Statement
@@ -70,9 +82,8 @@ public class ConnectDB extends ReadProperties{
     public static void main(String args[]) throws ClassNotFoundException, SQLException, IOException{
         exeQuery("Select * from user");
         while(resultSet().next()){
-            System.out.println(resultSet().getString(2));
-            
+            System.out.println(resultSet().getString(2));            
         }
-       
+        clearResultSet(); 
     }
 }

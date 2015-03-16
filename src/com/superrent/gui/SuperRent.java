@@ -6,10 +6,12 @@
 package com.superrent.gui;
 
 import com.superrent.DataBase.ConnectDB;
+import com.superrent.modules.Encrypt;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,17 +35,134 @@ public class SuperRent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        roleGroupRadio = new javax.swing.ButtonGroup();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
+        loginpanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JPasswordField();
+        pwdField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        modulepane = new javax.swing.JPanel();
+        moduletab = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        returnVehicles = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel20 = new javax.swing.JLabel();
+        jSpinField1 = new com.toedter.components.JSpinField();
+        jSpinField2 = new com.toedter.components.JSpinField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jButton6 = new javax.swing.JButton();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        manageCustomer = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox();
+        jComboBox6 = new javax.swing.JComboBox();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jButton9 = new javax.swing.JButton();
+        manageFleet = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox();
+        jLabel35 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox();
+        jButton10 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
+        jComboBox10 = new javax.swing.JComboBox();
+        jLabel38 = new javax.swing.JLabel();
+        jComboBox11 = new javax.swing.JComboBox();
+        jLabel39 = new javax.swing.JLabel();
+        jComboBox12 = new javax.swing.JComboBox();
+        jLabel40 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        userNamepanel = new javax.swing.JPanel();
+        firstnameLbl = new javax.swing.JLabel();
+        firstNameField = new javax.swing.JTextField();
+        lastNameLbl = new javax.swing.JLabel();
+        lastNameField = new javax.swing.JTextField();
+        userNameLbl = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        emailIdLbl = new javax.swing.JLabel();
+        emailIdField = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        managerRadio = new javax.swing.JRadioButton();
+        clerkRadio = new javax.swing.JRadioButton();
+        addEmployeeBtn = new javax.swing.JButton();
+        branchIdCombo = new javax.swing.JComboBox();
+        branchIdLbl = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        rentVehicles = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jSpinner2 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -51,25 +170,33 @@ public class SuperRent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        loginpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("User Name :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 220, -1));
+        loginpanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        loginpanel.add(userField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 220, -1));
 
         jLabel2.setText("Password   :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, -1, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 308, 220, -1));
+        loginpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
+        loginpanel.add(pwdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 220, -1));
 
-        jButton1.setText("Login");
+        jButton1.setText("Employee Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, -1, -1));
+        loginpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 160, -1));
+        loginpanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 340, 10));
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel4.setText("Super Rent Login Page");
+        loginpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 440, 70));
+
+        jButton12.setText("Change Password");
+        loginpanel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+
+        modulepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -82,43 +209,386 @@ public class SuperRent extends javax.swing.JFrame {
             .addGap(0, 610, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", jPanel3);
+        moduletab.addTab("Reserve", jPanel3);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        returnVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setText("Customer Phone Number*   :");
+        returnVehicles.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 56, -1, -1));
+        returnVehicles.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 180, -1));
+
+        jLabel19.setText("Return Date*                     :");
+        returnVehicles.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        returnVehicles.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, -1));
+
+        jLabel20.setText("Return Time*                    :");
+        returnVehicles.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        returnVehicles.add(jSpinField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 50, -1));
+        returnVehicles.add(jSpinField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 40, -1));
+
+        jLabel21.setText("HH");
+        returnVehicles.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+
+        jLabel22.setText("MM");
+        returnVehicles.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+
+        jLabel23.setText("Current Odometer Reading*:");
+        returnVehicles.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        returnVehicles.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, -1));
+
+        jLabel24.setText("Miles");
+        returnVehicles.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+
+        jCheckBox1.setText("Fuel Check");
+        returnVehicles.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jCheckBox2.setText("Road Star");
+        returnVehicles.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        jButton6.setText("Calculate");
+        returnVehicles.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        returnVehicles.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 90, -1));
+
+        jLabel25.setText("CAD");
+        returnVehicles.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+
+        jButton7.setText("Pay");
+        returnVehicles.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+
+        jButton8.setText("Redeem");
+        returnVehicles.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
+
+        moduletab.addTab("Return", returnVehicles);
+
+        manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setText("First Name*       :");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
+
+        jLabel27.setText("Last Name*    :");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, -1));
+        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
+
+        jLabel28.setText("Address Line 1* :");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jLabel29.setText("Address Line 2   :");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 230, -1));
+
+        jLabel30.setText("Province*           :");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 110, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, -1));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+
+        jLabel31.setText("City*   :");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
+
+        jLabel32.setText("Zip Code*   :");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
+        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 130, -1));
+
+        jLabel33.setText("Phone No*         :");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 220, -1));
+
+        jCheckBox3.setText("Club Member");
+        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+
+        jButton9.setText("Register");
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+
+        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 1010, 350));
+
+        moduletab.addTab("Manage Customer", manageCustomer);
+
+        manageFleet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Add New Car"));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setText("Car Type*       :");
+        jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 39, 100, -1));
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, -1));
+
+        jLabel35.setText("Manufacturer*     :");
+        jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, -1));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 180, -1));
+
+        jLabel36.setText("Name*      :");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
+
+        jButton10.setText("Add");
+        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+
+        manageFleet.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 500, 220));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Car"));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton11.setText("Remove");
+        jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+
+        jLabel37.setText("Car Type*       :");
+        jPanel4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 180, -1));
+
+        jLabel38.setText("Manufacturer*     :");
+        jPanel4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 180, -1));
+
+        jLabel39.setText("Name *  :");
+        jPanel4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, -1));
+
+        jLabel40.setText("Vehicle No*        :");
+        jPanel4.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel4.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 180, -1));
+
+        jLabel42.setText("CAD");
+        jPanel4.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        jPanel4.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 60, -1));
+
+        jLabel41.setText("Sale Price*          :");
+        jPanel4.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        manageFleet.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 510, 280));
+
+        moduletab.addTab("Manage Fleet", manageFleet);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1085, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 610, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", jPanel4);
+        moduletab.addTab("Reports", jPanel5);
 
-        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1090, 640));
+        userNamepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstnameLbl.setText("First Name*   :");
+        userNamepanel.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+
+        lastNameLbl.setText("Last Name*    :");
+        userNamepanel.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        userNamepanel.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+
+        userNameLbl.setText("User Name*    :");
+        userNamepanel.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        userNamepanel.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+
+        emailIdLbl.setText("Email ID*        :");
+        userNamepanel.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        emailIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailIdFieldActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+
+        passwordLbl.setText("Password*      :");
+        userNamepanel.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        userNamepanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+
+        roleGroupRadio.add(managerRadio);
+        managerRadio.setText("Manager");
+        managerRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managerRadioActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(managerRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
+
+        roleGroupRadio.add(clerkRadio);
+        clerkRadio.setText("Clerk");
+        clerkRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkRadioActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(clerkRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
+
+        addEmployeeBtn.setText("Add Employee");
+        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmployeeBtnActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+
+        branchIdCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        userNamepanel.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+
+        branchIdLbl.setText("Branch ID*      :");
+        userNamepanel.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        roleLbl.setText("Role*            :");
+        userNamepanel.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        moduletab.addTab("New Employee", userNamepanel);
+
+        rentVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Branch Location*               :");
+        rentVehicles.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rentVehicles.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 370, -1));
+        rentVehicles.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 140, -1));
+
+        jLabel3.setText("Rent Date*                        :");
+        rentVehicles.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        rentVehicles.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 40, -1));
+
+        jLabel6.setText("Rent Time :");
+        rentVehicles.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+
+        jLabel7.setText("HH");
+        rentVehicles.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
+        rentVehicles.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 40, -1));
+
+        jLabel8.setText("MM");
+        rentVehicles.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rentVehicles.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 220, -1));
+
+        jLabel10.setText("Track Type*  :");
+        rentVehicles.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rentVehicles.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 220, -1));
+
+        jLabel11.setText("Features*                        :");
+        rentVehicles.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        rentVehicles.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 220, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        rentVehicles.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 840, 130));
+
+        jButton2.setText("Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        rentVehicles.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, -1, -1));
+
+        jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        rentVehicles.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, -1));
+
+        jButton4.setText("Rent");
+        rentVehicles.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, -1, -1));
+
+        jLabel12.setText("Customer Phone Number*  :");
+        rentVehicles.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jLabel13.setText("Car Type*                        :");
+        rentVehicles.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        rentVehicles.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
+
+        jLabel14.setText("Confirmation Number         :");
+        rentVehicles.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        rentVehicles.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
+
+        jLabel15.setText("Driver License*  :");
+        rentVehicles.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
+        rentVehicles.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, -1));
+
+        jLabel16.setText("Credit Card Number*         :");
+        rentVehicles.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        rentVehicles.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 130, -1));
+
+        jButton5.setText("Auto Fill");
+        rentVehicles.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 130, -1));
+
+        jLabel17.setText("Expiry Date*      :");
+        rentVehicles.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        rentVehicles.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 160, -1));
+
+        jLabel18.setText("Card type*  :");
+        rentVehicles.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, -1, -1));
+        rentVehicles.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, 150, -1));
+
+        moduletab.addTab("Rent", rentVehicles);
+
+        modulepane.add(moduletab, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1090, 640));
+        moduletab.getAccessibleContext().setAccessibleName("Reservation");
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(loginpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modulepane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(loginpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modulepane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(loginpanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(modulepane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
 
@@ -136,39 +606,188 @@ public class SuperRent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             ConnectDB.exeQuery("Select * from user");
-        } catch (ClassNotFoundException ex) {
+            Encrypt en = new Encrypt();
+            en.encryptPwd(pwdField);
+            en.decryptPwd();
+
+        try {
+            while(ConnectDB.resultSet().next()){
+                if( userField.getText().contains(ConnectDB.resultSet().getString("username")) && 
+                        pwdField.getText().contains(ConnectDB.resultSet().getString("password"))){
+                    System.out.println("Login success");
+                    loginpanel.setVisible(false);
+                    modulepane.setVisible(true);
+                }else{
+                   // System.out.println(ConnectDB.resultSet().getString("username"));
+                    //System.out.println(ConnectDB.resultSet().getString("password"));
+                }
+                
+            }   } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConnectDB.clearResultSet();
+                } catch (ClassNotFoundException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            while(ConnectDB.resultSet().next()){
-                if( jTextField2.getText().contains(ConnectDB.resultSet().getString("username")) && 
-                        jTextField2.getText().contains(ConnectDB.resultSet().getString("password"))){
-                    System.out.println("Login success");
-                    jPanel1.setVisible(false);
-                    jPanel2.setVisible(true);
-                }else{
-                    System.out.println(ConnectDB.resultSet().getString("username"));
-                    System.out.println(ConnectDB.resultSet().getString("password"));
-                }
-                
-            }   } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameFieldActionPerformed
+
+    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailIdFieldActionPerformed
+
+    private void managerRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerRadioActionPerformed
+        if(managerRadio.isSelected()){
+            role = managerRadio.getText();
+        }
+    }//GEN-LAST:event_managerRadioActionPerformed
+
+    private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
+            Encrypt en = new Encrypt();
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = userNameField.getText();
+            String email = emailIdField.getText();
+            String password = en.encryptPwd(passwordField);
+            String branchId = branchIdCombo.getSelectedItem().toString();
+            int countusers = 0;
+            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
+                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+                try {
+                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM USER WHERE USERNAME = '"+userName+"'");
+                    while(ConnectDB.resultSet().next()){
+                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
+                    }
+                    System.out.println(role);
+                    if(countusers==0){               
+                        ConnectDB.exeUpdate("INSERT INTO `superrent`.`user` (`firstname`, `lastname`, `username`, `email`, `password`, `role`, `branch`, `location`) "
+                            + "VALUES ('"+firstName+"', '"+lastName+"', '"+userName+"', '"+email+"', '"+password+"', '"+role+"', '"+branchId+"', 'Vancouver');");                    
+                    }else{
+                        JOptionPane.showMessageDialog(null, "This user name has been used already");
+                    }
+                    ConnectDB.clearResultSet();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+            } 
+            
+    }//GEN-LAST:event_addEmployeeBtnActionPerformed
+
+    private void clerkRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkRadioActionPerformed
+        if(clerkRadio.isSelected()){
+            role = clerkRadio.getText();
+        }
+    }//GEN-LAST:event_clerkRadioActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     //private javax.swing.JPasswordField jTextField3;
+    private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addEmployeeBtn;
+    private javax.swing.JComboBox branchIdCombo;
+    private javax.swing.JLabel branchIdLbl;
+    private javax.swing.JRadioButton clerkRadio;
+    private javax.swing.JTextField emailIdField;
+    private javax.swing.JLabel emailIdLbl;
+    private javax.swing.JTextField firstNameField;
+    private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox10;
+    private javax.swing.JComboBox jComboBox11;
+    private javax.swing.JComboBox jComboBox12;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox4;
+    private javax.swing.JComboBox jComboBox5;
+    private javax.swing.JComboBox jComboBox6;
+    private javax.swing.JComboBox jComboBox7;
+    private javax.swing.JComboBox jComboBox8;
+    private javax.swing.JComboBox jComboBox9;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -177,8 +796,48 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private com.toedter.components.JSpinField jSpinField1;
+    private com.toedter.components.JSpinField jSpinField2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField lastNameField;
+    private javax.swing.JLabel lastNameLbl;
+    private javax.swing.JPanel loginpanel;
+    private javax.swing.JPanel manageCustomer;
+    private javax.swing.JPanel manageFleet;
+    private javax.swing.JRadioButton managerRadio;
+    private javax.swing.JPanel modulepane;
+    private javax.swing.JTabbedPane moduletab;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JLabel passwordLbl;
+    private javax.swing.JTextField pwdField;
+    private javax.swing.JPanel rentVehicles;
+    private javax.swing.JPanel returnVehicles;
+    private javax.swing.ButtonGroup roleGroupRadio;
+    private javax.swing.JLabel roleLbl;
+    private javax.swing.JTextField userField;
+    private javax.swing.JTextField userNameField;
+    private javax.swing.JLabel userNameLbl;
+    private javax.swing.JPanel userNamepanel;
     // End of variables declaration//GEN-END:variables
 }
