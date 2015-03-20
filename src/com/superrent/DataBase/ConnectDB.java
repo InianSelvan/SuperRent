@@ -79,11 +79,5 @@ public class ConnectDB extends ReadProperties{
         return rs;
     }
     
-    public static void main(String args[]) throws ClassNotFoundException, SQLException, IOException{
-        exeQuery("Select * from user");
-        while(resultSet().next()){
-            System.out.println(resultSet().getString(2));            
-        }
-        clearResultSet(); 
-    }
+    
 }
