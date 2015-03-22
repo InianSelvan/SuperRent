@@ -24,7 +24,7 @@ public class ReadProperties {
      */
     public static Properties readFile() throws FileNotFoundException, IOException{
         Properties prop = new Properties();
-        FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"\\src\\com\\superrent\\configs\\Config.properties");
+        FileInputStream fp = new FileInputStream(System.getProperty("user.dir")+"//src//com//superrent//configs//Config.properties");
         prop.load(fp);
         return prop;
     }
