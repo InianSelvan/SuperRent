@@ -197,36 +197,68 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel57" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel55" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel50" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel49" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel56" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel58" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel57" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel55" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel49" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel56" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel58" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                                              <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ReserveConfirmNumber_TextField" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <Component id="ReserveCustomerPhoneNum_TextField" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <Component id="ReserveBranchLocation_ComboBox" alignment="0" min="-2" pref="370" max="-2" attributes="0"/>
-                                          <Component id="ReserveRentDate_DateChooser" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <Component id="ReserveCarType_jComboBox" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Component id="ReserveFeatures_ComboBox" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="ReserveConfirmNumber_TextField" linkSize="2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="ReserveCustomerPhoneNum_TextField" linkSize="2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="ReserveBranchID_ComboBox" alignment="0" min="-2" pref="370" max="-2" attributes="0"/>
+                                          <Component id="Reserve_pickupDt1" linkSize="2" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="Reserve_dropOffDate1" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ReserveCarType_jComboBox" linkSize="3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="ReserveFeatures_ComboBox" linkSize="3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel46" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel54" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel59" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ReserveDriverLicense_TextField" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                          <Component id="ReserveTruckType_ComboBox" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="ReserveTruckType_ComboBox" linkSize="3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="Reserve_dropoffHHSpin1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="Reserve_dropMinutes" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="Reserve_pickupHour1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="Reserve_pickupMin1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -237,30 +269,14 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" min="-2" pref="840" max="-2" attributes="0"/>
+                                      <Component id="Reserve_searchjScrollPane3" min="-2" pref="840" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="450" pref="450" max="-2" attributes="0"/>
-                                      <Component id="jButton15" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="602" pref="602" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                                              <Component id="ReserveRentTimeHour_Spinner3" min="-2" pref="40" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jLabel52" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                      <Component id="ReserveRentTimeMinutes_Spinner4" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jLabel53" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Reserve_reserve_jButton15" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="137" max="32767" attributes="0"/>
+                              <EmptySpace pref="122" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -282,19 +298,42 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ReserveBranchLocation_ComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ReserveBranchID_ComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ReserveRentDate_DateChooser" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ReserveRentTimeHour_Spinner3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel52" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ReserveRentTimeMinutes_Spinner4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Reserve_pickupDt1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="Reserve_pickupMin1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Reserve_pickupHour1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Reserve_dropMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Reserve_dropoffHHSpin1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="Reserve_dropOffDate1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="ReserveCarType_jComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -312,9 +351,9 @@
                                   <Component id="jButton14" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Component id="Reserve_searchjScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="jButton15" min="-2" max="-2" attributes="0"/>
+                              <Component id="Reserve_reserve_jButton15" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -322,10 +361,10 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel49">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Branch Location* :"/>
+                        <Property name="text" type="java.lang.String" value="Branch ID* :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="ReserveBranchLocation_ComboBox">
+                    <Component class="javax.swing.JComboBox" name="ReserveBranchID_ComboBox">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -337,34 +376,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReserveBranchLocation_ComboBoxActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReserveBranchID_ComboBoxActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="ReserveRentDate_DateChooser">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel50">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Rent Date* :"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JSpinner" name="ReserveRentTimeHour_Spinner3">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel51">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Rent Time :"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel52">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="HH"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JSpinner" name="ReserveRentTimeMinutes_Spinner4">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel53">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="MM"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="ReserveCarType_jComboBox">
                       <Properties>
@@ -412,14 +425,14 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                    <Container class="javax.swing.JScrollPane" name="Reserve_searchjScrollPane3">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable3">
+                        <Component class="javax.swing.JTable" name="Reserve_searchjTable3">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="4">
@@ -428,6 +441,33 @@
                                 <Column editable="true" title="Title 3" type="java.lang.Object"/>
                                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
                               </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -449,9 +489,9 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton15">
+                    <Component class="javax.swing.JButton" name="Reserve_reserve_jButton15">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Rent"/>
+                        <Property name="text" type="java.lang.String" value="Reserve"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel56">
@@ -482,6 +522,70 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ReserveDriverLicense_TextField">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel15">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pickup Date* :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="Reserve_pickupDt1">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel16">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pickup Time :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="Reserve_pickupHour1">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(modelPickHH)"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="Reserve_pickupMin1">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(modelPickMM)"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel17">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="HH"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel18">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="MM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel29">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="MM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="Reserve_dropMinutes">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(modelDropMM)"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel45">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="HH"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="Reserve_dropoffHHSpin1">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(modelDropHH)"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel46">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Dropoff Time :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="com.toedter.calendar.JDateChooser" name="Reserve_dropOffDate1">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel47">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Dropoff* :"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -789,10 +893,11 @@
                       </Properties>
                       <Events>
                         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="vehicleTypeComboItemStateChanged"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vehicleTypeComboActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="220" y="310" width="220" height="-1"/>
+                          <AbsoluteConstraints x="590" y="310" width="220" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1075,6 +1180,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cardTypeComboActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="760" y="150" width="150" height="-1"/>
