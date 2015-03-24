@@ -63,8 +63,8 @@ public class SuperRent extends javax.swing.JFrame {
         ReserveCarType_jComboBox = new javax.swing.JComboBox();
         jLabel54 = new javax.swing.JLabel();
         ReserveTruckType_ComboBox = new javax.swing.JComboBox();
-        jLabel55 = new javax.swing.JLabel();
-        ReserveFeatures_ComboBox = new javax.swing.JComboBox();
+        ReserveEquipments_jLabel55 = new javax.swing.JLabel();
+        ReserveEquipments_ComboBox = new javax.swing.JComboBox();
         Reserve_searchjScrollPane3 = new javax.swing.JScrollPane();
         Reserve_searchjTable3 = new javax.swing.JTable();
         ReserveSearch_jButton = new javax.swing.JButton();
@@ -92,25 +92,25 @@ public class SuperRent extends javax.swing.JFrame {
         Reserve_dropOffDate1 = new com.toedter.calendar.JDateChooser();
         jLabel47 = new javax.swing.JLabel();
         returnVehicles = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jLabel = new javax.swing.JLabel();
+        ReturnCustomerPhoneNum_jTextField = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        ReturnDate_jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jLabel20 = new javax.swing.JLabel();
-        jSpinField1 = new com.toedter.components.JSpinField();
-        jSpinField2 = new com.toedter.components.JSpinField();
+        ReturnTimeHour_jSpinField1 = new com.toedter.components.JSpinField();
+        ReturnTimeMinute_jSpinField2 = new com.toedter.components.JSpinField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        ReturnOdmeter_jTextField9 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jButton6 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
+        ReturnFuel_jCheckBox1 = new javax.swing.JCheckBox();
+        ReturnRoadStar_jCheckBox2 = new javax.swing.JCheckBox();
+        ReturnCalculate_jButton6 = new javax.swing.JButton();
+        ReturnCalculate_jTextField10 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        ReturnPay_jButton7 = new javax.swing.JButton();
+        ReturnRedeem_jButton8 = new javax.swing.JButton();
         rentVehicles = new javax.swing.JPanel();
         brnchIdLbl = new javax.swing.JLabel();
         brnchIdCombo = new javax.swing.JComboBox();
@@ -267,9 +267,14 @@ public class SuperRent extends javax.swing.JFrame {
 
         ReserveTruckType_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel55.setText("Features* :");
+        ReserveEquipments_jLabel55.setText("Equipments :");
 
-        ReserveFeatures_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ReserveEquipments_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ReserveEquipments_ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReserveEquipments_ComboBoxActionPerformed(evt);
+            }
+        });
 
         Reserve_searchjTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -337,88 +342,90 @@ public class SuperRent extends javax.swing.JFrame {
             .addGroup(ReserveLayout.createSequentialGroup()
                 .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(80, 80, 80)
+                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ReserveEquipments_jLabel55)
+                            .addComponent(jLabel57)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel58))
                         .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel49, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ReserveLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jLabel15))
+                                .addGap(21, 21, 21)
+                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ReserveCustomerPhoneNum_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(240, 240, 240)
+                                .addComponent(jLabel59)
+                                .addGap(3, 3, 3)
+                                .addComponent(ReserveDriverLicense_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ReserveLayout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(jLabel47)))
-                        .addGap(18, 18, 18)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReserveCustomerPhoneNum_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReserveBranchID_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Reserve_pickupDt1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Reserve_dropOffDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReserveCarType_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReserveFeatures_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel59, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(3, 3, 3)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReserveDriverLicense_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ReserveTruckType_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(ReserveLayout.createSequentialGroup()
-                                    .addComponent(Reserve_dropoffHHSpin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel45)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Reserve_dropMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel29))
-                                .addGroup(ReserveLayout.createSequentialGroup()
-                                    .addComponent(Reserve_pickupHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Reserve_pickupMin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel18)))))
+                                .addGap(18, 18, 18)
+                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ReserveBranchID_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Reserve_pickupDt1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Reserve_dropOffDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ReserveCarType_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ReserveEquipments_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(3, 3, 3)
+                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ReserveTruckType_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(ReserveLayout.createSequentialGroup()
+                                            .addComponent(Reserve_dropoffHHSpin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel45)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Reserve_dropMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel29))
+                                        .addGroup(ReserveLayout.createSequentialGroup()
+                                            .addComponent(Reserve_pickupHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel17)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(Reserve_pickupMin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel18)))))))
                     .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(ReserveSearch_jButton)
-                        .addGap(55, 55, 55)
-                        .addComponent(jButton14))
+                        .addGap(450, 450, 450)
+                        .addComponent(Reserve_reserve_jButton15))
                     .addGroup(ReserveLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(Reserve_searchjScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(Reserve_reserve_jButton15)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                        .addGap(370, 370, 370)
+                        .addComponent(ReserveSearch_jButton)
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton14)))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         ReserveLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReserveConfirmNumber_TextField, ReserveCustomerPhoneNum_TextField, Reserve_dropOffDate1, Reserve_pickupDt1});
 
-        ReserveLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReserveCarType_jComboBox, ReserveFeatures_ComboBox, ReserveTruckType_ComboBox});
+        ReserveLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReserveCarType_jComboBox, ReserveEquipments_ComboBox, ReserveTruckType_ComboBox});
 
         ReserveLayout.setVerticalGroup(
             ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReserveLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel56)
                     .addComponent(ReserveCustomerPhoneNum_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel59)
                     .addComponent(ReserveDriverLicense_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel49)
                     .addComponent(ReserveBranchID_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -455,9 +462,9 @@ public class SuperRent extends javax.swing.JFrame {
                     .addComponent(ReserveTruckType_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel55)
-                    .addComponent(ReserveFeatures_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                    .addComponent(ReserveEquipments_jLabel55)
+                    .addComponent(ReserveEquipments_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
                 .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ReserveSearch_jButton)
                     .addComponent(jButton14))
@@ -467,54 +474,147 @@ public class SuperRent extends javax.swing.JFrame {
                 .addComponent(Reserve_reserve_jButton15))
         );
 
+        ReserveLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ReserveBranchID_ComboBox, ReserveCarType_jComboBox, ReserveConfirmNumber_TextField, ReserveCustomerPhoneNum_TextField, ReserveDriverLicense_TextField, ReserveEquipments_ComboBox, ReserveEquipments_jLabel55, ReserveTruckType_ComboBox, Reserve_dropMinutes, Reserve_dropOffDate1, Reserve_dropoffHHSpin1, Reserve_pickupDt1, Reserve_pickupHour1, Reserve_pickupMin1, jLabel15, jLabel16, jLabel17, jLabel18, jLabel29, jLabel45, jLabel46, jLabel47, jLabel49, jLabel54, jLabel56, jLabel57, jLabel58, jLabel59});
+
         moduletab.addTab("Reserve", Reserve);
 
-        returnVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel.setText("Customer Phone Number* :");
 
-        jLabel9.setText("Customer Phone Number*   :");
-        returnVehicles.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 56, -1, -1));
-        returnVehicles.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 180, -1));
+        jLabel19.setText("Return Date* :");
 
-        jLabel19.setText("Return Date*                     :");
-        returnVehicles.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
-        returnVehicles.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, -1));
-
-        jLabel20.setText("Return Time*                    :");
-        returnVehicles.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-        returnVehicles.add(jSpinField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 50, -1));
-        returnVehicles.add(jSpinField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 40, -1));
+        jLabel20.setText("Return Time* :");
 
         jLabel21.setText("HH");
-        returnVehicles.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
 
         jLabel22.setText("MM");
-        returnVehicles.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
 
         jLabel23.setText("Current Odometer Reading*:");
-        returnVehicles.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        returnVehicles.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, -1));
+
+        ReturnOdmeter_jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnOdmeter_jTextField9ActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("Miles");
-        returnVehicles.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
 
-        jCheckBox1.setText("Fuel Check");
-        returnVehicles.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        ReturnFuel_jCheckBox1.setText("Fuel Check");
 
-        jCheckBox2.setText("Road Star");
-        returnVehicles.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        ReturnRoadStar_jCheckBox2.setText("Road Star");
 
-        jButton6.setText("Calculate");
-        returnVehicles.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
-        returnVehicles.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 90, -1));
+        ReturnCalculate_jButton6.setText("Calculate");
+
+        ReturnCalculate_jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnCalculate_jTextField10ActionPerformed(evt);
+            }
+        });
 
         jLabel25.setText("CAD");
-        returnVehicles.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
-        jButton7.setText("Pay");
-        returnVehicles.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        ReturnPay_jButton7.setText("Pay");
 
-        jButton8.setText("Redeem");
-        returnVehicles.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
+        ReturnRedeem_jButton8.setText("Redeem");
+
+        javax.swing.GroupLayout returnVehiclesLayout = new javax.swing.GroupLayout(returnVehicles);
+        returnVehicles.setLayout(returnVehiclesLayout);
+        returnVehiclesLayout.setHorizontalGroup(
+            returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel20))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                .addComponent(ReturnOdmeter_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel24))
+                            .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ReturnCustomerPhoneNum_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                .addComponent(ReturnTimeHour_jSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ReturnTimeMinute_jSpinField2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel22)
+                                .addGap(9, 9, 9))))
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(ReturnPay_jButton7)
+                        .addGap(5, 5, 5)
+                        .addComponent(ReturnRedeem_jButton8))
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(ReturnFuel_jCheckBox1))
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                .addComponent(ReturnCalculate_jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ReturnCalculate_jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel25))
+                            .addComponent(ReturnRoadStar_jCheckBox2))))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+
+        returnVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReturnTimeHour_jSpinField1, ReturnTimeMinute_jSpinField2});
+
+        returnVehiclesLayout.setVerticalGroup(
+            returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel))
+                    .addComponent(ReturnCustomerPhoneNum_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel19))
+                    .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(ReturnTimeMinute_jSpinField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReturnTimeHour_jSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22))
+                .addGap(18, 18, 18)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(ReturnOdmeter_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addGap(18, 18, 18)
+                .addComponent(ReturnFuel_jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReturnRoadStar_jCheckBox2)
+                .addGap(56, 56, 56)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReturnCalculate_jButton6)
+                    .addComponent(ReturnCalculate_jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGap(80, 80, 80)
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ReturnPay_jButton7)
+                    .addComponent(ReturnRedeem_jButton8)))
+        );
 
         moduletab.addTab("Return", returnVehicles);
 
@@ -1141,9 +1241,24 @@ public class SuperRent extends javax.swing.JFrame {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
         Reserve_searchjScrollPane3.setViewportView(Reserve_searchjTable3);
-
+        
     }//GEN-LAST:event_ReserveSearch_jButtonActionPerformed
 
+        private void Reserve_brnchIdComboItemStateChanged(java.awt.event.ItemEvent evt) {                                              
+        ReserveCarType_jComboBox.removeAllItems();
+        ReserveEquipments_ComboBox.removeAllItems();
+        try {
+            resrv.fillCarTypeCombo(ReserveCarType_jComboBox, ReserveBranchID_ComboBox);
+            resrv.fillEquipmentCombo(ReserveEquipments_ComboBox, ReserveCarType_jComboBox);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
+        
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
@@ -1163,6 +1278,18 @@ public class SuperRent extends javax.swing.JFrame {
     private void cardTypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardTypeComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cardTypeComboActionPerformed
+
+    private void ReserveEquipments_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveEquipments_ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReserveEquipments_ComboBoxActionPerformed
+
+    private void ReturnCalculate_jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCalculate_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReturnCalculate_jTextField10ActionPerformed
+
+    private void ReturnOdmeter_jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnOdmeter_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReturnOdmeter_jTextField9ActionPerformed
     
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
        
@@ -1200,7 +1327,8 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField ReserveConfirmNumber_TextField;
     private javax.swing.JTextField ReserveCustomerPhoneNum_TextField;
     private javax.swing.JTextField ReserveDriverLicense_TextField;
-    private javax.swing.JComboBox ReserveFeatures_ComboBox;
+    private javax.swing.JComboBox ReserveEquipments_ComboBox;
+    private javax.swing.JLabel ReserveEquipments_jLabel55;
     private javax.swing.JButton ReserveSearch_jButton;
     private javax.swing.JComboBox ReserveTruckType_ComboBox;
     private javax.swing.JSpinner Reserve_dropMinutes;
@@ -1212,6 +1340,17 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton Reserve_reserve_jButton15;
     private javax.swing.JScrollPane Reserve_searchjScrollPane3;
     private javax.swing.JTable Reserve_searchjTable3;
+    private javax.swing.JButton ReturnCalculate_jButton6;
+    private javax.swing.JTextField ReturnCalculate_jTextField10;
+    private javax.swing.JTextField ReturnCustomerPhoneNum_jTextField;
+    private com.toedter.calendar.JDateChooser ReturnDate_jDateChooser3;
+    private javax.swing.JCheckBox ReturnFuel_jCheckBox1;
+    private javax.swing.JTextField ReturnOdmeter_jTextField9;
+    private javax.swing.JButton ReturnPay_jButton7;
+    private javax.swing.JButton ReturnRedeem_jButton8;
+    private javax.swing.JCheckBox ReturnRoadStar_jCheckBox2;
+    private com.toedter.components.JSpinField ReturnTimeHour_jSpinField1;
+    private com.toedter.components.JSpinField ReturnTimeMinute_jSpinField2;
     private javax.swing.JButton addEmployeeBtn;
     private javax.swing.JComboBox branchIdCombo;
     private javax.swing.JLabel branchIdLbl;
@@ -1246,12 +1385,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
@@ -1262,7 +1396,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox7;
     private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
+    private javax.swing.JLabel jLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1308,7 +1442,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
@@ -1316,7 +1449,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1327,19 +1459,14 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private com.toedter.components.JSpinField jSpinField1;
-    private com.toedter.components.JSpinField jSpinField2;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JPanel loginpanel;
