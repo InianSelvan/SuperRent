@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class Rent {
     
     public void fillBranchIDCombo(JComboBox branchCombo) throws ClassNotFoundException, SQLException, IOException{
-        ConnectDB.exeQuery("SELECT Branch_ID FROM branches");
+        ConnectDB.exeQuery("SELECT Branch_ID FROM Branches");
         while(ConnectDB.resultSet().next()){
             int branchId = Integer.parseInt(ConnectDB.resultSet().getString("Branch_ID"));
             branchCombo.addItem(branchId);
