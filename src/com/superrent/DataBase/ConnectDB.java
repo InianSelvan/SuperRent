@@ -10,6 +10,7 @@ import com.mysql.jdbc.Statement;
 import com.superrent.configs.ReadProperties;
 import java.io.IOException;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -70,6 +71,12 @@ public class ConnectDB extends ReadProperties{
     public static void exeUpdate(String SQL) throws ClassNotFoundException, SQLException, IOException{
         connect();
         stmt.executeUpdate(SQL);
+    }
+    
+    public static PreparedStatement exeUpdateprestatement(String SQL)throws ClassNotFoundException, SQLException, IOException{
+        connect();
+        PreparedStatement ps = conn.prepareStatement(SQL);
+        return ps;
     }
     /**
      * After exeQuery the result set gets stored and will be returned when this method is called

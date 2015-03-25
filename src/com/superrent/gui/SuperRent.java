@@ -8,10 +8,13 @@ package com.superrent.gui;
 import com.superrent.DataBase.ConnectDB;
 import com.superrent.modules.Encrypt;
 import com.superrent.modules.CommonFunc;
+import com.superrent.modules.ManageFleet;
 import com.superrent.modules.Rent;
 import com.superrent.modules.Reserve;
 import com.superrent.modules.Return;
+
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -34,8 +37,12 @@ public class SuperRent extends javax.swing.JFrame {
     public SuperRent() throws ClassNotFoundException, SQLException, IOException {
         initComponents();
         initRent();
-        initReserve();
-        initReturn();
+
+        //initReserve();
+        //initReturn();
+
+        initManageFleet();
+
     }
 
     /**
@@ -60,62 +67,8 @@ public class SuperRent extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         modulepane = new javax.swing.JPanel();
         moduletab = new javax.swing.JTabbedPane();
-        Reserve = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        ReserveBranchID_ComboBox = new javax.swing.JComboBox();
-        ReserveCarType_jComboBox = new javax.swing.JComboBox();
-        jLabel54 = new javax.swing.JLabel();
-        ReserveTruckType_ComboBox = new javax.swing.JComboBox();
-        ReserveEquipments_jLabel55 = new javax.swing.JLabel();
-        ReserveEquipments_ComboBox = new javax.swing.JComboBox();
-        Reserve_searchjScrollPane3 = new javax.swing.JScrollPane();
-        Reserve_searchjTable3 = new javax.swing.JTable();
-        ReserveSearch_jButton = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        Reserve_reserve_jButton15 = new javax.swing.JButton();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        ReserveCustomerPhoneNum_TextField = new javax.swing.JTextField();
-        jLabel58 = new javax.swing.JLabel();
-        ReserveConfirmNumber_TextField = new javax.swing.JTextField();
-        jLabel59 = new javax.swing.JLabel();
-        ReserveDriverLicense_TextField = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        Reserve_pickupDt1 = new com.toedter.calendar.JDateChooser();
-        jLabel16 = new javax.swing.JLabel();
-        Reserve_pickupHour1 = new javax.swing.JSpinner(modelPickHH);
-        Reserve_pickupMin1 = new javax.swing.JSpinner(modelPickMM);
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        Reserve_dropMinutes = new javax.swing.JSpinner(modelDropMM);
-        jLabel45 = new javax.swing.JLabel();
-        Reserve_dropoffHHSpin1 = new javax.swing.JSpinner(modelDropHH);
-        jLabel46 = new javax.swing.JLabel();
-        Reserve_dropOffDate1 = new com.toedter.calendar.JDateChooser();
-        jLabel47 = new javax.swing.JLabel();
-        returnVehicles = new javax.swing.JPanel();
-        jLabel = new javax.swing.JLabel();
-        ReturnCustomerPhoneNum_jTextField = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        ReturnDate_jDateChooser3 = new com.toedter.calendar.JDateChooser();
-        jLabel20 = new javax.swing.JLabel();
-        ReturnTimeHour_jSpinField1 = new com.toedter.components.JSpinField();
-        ReturnTimeMinute_jSpinField2 = new com.toedter.components.JSpinField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        ReturnOdmeter_jTextField9 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        ReturnFuel_jCheckBox1 = new javax.swing.JCheckBox();
-        ReturnRoadStar_jCheckBox2 = new javax.swing.JCheckBox();
-        ReturnCalculate_jButton6 = new javax.swing.JButton();
-        ReturnCalculate_jTextField10 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        ReturnPay_jButton7 = new javax.swing.JButton();
-        ReturnRedeem_jButton8 = new javax.swing.JButton();
-        ReturnDisplay_jScrollPane2 = new javax.swing.JScrollPane();
-        ReturnDisplay_jTable2 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+
         rentVehicles = new javax.swing.JPanel();
         brnchIdLbl = new javax.swing.JLabel();
         brnchIdCombo = new javax.swing.JComboBox();
@@ -133,9 +86,9 @@ public class SuperRent extends javax.swing.JFrame {
         equipmentsCombo = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        searchBtn = new javax.swing.JButton();
+        resetBtn = new javax.swing.JButton();
+        rentBtn = new javax.swing.JButton();
         cusNumLbl = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         cusNumField = new javax.swing.JTextField();
@@ -157,7 +110,27 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         dropoffHHSpin = new javax.swing.JSpinner(modelDropHH);
-        jSpinner2 = new javax.swing.JSpinner(modelDropMM);
+        dropoffMMSpin = new javax.swing.JSpinner(modelDropMM);
+        returnVehicles = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel20 = new javax.swing.JLabel();
+        jSpinField1 = new com.toedter.components.JSpinField();
+        jSpinField2 = new com.toedter.components.JSpinField();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jButton6 = new javax.swing.JButton();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         manageCustomer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -179,12 +152,14 @@ public class SuperRent extends javax.swing.JFrame {
         manageFleet = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        cartypeCombo = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox();
+        manufacturerCombo = new javax.swing.JComboBox();
         jLabel36 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox();
-        jButton10 = new javax.swing.JButton();
+        nameCombo = new javax.swing.JComboBox();
+        addBtn = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        branchCombo = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
@@ -257,394 +232,19 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
-        jLabel49.setText("Branch ID* :");
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1085, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
 
-        ReserveBranchID_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ReserveBranchID_ComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReserveBranchID_ComboBoxActionPerformed(evt);
-            }
-        });
-
-        ReserveCarType_jComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel54.setText("Truck Type*  :");
-
-        ReserveTruckType_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        ReserveEquipments_jLabel55.setText("Equipments :");
-
-        ReserveEquipments_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ReserveEquipments_ComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReserveEquipments_ComboBoxActionPerformed(evt);
-            }
-        });
-
-        Reserve_searchjTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        Reserve_searchjScrollPane3.setViewportView(Reserve_searchjTable3);
-
-        ReserveSearch_jButton.setText("Search");
-        ReserveSearch_jButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReserveSearch_jButtonActionPerformed(evt);
-            }
-        });
-
-        jButton14.setText("Reset");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-
-        Reserve_reserve_jButton15.setText("Reserve");
-
-        jLabel56.setText("Customer Phone Number* :");
-
-        jLabel57.setText("Car Type* :");
-
-        jLabel58.setText("Confirmation Number :");
-
-        ReserveConfirmNumber_TextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReserveConfirmNumber_TextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel59.setText("Driver License*  :");
-
-        jLabel15.setText("Pickup Date* :");
-
-        jLabel16.setText("Pickup Time :");
-
-        jLabel17.setText("HH");
-
-        jLabel18.setText("MM");
-
-        jLabel29.setText("MM");
-
-        jLabel45.setText("HH");
-
-        jLabel46.setText("Dropoff Time :");
-
-        jLabel47.setText("Dropoff* :");
-
-        javax.swing.GroupLayout ReserveLayout = new javax.swing.GroupLayout(Reserve);
-        Reserve.setLayout(ReserveLayout);
-        ReserveLayout.setHorizontalGroup(
-            ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReserveLayout.createSequentialGroup()
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ReserveEquipments_jLabel55)
-                            .addComponent(jLabel57)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel56)
-                            .addComponent(jLabel58))
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ReserveLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ReserveCustomerPhoneNum_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(240, 240, 240)
-                                .addComponent(jLabel59)
-                                .addGap(3, 3, 3)
-                                .addComponent(ReserveDriverLicense_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ReserveLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ReserveBranchID_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Reserve_pickupDt1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Reserve_dropOffDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ReserveCarType_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ReserveEquipments_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel46, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(3, 3, 3)
-                                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ReserveTruckType_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(ReserveLayout.createSequentialGroup()
-                                            .addComponent(Reserve_dropoffHHSpin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel45)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Reserve_dropMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel29))
-                                        .addGroup(ReserveLayout.createSequentialGroup()
-                                            .addComponent(Reserve_pickupHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel17)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Reserve_pickupMin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel18)))))))
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(Reserve_reserve_jButton15))
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(Reserve_searchjScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(ReserveSearch_jButton)
-                        .addGap(55, 55, 55)
-                        .addComponent(jButton14)))
-                .addContainerGap(125, Short.MAX_VALUE))
         );
 
-        ReserveLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReserveConfirmNumber_TextField, ReserveCustomerPhoneNum_TextField, Reserve_dropOffDate1, Reserve_pickupDt1});
-
-        ReserveLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReserveCarType_jComboBox, ReserveEquipments_ComboBox, ReserveTruckType_ComboBox});
-
-        ReserveLayout.setVerticalGroup(
-            ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReserveLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReserveConfirmNumber_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel56)
-                    .addComponent(ReserveCustomerPhoneNum_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel59)
-                    .addComponent(ReserveDriverLicense_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel49)
-                    .addComponent(ReserveBranchID_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Reserve_pickupDt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)))
-                    .addGroup(ReserveLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Reserve_pickupMin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel18)
-                                .addComponent(Reserve_pickupHour1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel16))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel47)
-                        .addComponent(jLabel46)
-                        .addComponent(jLabel29)
-                        .addComponent(Reserve_dropMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel45)
-                        .addComponent(Reserve_dropoffHHSpin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Reserve_dropOffDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel57)
-                    .addComponent(ReserveCarType_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel54)
-                    .addComponent(ReserveTruckType_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReserveEquipments_jLabel55)
-                    .addComponent(ReserveEquipments_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addGroup(ReserveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReserveSearch_jButton)
-                    .addComponent(jButton14))
-                .addGap(11, 11, 11)
-                .addComponent(Reserve_searchjScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(Reserve_reserve_jButton15))
-        );
-
-        ReserveLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ReserveBranchID_ComboBox, ReserveCarType_jComboBox, ReserveConfirmNumber_TextField, ReserveCustomerPhoneNum_TextField, ReserveDriverLicense_TextField, ReserveEquipments_ComboBox, ReserveEquipments_jLabel55, ReserveTruckType_ComboBox, Reserve_dropMinutes, Reserve_dropOffDate1, Reserve_dropoffHHSpin1, Reserve_pickupDt1, Reserve_pickupHour1, Reserve_pickupMin1, jLabel15, jLabel16, jLabel17, jLabel18, jLabel29, jLabel45, jLabel46, jLabel47, jLabel49, jLabel54, jLabel56, jLabel57, jLabel58, jLabel59});
-
-        moduletab.addTab("Reserve", Reserve);
-
-        jLabel.setText("Customer Phone Number* :");
-
-        ReturnCustomerPhoneNum_jTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnCustomerPhoneNum_jTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("Return Date* :");
-
-        jLabel20.setText("Return Time* :");
-
-        jLabel21.setText("HH");
-
-        jLabel22.setText("MM");
-
-        jLabel23.setText("Current Odometer Reading*:");
-
-        ReturnOdmeter_jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnOdmeter_jTextField9ActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setText("Miles");
-
-        ReturnFuel_jCheckBox1.setText("Fuel Check");
-
-        ReturnRoadStar_jCheckBox2.setText("Road Star");
-
-        ReturnCalculate_jButton6.setText("Calculate");
-
-        ReturnCalculate_jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnCalculate_jTextField10ActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("CAD");
-
-        ReturnPay_jButton7.setText("Pay");
-
-        ReturnRedeem_jButton8.setText("Redeem");
-
-        ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        ReturnDisplay_jScrollPane2.setViewportView(ReturnDisplay_jTable2);
-
-        javax.swing.GroupLayout returnVehiclesLayout = new javax.swing.GroupLayout(returnVehicles);
-        returnVehicles.setLayout(returnVehiclesLayout);
-        returnVehiclesLayout.setHorizontalGroup(
-            returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReturnFuel_jCheckBox1)
-                            .addComponent(ReturnRoadStar_jCheckBox2)
-                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                .addComponent(ReturnCalculate_jButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ReturnCalculate_jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel25))
-                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ReturnPay_jButton7)
-                                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel23)
-                                                    .addComponent(jLabel20))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                                .addComponent(ReturnOdmeter_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel24))
-                                            .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ReturnCustomerPhoneNum_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                                .addComponent(ReturnTimeHour_jSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel21)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ReturnTimeMinute_jSpinField2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel22)
-                                                .addGap(9, 9, 9)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ReturnRedeem_jButton8))))
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(ReturnDisplay_jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(186, Short.MAX_VALUE))
-        );
-
-        returnVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReturnTimeHour_jSpinField1, ReturnTimeMinute_jSpinField2});
-
-        returnVehiclesLayout.setVerticalGroup(
-            returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel))
-                    .addComponent(ReturnCustomerPhoneNum_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel19))
-                    .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(ReturnTimeMinute_jSpinField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReturnTimeHour_jSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22))
-                .addGap(26, 26, 26)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(ReturnOdmeter_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(18, 18, 18)
-                .addComponent(ReturnFuel_jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ReturnRoadStar_jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReturnCalculate_jButton6)
-                    .addComponent(ReturnCalculate_jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(12, 12, 12)
-                .addComponent(ReturnDisplay_jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReturnPay_jButton7)
-                    .addComponent(ReturnRedeem_jButton8))
-                .addGap(60, 60, 60))
-        );
-
-        moduletab.addTab("Return", returnVehicles);
+        moduletab.addTab("Reserve", jPanel3);
 
         rentVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -684,17 +284,13 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel8.setText("MM");
         rentVehicles.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, -1));
 
+        vehicleTypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select" }));
         vehicleTypeCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 vehicleTypeComboItemStateChanged(evt);
             }
         });
-        vehicleTypeCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleTypeComboActionPerformed(evt);
-            }
-        });
-        rentVehicles.add(vehicleTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 220, -1));
+        rentVehicles.add(vehicleTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 220, -1));
 
         jLabel10.setText("Track Type*  :");
         rentVehicles.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
@@ -706,11 +302,6 @@ public class SuperRent extends javax.swing.JFrame {
         rentVehicles.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
         equipmentsCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
-        equipmentsCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                equipmentsComboActionPerformed(evt);
-            }
-        });
         rentVehicles.add(equipmentsCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 220, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -728,29 +319,29 @@ public class SuperRent extends javax.swing.JFrame {
 
         rentVehicles.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 840, 130));
 
-        jButton2.setText("Search");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                searchBtnActionPerformed(evt);
             }
         });
-        rentVehicles.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
+        rentVehicles.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
 
-        jButton3.setText("Reset");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        resetBtn.setText("Reset");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                resetBtnActionPerformed(evt);
             }
         });
-        rentVehicles.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
+        rentVehicles.add(resetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
 
-        jButton4.setText("Rent");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        rentBtn.setText("Rent");
+        rentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                rentBtnActionPerformed(evt);
             }
         });
-        rentVehicles.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 590, -1, -1));
+        rentVehicles.add(rentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 590, -1, -1));
 
         cusNumLbl.setText("Customer Phone Number* :");
         rentVehicles.add(cusNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
@@ -801,11 +392,6 @@ public class SuperRent extends javax.swing.JFrame {
         rentVehicles.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, 110, -1));
 
         cardTypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "American Express", "MasterCard", "Visa" }));
-        cardTypeCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cardTypeComboActionPerformed(evt);
-            }
-        });
         rentVehicles.add(cardTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 150, -1));
 
         jLabel5.setText("HH");
@@ -814,9 +400,58 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel12.setText("MM");
         rentVehicles.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, -1, -1));
         rentVehicles.add(dropoffHHSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 40, -1));
-        rentVehicles.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 40, -1));
+        rentVehicles.add(dropoffMMSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 40, -1));
 
         moduletab.addTab("Rent", rentVehicles);
+
+        returnVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setText("Customer Phone Number*   :");
+        returnVehicles.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 56, -1, -1));
+        returnVehicles.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 180, -1));
+
+        jLabel19.setText("Return Date*                     :");
+        returnVehicles.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        returnVehicles.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, -1));
+
+        jLabel20.setText("Return Time*                    :");
+        returnVehicles.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        returnVehicles.add(jSpinField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 50, -1));
+        returnVehicles.add(jSpinField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 40, -1));
+
+        jLabel21.setText("HH");
+        returnVehicles.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+
+        jLabel22.setText("MM");
+        returnVehicles.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+
+        jLabel23.setText("Current Odometer Reading*:");
+        returnVehicles.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        returnVehicles.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, -1));
+
+        jLabel24.setText("KM");
+        returnVehicles.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+
+        jCheckBox1.setText("Fuel Check");
+        returnVehicles.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jCheckBox2.setText("Road Star");
+        returnVehicles.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+
+        jButton6.setText("Calculate");
+        returnVehicles.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        returnVehicles.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 90, -1));
+
+        jLabel25.setText("CAD");
+        returnVehicles.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
+
+        jButton7.setText("Pay");
+        returnVehicles.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, -1, -1));
+
+        jButton8.setText("Redeem");
+        returnVehicles.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 590, -1, -1));
+
+        moduletab.addTab("Return", returnVehicles);
 
         manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -873,30 +508,38 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel34.setText("Car Type*       :");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 39, 100, -1));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, -1));
+
+        cartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cartypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, -1));
+
 
         jLabel35.setText("Manufacturer*     :");
         jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, -1));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 180, -1));
+        manufacturerCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(manufacturerCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 180, -1));
 
         jLabel36.setText("Name*      :");
         jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
+        nameCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(nameCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
 
-        jButton10.setText("Add");
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+        addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
-        manageFleet.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 500, 220));
+        jLabel15.setText("Branch*       :");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        branchCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(branchCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 180, -1));
+
+        manageFleet.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 420, 280));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Car"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -933,7 +576,7 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel41.setText("Sale Price*          :");
         jPanel4.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
-        manageFleet.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 510, 280));
+        manageFleet.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 420, 280));
 
         moduletab.addTab("Manage Fleet", manageFleet);
 
@@ -1090,9 +733,15 @@ public class SuperRent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         try {
-            jTable1.setModel(new javax.swing.table.DefaultTableModel(rt.getAvailableVehicles(vehicleTypeCombo.getSelectedItem().toString(), Integer.parseInt(brnchIdCombo.getSelectedItem().toString())),
+            Rent rent = new Rent();
+            Date pickupDate = CommonFunc.changeDateFormat(pickupDt);
+            Date dropoffDate = CommonFunc.changeDateFormat(dropOffDate);
+            String pickuptime = CommonFunc.sqlTime(pickupHour, pickupMin);
+            String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, dropoffMMSpin);
+            
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(rent.getAvailableVehicles(vehicleTypeCombo.getSelectedItem().toString(), Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), pickupDate+" "+pickuptime, dropoffDate+" "+dropofftime),
                     new String [] {
                         "Vehicle ID", "Make", "Vehicle Type", "Colour", "Doors"
                     }
@@ -1102,13 +751,28 @@ public class SuperRent extends javax.swing.JFrame {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
         jScrollPane1.setViewportView(jTable1);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
+        cusNumField.setText("");
+        dlNumField.setText("");
+        ccNumField.setText("");
+        expDateCh.cleanup();
+        cardTypeCombo.setSelectedIndex(1);
+        brnchIdCombo.setSelectedItem("Select");
+        pickupDt.cleanup();
+        pickupHour.setValue(0);
+        pickupMin.setValue(0);
+        dropOffDate.cleanup();
+        dropoffHHSpin.setValue(0);
+        dropoffMMSpin.setValue(0);
+        vehicleTypeCombo.setSelectedItem("Select");
+        equipmentsCombo.setSelectedItem("None");
+    }//GEN-LAST:event_resetBtnActionPerformed
 
     private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
         // TODO add your handling code here:
@@ -1208,7 +872,7 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
         
         try {
             if(rt.validateCustomerInfo(cusNumField)>0){
@@ -1218,7 +882,7 @@ public class SuperRent extends javax.swing.JFrame {
                 Date pickupDate = CommonFunc.changeDateFormat(pickupDt);
                 Date dropoffDate = CommonFunc.changeDateFormat(dropOffDate);
                 String pickuptime = CommonFunc.sqlTime(pickupHour, pickupMin);
-                String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, jSpinner2);
+                String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, dropoffMMSpin);
                 long ReservationID = rt.genUniqueID();
                        
                 
@@ -1232,13 +896,17 @@ public class SuperRent extends javax.swing.JFrame {
                     Date expDate = CommonFunc.changeDateFormat(expDateCh);
                     String cardType = cardTypeCombo.getSelectedItem().toString();
                    
-                    ConnectDB.exeUpdate("INSERT INTO `superrent`.`reservation` (`ReservationID`, `CustomerID`, `BranchID`, `Vehicle_Type`, `Pickup_Date`, `Pickup_Time`, `Dropoff_Date`, `Dropoff_time`)"
-                        + "VALUES ("+ReservationID+", "+cusID+", "+brnchID+", '"+vehicleTyp+"', '"+pickupDate+"', '"+pickuptime+"', '"+dropoffDate+"', '"+dropofftime+"')");
+                    
+
+                    int vehicleId =Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+                    ConnectDB.exeUpdate("Update vehicles set isReturned = 0 where Vehicle_ID ="+vehicleId);
+                    
+                    ConnectDB.exeUpdate("INSERT INTO `superrent`.`reservation` (`ReservationID`, `CustomerID`, `BranchID`, `Vehicle_Type`, `Pickup_Date`, `Dropoff_Date`,  `Vehicle_ID`)"
+                        + "VALUES ("+ReservationID+", "+cusID+", "+brnchID+", '"+vehicleTyp+"', '"+pickupDate+" "+pickuptime+"', '"+dropoffDate+" "+dropofftime+"', '"+vehicleId+"')");
                     
                     ConnectDB.exeUpdate("INSERT INTO `superrent`.`rental` (`ReservationID`, `DL_number`, `CCType`, `CC_Number`, `CC_ExpDate`) "
-                            + "VALUES ("+ReservationID+", '"+dlNum+"', '"+cardType+"', "+ccNum+", '"+expDate+"');");
-                    int vehicleId =Integer.parseInt((String) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-                    ConnectDB.exeUpdate("Update vehicles set Availability = 0 where Vehicle_ID ="+vehicleId);
+                            + "VALUES ("+ReservationID+", '"+dlNum+"', '"+cardType+"', "+ccNum+", '"+expDate+"');");                    
+                    
                 }               
                 
             }
@@ -1251,38 +919,39 @@ public class SuperRent extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_rentBtnActionPerformed
 
-    private void ReserveBranchID_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveBranchID_ComboBoxActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_ReserveBranchID_ComboBoxActionPerformed
-
-    private void ReserveSearch_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveSearch_jButtonActionPerformed
-        // TODO add your handling code here:
-                try {
-            Reserve_searchjTable3.setModel(new javax.swing.table.DefaultTableModel(resrv.getAvailableVehicles(ReserveCarType_jComboBox.getSelectedItem().toString(), Integer.parseInt(ReserveBranchID_ComboBox.getSelectedItem().toString())),
-                    new String [] {
-                        "Vehicle ID", "Make", "Vehicle Type", "Colour", "Doors"
-                    }
-            ));     } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Reserve_searchjScrollPane3.setViewportView(Reserve_searchjTable3);
-        
-    }//GEN-LAST:event_ReserveSearch_jButtonActionPerformed
-
-        private void Reserve_brnchIdComboItemStateChanged(java.awt.event.ItemEvent evt) {                                              
-        ReserveCarType_jComboBox.removeAllItems();
-        ReserveEquipments_ComboBox.removeAllItems();
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         try {
-            resrv.fillCarTypeCombo(ReserveCarType_jComboBox, ReserveBranchID_ComboBox);
-            resrv.fillEquipmentCombo(ReserveEquipments_ComboBox, ReserveCarType_jComboBox);
+            // TODO add your handling code here:{
+            String cartype = null;
+            if(cartypeCombo.getSelectedItem()!= null){
+                cartype = cartypeCombo.getSelectedItem().toString();
+            }
+            
+            String manufacturer = null;
+            if(manufacturerCombo.getSelectedItem()!= null){
+                manufacturer = manufacturerCombo.getSelectedItem().toString();
+            }
+            
+            String name = null;
+            if(nameCombo.getSelectedItem()!=null){
+                name = nameCombo.getSelectedItem().toString();
+            }
+            
+            String branch = null;
+            if(branchCombo.getSelectedItem()!=null){
+                branch = branchCombo.getSelectedItem().toString();
+                
+            }
+            int branchid = Integer.parseInt(branch);
+            
+            PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO vehicles (Vehicle_ID, Vehicle_Type, Branch_ID, Availability, Manufacturer, Name) VALUES (1119, ?,?,1,?,? )");
+            ps.setString(1, cartype);
+            ps.setInt(2,branchid);
+            ps.setString(3,manufacturer);
+            ps.setString(4,name);
+            ps.executeUpdate();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -1290,47 +959,10 @@ public class SuperRent extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }  
-        
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void ReserveConfirmNumber_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveConfirmNumber_TextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReserveConfirmNumber_TextFieldActionPerformed
+    
+    }//GEN-LAST:event_addBtnActionPerformed
 
-    private void equipmentsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipmentsComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_equipmentsComboActionPerformed
-
-    private void vehicleTypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleTypeComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleTypeComboActionPerformed
-
-    private void cardTypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardTypeComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cardTypeComboActionPerformed
-
-    private void ReserveEquipments_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveEquipments_ComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReserveEquipments_ComboBoxActionPerformed
-
-    private void ReturnCalculate_jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCalculate_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReturnCalculate_jTextField10ActionPerformed
-
-    private void ReturnOdmeter_jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnOdmeter_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReturnOdmeter_jTextField9ActionPerformed
-
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
-
-    private void ReturnCustomerPhoneNum_jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCustomerPhoneNum_jTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReturnCustomerPhoneNum_jTextFieldActionPerformed
     
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
        
@@ -1340,16 +972,24 @@ public class SuperRent extends javax.swing.JFrame {
        
     }
     
-    private void initReserve() throws ClassNotFoundException, SQLException, IOException{
-        resrv.fillBranchIDCombo(ReserveBranchID_ComboBox);
-        Reserve_pickupHour1.setValue(now.get(Calendar.HOUR_OF_DAY));
-        Reserve_pickupMin1.setValue(now.get(Calendar.MINUTE));
-    }
+
     
-    private void initReturn() throws ClassNotFoundException, SQLException, IOException{
-        ReturnTimeHour_jSpinField1.setValue(now.get(Calendar.HOUR_OF_DAY));
-        ReturnTimeMinute_jSpinField2.setValue(now.get(Calendar.MINUTE));
+//    private void initReturn() throws ClassNotFoundException, SQLException, IOException{
+//        ReturnTimeHour_jSpinField1.setValue(now.get(Calendar.HOUR_OF_DAY));
+//        ReturnTimeMinute_jSpinField2.setValue(now.get(Calendar.MINUTE));
+//    }
+
+        private void initManageFleet() throws ClassNotFoundException, SQLException, IOException{
+       cartypeCombo.removeAllItems();
+       manufacturerCombo.removeAllItems();
+       nameCombo.removeAllItems();
+       branchCombo.removeAllItems();
+       mf.fillCarType(cartypeCombo);  
+       mf.fillManufacturer(manufacturerCombo);
+       mf.fillName(nameCombo);
+       mf.fillBranch(branchCombo);
     }
+
     /**
      * @param args the command line arguments
      */
@@ -1361,52 +1001,25 @@ public class SuperRent extends javax.swing.JFrame {
     SpinnerModel modelDropMM = new SpinnerNumberModel(0, 0, 59 ,1);
     Calendar now = Calendar.getInstance();
     private Rent rt = new Rent();
-    private Reserve resrv = new Reserve();// Yaoyao added
+
+// Yaoyao added
     private Return MyReturn = new Return();
     
     
     private String role;
-    
+    private ManageFleet mf = new ManageFleet();
+    //private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Reserve;
-    private javax.swing.JComboBox ReserveBranchID_ComboBox;
-    private javax.swing.JComboBox ReserveCarType_jComboBox;
-    private javax.swing.JTextField ReserveConfirmNumber_TextField;
-    private javax.swing.JTextField ReserveCustomerPhoneNum_TextField;
-    private javax.swing.JTextField ReserveDriverLicense_TextField;
-    private javax.swing.JComboBox ReserveEquipments_ComboBox;
-    private javax.swing.JLabel ReserveEquipments_jLabel55;
-    private javax.swing.JButton ReserveSearch_jButton;
-    private javax.swing.JComboBox ReserveTruckType_ComboBox;
-    private javax.swing.JSpinner Reserve_dropMinutes;
-    private com.toedter.calendar.JDateChooser Reserve_dropOffDate1;
-    private javax.swing.JSpinner Reserve_dropoffHHSpin1;
-    private com.toedter.calendar.JDateChooser Reserve_pickupDt1;
-    private javax.swing.JSpinner Reserve_pickupHour1;
-    private javax.swing.JSpinner Reserve_pickupMin1;
-    private javax.swing.JButton Reserve_reserve_jButton15;
-    private javax.swing.JScrollPane Reserve_searchjScrollPane3;
-    private javax.swing.JTable Reserve_searchjTable3;
-    private javax.swing.JButton ReturnCalculate_jButton6;
-    private javax.swing.JTextField ReturnCalculate_jTextField10;
-    private javax.swing.JTextField ReturnCustomerPhoneNum_jTextField;
-    private com.toedter.calendar.JDateChooser ReturnDate_jDateChooser3;
-    private javax.swing.JScrollPane ReturnDisplay_jScrollPane2;
-    private javax.swing.JTable ReturnDisplay_jTable2;
-    private javax.swing.JCheckBox ReturnFuel_jCheckBox1;
-    private javax.swing.JTextField ReturnOdmeter_jTextField9;
-    private javax.swing.JButton ReturnPay_jButton7;
-    private javax.swing.JButton ReturnRedeem_jButton8;
-    private javax.swing.JCheckBox ReturnRoadStar_jCheckBox2;
-    private com.toedter.components.JSpinField ReturnTimeHour_jSpinField1;
-    private com.toedter.components.JSpinField ReturnTimeMinute_jSpinField2;
+    private javax.swing.JButton addBtn;
     private javax.swing.JButton addEmployeeBtn;
+    private javax.swing.JComboBox branchCombo;
     private javax.swing.JComboBox branchIdCombo;
     private javax.swing.JLabel branchIdLbl;
     private javax.swing.JComboBox brnchIdCombo;
     private javax.swing.JLabel brnchIdLbl;
     private javax.swing.JComboBox cardTypeCombo;
     private javax.swing.JLabel cardTypeLbl;
+    private javax.swing.JComboBox cartypeCombo;
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
     private javax.swing.JRadioButton clerkRadio;
@@ -1418,6 +1031,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel dlNumLbl;
     private com.toedter.calendar.JDateChooser dropOffDate;
     private javax.swing.JSpinner dropoffHHSpin;
+    private javax.swing.JSpinner dropoffMMSpin;
     private javax.swing.JTextField emailIdField;
     private javax.swing.JLabel emailIdLbl;
     private javax.swing.JComboBox equipmentsCombo;
@@ -1426,15 +1040,15 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox jComboBox10;
     private javax.swing.JComboBox jComboBox11;
@@ -1442,10 +1056,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
-    private javax.swing.JLabel jLabel;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1453,9 +1064,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1467,7 +1075,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -1485,55 +1092,57 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner2;
+    private com.toedter.components.JSpinField jSpinField1;
+    private com.toedter.components.JSpinField jSpinField2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JPanel loginpanel;
     private javax.swing.JPanel manageCustomer;
     private javax.swing.JPanel manageFleet;
     private javax.swing.JRadioButton managerRadio;
+    private javax.swing.JComboBox manufacturerCombo;
     private javax.swing.JPanel modulepane;
     private javax.swing.JTabbedPane moduletab;
+    private javax.swing.JComboBox nameCombo;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLbl;
     private com.toedter.calendar.JDateChooser pickupDt;
     private javax.swing.JSpinner pickupHour;
     private javax.swing.JSpinner pickupMin;
     private javax.swing.JTextField pwdField;
+    private javax.swing.JButton rentBtn;
     private javax.swing.JPanel rentVehicles;
+    private javax.swing.JButton resetBtn;
     private javax.swing.JPanel returnVehicles;
     private javax.swing.ButtonGroup roleGroupRadio;
     private javax.swing.JLabel roleLbl;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JTextField streetAddField;
     private javax.swing.JTextField userField;
     private javax.swing.JTextField userNameField;

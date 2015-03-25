@@ -78,31 +78,44 @@ public class Rent {
         return Long.valueOf(random);
     }
 
-    public  String[][] getAvailableVehicles(String vehicleType, int branchId) throws ClassNotFoundException, SQLException, IOException{
-        int num = countAvailableVehicles(vehicleType, branchId);
-        ConnectDB.exeQuery("select v.Vehicle_ID, vd.Make, v.Vehicle_Type, vd.Colour, vd.Doors from vehicles as v "
-                + "inner join vehicle_details as vd on v.Vehicle_ID = vd.Vehicle_ID "
-                + "where v.Availability = 1 and v.Vehicle_Type ='"+vehicleType+"' and v.Branch_ID ="+branchId);
+    public   String[][] getAvailableVehicles(String vehicleType, int branchId,  String pickup, String dropoff) throws ClassNotFoundException, SQLException, IOException{
+        int num = countAvailableVehicles(vehicleType, branchId, pickup, dropoff);
+
+        ConnectDB.exeQuery("select v.Vehicle_ID, vd.Make, v.Vehicle_Type, vd.Colour, vd.Doors from vehicles as v \n" +
+                            "inner join vehicle_Details as vd \n" +
+                            "on v.Vehicle_ID = vd.Vehicle_ID where v.Vehicle_ID not in (select distinct(Vehicle_ID) from reservation where   (( '"+pickup+"' < Pickup_Date and '"+dropoff+"' > Pickup_Date)\n" +
+                            "or ('"+pickup+"' > Pickup_Date and '"+dropoff+"' < Dropoff_Date) or ('"+pickup+"' < Dropoff_Date and '"+dropoff+"' > Dropoff_Date)) and Vehicle_Type = '"+vehicleType+"' and BranchID='"+branchId+"') and v.Vehicle_Type like '%"+vehicleType+"%' and v.Branch_ID like '"+branchId+"'");
         
         String[][] VehicleInfo= new String[num][5];
         for(int i=0; ConnectDB.resultSet().next(); i++){
-            for(int j=1; j<5; j++){
+            for(int j=1; j<=5; j++){
                 VehicleInfo[i][j-1]= ConnectDB.resultSet().getString(j);
+                //System.out.println(VehicleInfo[i][j-1]);
+                
             }
         }
         ConnectDB.clearResultSet();
         return VehicleInfo;       
     }
     
-    public  int countAvailableVehicles(String vehicleType, int branchId) throws ClassNotFoundException, SQLException, IOException{
+    public  int countAvailableVehicles(String vehicleType, int branchId,  String pickup, String dropoff) throws ClassNotFoundException, SQLException, IOException{
         int countVehi=0;
-        ConnectDB.exeQuery("select Count(Vehicle_ID) from vehicles where Vehicle_Type = '"+vehicleType+"' and Branch_ID ="+branchId);
+         ConnectDB.exeQuery("select count(v.Vehicle_ID) from vehicles as v \n" +
+                            "inner join vehicle_Details as vd \n" +
+                            "on v.Vehicle_ID = vd.Vehicle_ID where v.Vehicle_ID not in (select distinct(Vehicle_ID) from reservation where   (( '"+pickup+"' < Pickup_Date and '"+dropoff+"' > Pickup_Date)\n" +
+                            "or ('"+pickup+"' > Pickup_Date and '"+dropoff+"' < Dropoff_Date) or ('"+pickup+"' < Dropoff_Date and '"+dropoff+"' > Dropoff_Date)) and Vehicle_Type = '"+vehicleType+"' and BranchID='"+branchId+"') and v.Vehicle_Type like '%"+vehicleType+"%' and v.Branch_ID like '"+branchId+"'");
+                            
         while(ConnectDB.resultSet().next()){
             countVehi = Integer.parseInt(ConnectDB.resultSet().getString(1));
+            //System.out.println(countVehi);
         }
         ConnectDB.clearResultSet();
         return countVehi;
     }
+//    
+//    public static void main (String args[]) throws ClassNotFoundException, SQLException, IOException{
+//        countAvailableVehicles("Economy", 11, "2015-03-24 17:11:00", "2015-03-25 17:11:00");
+//    }
     
 
 }
