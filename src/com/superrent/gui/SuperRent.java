@@ -8,8 +8,10 @@ package com.superrent.gui;
 import com.superrent.DataBase.ConnectDB;
 import com.superrent.modules.Encrypt;
 import com.superrent.modules.CommonFunc;
+import com.superrent.modules.ManageFleet;
 import com.superrent.modules.Rent;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -32,6 +34,7 @@ public class SuperRent extends javax.swing.JFrame {
     public SuperRent() throws ClassNotFoundException, SQLException, IOException {
         initComponents();
         initRent();
+        initManageFleet();
     }
 
     /**
@@ -140,12 +143,14 @@ public class SuperRent extends javax.swing.JFrame {
         manageFleet = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox();
+        cartypeCombo = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox();
+        manufacturerCombo = new javax.swing.JComboBox();
         jLabel36 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox();
-        jButton10 = new javax.swing.JButton();
+        nameCombo = new javax.swing.JComboBox();
+        addBtn = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        branchCombo = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
@@ -493,23 +498,34 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel34.setText("Car Type*       :");
         jPanel2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 39, 100, -1));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, -1));
+        cartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cartypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 180, -1));
 
         jLabel35.setText("Manufacturer*     :");
         jPanel2.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, -1));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 180, -1));
+        manufacturerCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(manufacturerCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 180, -1));
 
         jLabel36.setText("Name*      :");
         jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
+        nameCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(nameCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
 
-        jButton10.setText("Add");
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+        addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+
+        jLabel15.setText("Branch*       :");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        branchCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(branchCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 180, -1));
 
         manageFleet.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 420, 280));
 
@@ -892,6 +908,48 @@ public class SuperRent extends javax.swing.JFrame {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_rentBtnActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        try {
+            // TODO add your handling code here:{
+            String cartype = null;
+            if(cartypeCombo.getSelectedItem()!= null){
+                cartype = cartypeCombo.getSelectedItem().toString();
+            }
+            
+            String manufacturer = null;
+            if(manufacturerCombo.getSelectedItem()!= null){
+                manufacturer = manufacturerCombo.getSelectedItem().toString();
+            }
+            
+            String name = null;
+            if(nameCombo.getSelectedItem()!=null){
+                name = nameCombo.getSelectedItem().toString();
+            }
+            
+            String branch = null;
+            if(branchCombo.getSelectedItem()!=null){
+                branch = branchCombo.getSelectedItem().toString();
+                
+            }
+            int branchid = Integer.parseInt(branch);
+            
+            PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO vehicles (Vehicle_ID, Vehicle_Type, Branch_ID, Availability, Manufacturer, Name) VALUES (1119, ?,?,1,?,? )");
+            ps.setString(1, cartype);
+            ps.setInt(2,branchid);
+            ps.setString(3,manufacturer);
+            ps.setString(4,name);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    
+    }//GEN-LAST:event_addBtnActionPerformed
     
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
        
@@ -899,6 +957,17 @@ public class SuperRent extends javax.swing.JFrame {
        pickupHour.setValue(now.get(Calendar.HOUR_OF_DAY));
        pickupMin.setValue(now.get(Calendar.MINUTE));
        
+    }
+    
+        private void initManageFleet() throws ClassNotFoundException, SQLException, IOException{
+       cartypeCombo.removeAllItems();
+       manufacturerCombo.removeAllItems();
+       nameCombo.removeAllItems();
+       branchCombo.removeAllItems();
+       mf.fillCarType(cartypeCombo);  
+       mf.fillManufacturer(manufacturerCombo);
+       mf.fillName(nameCombo);
+       mf.fillBranch(branchCombo);
     }
     /**
      * @param args the command line arguments
@@ -911,15 +980,19 @@ public class SuperRent extends javax.swing.JFrame {
     SpinnerModel modelDropMM = new SpinnerNumberModel(0, 0, 59 ,1);
     Calendar now = Calendar.getInstance();
     private Rent rt = new Rent();
+    private ManageFleet mf = new ManageFleet();
     private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JButton addEmployeeBtn;
+    private javax.swing.JComboBox branchCombo;
     private javax.swing.JComboBox branchIdCombo;
     private javax.swing.JLabel branchIdLbl;
     private javax.swing.JComboBox brnchIdCombo;
     private javax.swing.JLabel brnchIdLbl;
     private javax.swing.JComboBox cardTypeCombo;
     private javax.swing.JLabel cardTypeLbl;
+    private javax.swing.JComboBox cartypeCombo;
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
     private javax.swing.JRadioButton clerkRadio;
@@ -940,7 +1013,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton5;
@@ -957,9 +1029,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -967,6 +1036,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1029,8 +1099,10 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel manageCustomer;
     private javax.swing.JPanel manageFleet;
     private javax.swing.JRadioButton managerRadio;
+    private javax.swing.JComboBox manufacturerCombo;
     private javax.swing.JPanel modulepane;
     private javax.swing.JTabbedPane moduletab;
+    private javax.swing.JComboBox nameCombo;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLbl;
     private com.toedter.calendar.JDateChooser pickupDt;
