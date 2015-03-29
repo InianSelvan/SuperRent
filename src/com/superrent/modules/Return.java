@@ -5,8 +5,14 @@
  */
 package com.superrent.modules;
 
+import com.superrent.DataBase.ConnectDB;
+import com.superrent.gui.SuperRent;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 import org.joda.time.Period;
@@ -48,6 +54,47 @@ public class Return {
 //        return 
 //    }
 //    
+   
+    
+    public String[][] getResrInfo(String fleet_id){
+          String[][] ReserInfo = new String [1][5];
+        try {
+       //int  IntFleetID = Integer.parseInt(fleet_id);
+        ConnectDB.exeQuery("select confirmation_no, firstname, lastname, fleet_id, status from reserve where fleet_id ='"+fleet_id+"'");
+        
+        if (ConnectDB.resultSet().next()){ 
+        for (int j=1; j<=5 ; j++)
+        {
+            ReserInfo[0][j-1] = ConnectDB.resultSet().getString(j);
+            //System.out.println(ReserInfoDB.resultSet().getString(j+1));
+        }
+        }
+        ConnectDB.clearResultSet();
+        
+          }catch (ClassNotFoundException | SQLException | IOException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
+        return ReserInfo;
+    }
+    
+    public String[] getResrTime(String fleet_id){
+        String[] ReserTime = new String [2];
+        try{
+            ConnectDB.exeQuery("select  pickup_time, dropoff_time from reserve where fleet_id = '"+fleet_id+"'");
+            if (ConnectDB.resultSet().next()){ 
+                for (int j=1; j<=2 ; j++)
+                {
+                    ReserTime[j-1] = ConnectDB.resultSet().getString(j);
+                    //System.out.println(ReserInfoDB.resultSet().getString(j+1));
+                }
+          }
+          ConnectDB.clearResultSet();
+        }catch(ClassNotFoundException | SQLException | IOException ex){
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return ReserTime;
+    }
+}     
 
-}
