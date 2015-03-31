@@ -17,11 +17,11 @@ import javax.swing.JTextField;
  * @author Iniyan
  */
 public class Rent {
-    
+     
     public void fillBranchIDCombo(JComboBox branchCombo) throws ClassNotFoundException, SQLException, IOException{
-        ConnectDB.exeQuery("SELECT Branch_ID FROM branch");
+        ConnectDB.exeQuery("SELECT branch_id FROM branch");
         while(ConnectDB.resultSet().next()){
-            int branchId = Integer.parseInt(ConnectDB.resultSet().getString("Branch_ID"));
+            int branchId = Integer.parseInt(ConnectDB.resultSet().getString("branch_id"));
             branchCombo.addItem(branchId);
         }
        ConnectDB.clearResultSet();
@@ -29,9 +29,9 @@ public class Rent {
    
     public void fillCarTypeCombo(JComboBox cartypeCombo, JComboBox branchCombo) throws ClassNotFoundException, SQLException, IOException{
         int branchId = Integer.parseInt(branchCombo.getSelectedItem().toString());
-        ConnectDB.exeQuery("SELECT Vehicle_Type FROM vehicles WHERE Branch_ID = "+branchId);
+        ConnectDB.exeQuery("SELECT category FROM fleet WHERE branch_id = "+branchId);
         while(ConnectDB.resultSet().next()){
-            String carType = ConnectDB.resultSet().getString("Vehicle_Type");
+            String carType = ConnectDB.resultSet().getString("category");
             cartypeCombo.addItem(carType);
         }
         ConnectDB.clearResultSet();
@@ -89,9 +89,7 @@ public class Rent {
         String[][] VehicleInfo= new String[num][5];
         for(int i=0; ConnectDB.resultSet().next(); i++){
             for(int j=1; j<=5; j++){
-                VehicleInfo[i][j-1]= ConnectDB.resultSet().getString(j);
-                //System.out.println(VehicleInfo[i][j-1]);
-                
+                VehicleInfo[i][j-1]= ConnectDB.resultSet().getString(j);               
             }
         }
         ConnectDB.clearResultSet();
@@ -107,15 +105,11 @@ public class Rent {
                             
         while(ConnectDB.resultSet().next()){
             countVehi = Integer.parseInt(ConnectDB.resultSet().getString(1));
-            //System.out.println(countVehi);
         }
         ConnectDB.clearResultSet();
         return countVehi;
     }
-//    
-//    public static void main (String args[]) throws ClassNotFoundException, SQLException, IOException{
-//        countAvailableVehicles("Economy", 11, "2015-03-24 17:11:00", "2015-03-25 17:11:00");
-//    }
+
     
 
 }

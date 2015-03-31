@@ -241,7 +241,7 @@ public class Return {
         try{
              ConnectDB.exeQuery("select FE.weekly_rates, FE.daily_rates, FE.hourly_rates, FE.weekly_insurance, FE.daily_insurance, "
                      + "FE.hourly_insurance, FE.perkm, G.gas_rate "
-                     + "from fleet as FL, feature as FE "
+                     + "from fleet as FL, feature as FE, gas as G "
                      + "where FL.vin = '"+Vin+"' and FL.category = FE.category");
              if(ConnectDB.resultSet().next()){
                  for(int i = 0; i < 7; i++){
