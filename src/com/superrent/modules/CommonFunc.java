@@ -6,9 +6,11 @@
 package com.superrent.modules;
 
 import com.toedter.calendar.JDateChooser;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.JSpinner;
 
 /**
@@ -28,5 +30,12 @@ public class CommonFunc {
         String ss = "00";
         String time = hh+":"+mm+":"+ss;
         return time;
+    }
+    
+    public static Date StringToDate(String MyDate) throws ParseException{
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        Date ResultDate = format.parse(MyDate);
+        //System.out.println(MyDate);
+        return ResultDate;
     }
 }

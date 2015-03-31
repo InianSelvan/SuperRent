@@ -5,8 +5,15 @@
  */
 package com.superrent.modules;
 
+
+import com.superrent.DataBase.ConnectDB;
+import com.superrent.gui.SuperRent;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -61,5 +68,5 @@ public class CalculateRate {
   
         return result;
     }
- 
+     
 }

@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -37,12 +38,12 @@ public class SuperRent extends javax.swing.JFrame {
      */
     public SuperRent() throws ClassNotFoundException, SQLException, IOException {
         initComponents();
-        initRent();
+        //initRent();
         initReturn();
         //initReserve();
         
 
-        initManageFleet();
+        //initManageFleet();
 
     }
 
@@ -117,7 +118,6 @@ public class SuperRent extends javax.swing.JFrame {
         ReturnDate_jLabel19 = new javax.swing.JLabel();
         ReturnDate_jDateChooser3 = new com.toedter.calendar.JDateChooser();
         ReturnTime_jLabel20 = new javax.swing.JLabel();
-        ReturnTime_jSpinField1 = new com.toedter.components.JSpinField();
         jLabel21 = new javax.swing.JLabel();
         ReturnOdoRead_jLabel23 = new javax.swing.JLabel();
         ReturnOdometer_jTextField9 = new javax.swing.JTextField();
@@ -125,7 +125,6 @@ public class SuperRent extends javax.swing.JFrame {
         ReturnRoadStar_jCheckBox2 = new javax.swing.JCheckBox();
         ReturnCalculate_jButton6 = new javax.swing.JButton();
         ReturnPay_jButton7 = new javax.swing.JButton();
-        ReturnRedeem_jButton8 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ReturnCheckOverDueDis_jTable2 = new javax.swing.JTable();
         ReturnCheck_jButton2 = new javax.swing.JButton();
@@ -134,8 +133,12 @@ public class SuperRent extends javax.swing.JFrame {
         ReturnCheckOverDue_jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         ReturnDisplay_jTable2 = new javax.swing.JTable();
-        ReturnFeeDisplay_jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ReturnDisplayFee_jTable2 = new javax.swing.JTable();
+        ReturnRedeem_jCheckBox1 = new javax.swing.JCheckBox();
+        ReturnTimeHH_jSpinner1 = new javax.swing.JSpinner();
+        ReturnTimeMM_jSpinner1 = new javax.swing.JSpinner();
+        jLabel16 = new javax.swing.JLabel();
         manageCustomer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -452,8 +455,6 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
-        ReturnRedeem_jButton8.setText("Redeem");
-
         ReturnCheckOverDueDis_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -530,142 +531,166 @@ public class SuperRent extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(ReturnDisplay_jTable2);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        ReturnDisplayFee_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Entry", "Cost"
+                "Entry", "Detail", "Cost"
             }
-        ));
-        ReturnFeeDisplay_jScrollPane4.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(ReturnDisplayFee_jTable2);
+        if (ReturnDisplayFee_jTable2.getColumnModel().getColumnCount() > 0) {
+            ReturnDisplayFee_jTable2.getColumnModel().getColumn(0).setMinWidth(100);
+            ReturnDisplayFee_jTable2.getColumnModel().getColumn(1).setMinWidth(400);
+            ReturnDisplayFee_jTable2.getColumnModel().getColumn(2).setMinWidth(100);
+        }
+
+        ReturnRedeem_jCheckBox1.setText("Reedem");
+        ReturnRedeem_jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnRedeem_jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("MM");
 
         javax.swing.GroupLayout returnVehiclesLayout = new javax.swing.GroupLayout(returnVehicles);
         returnVehicles.setLayout(returnVehiclesLayout);
         returnVehiclesLayout.setHorizontalGroup(
             returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
                 .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReturnCustomerPnobeNum_jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ReturnDate_jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ReturnTime_jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(ReturnTime_jSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel21)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(ReturnVin_jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(ReturnCheck_jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(ReturnCheckOverDue_jButton2)
-                .addContainerGap(865, Short.MAX_VALUE))
-            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGap(350, 350, 350)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReturnPay_jButton7)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(ReturnRedeem_jButton8)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
                         .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                .addGap(199, 199, 199)
-                                .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap()
+                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                        .addComponent(ReturnCheckOverDue_jButton2)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(ReturnDate_jLabel19)
+                                                    .addComponent(ReturnTime_jLabel20)
+                                                    .addComponent(ReturnOdoRead_jLabel23)
+                                                    .addComponent(jLabel9))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(ReturnFuelReading_jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(ReturnRoadStar_jCheckBox2)
+                                                    .addComponent(ReturnRedeem_jCheckBox1)
+                                                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(ReturnOdometer_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                                                .addComponent(ReturnTimeHH_jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel21)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                                                .addComponent(ReturnTimeMM_jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(3, 3, 3)
+                                                                .addComponent(jLabel16))
+                                                            .addComponent(jLabel24)))))
+                                            .addGroup(returnVehiclesLayout.createSequentialGroup()
+                                                .addGap(188, 188, 188)
+                                                .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18))
                             .addGroup(returnVehiclesLayout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ReturnOdoRead_jLabel23, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ReturnRoadStar_jCheckBox2)
-                                            .addComponent(ReturnFuelReading_jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(ReturnOdometer_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel24)))))
-                        .addGap(291, 291, 291))
+                                .addComponent(ReturnCustomerPnobeNum_jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ReturnVin_jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ReturnCheck_jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                            .addComponent(ReturnCalculate_jButton6)
+                            .addComponent(jScrollPane3)))
                     .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jScrollPane3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReturnCalculate_jButton6)
-                    .addComponent(ReturnFeeDisplay_jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(110, 110, 110))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ReturnPay_jButton7)
+                .addGap(82, 82, 82))
         );
+
+        returnVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReturnCalculate_jButton6, ReturnCheckOverDue_jButton2, ReturnCheck_jButton2, ReturnPay_jButton7});
+
         returnVehiclesLayout.setVerticalGroup(
             returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(returnVehiclesLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(ReturnCustomerPnobeNum_jLabel9))
-                    .addComponent(ReturnVin_jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
+                        .addGap(26, 26, 26)
                         .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ReturnCheck_jButton2)
-                            .addComponent(ReturnCalculate_jButton6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ReturnVin_jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ReturnCustomerPnobeNum_jLabel9)
+                            .addComponent(ReturnCheck_jButton2))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(13, 13, 13)
+                        .addComponent(ReturnCalculate_jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(returnVehiclesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(returnVehiclesLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(ReturnDate_jLabel19))
                             .addComponent(ReturnDate_jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(returnVehiclesLayout.createSequentialGroup()
-                                .addComponent(ReturnTime_jLabel20)
-                                .addGap(30, 30, 30))
-                            .addComponent(ReturnTime_jSpinField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(14, 14, 14)
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ReturnTime_jLabel20)
+                            .addComponent(ReturnTimeHH_jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21)
+                            .addComponent(ReturnTimeMM_jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addGap(24, 24, 24)
+                        .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ReturnOdoRead_jLabel23)
-                            .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ReturnOdometer_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel24)))
+                            .addComponent(ReturnOdometer_jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24))
                         .addGap(18, 18, 18)
                         .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(ReturnFuelReading_jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(ReturnRoadStar_jCheckBox2)
-                        .addGap(63, 63, 63)
-                        .addComponent(ReturnCheckOverDue_jButton2))
-                    .addComponent(ReturnFeeDisplay_jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ReturnRedeem_jCheckBox1)
+                        .addGap(102, 102, 102)
+                        .addComponent(ReturnCheckOverDue_jButton2)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReturnPay_jButton7)
-                    .addComponent(ReturnRedeem_jButton8)))
+                .addGap(18, 18, 18)
+                .addComponent(ReturnPay_jButton7)
+                .addContainerGap())
         );
 
         moduletab.addTab("Return", returnVehicles);
@@ -1191,7 +1216,7 @@ public class SuperRent extends javax.swing.JFrame {
                         ;
                 
             }else{
-                JOptionPane.showMessageDialog(null, "Please input the customer's Phone number.");
+                JOptionPane.showMessageDialog(null, "Please input the Vin.");
             }
     }//GEN-LAST:event_ReturnCheck_jButton2ActionPerformed
 
@@ -1215,19 +1240,37 @@ public class SuperRent extends javax.swing.JFrame {
 
     private void ReturnCalculate_jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCalculate_jButton6ActionPerformed
         // TODO add your handling code here:
-        String Retutn_Date = ReturnDate_jDateChooser3.getDateFormatString();
+        if(!ReturnVin_jTextField8.getText().isEmpty() && !ReturnOdoRead_jLabel23.getText().isEmpty() &&
+                !ReturnFuelReading_jTextField2.getText().isEmpty()){
         String vin = ReturnVin_jTextField8.getText();
-        String[] ResrTime = new String [2];    
-        if (!vin.isEmpty()){
-                ResrTime = MyReturn.getResrTime(vin);
-                String Pickup_Date = ResrTime[0];
-                String DropOff_Date = ResrTime[1];
-            }else{
-                JOptionPane.showMessageDialog(null, "Please input the customer's Phone number.");
+        String[] ResrTime = new String [2];  
+        String OdeReading = ReturnOdoRead_jLabel23.getText();
+        String FuelReading = ReturnFuelReading_jTextField2.getText();
+       boolean RoadStar = ReturnRoadStar_jCheckBox2.isSelected();
+       boolean Reedeem = ReturnRedeem_jCheckBox1.isSelected();
+            try {
+                Date dropoffDate = CommonFunc.changeDateFormat(ReturnDate_jDateChooser3);
+       String dropofftime = CommonFunc.sqlTime(ReturnTimeHH_jSpinner1, ReturnTimeMM_jSpinner1);//? need minutes?
+       //dropofftime
+                ReturnDisplayFee_jTable2.setModel(new javax.swing.table.
+                        DefaultTableModel(MyReturn.getCalculateFee(vin,RoadStar, FuelReading,OdeReading,Reedeem,dropoffDate),new String[]{
+                            "Entry" , "Details","Cost"
+                        })); 
+            TableColumn firsetColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(0);
+            firsetColumn.setMaxWidth(150);
+            firsetColumn.setMinWidth(150);
+//            TableColumn SecColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(1);
+//            SecColumn.setMinWidth(200);
+            TableColumn ThirdColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(2);
+            ThirdColumn.setMaxWidth(120);
+            ThirdColumn.setMinWidth(120);
+
+            }catch (ParseException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
-        
-        
+        }else{
+            JOptionPane.showMessageDialog(null, "Please input all necessary information.");
+        }
         
     }//GEN-LAST:event_ReturnCalculate_jButton6ActionPerformed
 
@@ -1248,6 +1291,10 @@ public class SuperRent extends javax.swing.JFrame {
                         }));
     }//GEN-LAST:event_ReturnCheckOverDue_jButton2ActionPerformed
 
+    private void ReturnRedeem_jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnRedeem_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReturnRedeem_jCheckBox1ActionPerformed
+
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
        
        rt.fillBranchIDCombo(brnchIdCombo);
@@ -1257,7 +1304,8 @@ public class SuperRent extends javax.swing.JFrame {
     }
    
     private void initReturn() throws ClassNotFoundException, SQLException, IOException{
-        ReturnTime_jSpinField1.setValue(now.get(Calendar.HOUR_OF_DAY));
+        ReturnTimeHH_jSpinner1.setValue(now.get(Calendar.HOUR_OF_DAY));
+        ReturnTimeMM_jSpinner1.setValue(now.get(Calendar.MINUTE));
         ReturnDate_jDateChooser3.setDate(now.getTime()); 
         
     }
@@ -1298,16 +1346,17 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel ReturnCustomerPnobeNum_jLabel9;
     private com.toedter.calendar.JDateChooser ReturnDate_jDateChooser3;
     private javax.swing.JLabel ReturnDate_jLabel19;
+    private javax.swing.JTable ReturnDisplayFee_jTable2;
     private javax.swing.JTable ReturnDisplay_jTable2;
-    private javax.swing.JScrollPane ReturnFeeDisplay_jScrollPane4;
     private javax.swing.JTextField ReturnFuelReading_jTextField2;
     private javax.swing.JLabel ReturnOdoRead_jLabel23;
     private javax.swing.JTextField ReturnOdometer_jTextField9;
     private javax.swing.JButton ReturnPay_jButton7;
-    private javax.swing.JButton ReturnRedeem_jButton8;
+    private javax.swing.JCheckBox ReturnRedeem_jCheckBox1;
     private javax.swing.JCheckBox ReturnRoadStar_jCheckBox2;
+    private javax.swing.JSpinner ReturnTimeHH_jSpinner1;
+    private javax.swing.JSpinner ReturnTimeMM_jSpinner1;
     private javax.swing.JLabel ReturnTime_jLabel20;
-    private com.toedter.components.JSpinField ReturnTime_jSpinField1;
     private javax.swing.JTextField ReturnVin_jTextField8;
     private javax.swing.JButton addBtn;
     private javax.swing.JButton addEmployeeBtn;
@@ -1357,6 +1406,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel24;
@@ -1397,9 +1447,9 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
