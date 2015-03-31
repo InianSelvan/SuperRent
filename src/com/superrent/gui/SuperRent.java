@@ -38,7 +38,7 @@ public class SuperRent extends javax.swing.JFrame {
     public SuperRent() throws ClassNotFoundException, SQLException, IOException {
         initComponents();
 
-        initReserve();
+        //initReserve();
 
         initRent();
         initReturn();
@@ -229,12 +229,12 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel4.setText("Super Rent Login Page");
         loginpanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 440, 70));
 
-        jButton12.setText("Change Password");
+  /*       jButton12.setText("Change Password");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
-        });
+        }); */
         loginpanel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
         modulepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -441,12 +441,12 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
-        ReturnPay_jButton7.setText("Pay");
+/*         ReturnPay_jButton7.setText("Pay");
         ReturnPay_jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReturnPay_jButton7ActionPerformed(evt);
             }
-        });
+        }); */
 
         ReturnRedeem_jButton8.setText("Redeem");
 
@@ -483,12 +483,12 @@ public class SuperRent extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(ReturnCheckOverDueDis_jTable2);
 
-        ReturnCheck_jButton2.setText("Check");
+  /*       ReturnCheck_jButton2.setText("Check");
         ReturnCheck_jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReturnCheck_jButton2ActionPerformed(evt);
             }
-        });
+        }); */
 
         ReturnFuelReading_jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1174,18 +1174,11 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_addBtnActionPerformed
 
     
-    private void initReserve() throws ClassNotFoundException, SQLException, IOException{
+    //private void initReserve() throws ClassNotFoundException, SQLException, IOException{
 
 
-//GEN-LAST:event_ReturnCheck_jButton2ActionPerformed
+                                                    
 
-    private void ReturnPay_jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnPay_jButton7ActionPerformed
-// TODO add your handling code here:
-    }//GEN-LAST:event_ReturnPay_jButton7ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
 
     private void ReturnCheckOverDueDis_jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReturnCheckOverDueDis_jTable2MouseClicked
         // TODO add your handling code here:
