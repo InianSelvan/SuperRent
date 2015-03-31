@@ -120,7 +120,6 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         ReturnRoadStar_jCheckBox2 = new javax.swing.JCheckBox();
         ReturnCalculate_jButton6 = new javax.swing.JButton();
-        ReturnPay_jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ReturnCheckOverDueDis_jTable2 = new javax.swing.JTable();
         ReturnCheck_jButton2 = new javax.swing.JButton();
@@ -135,6 +134,7 @@ public class SuperRent extends javax.swing.JFrame {
         ReturnTimeHH_jSpinner1 = new javax.swing.JSpinner();
         ReturnTimeMM_jSpinner1 = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
+        ReturnPay_jButton2 = new javax.swing.JButton();
         manageCustomer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -437,13 +437,6 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
-        ReturnPay_jButton7.setText("Pay");
-        ReturnPay_jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnPay_jButton7ActionPerformed(evt);
-            }
-        });
-
         ReturnCheckOverDueDis_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -556,6 +549,13 @@ public class SuperRent extends javax.swing.JFrame {
 
         jLabel16.setText("MM");
 
+        ReturnPay_jButton2.setText("Pay");
+        ReturnPay_jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnPay_jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout returnVehiclesLayout = new javax.swing.GroupLayout(returnVehicles);
         returnVehicles.setLayout(returnVehiclesLayout);
         returnVehiclesLayout.setHorizontalGroup(
@@ -614,15 +614,15 @@ public class SuperRent extends javax.swing.JFrame {
                     .addComponent(jScrollPane3))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
-                .addGroup(returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(returnVehiclesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ReturnPay_jButton7))
-                    .addComponent(jScrollPane2))
+                .addComponent(jScrollPane2)
                 .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, returnVehiclesLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ReturnPay_jButton2)
+                .addGap(55, 55, 55))
         );
 
-        returnVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReturnCalculate_jButton6, ReturnCheckOverDue_jButton2, ReturnCheck_jButton2, ReturnPay_jButton7});
+        returnVehiclesLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ReturnCalculate_jButton6, ReturnCheckOverDue_jButton2, ReturnCheck_jButton2});
 
         returnVehiclesLayout.setVerticalGroup(
             returnVehiclesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -675,8 +675,8 @@ public class SuperRent extends javax.swing.JFrame {
                         .addComponent(ReturnCheckOverDue_jButton2)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ReturnPay_jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReturnPay_jButton2)
                 .addContainerGap())
         );
 
@@ -1206,7 +1206,7 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_ReturnCheck_jButton2ActionPerformed
 
     private void ReturnPay_jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-// TODO add your handling code here:
+//       //TODO add your handling code here:
     }                                                  
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {                                          
@@ -1280,6 +1280,10 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnRedeem_jCheckBox1ActionPerformed
 
+    private void ReturnPay_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnPay_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReturnPay_jButton2ActionPerformed
+
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
        
@@ -1337,7 +1341,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField ReturnFuelReading_jTextField2;
     private javax.swing.JLabel ReturnOdoRead_jLabel23;
     private javax.swing.JTextField ReturnOdometer_jTextField9;
-    private javax.swing.JButton ReturnPay_jButton7;
+    private javax.swing.JButton ReturnPay_jButton2;
     private javax.swing.JCheckBox ReturnRedeem_jCheckBox1;
     private javax.swing.JCheckBox ReturnRoadStar_jCheckBox2;
     private javax.swing.JSpinner ReturnTimeHH_jSpinner1;
