@@ -65,7 +65,7 @@ public class ConnectDB extends ReadProperties{
      */
     public static void exeQuery(String SQL) throws ClassNotFoundException, SQLException, IOException{
         connect();
-        rs = stmt.executeQuery(SQL); 
+        rs = stmt.executeQuery(SQL);
     }
     
     public static void exeUpdate(String SQL) throws ClassNotFoundException, SQLException, IOException{
