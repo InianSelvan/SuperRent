@@ -1177,21 +1177,7 @@ public class SuperRent extends javax.swing.JFrame {
     private void initReserve() throws ClassNotFoundException, SQLException, IOException{
 
 
-    private void ReturnCheck_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCheck_jButton2ActionPerformed
-        // TODO add your handling code here:            
-        
-        String vin = ReturnVin_jTextField8.getText();
-            if (!vin.isEmpty()){
-                ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel (MyReturn.getResrInfo(vin),
-                        new String[]{
-                            "Confirmation No" , "First Name", "Last Name", "Vin", "Status"
-                        }))
-                        ;
-                
-            }else{
-                JOptionPane.showMessageDialog(null, "Please input the customer's Phone number.");
-            }
-    }//GEN-LAST:event_ReturnCheck_jButton2ActionPerformed
+//GEN-LAST:event_ReturnCheck_jButton2ActionPerformed
 
     private void ReturnPay_jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnPay_jButton7ActionPerformed
 // TODO add your handling code here:
