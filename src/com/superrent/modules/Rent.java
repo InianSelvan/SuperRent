@@ -118,11 +118,11 @@ public class Rent {
         
         ResultSetMetaData md = ConnectDB.resultSet().getMetaData();
         
-        col[0] = md.getColumnName(3);
-        col[1] = md.getColumnName(1);
-        col[2] = md.getColumnName(5);
+        col[0] = md.getColumnName(1);
+        col[1] = md.getColumnName(2);
+        col[2] = md.getColumnName(3);
         col[3] = md.getColumnName(4);
-        col[4] = md.getColumnName(2);
+        col[4] = md.getColumnName(5);
             
         VehicleInfo= new String[num][5];
             for(int i=0; ConnectDB.resultSet().next(); i++){
