@@ -211,6 +211,18 @@ public class ManageFleet {
                         "VIN", "Branch", "Car Type", "Manufacturer", "Model", "Year"
                 }));
     }
+        public void remove(JTable mfremoveTable) throws ClassNotFoundException, SQLException, IOException {
+            
+            String info[] = new String[6];
+            for(int i=0;i<6;i++){
+                info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
+                //System.out.println(info[i]);
+            }
+            
+            ConnectDB.exeUpdate("update fleet set status = 'sold' where vin='"+info[0]+"'");
+            
+
+    }  
     
 
 

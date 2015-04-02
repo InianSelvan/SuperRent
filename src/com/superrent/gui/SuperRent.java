@@ -31,6 +31,7 @@ import javax.swing.JTable;
 import javax.swing.ListModel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 /**
@@ -210,6 +211,7 @@ public class SuperRent extends javax.swing.JFrame {
         mfs3Btn = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         mfremoveTable = new javax.swing.JTable();
+        removeBtn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         userNamepanel = new javax.swing.JPanel();
         firstnameLbl = new javax.swing.JLabel();
@@ -954,6 +956,14 @@ public class SuperRent extends javax.swing.JFrame {
 
         manageFleet.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 510, 290));
 
+        removeBtn.setText("Remove");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBtnActionPerformed(evt);
+            }
+        });
+        manageFleet.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 580, -1, -1));
+
         moduletab.addTab("Manage Fleet", manageFleet);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1632,7 +1642,26 @@ public class SuperRent extends javax.swing.JFrame {
         mfaddpanel.setVisible(true);
         mfremovepanel.setVisible(false);
         jScrollPane7.setVisible(false);
+        removeBtn.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        // TODO add your handling code here:
+               try {
+            // TODO add your handling code here:
+            mf.remove(mfremoveTable);
+            DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
+                model.removeRow(mfremoveTable.getSelectedRow());
+
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_removeBtnActionPerformed
 
     
     //private void initReserve() throws ClassNotFoundException, SQLException, IOException{
@@ -1862,6 +1891,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JSpinner pickupHour;
     private javax.swing.JSpinner pickupMin;
     private javax.swing.JTextField pwdField;
+    private javax.swing.JButton removeBtn;
     private javax.swing.JButton removeEquipBtn;
     private javax.swing.JButton rentBtn;
     private javax.swing.JPanel reserveVehicles;
