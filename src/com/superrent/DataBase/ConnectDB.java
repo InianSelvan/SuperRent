@@ -26,7 +26,7 @@ public class ConnectDB extends ReadProperties{
    private static String db_name;
    private static String user;
    private static String pswd;
-   private static Connection conn;
+   public static Connection conn;
    private static Statement stmt;
    private static ResultSet rs;
    
@@ -52,7 +52,10 @@ public class ConnectDB extends ReadProperties{
     public static void clearResultSet() throws SQLException{
         stmt.closeOnCompletion();
         rs.close();
-        conn.close();       
+        conn.close();   
+        if(conn==null){
+            System.out.println("Connection closed successfully---");
+        }
     }
     
     /**

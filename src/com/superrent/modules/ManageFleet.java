@@ -15,63 +15,40 @@ import javax.swing.JComboBox;
  * @author miaowu
  */
 public class ManageFleet {
-    int car_or_truck;
-    
- public void getCar_or_truck(int car_or_truck){
-     
-     //car is 0 and truck is 1
-     this.car_or_truck = car_or_truck;
- }
- public void fillCarType(JComboBox cartypeCombo){
-       String [] carTypeArray = { "Economy","Compact", "Mid-size", "Standard", "Full-size", "Premium", "Luxury", "SUV","Van"};
-       String [] truckTypeArray = {"24-foot", "15-foot", "12-foot", "Box-Trucks","Cargo-Vans"};
-        int carType_no;
-        if(car_or_truck == 0)
-        for(carType_no = 0 ; carType_no<9 ; carType_no++){
-            cartypeCombo.addItem(carTypeArray[carType_no]); 
+ public void fillCarType(JComboBox cartypeCombo) throws ClassNotFoundException, SQLException, IOException{
+        ConnectDB.exeQuery("SELECT category FROM fleet");
+        while(ConnectDB.resultSet().next()){
+            String cartype = ConnectDB.resultSet().getString("category");
+            cartypeCombo.addItem(cartype);
         }
-        
-        else if(car_or_truck ==1)
-            for(carType_no = 0 ; carType_no<5 ; carType_no++){
-            cartypeCombo.addItem(truckTypeArray[carType_no]);
-        }
-                
+       ConnectDB.clearResultSet();
     }
  
-//  public void fillManufacturer(JComboBox manufacturerCombo) throws ClassNotFoundException, SQLException, IOException{
-//        ConnectDB.exeQuery("SELECT distinct maker FROM fleet");
-//        while(ConnectDB.resultSet().next()){
-//            String manufacturer = ConnectDB.resultSet().getString("maker");
-//            manufacturerCombo.addItem(manufacturer);
-//        }
-//       ConnectDB.clearResultSet();
-//    }
-  
-    public void fillManufacturer(JComboBox modelCombo){
-        String [] modelArray = {"Maserati","Honda","Infinity","BMW","Benz","Acura","GMC","Toyota","other"};
-        int model_no;
-        for(model_no = 0;model_no<9;model_no++){
-            modelCombo.addItem(modelArray[model_no]);
-        }
-      
-    }
-    
-    public void fillBranch(JComboBox branchidCombo) throws ClassNotFoundException, SQLException, IOException{
-        ConnectDB.exeQuery("SELECT distinct branch_id FROM branch");
+  public void fillManufacturer(JComboBox manufacturerCombo) throws ClassNotFoundException, SQLException, IOException{
+        ConnectDB.exeQuery("SELECT distinct maker FROM fleet");
         while(ConnectDB.resultSet().next()){
-            int branchid = ConnectDB.resultSet().getInt("branch_id");
-            branchidCombo.addItem(branchid);
+            String manufacturer = ConnectDB.resultSet().getString("maker");
+            manufacturerCombo.addItem(manufacturer);
+        }
+       ConnectDB.clearResultSet();
+    }
+  
+    public void fillName(JComboBox nameCombo) throws ClassNotFoundException, SQLException, IOException{
+        ConnectDB.exeQuery("SELECT distinct maker FROM fleet");
+        while(ConnectDB.resultSet().next()){
+            String name = ConnectDB.resultSet().getString("maker");
+            nameCombo.addItem(name);
         }
        ConnectDB.clearResultSet();
     }
     
-        public void fillColor(JComboBox colorCombo){
-        String [] colorArray = {"black","blue","brown","grey","red","orange","silver","white","yellow","other"};
-        int color_no;
-        for(color_no = 0;color_no<10;color_no++){
-            colorCombo.addItem(colorArray[color_no]);
+    public void fillBranch(JComboBox branchidCombo) throws ClassNotFoundException, SQLException, IOException{
+        ConnectDB.exeQuery("SELECT distinct branch_id FROM fleet");
+        while(ConnectDB.resultSet().next()){
+            int branchid = ConnectDB.resultSet().getInt("Branch_ID");
+            branchidCombo.addItem(branchid);
         }
-
+       ConnectDB.clearResultSet();
     }
 
       

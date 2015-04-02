@@ -37,5 +37,5 @@ public class CommonFunc {
         Date ResultDate = format.parse(MyDate);
         //System.out.println(MyDate);
         return ResultDate;
-    }
+}
 }
