@@ -225,11 +225,24 @@ public class ManageFleet {
                 info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
                 //System.out.println(info[i]);
             }
-            
+            if(function =="sale")
             ConnectDB.exeUpdate("update fleet set status = 'sold' where vin='"+info[0]+"'");
+            else if(function == "rent")
+            ConnectDB.exeUpdate("update fleet set status = 'sale' where vin='"+info[0]+"'");
             
 
     }  
+
+    public void sendback(JTable mfremoveTable) throws ClassNotFoundException, SQLException, IOException {
+  
+            String info[] = new String[6];
+            for(int i=0;i<6;i++){
+                info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
+                //System.out.println(info[i]);
+            }
+            ConnectDB.exeUpdate("update fleet set status = 'rent' where vin='"+info[0]+"'");
+            
+    }
     
 
 

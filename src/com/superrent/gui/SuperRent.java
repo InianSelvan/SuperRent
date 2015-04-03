@@ -210,6 +210,7 @@ public class SuperRent extends javax.swing.JFrame {
         mfs2Btn = new javax.swing.JButton();
         mfs3Btn = new javax.swing.JButton();
         removeBtn = new javax.swing.JButton();
+        setforrentBtn = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         mfremoveTable = new javax.swing.JTable();
         mfsetpanel = new javax.swing.JPanel();
@@ -222,6 +223,7 @@ public class SuperRent extends javax.swing.JFrame {
         mfset1Btn = new javax.swing.JButton();
         mfset2Btn = new javax.swing.JButton();
         mfset3Btn = new javax.swing.JButton();
+        setforsaleBtn = new javax.swing.JButton();
         mfremoveBtn1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         userNamepanel = new javax.swing.JPanel();
@@ -947,6 +949,14 @@ public class SuperRent extends javax.swing.JFrame {
         });
         mfremovepanel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
+        setforrentBtn.setText("Back to Rent");
+        setforrentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setforrentBtnActionPerformed(evt);
+            }
+        });
+        mfremovepanel.add(setforrentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
         mfremoveTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1010,6 +1020,13 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
+        setforsaleBtn.setText("Set for Sale");
+        setforsaleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setforsaleBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mfsetpanelLayout = new javax.swing.GroupLayout(mfsetpanel);
         mfsetpanel.setLayout(mfsetpanelLayout);
         mfsetpanelLayout.setHorizontalGroup(
@@ -1027,10 +1044,13 @@ public class SuperRent extends javax.swing.JFrame {
                     .addComponent(mfsetmodelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mfsetpanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(setforsaleBtn))
                     .addComponent(mfset1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mfset2Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mfset3Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         mfsetpanelLayout.setVerticalGroup(
             mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1056,7 +1076,9 @@ public class SuperRent extends javax.swing.JFrame {
                         .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(mfsetmodelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mfset3Btn))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(setforsaleBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mfremoveBtn1.setText("Set Car for Sale");
@@ -1900,6 +1922,42 @@ public class SuperRent extends javax.swing.JFrame {
         mf2.settable(0,null, null, null,mfremoveTable);
     }//GEN-LAST:event_mfremoveBtn1ActionPerformed
 
+    private void setforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforsaleBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            mf2.remove(mfremoveTable);
+            DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
+                model.removeRow(mfremoveTable.getSelectedRow());
+
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_setforsaleBtnActionPerformed
+
+    private void setforrentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforrentBtnActionPerformed
+        // TODO add your handling code here:
+               try {
+            // TODO add your handling code here:
+            mf.sendback(mfremoveTable);
+            DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
+                model.removeRow(mfremoveTable.getSelectedRow());
+
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_setforrentBtnActionPerformed
+
     
     //private void initReserve() throws ClassNotFoundException, SQLException, IOException{
 
@@ -2159,6 +2217,8 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton searchEqupBtn;
     private javax.swing.JList selectedList;
+    private javax.swing.JButton setforrentBtn;
+    private javax.swing.JButton setforsaleBtn;
     private javax.swing.JTextField streetAddField;
     private javax.swing.JTable unreservedVehiTable;
     private javax.swing.JTextField userField;
