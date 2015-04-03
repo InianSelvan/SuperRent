@@ -22,7 +22,14 @@ import javax.swing.table.DefaultTableModel;
 public class ManageFleet {
 
     int car_or_truck;
+    private String function;
 
+    public ManageFleet(String function) {
+        
+        //To change body of generated methods, choose Tools | Templates.
+        this.function = function;
+    }
+    
     public void getCar_or_truck(int car_or_truck) {
 
         //car is 0 and truck is 1
@@ -74,7 +81,7 @@ public class ManageFleet {
     }    
 
     public void fillsCarType(JComboBox cartypeCombo) throws ClassNotFoundException, SQLException, IOException {
-        ConnectDB.exeQuery("SELECT distinct category FROM fleet where status = 'sale'");
+        ConnectDB.exeQuery("SELECT distinct category FROM fleet where status = '"+function+"'");
         cartypeCombo.addItem("All");
         while (ConnectDB.resultSet().next()) {
             String scategory = ConnectDB.resultSet().getString("category");
@@ -98,7 +105,7 @@ public class ManageFleet {
        
            String sql = new String();
 
-            sql="SELECT distinct model FROM fleet where status = 'sale'and "+ manufacturer +" and " +cartype;
+            sql="SELECT distinct model FROM fleet where status = '"+function+"' and "+ manufacturer +" and " +cartype;
        
         ConnectDB.exeQuery(sql);
         modelCombo.addItem("All");
@@ -118,7 +125,7 @@ public class ManageFleet {
            else 
                cartype = "category ='" + cartype + "'";
          
-            sql = "SELECT distinct maker FROM fleet where status = 'sale' and "+cartype ;
+            sql = "SELECT distinct maker FROM fleet where status = '"+function+"' and "+cartype ;
         ConnectDB.exeQuery(sql);
         manufacturerpeCombo.addItem("All");         
         while (ConnectDB.resultSet().next()) {
@@ -146,31 +153,31 @@ public class ManageFleet {
            else model = "model='"+model+"'";
            
            if(i==0){
-               sqlforInfo = "select vin, branch_id, category, maker, model, year from fleet where status ='sale'";
+               sqlforInfo = "select vin, branch_id, category, maker, model, year from fleet where status ='"+function+"'";
            }
            
            else if(i==1){
               // if(cartype != "All"){
-               sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale' and  "+cartype ;
+               sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' and  "+cartype ;
               // }
 //               else 
-//                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale' ";
+//                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' ";
                }
            
            else if(i==2){
               // if(manufacturer!="All"){
-                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale' and  " + manufacturer + " and  " + cartype ;
+                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' and  " + manufacturer + " and  " + cartype ;
               // }
 //               else
-//                   sqlforInfo ="SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale' and category = '" + cartype + "'";
+//                   sqlforInfo ="SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' and category = '" + cartype + "'";
            }
            
            else if(i==3){
             //   if(model != "All"){
-                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale' and " + model + " and " + manufacturer + " and " + cartype;
+                   sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' and " + model + " and " + manufacturer + " and " + cartype;
               // }
 //               else 
-//                    sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = 'sale'and maker = '" + manufacturer + "'"+"and category = '" + cartype + "'";                
+//                    sqlforInfo = "SELECT  vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"'and maker = '" + manufacturer + "'"+"and category = '" + cartype + "'";                
            }
 
        }
