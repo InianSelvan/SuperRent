@@ -10,9 +10,10 @@ import com.superrent.DataBase.ConnectDB;
 import com.superrent.modules.Encrypt;
 import com.superrent.modules.CommonFunc;
 import com.superrent.modules.ManageFleet;
-import com.superrent.modules.Rent;
 import com.superrent.modules.Reserve;
+
 import com.superrent.modules.Return;
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 
 import java.io.IOException;
@@ -21,7 +22,13 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -32,6 +39,8 @@ import javax.swing.ListModel;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.TableColumn;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -77,10 +86,10 @@ public class SuperRent extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         modulepane = new javax.swing.JPanel();
-        moduletab = new javax.swing.JTabbedPane();
+        ModulesTab = new javax.swing.JTabbedPane();
         RentVehicles = new javax.swing.JPanel();
         cusNumLbl = new javax.swing.JLabel();
-        cusNumField = new javax.swing.JTextField();
+        RentcusNumField = new javax.swing.JTextField();
         dlNumLbl = new javax.swing.JLabel();
         dlNumField = new javax.swing.JTextField();
         ccNumField = new javax.swing.JTextField();
@@ -89,10 +98,9 @@ public class SuperRent extends javax.swing.JFrame {
         expDateCh = new com.toedter.calendar.JDateChooser();
         cardTypeLbl = new javax.swing.JLabel();
         cardTypeCombo = new javax.swing.JComboBox();
-        jButton5 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        rentConfirmationNO = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        reserveVehicles = new javax.swing.JPanel();
+        reservePanel = new javax.swing.JPanel();
         brnchIdLbl = new javax.swing.JLabel();
         brnchIdCombo = new javax.swing.JComboBox();
         pickupDt = new com.toedter.calendar.JDateChooser();
@@ -125,6 +133,13 @@ public class SuperRent extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         selectedList = new javax.swing.JList();
         searchEqupBtn = new javax.swing.JButton();
+        cusNumLbl1 = new javax.swing.JLabel();
+        cusNumField1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        cancelReservationField = new javax.swing.JTextField();
+        cancelConfirmation = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        confirmationNoDisplayField = new javax.swing.JTextField();
         returnVehicles = new javax.swing.JPanel();
         ReturnCustomerPnobeNum_jLabel9 = new javax.swing.JLabel();
         ReturnVin_jTextField8 = new javax.swing.JTextField();
@@ -246,9 +261,9 @@ public class SuperRent extends javax.swing.JFrame {
         modulepane.setPreferredSize(new java.awt.Dimension(1380, 810));
         modulepane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        moduletab.addMouseListener(new java.awt.event.MouseAdapter() {
+        ModulesTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                moduletabMouseClicked(evt);
+                ModulesTabMouseClicked(evt);
             }
         });
 
@@ -256,7 +271,7 @@ public class SuperRent extends javax.swing.JFrame {
 
         cusNumLbl.setText("Customer Phone Number* :");
         RentVehicles.add(cusNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
-        RentVehicles.add(cusNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
+        RentVehicles.add(RentcusNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
 
         dlNumLbl.setText("Driver License*  :");
         RentVehicles.add(dlNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
@@ -275,26 +290,18 @@ public class SuperRent extends javax.swing.JFrame {
 
         cardTypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "American Express", "MasterCard", "Visa" }));
         RentVehicles.add(cardTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 150, -1));
-
-        jButton5.setText("Auto Fill");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        RentVehicles.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 130, -1));
-        RentVehicles.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
+        RentVehicles.add(rentConfirmationNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
 
         jLabel14.setText("Confirmation Number         :");
         RentVehicles.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
-        moduletab.addTab("Rent", RentVehicles);
+        ModulesTab.addTab("Rent", RentVehicles);
 
-        reserveVehicles.setMinimumSize(new java.awt.Dimension(1000, 615));
-        reserveVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        reservePanel.setMinimumSize(new java.awt.Dimension(1000, 615));
+        reservePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         brnchIdLbl.setText("Branch ID*                       :");
-        reserveVehicles.add(brnchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        reservePanel.add(brnchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         brnchIdCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select" }));
         brnchIdCombo.addItemListener(new java.awt.event.ItemListener() {
@@ -302,22 +309,22 @@ public class SuperRent extends javax.swing.JFrame {
                 brnchIdComboItemStateChanged(evt);
             }
         });
-        reserveVehicles.add(brnchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 80, -1));
-        reserveVehicles.add(pickupDt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 140, -1));
+        reservePanel.add(brnchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 80, -1));
+        reservePanel.add(pickupDt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 140, -1));
 
         jLabel3.setText("Pickup Date*                    :");
-        reserveVehicles.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
-        reserveVehicles.add(pickupHour, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 40, -1));
+        reservePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+        reservePanel.add(pickupHour, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 40, -1));
 
         jLabel6.setText("Pickup Time :");
-        reserveVehicles.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
+        reservePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
 
         jLabel7.setText("HH");
-        reserveVehicles.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
-        reserveVehicles.add(pickupMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 40, -1));
+        reservePanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
+        reservePanel.add(pickupMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 40, -1));
 
         jLabel8.setText("MM");
-        reserveVehicles.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
+        reservePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
 
         vehicleCatCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select" }));
         vehicleCatCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -325,10 +332,10 @@ public class SuperRent extends javax.swing.JFrame {
                 vehicleCatComboActionPerformed(evt);
             }
         });
-        reserveVehicles.add(vehicleCatCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 220, -1));
+        reservePanel.add(vehicleCatCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 220, -1));
 
         jLabel10.setText("Vehicle Type                    :");
-        reserveVehicles.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 160, -1));
+        reservePanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 160, -1));
 
         vehicleTypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CAR", "TRUCK" }));
         vehicleTypeCombo.addItemListener(new java.awt.event.ItemListener() {
@@ -336,7 +343,7 @@ public class SuperRent extends javax.swing.JFrame {
                 vehicleTypeComboItemStateChanged(evt);
             }
         });
-        reserveVehicles.add(vehicleTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 220, -1));
+        reservePanel.add(vehicleTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 220, -1));
 
         unreservedVehiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -358,7 +365,7 @@ public class SuperRent extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(unreservedVehiTable);
 
-        reserveVehicles.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 1290, 160));
+        reservePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 1290, 120));
 
         searchBtn.setText("Search");
         searchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +373,7 @@ public class SuperRent extends javax.swing.JFrame {
                 searchBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, -1, -1));
+        reservePanel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, -1, -1));
 
         resetBtn.setText("Reset");
         resetBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -374,37 +381,37 @@ public class SuperRent extends javax.swing.JFrame {
                 resetBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(resetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, -1, -1));
+        reservePanel.add(resetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, -1, -1));
 
-        rentBtn.setText("Rent");
+        rentBtn.setText("Reserve");
         rentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rentBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(rentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 720, -1, -1));
+        reservePanel.add(rentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 700, -1, -1));
 
         jLabel13.setText("Vehicle Category*             :");
-        reserveVehicles.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        reservePanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         jLabel43.setText("Dropoff*                          :");
-        reserveVehicles.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
-        reserveVehicles.add(dropOffDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 140, -1));
+        reservePanel.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        reservePanel.add(dropOffDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 140, -1));
 
         jLabel44.setText("Dropoff Time :");
-        reserveVehicles.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, -1));
+        reservePanel.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         jLabel5.setText("HH");
-        reserveVehicles.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
+        reservePanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
 
         jLabel12.setText("MM");
-        reserveVehicles.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
-        reserveVehicles.add(dropoffHHSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 40, -1));
-        reserveVehicles.add(dropoffMMSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 40, -1));
+        reservePanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, -1, -1));
+        reservePanel.add(dropoffHHSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 40, -1));
+        reservePanel.add(dropoffMMSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 40, -1));
 
         jScrollPane4.setViewportView(equipmentsList);
 
-        reserveVehicles.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 190, 100));
+        reservePanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 190, 100));
 
         addEquipBtn.setText(">>");
         addEquipBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -412,7 +419,7 @@ public class SuperRent extends javax.swing.JFrame {
                 addEquipBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(addEquipBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        reservePanel.add(addEquipBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
 
         removeEquipBtn.setText("<<");
         removeEquipBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -420,11 +427,11 @@ public class SuperRent extends javax.swing.JFrame {
                 removeEquipBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(removeEquipBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+        reservePanel.add(removeEquipBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
 
         jScrollPane5.setViewportView(selectedList);
 
-        reserveVehicles.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 180, 100));
+        reservePanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 180, 100));
 
         searchEqupBtn.setText("Search Equipments");
         searchEqupBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -432,9 +439,29 @@ public class SuperRent extends javax.swing.JFrame {
                 searchEqupBtnActionPerformed(evt);
             }
         });
-        reserveVehicles.add(searchEqupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 180, -1));
+        reservePanel.add(searchEqupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 180, -1));
 
-        moduletab.addTab("Reserve", reserveVehicles);
+        cusNumLbl1.setText("Customer Phone Number* :");
+        reservePanel.add(cusNumLbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        reservePanel.add(cusNumField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 130, -1));
+
+        jLabel11.setText("Cancel Reservation              :");
+        reservePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 110, -1, -1));
+        reservePanel.add(cancelReservationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 110, 170, -1));
+
+        cancelConfirmation.setText("cancel");
+        cancelConfirmation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelConfirmationActionPerformed(evt);
+            }
+        });
+        reservePanel.add(cancelConfirmation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 170, -1, -1));
+
+        jLabel17.setText("Confirmation Number          :");
+        reservePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, -1, -1));
+        reservePanel.add(confirmationNoDisplayField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 170, -1));
+
+        ModulesTab.addTab("Reserve", reservePanel);
 
         ReturnCustomerPnobeNum_jLabel9.setText("Vin* :");
 
@@ -705,7 +732,7 @@ public class SuperRent extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        moduletab.addTab("Return", returnVehicles);
+        ModulesTab.addTab("Return", returnVehicles);
 
         manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -752,7 +779,7 @@ public class SuperRent extends javax.swing.JFrame {
 
         manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 1010, 350));
 
-        moduletab.addTab("Manage Customer", manageCustomer);
+        ModulesTab.addTab("Manage Customer", manageCustomer);
 
         manageFleet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -830,7 +857,7 @@ public class SuperRent extends javax.swing.JFrame {
 
         manageFleet.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 420, 280));
 
-        moduletab.addTab("Manage Fleet", manageFleet);
+        ModulesTab.addTab("Manage Fleet", manageFleet);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -840,10 +867,10 @@ public class SuperRent extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGap(0, 764, Short.MAX_VALUE)
         );
 
-        moduletab.addTab("Reports", jPanel5);
+        ModulesTab.addTab("Reports", jPanel5);
 
         userNamepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -914,10 +941,10 @@ public class SuperRent extends javax.swing.JFrame {
         roleLbl.setText("Role*            :");
         userNamepanel.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
-        moduletab.addTab("New Employee", userNamepanel);
+        ModulesTab.addTab("New Employee", userNamepanel);
 
-        modulepane.add(moduletab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
-        moduletab.getAccessibleContext().setAccessibleName("Reservation");
+        modulepane.add(ModulesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
+        ModulesTab.getAccessibleContext().setAccessibleName("Reservation");
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -990,20 +1017,15 @@ public class SuperRent extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         try {
-            Rent rent = new Rent();
+            
             Date pickupDate = CommonFunc.changeDateFormat(pickupDt);
             Date dropoffDate = CommonFunc.changeDateFormat(dropOffDate);
             String pickuptime = CommonFunc.sqlTime(pickupHour, pickupMin);
             String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, dropoffMMSpin);
             String cat = vehicleCatCombo.getSelectedItem().toString();
             String type = vehicleTypeCombo.getSelectedItem().toString();
-////            unreservedVehiTable.setModel(new javax.swing.table.DefaultTableModel(rent.getAvailableVehicles(cat, Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), type),
-////                    new String [] {
-////                        "Vehicle ID", "Make", "Vehicle Type", "Colour", "Doors"
-////                    }
-////            ));     } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-            unreservedVehiTable = new JTable(rent.getAvailableVehicles(cat, Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), type));
+
+            unreservedVehiTable = new JTable(rt.getAvailableVehicles(cat, Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), type));
         } catch (SQLException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -1017,7 +1039,7 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
-        cusNumField.setText("");
+        RentcusNumField.setText("");
         dlNumField.setText("");
         ccNumField.setText("");
         expDateCh.cleanup();
@@ -1093,13 +1115,9 @@ public class SuperRent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_clerkRadioActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ModulesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModulesTabMouseClicked
 
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void moduletabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moduletabMouseClicked
-
-    }//GEN-LAST:event_moduletabMouseClicked
+    }//GEN-LAST:event_ModulesTabMouseClicked
 
     private void brnchIdComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_brnchIdComboItemStateChanged
         vehicleCatCombo.removeAllItems();
@@ -1119,42 +1137,55 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_brnchIdComboItemStateChanged
 
     private void rentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBtnActionPerformed
-        
+        long ReservationID = rt.genUniqueID();
         try {
-            if(rt.validateCustomerInfo(cusNumField)>0){
-                int cusID = rt.validateCustomerInfo(cusNumField);
+            if(rt.validateCustomerInfo(cusNumField1)>0){
+                int cusID = rt.validateCustomerInfo(cusNumField1);
                 int brnchID = Integer.parseInt(brnchIdCombo.getSelectedItem().toString());
                 String vehicleTyp = vehicleCatCombo.getSelectedItem().toString();
                 Date pickupDate = CommonFunc.changeDateFormat(pickupDt);
                 Date dropoffDate = CommonFunc.changeDateFormat(dropOffDate);
                 String pickuptime = CommonFunc.sqlTime(pickupHour, pickupMin);
                 String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, dropoffMMSpin);
-                long ReservationID = rt.genUniqueID();
-                       
                 
-                if(pickupDate.before(new Date()) && (dropoffDate.after(pickupDate) || dropoffDate.equals(new Date()))){
-                    JOptionPane.showMessageDialog(null, "Pickup date should be after or equal to current date \n Dropoff date should be equal to pickup date of after pickup date");
+              
+                System.out.println(CommonFunc.compareDates(pickupDate, new Date()));
+                
+                if(CommonFunc.compareDates(pickupDate, new Date())<0 || CommonFunc.compareDates(pickupDate, dropoffDate)>0){
+                    JOptionPane.showMessageDialog(null, "Pickup date should be greater than or equal to current date \n\n "
+                            + "Dropoff date should be equal to pickup date or greater than pickup date");
                     return;
                 }else{
-                    String dlNum = dlNumField.getText();
-
-                    String ccNum = ccNumField.getText();
-                    Date expDate = CommonFunc.changeDateFormat(expDateCh);
-                    String cardType = cardTypeCombo.getSelectedItem().toString();
                    
-                    
-
-                    int vehicleId =Integer.parseInt((String) unreservedVehiTable.getValueAt(unreservedVehiTable.getSelectedRow(), 0));
-                    ConnectDB.exeUpdate("Update vehicles set isReturned = 0 where Vehicle_ID ="+vehicleId);
-                    
-                    ConnectDB.exeUpdate("INSERT INTO `superrent`.`reservation` (`ReservationID`, `CustomerID`, `BranchID`, `Vehicle_Type`, `Pickup_Date`, `Dropoff_Date`,  `Vehicle_ID`)"
-                        + "VALUES ("+ReservationID+", "+cusID+", "+brnchID+", '"+vehicleTyp+"', '"+pickupDate+" "+pickuptime+"', '"+dropoffDate+" "+dropofftime+"', '"+vehicleId+"')");
-                    
-                    ConnectDB.exeUpdate("INSERT INTO `superrent`.`rental` (`ReservationID`, `DL_number`, `CCType`, `CC_Number`, `CC_ExpDate`) "
-                            + "VALUES ("+ReservationID+", '"+dlNum+"', '"+cardType+"', "+ccNum+", '"+expDate+"');");                    
-                    
+                    String vehicleId =(String) unreservedVehiTable.getValueAt(unreservedVehiTable.getSelectedRow(), 0);
+       
+                    ConnectDB.exeUpdate("INSERT INTO reserve (`confirmation_no`, `vin`, `customer_id`, `branch_id`, `phone`,  `pickup_time`, `dropoff_time`,`status`,  `create_time` )"
+                        + " VALUES ("+ReservationID+", '"+vehicleId+"', "+cusID+", "+brnchID+",  "+Double.parseDouble(cusNumField1.getText())+",'"+pickupDate+" "+pickuptime+"', '"+dropoffDate+" "+dropofftime+"','reserved', '"+pickupDate+" "+pickuptime+"')");
+                    ConnectDB.clearResultSet();
+                    Iterator it = equipSelectedUnits.entrySet().iterator();
+                    if(equipSelectedUnits.size()>0){ 
+                        while(it.hasNext()){
+                            Map.Entry pair = (Map.Entry)it.next();
+                            String[] equp = pair.getKey().toString().split(": ");
+                            int quantity = (int) pair.getValue();
+                            System.out.println(equp[0]);
+                            ConnectDB.exeUpdate("INSERT INTO `team01`.`equipment_reserved` (`confirmation_no`, `equipment_type`, `quantity`) "
+                                    + "VALUES ("+ReservationID+", '"+equp[0]+"', "+quantity+");"); 
+                            ConnectDB.clearResultSet();
+                        }
+                    }
+                    equipSelectedUnits.clear();
+                    confirmationNoDisplayField.setText(String.valueOf(ReservationID));
+                    confirmationNoDisplayField.setEnabled(false);
+                    if(CommonFunc.compareDates(pickupDate, new Date())==0 ){
+                        rentConfirmationNO.setText(String.valueOf(ReservationID));
+                        RentcusNumField.setText(cusNumField1.getText());
+                    }
+                    JOptionPane.showMessageDialog(null, "Resvervation done successfully and the Confirmation No is "+ReservationID);
                 }               
                 
+            }else{
+                JOptionPane.showMessageDialog(null, "Not a valid customer phone number");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
@@ -1164,6 +1195,8 @@ public class SuperRent extends javax.swing.JFrame {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        clearEqupList(); 
         }
     }//GEN-LAST:event_rentBtnActionPerformed
 
@@ -1240,6 +1273,7 @@ public class SuperRent extends javax.swing.JFrame {
         equipSelected.clear();
         selectedList = new JList();
         equipmentsList = new JList();
+        equipSelectedUnits.clear();
         jScrollPane5.setViewportView(selectedList);
         jScrollPane4.setViewportView(equipmentsList);
     }
@@ -1264,20 +1298,47 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_searchEqupBtnActionPerformed
 
     private void addEquipBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEquipBtnActionPerformed
+        selectedList.removeAll();
+
         if(equipmentsList.getSelectedValuesList().size()>0){    
             for(int i=0; i<equipmentsList.getSelectedValuesList().size(); i++){
                 equipSelected.add(equipmentsList.getSelectedValuesList().get(i).toString());                
             }
-            selectedList = new JList(equipSelected.toArray());
-            jScrollPane5.setViewportView(selectedList);
+            
+            Set<String> unique = new HashSet<String>(equipSelected);
+            for (String key : unique) {
+                
+                equipSelectedUnits.put(key + ": " , Collections.frequency(equipSelected, key));
+            }
+            
+                
+                 
+                selectedList = new JList(equipSelectedUnits.entrySet().toArray());
+                jScrollPane5.setViewportView(selectedList);
+            
         }
     }//GEN-LAST:event_addEquipBtnActionPerformed
 
     private void removeEquipBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEquipBtnActionPerformed
+        selectedList.removeAll();
+
         if(selectedList.getSelectedValuesList().size()>0){
-            equipSelected.remove(selectedList.getSelectedIndex());
-            selectedList = new JList(equipSelected.toArray());
-            jScrollPane5.setViewportView(selectedList);
+            String[] toRemove = selectedList.getSelectedValue().toString().split(":");
+            equipSelected.remove(toRemove[0]);                   
+                Set<String> unique = new HashSet<String>(equipSelected);
+                
+            for (String key : unique) {                
+                equipSelectedUnits.put(key + ": " , Collections.frequency(equipSelected, key));
+            }                 
+                selectedList = new JList(equipSelectedUnits.entrySet().toArray());
+                jScrollPane5.setViewportView(selectedList);
+                
+        if(equipSelected.size()==0){
+            equipSelectedUnits.clear();
+                selectedList = new JList(equipSelectedUnits.entrySet().toArray());
+                jScrollPane5.setViewportView(selectedList);            
+        }                
+   
         }
     }//GEN-LAST:event_removeEquipBtnActionPerformed
 
@@ -1368,6 +1429,15 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnPay_jButton2ActionPerformed
 
+    private void cancelConfirmationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelConfirmationActionPerformed
+        if(cancelReservationField.getText().toString().length()>0){
+            rt.cancelReservation(cancelReservationField);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Please Enter Confirmation Number");
+        }
+    }//GEN-LAST:event_cancelConfirmationActionPerformed
+        
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
        
@@ -1405,15 +1475,18 @@ public class SuperRent extends javax.swing.JFrame {
     SpinnerModel modelDropMM = new SpinnerNumberModel(0, 0, 59 ,1);
     
     Calendar now = Calendar.getInstance();
-    private Rent rt = new Rent();
+    private Reserve rt = new Reserve();
     private String role;
     // Yaoyao added
     private Return MyReturn = new Return();
     private ArrayList<String> equipSelected = new ArrayList<String>();
+    private HashMap<String, Integer> equipSelectedUnits = new HashMap<String, Integer>();
     private ManageFleet mf = new ManageFleet();
     //private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane ModulesTab;
     private javax.swing.JPanel RentVehicles;
+    private javax.swing.JTextField RentcusNumField;
     private javax.swing.JButton ReturnCalculate_jButton6;
     private javax.swing.JTable ReturnCheckOverDueDis_jTable2;
     private javax.swing.JButton ReturnCheckOverDue_jButton2;
@@ -1441,16 +1514,20 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel branchIdLbl;
     private javax.swing.JComboBox brnchIdCombo;
     private javax.swing.JLabel brnchIdLbl;
+    private javax.swing.JButton cancelConfirmation;
+    private javax.swing.JTextField cancelReservationField;
     private javax.swing.JComboBox cardTypeCombo;
     private javax.swing.JLabel cardTypeLbl;
     private javax.swing.JComboBox cartypeCombo;
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
     private javax.swing.JRadioButton clerkRadio;
+    private javax.swing.JTextField confirmationNoDisplayField;
     private javax.swing.JTextField cusFristNameField;
     private javax.swing.JTextField cusLastNameField;
-    private javax.swing.JTextField cusNumField;
+    private javax.swing.JTextField cusNumField1;
     private javax.swing.JLabel cusNumLbl;
+    private javax.swing.JLabel cusNumLbl1;
     private javax.swing.JTextField dlNumField;
     private javax.swing.JLabel dlNumLbl;
     private com.toedter.calendar.JDateChooser dropOffDate;
@@ -1465,7 +1542,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox jComboBox10;
@@ -1475,11 +1551,13 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel24;
@@ -1527,7 +1605,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JPanel loginpanel;
@@ -1536,7 +1613,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JRadioButton managerRadio;
     private javax.swing.JComboBox manufacturerCombo;
     private javax.swing.JPanel modulepane;
-    private javax.swing.JTabbedPane moduletab;
     private javax.swing.JComboBox nameCombo;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLbl;
@@ -1546,7 +1622,8 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField pwdField;
     private javax.swing.JButton removeEquipBtn;
     private javax.swing.JButton rentBtn;
-    private javax.swing.JPanel reserveVehicles;
+    private javax.swing.JTextField rentConfirmationNO;
+    private javax.swing.JPanel reservePanel;
     private javax.swing.JButton resetBtn;
     private javax.swing.JPanel returnVehicles;
     private javax.swing.ButtonGroup roleGroupRadio;
