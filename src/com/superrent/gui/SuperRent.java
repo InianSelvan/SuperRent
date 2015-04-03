@@ -1181,7 +1181,7 @@ public class SuperRent extends javax.swing.JFrame {
                         rentConfirmationNO.setText(String.valueOf(ReservationID));
                         RentcusNumField.setText(cusNumField1.getText());
                     }
-                    JOptionPane.showMessageDialog(null, "Resvervation done successfully and the Confirmation No is "+ReservationID);
+                    JOptionPane.showMessageDialog(null, "Reservation done successfully and the Confirmation No is "+ReservationID);
                 }               
                 
             }else{
