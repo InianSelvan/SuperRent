@@ -30,6 +30,8 @@ import org.joda.time.DateTime;
  * @author Iniyan
  */
 public class CommonFunc {
+    public static String username;//Yaoyao added
+    
     public static Date changeDateFormat(JDateChooser jdate) throws ParseException{
         Date dt = jdate.getDate();
         java.sql.Date sqldate = new java.sql.Date(dt.getTime());
