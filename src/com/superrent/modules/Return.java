@@ -78,7 +78,8 @@ public class Return {
           String[][] ReserInfo = new String [1][4];
         try {
        //int  IntFleetID = Integer.parseInt(vin);
-        ConnectDB.exeQuery("select confirmation_no, customer_id, vin, status from reserve where vin ='" +vin+ "'");
+        ConnectDB.exeQuery("select confirmation_no, customer_id, vin, status from reserve where vin ='" +vin+ "'"
+                + " and status = 'rented'");
         
         if (ConnectDB.resultSet().next()){ 
         for (int j=1; j<=4 ; j++)
@@ -196,7 +197,7 @@ public class Return {
             
             if (NumHour_OverDue > 0) {
                 DisplayFee[1][0] = "Over Due:";
-                DisplayFee[1][1] = "Over Due Hours:" + NumHour_OverDue + " x " + Double.parseDouble(FeeRate[2]);
+                DisplayFee[1][1] = "Hours:" + NumHour_OverDue + " x " + Double.parseDouble(FeeRate[2]);
                 DisplayFee[1][2] = "" + NumHour_OverDue * Double.parseDouble(FeeRate[2]);
                 totalFee += NumHour_OverDue * Double.parseDouble(FeeRate[2]);
             }
@@ -248,7 +249,7 @@ public class Return {
             
             DisplayFee[10][0] = "Membership Redeem:";
             if(Reedem){
-                int[] reedemInfo =new int[2];
+                int[] reedemInfo =new int[3];
                reedemInfo = getRedeemInfo(Vin);
             DisplayFee[10][1] = "You have: "+reedemInfo[0]+" points, and you can reedem "+reedemInfo[1]+" days";
              tempFee = reedemInfo[1]*Double.parseDouble(FeeRate[1]);
@@ -325,8 +326,6 @@ public class Return {
         for (int i = 0; i<4 ;i++){
             temp[i] = "";
         }
-
-        
         try {
             ConnectDB.exeQuery("select EqR.equipment_type, EqR.quantity "
                     + "from reserve as RE, equipment_reserved as EqR "
@@ -363,14 +362,30 @@ public class Return {
         for (int i = 0; i < length; i++) {
             result[i] = EquipInfo.get(i);
         }
-        
         return  result;
     }
     
+    public int getEquipNum(String equip, String branch_id){
+        int equipNum = 0;
+        try {
+            ConnectDB.exeQuery("select Units from equipment where equipment_type = '"+equip+"' and branch_id = '"+branch_id+"'");
+            if(ConnectDB.resultSet().next()){
+                String eqNum = ConnectDB.resultSet().getString(1);
+                equipNum = Integer.parseInt(eqNum);
+            }
+            ConnectDB.clearResultSet();
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return equipNum;
+    }
+    
+    
     //return an array (int), the first entry is the customer's points, the second entry is the days that he can redeem.
+    // and the third entry is the customerID
     public int[] getRedeemInfo(String Vin){
         String[] points = new String[2];
-        int[] points_int = new int[2];
+        int[] points_int = new int[3];
         int pointsEX = 0;
         int mem_points = 0;
         int daysEX = 0;
@@ -378,10 +393,11 @@ public class Return {
         String carType = "";
         try {
             //?? not efficient.....
-            ConnectDB.exeQuery("select ME.points from member as ME, reserve as RE where"
+            ConnectDB.exeQuery("select ME.points, RE.customer_id from member as ME, reserve as RE where"
                     + " vin = '"+Vin+"' and RE.customer_id = ME.member_id");
             if (ConnectDB.resultSet().next()){
                 points[0] = ConnectDB.resultSet().getString(1);
+                points[1] = ConnectDB.resultSet().getString(2);
             }else{
                 JOptionPane.showMessageDialog(null, "The customer has not registered");
             }
@@ -399,14 +415,15 @@ public class Return {
         
         points_int[0] = Integer.parseInt(points[0]);
         points_int[1] = daysEX;
+        points_int[2] = Integer.parseInt(points[1]);
         return points_int;
     }
     
     public String  getVechileType(String Vin){
         String type = "";
         try {
-            ConnectDB.exeQuery("select FL.category from reserve as RE, fleet as FL "
-                    + "where RE.vin = '"+Vin+"'");
+            ConnectDB.exeQuery("select category from fleet "
+                    + "where vin = '"+Vin+"'");
             if(ConnectDB.resultSet().next()){
                 type = ConnectDB.resultSet().getString(1);
             }
@@ -414,7 +431,7 @@ public class Return {
         } catch (ClassNotFoundException | SQLException | IOException ex) {
             Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Car type is "+type);
+        //System.out.println("Car type is "+type);
         return type;
     }
     

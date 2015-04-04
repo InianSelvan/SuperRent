@@ -1254,7 +1254,6 @@ public class SuperRent extends javax.swing.JFrame {
 
     private void ReturnCheck_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCheck_jButton2ActionPerformed
         // TODO add your handling code here:
-
         String vin = ReturnVin_jTextField8.getText();
         if (!vin.isEmpty()){
             ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel (MyReturn.getResrInfo(vin),
@@ -1349,32 +1348,64 @@ public class SuperRent extends javax.swing.JFrame {
                 
                 
                 //update reserve table.
-                ConnectDB.exeUpdate("update reserve set status = 'returned' where vin = '"+vin+"' and status = 'rented' ");
-                
-                //update fleet table.
-                ConnectDB.exeUpdate("update fleet set odometer = '"+ReturnOdometer_jTextField9.getText()+"' where vin = '"+vin+"'");
-                
-                //update payment table
-               long paymentID =  Rent.genUniqueID();
                Date dropOffDate_upd = CommonFunc.changeDateFormat(ReturnDate_jDateChooser3);
                String dropOffTime = CommonFunc.sqlTime(ReturnTimeHH_jSpinner1, ReturnTimeMM_jSpinner1);
+                ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
+                ConnectDB.clearResultSet();
+               
+                //update fleet table.
+                ConnectDB.exeUpdate("update fleet set odometer = '"+ReturnOdometer_jTextField9.getText()+"', branch_id = '"+branch_id+"'"
+                        + " where vin = '"+vin+"'");
+                ConnectDB.clearResultSet();
+                
+               //update payment table
+               long paymentID =  Rent.genUniqueID();
+
                
                 ConnectDB.exeUpdate("insert into payment ( payment_id, customer_id, purpose, total, cash, credit, points,"
                         + " create_time, id, branch_id, staff_id) "
                         + "values ( "+paymentID+",'"+customeID+"','rent','"+CalcuResult[14][2]+"','"+ReturnCash_jTextField2.getText()+"','"+ReturnCreditCard_jTextField1.getText()+"',"
                         + "'"+Double.parseDouble(CalcuResult[14][2])/5+"','"+dropOffDate_upd+" "+dropOffTime+"','111','"+branch_id+"','"+staff_id+"')");
-            
+            ConnectDB.clearResultSet();
                 //update dropoff table ???
                 String[] FeeRate = new String[8];
                 FeeRate = MyReturn.getFeeRate(vin);
                 
                 ConnectDB.exeUpdate("insert into dropoff (confirmation_no, passed_odometer, gas_rate, gas_not_filled_by_liter, road_star)"
                         + "values ('"+confirmationID+"','"+OdeReading+"','"+FeeRate[7]+"','"+FuelReading+"',"+RoadStar+")");
+                ConnectDB.clearResultSet();
+                //update member table: points
                 
-                //update 
+                int pointsEX = MyReturn.getVechilePointsEX(vin);
+                int[] pointsInfo = MyReturn.getRedeemInfo(vin);
+                int remainPoints = pointsInfo[0] - pointsEX*pointsInfo[1] + (int)(Double.parseDouble(CalcuResult[14][2])/5);
+                ConnectDB.exeUpdate("update member set points = "+remainPoints+" where member_id = '"+pointsInfo[2]+"'");
+                ConnectDB.clearResultSet();
                 
-                
+                //update equipment
+            int equ_length = MyReturn.getEquipInfo(vin).length;
+            String[] EquipInfo = new String[equ_length];
+            EquipInfo = MyReturn.getEquipInfo(vin);
             
+            
+            if(equ_length == 4){
+                int equ_pre_num = MyReturn.getEquipNum(EquipInfo[0], branch_id);
+                ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[3]))+"' "
+                        + "where equipment_type = '"+EquipInfo[0]+"'");
+                ConnectDB.clearResultSet();
+            }else if(equ_length==8){
+                int equ_pre_num = MyReturn.getEquipNum(EquipInfo[0], branch_id);
+                ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[3]))+"' "
+                        + "where equipment_type = '"+EquipInfo[0]+"'");
+                ConnectDB.clearResultSet();      
+               
+                equ_pre_num = MyReturn.getEquipNum(EquipInfo[4], branch_id);
+                ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[7]))+"' "
+                        + "where equipment_type = '"+EquipInfo[4]+"'");
+                ConnectDB.clearResultSet();
+            }
+                
+                
             } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                 Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
             }
