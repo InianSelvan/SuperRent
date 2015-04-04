@@ -18,6 +18,8 @@ import javax.swing.JSpinner;
  * @author Iniyan
  */
 public class CommonFunc {
+    public static String username;//Yaoyao added
+    
     public static Date changeDateFormat(JDateChooser jdate) throws ParseException{
         Date dt = jdate.getDate();
         java.sql.Date sqldate = new java.sql.Date(dt.getTime());
@@ -37,5 +39,5 @@ public class CommonFunc {
         Date ResultDate = format.parse(MyDate);
         //System.out.println(MyDate);
         return ResultDate;
-}
+    }
 }

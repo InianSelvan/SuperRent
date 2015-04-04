@@ -73,16 +73,15 @@ public class Return {
 //        return 
 //    }
 //    
-   
     
-    public String[][] getResrInfo(String vin){
-          String[][] ReserInfo = new String [1][5];
+    public static String[][] getResrInfo(String vin){
+          String[][] ReserInfo = new String [1][4];
         try {
        //int  IntFleetID = Integer.parseInt(vin);
-        ConnectDB.exeQuery("select confirmation_no, firstname, lastname, vin, status from reserve where vin ='" +vin+ "'");
+        ConnectDB.exeQuery("select confirmation_no, customer_id, vin, status from reserve where vin ='" +vin+ "'");
         
         if (ConnectDB.resultSet().next()){ 
-        for (int j=1; j<=5 ; j++)
+        for (int j=1; j<=4 ; j++)
         {
             ReserInfo[0][j-1] = ConnectDB.resultSet().getString(j);
            System.out.println(ConnectDB.resultSet().getString(j));
@@ -134,16 +133,16 @@ public class Return {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        OverDueInfo = new String[num_OverDue][7];
+        OverDueInfo = new String[num_OverDue][6];
 
         try {
-            ConnectDB.exeQuery("select confirmation_no,firstname, lastname, phone, branch_id, "
+            ConnectDB.exeQuery("select confirmation_no, customer_id, phone, branch_id, "
                     + "dropoff_time, vin from reserve where dropoff_time <= Now() and status = 'rented' ");
             int j = 1;
 
             for (int i = 0; i < num_OverDue; i++) {
                 if (ConnectDB.resultSet().next()) {
-                    for (int k = 0; k < 7; k++) {
+                    for (int k = 0; k < 6; k++) {
                         OverDueInfo[i][k] = ConnectDB.resultSet().getString(k + 1);
                     }
                 }
@@ -217,22 +216,22 @@ public class Return {
             DisplayFee[4][0] = "Equipment:";
             if(equ_length == 0){
                 DisplayFee[4][1] = "NA";
-            }else if(equ_length == 3){
-                DisplayFee[4][1] = EquipInfo[0] + ": "+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours;
-                tempFee = Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours;
+            }else if(equ_length == 4){
+                DisplayFee[4][1] = "("+EquipInfo[0] + ": "+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours+") x " + EquipInfo[3];
+                tempFee = (Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours)*Double.parseDouble(EquipInfo[3]);
                 DisplayFee[4][2] =""+ tempFee;
                 totalFee +=tempFee;
                 
-            }else if(equ_length==6){
-                DisplayFee[4][1] = EquipInfo[0] + ": "+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours;
-                tempFee = Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours;
-                DisplayFee[4][2] =""+tempFee;
-                totalFee += tempFee;
+            }else if(equ_length==8){
+                         DisplayFee[4][1] = EquipInfo[0] + ": ("+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours+") x " + EquipInfo[3];
+                tempFee = (Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours)*Double.parseDouble(EquipInfo[3]);
+                DisplayFee[4][2] =""+ tempFee;
+                totalFee +=tempFee;
                 
-                DisplayFee[5][1] = EquipInfo[3] + ": "+ EquipInfo[4]+" x "+num_days+" + "+EquipInfo[5]+" x "+num_hours;
-                tempFee = Double.parseDouble(EquipInfo[4])*num_days+Double.parseDouble(EquipInfo[5])*num_hours;
+                DisplayFee[5][1] = EquipInfo[4] + ": ("+ EquipInfo[5]+" x "+num_days+" + "+EquipInfo[6]+" x "+num_hours+") x " + EquipInfo[7];
+                tempFee = (Double.parseDouble(EquipInfo[5])*num_days+Double.parseDouble(EquipInfo[6])*num_hours)*Double.parseDouble(EquipInfo[7]);
                 DisplayFee[5][2] =""+ tempFee;
-                totalFee += tempFee;
+                totalFee +=tempFee;
             }
              
             DisplayFee[6][0] = "Fuel: ";
@@ -249,7 +248,12 @@ public class Return {
             
             DisplayFee[10][0] = "Membership Redeem:";
             if(Reedem){
-                //DisplayFee[10][1] = "Membership Redeem:";
+                int[] reedemInfo =new int[2];
+               reedemInfo = getRedeemInfo(Vin);
+            DisplayFee[10][1] = "You have: "+reedemInfo[0]+" points, and you can reedem "+reedemInfo[1]+" days";
+             tempFee = reedemInfo[1]*Double.parseDouble(FeeRate[1]);
+            DisplayFee[10][2] = "-"+tempFee;
+             totalFee -= tempFee;
             }
             
             DisplayFee[12][0] = "Road Star Discount:";
@@ -317,60 +321,35 @@ public class Return {
     public String[] getEquipInfo(String Vin) {
         ArrayList<String> EquipInfo = new ArrayList<>();
         
-        String[][] temp = new String[2][4];
-        temp[0][0] = "ski_rack";
-        temp[0][1] = "child_seat";
-        temp[0][2] = "lift_gate";
-        temp[0][3] = "car_tow";
+        String[] temp = new String[4];
+        for (int i = 0; i<4 ;i++){
+            temp[i] = "";
+        }
+
         
         try {
-            ConnectDB.exeQuery("select ski_rack, child_seat , lift_gate, car_tow from reserve where vin = '"+ Vin +"' and status = 'rented' ");
-         if(ConnectDB.resultSet().next()){
-             for(int i =0; i<4 ; i++){
-                 temp[1][i] = ConnectDB.resultSet().getString(i+1);
-             }
+            ConnectDB.exeQuery("select EqR.equipment_type, EqR.quantity "
+                    + "from reserve as RE, equipment_reserved as EqR "
+                    + "where RE.vin = '"+ Vin +"' and RE.status = 'rented' and RE.confirmation_no = EqR.confirmation_no");
+         int i=0;
+            while(ConnectDB.resultSet().next()){
+                 temp[2*i] = ConnectDB.resultSet().getString(1);
+                 temp[2*i+1] = ConnectDB.resultSet().getString(2);
+                 i++;
          }
          
-            for (int i = 0; i < 4; i++) {
-                if (temp[1][i].equals("0")){
-                    temp[0][i] = "";
-                }
-            }
          ConnectDB.clearResultSet();
          // get equipment fee rate:
-            if (!temp[0][0].isEmpty()) {
-                ConnectDB.exeQuery("select daily_rates, hourly_rates from equipment_fee where type = 'ski_rack'");
+         int j =0;
+         while(j<4 &&!temp[j].isEmpty()){
+                ConnectDB.exeQuery("select daily_rates, hourly_rates from equipment_fee where type = '"+temp[j]+"'");
                 if (ConnectDB.resultSet().next()) {
-                    EquipInfo.add("ski_rack");
+                    EquipInfo.add(temp[j]);
                     EquipInfo.add(ConnectDB.resultSet().getString(1));
                     EquipInfo.add(ConnectDB.resultSet().getString(2));
-                }
-                ConnectDB.clearResultSet();
-            }
-            if (!temp[0][1].isEmpty()) {
-                ConnectDB.exeQuery("select daily_rates, hourly_rates from equipment_fee where type = 'child_seat'");
-                if (ConnectDB.resultSet().next()) {
-                    EquipInfo.add("child_seat");
-                    EquipInfo.add(ConnectDB.resultSet().getString(1));
-                    EquipInfo.add(ConnectDB.resultSet().getString(2));
-                }
-                ConnectDB.clearResultSet();
-            }
-            if (!temp[0][2].isEmpty()) {
-                ConnectDB.exeQuery("select daily_rates, hourly_rates from equipment_fee where type = 'lift_gate'");
-                if (ConnectDB.resultSet().next()) {
-                    EquipInfo.add("lift_gate");
-                    EquipInfo.add(ConnectDB.resultSet().getString(1));
-                    EquipInfo.add(ConnectDB.resultSet().getString(2));
-                }
-                ConnectDB.clearResultSet();
-            }
-            if (!temp[0][3].isEmpty()) {
-                ConnectDB.exeQuery("select daily_rates, hourly_rates from equipment_fee where type = 'car_tow'");
-                if (ConnectDB.resultSet().next()) {
-                    EquipInfo.add("car_tow");
-                    EquipInfo.add(ConnectDB.resultSet().getString(1));
-                    EquipInfo.add(ConnectDB.resultSet().getString(2));
+                    EquipInfo.add(temp[j+1]);
+                    j++;
+                    j++;
                 }
                 ConnectDB.clearResultSet();
             }
@@ -388,22 +367,91 @@ public class Return {
         return  result;
     }
     
-//    public String getRedeemInfo(String Vin){
-////        try {
-////            //?? not efficient.....
-////            ConnectDB.exeQuery("select ME.points from member as ME, reserve as RE where RE.firstname = ME.firstname"
-////                    + "and RE.lastname = ME.lastname and ");
-////        } catch (ClassNotFoundException | SQLException | IOException ex) {
-////            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-//        
-//        
-//        
-//        
-//    }
+    //return an array (int), the first entry is the customer's points, the second entry is the days that he can redeem.
+    public int[] getRedeemInfo(String Vin){
+        String[] points = new String[2];
+        int[] points_int = new int[2];
+        int pointsEX = 0;
+        int mem_points = 0;
+        int daysEX = 0;
+        
+        String carType = "";
+        try {
+            //?? not efficient.....
+            ConnectDB.exeQuery("select ME.points from member as ME, reserve as RE where"
+                    + " vin = '"+Vin+"' and RE.customer_id = ME.member_id");
+            if (ConnectDB.resultSet().next()){
+                points[0] = ConnectDB.resultSet().getString(1);
+            }else{
+                JOptionPane.showMessageDialog(null, "The customer has not registered");
+            }
+         ConnectDB.clearResultSet();
+         
+         carType = getVechileType(Vin);
+         pointsEX = getVechilePointsEX(Vin);
+         mem_points = Integer.parseInt(points[0]);
+         daysEX = mem_points/pointsEX;
+         
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        points_int[0] = Integer.parseInt(points[0]);
+        points_int[1] = daysEX;
+        return points_int;
+    }
     
+    public String  getVechileType(String Vin){
+        String type = "";
+        try {
+            ConnectDB.exeQuery("select FL.category from reserve as RE, fleet as FL "
+                    + "where RE.vin = '"+Vin+"'");
+            if(ConnectDB.resultSet().next()){
+                type = ConnectDB.resultSet().getString(1);
+            }
+            ConnectDB.clearResultSet();
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Car type is "+type);
+        return type;
+    }
     
+     public int getVechilePointsEX(String Vin){
+        String pointsEx = "";
+        String type = getVechileType(Vin);
+        try {
+            ConnectDB.exeQuery("select points from points_exchange "
+                    + "where category = '"+type+"'");
+            if(ConnectDB.resultSet().next()){
+                pointsEx = ConnectDB.resultSet().getString(1);
+            }
+            ConnectDB.clearResultSet();
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return Integer.parseInt(pointsEx);
+    }
     
-    
+     // Function return the Staff id and branch id of the username.
+    public String[] getStaffInfo(String username){
+        String[] StaffInfo = new String[2];
+        StaffInfo[0] = "";
+        StaffInfo[1] = "";
+        
+        try {
+            ConnectDB.exeQuery("select staff_id, branch_id from Accounts where username = '"+username+"'");
+            if(ConnectDB.resultSet().next()){
+                StaffInfo[0] = ConnectDB.resultSet().getString(1);
+                StaffInfo[1] = ConnectDB.resultSet().getString(2);
+            }
+            ConnectDB.clearResultSet();
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return StaffInfo;
+    }
 }     
 
