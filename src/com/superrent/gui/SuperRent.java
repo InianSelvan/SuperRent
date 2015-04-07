@@ -182,15 +182,17 @@ public class SuperRent extends javax.swing.JFrame {
         streetAddField = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
+        provinceComboBox = new javax.swing.JComboBox();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        zipTextField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
+        phoneTextField = new javax.swing.JTextField();
         jCheckBox3 = new javax.swing.JCheckBox();
         jButton9 = new javax.swing.JButton();
+        cityTextField = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         userNamepanel = new javax.swing.JPanel();
         firstnameLbl = new javax.swing.JLabel();
@@ -710,30 +712,43 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel30.setText("Province*           :");
         jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 150, -1));
-
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        provinceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "On", "Qc", "Ns", "Nb", "Mb", "Bc", "Pe", "Sk", "Ab", "Nl", "Nt", "Yt", "Nu" }));
+        jPanel1.add(provinceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
 
         jLabel31.setText("City*   :");
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         jLabel32.setText("Zip Code*   :");
         jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
-        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 130, -1));
+
+        zipTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zipTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(zipTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 130, -1));
 
         jLabel33.setText("Phone No*         :");
         jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
+        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
 
         jCheckBox3.setText("Club Member");
         jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         jButton9.setText("Register");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+        jPanel1.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
 
-        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 1010, 350));
+        jLabel23.setText("email:");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
+
+        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
 
         ModulesTab.addTab("Manage Customer", manageCustomer);
 
@@ -2065,6 +2080,50 @@ public class SuperRent extends javax.swing.JFrame {
     private void ReturnCreditCard_jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCreditCard_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnCreditCard_jTextField1ActionPerformed
+
+    private void zipTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zipTextFieldActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        String firstName = cusFristNameField.getText();
+        String lastName = cusLastNameField.getText();
+        String address = streetAddField.getText();
+        String province = provinceComboBox.getSelectedItem().toString();
+        String city = cityTextField.getText();
+        String zip = zipTextField.getText();
+        String phone = phoneTextField.getText();
+        String email = emailTextField.getText();
+
+        if(!firstName.isEmpty() && !lastName.isEmpty() && !address.isEmpty()
+            && !province.isEmpty() && !city.isEmpty() && !zip.isEmpty()
+            && !phone.isEmpty() && !email.isEmpty()){
+
+            try {
+                ConnectDB.connect();
+                ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
+                //ConnectDB.clearResultSet();
+                //JOptionPane.showMessageDialog(null, "Customer Added!");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            } finally{
+                try {
+                    ConnectDB.clearResultSet();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Customer Added!");
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
         
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
@@ -2169,6 +2228,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel cardTypeLbl;
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
+    private javax.swing.JTextField cityTextField;
     private javax.swing.JRadioButton clerkRadio;
     private javax.swing.JTextField confirmationNoDisplayField;
     private javax.swing.JTextField cusFristNameField;
@@ -2183,6 +2243,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JSpinner dropoffMMSpin;
     private javax.swing.JTextField emailIdField;
     private javax.swing.JLabel emailIdLbl;
+    private javax.swing.JTextField emailTextField;
     private javax.swing.JList equipmentsList;
     private com.toedter.calendar.JDateChooser expDateCh;
     private javax.swing.JLabel expDateLbl;
@@ -2192,8 +2253,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2209,6 +2268,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -2253,8 +2313,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JPanel loginpanel;
@@ -2295,9 +2353,11 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel modulepane;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLbl;
+    private javax.swing.JTextField phoneTextField;
     private com.toedter.calendar.JDateChooser pickupDt;
     private javax.swing.JSpinner pickupHour;
     private javax.swing.JSpinner pickupMin;
+    private javax.swing.JComboBox provinceComboBox;
     private javax.swing.JTextField pwdField;
     private javax.swing.JButton removeBtn;
     private javax.swing.JButton removeEquipBtn;
@@ -2321,5 +2381,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel userNamepanel;
     private javax.swing.JComboBox vehicleCatCombo;
     private javax.swing.JComboBox vehicleTypeCombo;
+    private javax.swing.JTextField zipTextField;
     // End of variables declaration//GEN-END:variables
 }
