@@ -86,7 +86,7 @@ public class SuperRent extends javax.swing.JFrame {
         userField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         pwdField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        loginBtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         modulepane = new javax.swing.JPanel();
@@ -299,13 +299,13 @@ public class SuperRent extends javax.swing.JFrame {
         loginpanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
         loginpanel.add(pwdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 220, -1));
 
-        jButton1.setText("Employee Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginBtn.setText("Employee Login");
+        loginBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginBtnActionPerformed(evt);
             }
         });
-        loginpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 160, -1));
+        loginpanel.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 160, -1));
         loginpanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 340, 10));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -1365,25 +1365,27 @@ public class SuperRent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         try {
-
-            ConnectDB.exeQuery("select * from Accounts");
-
+            String username =userField.getText().toString();
+            String pass = pwdField.getText().toString();
+            
+            ConnectDB.exeQuery("select * from Accounts where username='"+username+"'");
+            
             while(ConnectDB.resultSet().next()){
-                crypt.decrypt("65YjRuwFzqjKJtu3lj+qeg==");
-                if( userField.getText().contains(ConnectDB.resultSet().getString("username")) & 
-                        pwdField.getText().contains(crypt.decrypt(ConnectDB.resultSet().getString("password").toString()))){
-                    
-                    CommonFunc.username = userField.getText(); // Yaoyao Added
-                    System.out.println("ER TRUE");
+                System.out.println(crypt.decrypt(ConnectDB.resultSet().getString("password").toString()));
+                if( username.contains(ConnectDB.resultSet().getString("username")) & 
+                        pass.contains(crypt.decrypt(ConnectDB.resultSet().getString("password").toString()))){
+
 
                   if(ConnectDB.resultSet().getString("role").contains("CLERK")){
-                      System.out.println("ITS TRUE");
-                      NewEmployee.setVisible(false);
-                      Reports.setVisible(false);
+                      
+
                       loginpanel.setVisible(false);
                       modulepane.setVisible(true);
+                      ModulesTab.setEnabledAt(4, false);
+                      ModulesTab.setEnabledAt(5, false);
+                      ModulesTab.setEnabledAt(6, false);
                   }else{
                       loginpanel.setVisible(false);
                       modulepane.setVisible(true);                      
@@ -1413,7 +1415,7 @@ public class SuperRent extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginBtnActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         try {
@@ -2545,7 +2547,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel expDateLbl;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2623,6 +2624,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
+    private javax.swing.JButton loginBtn;
     private javax.swing.JPanel loginpanel;
     private javax.swing.JPanel manageCustomer;
     private javax.swing.JPanel manageFleet;
