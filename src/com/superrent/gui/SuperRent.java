@@ -61,6 +61,10 @@ public class SuperRent extends javax.swing.JFrame {
 
         initRent();
         initReturn();
+
+        initEmployee();
+        //initReserve();
+
         initManageFleet();
         modulepane.setVisible(false);
 
@@ -206,12 +210,11 @@ public class SuperRent extends javax.swing.JFrame {
         emailIdField = new javax.swing.JTextField();
         passwordLbl = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        managerRadio = new javax.swing.JRadioButton();
-        clerkRadio = new javax.swing.JRadioButton();
         addEmployeeBtn = new javax.swing.JButton();
         branchIdCombo = new javax.swing.JComboBox();
         branchIdLbl = new javax.swing.JLabel();
         roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -266,6 +269,18 @@ public class SuperRent extends javax.swing.JFrame {
         mfset3Btn = new javax.swing.JButton();
         setforsaleBtn = new javax.swing.JButton();
         mfremoveBtn1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        managepointjpanel = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -813,24 +828,6 @@ public class SuperRent extends javax.swing.JFrame {
         NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
         NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
 
-        roleGroupRadio.add(managerRadio);
-        managerRadio.setText("Manager");
-        managerRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                managerRadioActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(managerRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
-
-        roleGroupRadio.add(clerkRadio);
-        clerkRadio.setText("Clerk");
-        clerkRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkRadioActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(clerkRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
-
         addEmployeeBtn.setText("Add Employee");
         addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -839,7 +836,6 @@ public class SuperRent extends javax.swing.JFrame {
         });
         NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
 
-        branchIdCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
 
         branchIdLbl.setText("Branch ID*      :");
@@ -847,6 +843,14 @@ public class SuperRent extends javax.swing.JFrame {
 
         roleLbl.setText("Role*            :");
         NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
 
         ModulesTab.addTab("New Employee", NewEmployee);
 
@@ -1153,6 +1157,122 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Manage Points");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("5.00");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jLabel52.setText("Dollors per point");
+
+        jLabel36.setText("Please enter the number of Points to redeem one day");
+
+        jTextField1.setText("1000");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel49.setText("premium or lower-ranking car");
+
+        jTextField3.setText("1500");
+
+        jLabel50.setText("Luxury car, SUV, van or truck");
+
+        jLabel51.setText("Please set the strategy of points");
+
+        jButton4.setText("Confirm");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Confirm");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout managepointjpanelLayout = new javax.swing.GroupLayout(managepointjpanel);
+        managepointjpanel.setLayout(managepointjpanelLayout);
+        managepointjpanelLayout.setHorizontalGroup(
+            managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(managepointjpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(managepointjpanelLayout.createSequentialGroup()
+                        .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(managepointjpanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(managepointjpanelLayout.createSequentialGroup()
+                                .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(managepointjpanelLayout.createSequentialGroup()
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel49))
+                                    .addGroup(managepointjpanelLayout.createSequentialGroup()
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel50)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(managepointjpanelLayout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel52)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managepointjpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
+            .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managepointjpanelLayout.createSequentialGroup()
+                    .addContainerGap(244, Short.MAX_VALUE)
+                    .addComponent(jButton5)
+                    .addGap(10, 10, 10)))
+        );
+        managepointjpanelLayout.setVerticalGroup(
+            managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(managepointjpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(managepointjpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(managepointjpanelLayout.createSequentialGroup()
+                    .addGap(39, 39, 39)
+                    .addComponent(jButton5)
+                    .addContainerGap(132, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout manageFleetLayout = new javax.swing.GroupLayout(manageFleet);
         manageFleet.setLayout(manageFleetLayout);
         manageFleetLayout.setHorizontalGroup(
@@ -1162,19 +1282,24 @@ public class SuperRent extends javax.swing.JFrame {
                 .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageFleetLayout.createSequentialGroup()
                         .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mfaddpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mfremovepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mfsetpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(managepointjpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageFleetLayout.createSequentialGroup()
+                        .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(manageFleetLayout.createSequentialGroup()
                                 .addGap(120, 120, 120)
                                 .addComponent(mfremoveBtn))
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mfremoveBtn1))
-                    .addGroup(manageFleetLayout.createSequentialGroup()
-                        .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mfaddpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mfremovepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mfsetpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(mfremoveBtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton6)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manageFleetLayout.setVerticalGroup(
             manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1183,7 +1308,8 @@ public class SuperRent extends javax.swing.JFrame {
                 .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(mfremoveBtn)
-                        .addComponent(mfremoveBtn1))
+                        .addComponent(mfremoveBtn1)
+                        .addComponent(jButton6))
                     .addComponent(jButton2))
                 .addGap(11, 11, 11)
                 .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1194,8 +1320,10 @@ public class SuperRent extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(mfsetpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(manageFleetLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(4, 4, 4)
+                        .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(managepointjpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         ModulesTab.addTab("Manage Fleet", manageFleet);
@@ -1243,7 +1371,7 @@ public class SuperRent extends javax.swing.JFrame {
             ConnectDB.exeQuery("select * from Accounts");
 
             while(ConnectDB.resultSet().next()){
-                
+                crypt.decrypt("65YjRuwFzqjKJtu3lj+qeg==");
                 if( userField.getText().contains(ConnectDB.resultSet().getString("username")) & 
                         pwdField.getText().contains(crypt.decrypt(ConnectDB.resultSet().getString("password").toString()))){
                     
@@ -1340,55 +1468,57 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailIdFieldActionPerformed
 
-    private void managerRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerRadioActionPerformed
-        if(managerRadio.isSelected()){
-            role = managerRadio.getText();
-        }
-    }//GEN-LAST:event_managerRadioActionPerformed
-
     private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
-//            
-//            String firstName = firstNameField.getText();
-//            String lastName = lastNameField.getText();
-//            String userName = userNameField.getText();
-//            String email = emailIdField.getText();
-//            //String password = en.encryptPwd(passwordField);
-//            String branchId = branchIdCombo.getSelectedItem().toString();
-//            int countusers = 0;
-////            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
-////                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
-////                try {
-////                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM USER WHERE USERNAME = '"+userName+"'");
-////                    while(ConnectDB.resultSet().next()){
-////                        System.out.println("**"+ConnectDB.resultSet().getString(1));
-////                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
-////                    }
-////                    System.out.println(role);
-////                    if(countusers==0){               
-////                        ConnectDB.exeUpdate("INSERT INTO `superrent`.`user` (`firstname`, `lastname`, `username`, `email`, `password`, `role`, `branch`, `location`) "
-////                            + "VALUES ('"+firstName+"', '"+lastName+"', '"+userName+"', '"+email+"', '"+password+"', '"+role+"', '"+branchId+"', 'Vancouver');");                    
-////                    }else{
-////                        JOptionPane.showMessageDialog(null, "This user name has been used already");
-////                    }
-//                    ConnectDB.clearResultSet();
-//                } catch (ClassNotFoundException ex) {
-//                    JOptionPane.showMessageDialog(null, ex);
-//                } catch (SQLException ex) {
-//                    JOptionPane.showMessageDialog(null, ex);
-//                } catch (IOException ex) {
-//                    JOptionPane.showMessageDialog(null, ex);
-//                }
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
-//            } 
+        try{
+            //Encrypt en = new Encrypt();
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = userNameField.getText();
+            String email = emailIdField.getText();
+            String password = crypt.encrypt(passwordField.getText().toString());
+            String branchId = branchIdCombo.getSelectedItem().toString();
+            String role = clerkComboBox.getSelectedItem().toString();;
+            int countusers = 0;
+            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
+                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+                try {
+                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
+                    while(ConnectDB.resultSet().next()){
+                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
+                    }
+                    System.out.println(role);
+                    if(countusers==0){               
+                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
+//                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "This user name has been used already");
+                    }
+                    ConnectDB.clearResultSet();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    try {
+                        ConnectDB.clearResultSet();
+                    } catch (SQLException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                JOptionPane.showMessageDialog(null, "Employee Created!");
+                }
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+            } 
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
             
     }//GEN-LAST:event_addEmployeeBtnActionPerformed
-
-    private void clerkRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkRadioActionPerformed
-        if(clerkRadio.isSelected()){
-            role = clerkRadio.getText();
-        }
-    }//GEN-LAST:event_clerkRadioActionPerformed
 
     private void ModulesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModulesTabMouseClicked
 
@@ -1594,6 +1724,7 @@ public class SuperRent extends javax.swing.JFrame {
         jScrollPane7.setVisible(false);
         // removeBtn.setVisible(false);
         mfsetpanel.setVisible(false);
+        managepointjpanel.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void mfremoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtnActionPerformed
@@ -1602,6 +1733,7 @@ public class SuperRent extends javax.swing.JFrame {
         mfaddpanel.setVisible(false);
         mfsetpanel.setVisible(false);
         jScrollPane7.setVisible(true);
+        managepointjpanel.setVisible(false);
         mf.settable(0,null, null, null,mfremoveTable);
     }//GEN-LAST:event_mfremoveBtnActionPerformed
 
@@ -1615,45 +1747,79 @@ public class SuperRent extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:{
                 String category = null;
-                if(mfcartypeCombo.getSelectedItem()!= null){
+                if(!mfcartypeCombo.getSelectedItem().toString().isEmpty()){
                     category = mfcartypeCombo.getSelectedItem().toString();
                 }
+                else mf.showerror("car type cannot be empty");
+                
                 String maker = null;
-                if(mfmanufacturerCombo.getSelectedItem()!= null){
+                
+                if(!mfmanufacturerCombo.getSelectedItem().toString().isEmpty()){
                     maker = mfmanufacturerCombo.getSelectedItem().toString();
                 }
+                
+                if(mfmanufacturerCombo.getSelectedItem()=="other"){
+                    if(!mfothermnfTextField.getText().toString().isEmpty())
+                        maker = mfothermnfTextField.getText().toString();
+                    else mf.showerror("manufacturer cannot be empty");
+                }
+          
+                
+                
+                
                 String model = null;
-                if(mfmodelTextField.getText()!=null){
+                if(!mfmodelTextField.getText().toString().isEmpty()){
                     model = mfmodelTextField.getText();
                 }
+                else  {
+//                    System.out.println(mfmodelTextField.getText());
+                    mf.showerror("please fill in the model");
+                }
+                
+                
                 String branch = null;
-                if(mfbranchCombo.getSelectedItem()!=null){
+                if(!mfbranchCombo.getSelectedItem().toString().isEmpty()){
                     branch = mfbranchCombo.getSelectedItem().toString(); //category, car_or_truck, branc
                 }
+                else mf.showerror("please fill branch ID");
                 int branch_id = Integer.parseInt(branch);
+                
                 String car_or_truck = null;
                 if(mfcarCheckBox.isSelected()){
                     car_or_truck = "car";
                 }else if(mftruckCheckBox.isSelected()){
                     car_or_truck = "truck";
                 }
+                
                 String year = null;
-                if(mfyearTextField.getText() != null){
+                if(!mfyearTextField.getText().isEmpty()){
                     year = mfyearTextField.getText();
                 }
+                else mf.showerror("please fill in year");
+                
                 String oto = null;
-                if(mfotoTextField.getText() != null){
+                if(!mfotoTextField.getText().isEmpty()){
                     oto = mfotoTextField.getText();
                 }
+                else mf.showerror("please fill in otometer");
                 double otometer = Double.parseDouble(oto);
+                
+                
                 String color = null;
                 if(mfcolorCombo.getSelectedItem()!= null){
                     color = mfcolorCombo.getSelectedItem().toString();
                 }
+                if(mfcolorCombo.getSelectedItem()=="other"){
+                    if(!mfotherclTextField.getText().toString().isEmpty())
+                    color = mfotherclTextField.getText().toString();
+                    else mf.showerror("please fill in the color");
+                    
+                }
                 String vin = null;
-                if(mfvinTextField.getText() != null){
+                if(!mfvinTextField.getText().isEmpty()){
                     vin = mfvinTextField.getText();
                 }
+                else mf.showerror("please fill in vin");
                 // String SQL =
                 PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO fleet (category, car_or_truck, branch_id,year, odometer,color, maker, model, doors, status, description,vin) VALUES (?, ?, ?, ? ,?, ?, ?,?, 4, ?,?,?);");
                 ps.setString(1, category);
@@ -1676,6 +1842,7 @@ public class SuperRent extends javax.swing.JFrame {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
+        mf.showerror("Added succefully!");
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void mfcarCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBoxActionPerformed
@@ -1791,6 +1958,7 @@ public class SuperRent extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        mf.showerror("Remove succefully!");
     }//GEN-LAST:event_removeBtnActionPerformed
 
     private void setforrentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforrentBtnActionPerformed
@@ -1807,6 +1975,7 @@ public class SuperRent extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        mf.showerror("back to rent succefully!");
     }//GEN-LAST:event_setforrentBtnActionPerformed
 
     private void mfsetcartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetcartypeComboActionPerformed
@@ -1890,6 +2059,8 @@ public class SuperRent extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        
+        mf.showerror("Set for sale succefully!");
     }//GEN-LAST:event_setforsaleBtnActionPerformed
 
     private void mfremoveBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtn1ActionPerformed
@@ -1898,6 +2069,7 @@ public class SuperRent extends javax.swing.JFrame {
         mfremovepanel.setVisible(false);
         mfaddpanel.setVisible(false);
         jScrollPane7.setVisible(true);
+        managepointjpanel.setVisible(false);
         mf2.settable(0,null, null, null,mfremoveTable);
     }//GEN-LAST:event_mfremoveBtn1ActionPerformed
 
@@ -2169,6 +2341,7 @@ public class SuperRent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             int count = rent.validateConfirmationNo(rentConfirmationNO);
@@ -2185,6 +2358,52 @@ public class SuperRent extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clerkComboBoxActionPerformed
+
+
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            // TODO add your handling code here:
+            mf.changepoint( Double.parseDouble(jTextField2.getText()));
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        mf.showerror("Confirmed!");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int i = Integer.parseInt(jTextField1.getText());
+        int j = Integer.parseInt(jTextField3.getText());
+        try {
+            mf.managepoint(i,j);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mf.showerror("Confirmed!");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
         
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
@@ -2195,6 +2414,12 @@ public class SuperRent extends javax.swing.JFrame {
        
     }
    
+    private void initEmployee() throws ClassNotFoundException, SQLException, IOException{
+
+       rt.fillBranchIDCombo(branchIdCombo);
+       
+    }
+    
     private void initReturn() throws ClassNotFoundException, SQLException, IOException{
         ReturnTimeHH_jSpinner1.setValue(now.get(Calendar.HOUR_OF_DAY));
         ReturnDate_jDateChooser3.setDate(now.getTime()); 
@@ -2218,6 +2443,8 @@ public class SuperRent extends javax.swing.JFrame {
         mfremovepanel.setVisible(false);
         mfsetpanel.setVisible(false);
         jScrollPane7.setVisible(false);
+        managepointjpanel.setVisible(false);
+        
         mf.fillManufacturer(mfmanufacturerCombo);
         mf.fillBranch(mfbranchCombo);
         mf.fillColor(mfcolorCombo);
@@ -2244,7 +2471,11 @@ public class SuperRent extends javax.swing.JFrame {
     Calendar now = Calendar.getInstance();
     private Reserve rt = new Reserve();
     private String role;
+
     private Rent rent = new Rent();
+
+    // Alex added
+
     // Yaoyao added
     private Return MyReturn = new Return();
     private ArrayList<String> equipSelected = new ArrayList<String>();
@@ -2293,7 +2524,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
     private javax.swing.JTextField cityTextField;
-    private javax.swing.JRadioButton clerkRadio;
+    private javax.swing.JComboBox clerkComboBox;
     private javax.swing.JTextField confirmationNoDisplayField;
     private javax.swing.JTextField cusFristNameField;
     private javax.swing.JTextField cusLastNameField;
@@ -2317,6 +2548,9 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
@@ -2348,6 +2582,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -2361,7 +2596,11 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2379,12 +2618,15 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JPanel loginpanel;
     private javax.swing.JPanel manageCustomer;
     private javax.swing.JPanel manageFleet;
-    private javax.swing.JRadioButton managerRadio;
+    private javax.swing.JPanel managepointjpanel;
     private javax.swing.JPanel mfaddpanel;
     private javax.swing.JComboBox mfbranchCombo;
     private javax.swing.JCheckBox mfcarCheckBox;
