@@ -503,14 +503,14 @@ public class SuperRent extends javax.swing.JFrame {
         returnVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ReturnCustomerPnobeNum_jLabel9.setText("Vin* :");
-        returnVehicles.add(ReturnCustomerPnobeNum_jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 32, -1, -1));
+        returnVehicles.add(ReturnCustomerPnobeNum_jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         ReturnVin_jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReturnVin_jTextField8ActionPerformed(evt);
             }
         });
-        returnVehicles.add(ReturnVin_jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 26, 180, -1));
+        returnVehicles.add(ReturnVin_jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 180, -1));
 
         ReturnDate_jLabel19.setText("Return Date* :");
         returnVehicles.add(ReturnDate_jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 106, -1, -1));
@@ -543,7 +543,7 @@ public class SuperRent extends javax.swing.JFrame {
                 ReturnCalculate_jButton6ActionPerformed(evt);
             }
         });
-        returnVehicles.add(ReturnCalculate_jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 96, 145, -1));
+        returnVehicles.add(ReturnCalculate_jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 145, -1));
 
         ReturnCheckOverDueDis_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -586,7 +586,7 @@ public class SuperRent extends javax.swing.JFrame {
                 ReturnCheck_jButton2ActionPerformed(evt);
             }
         });
-        returnVehicles.add(ReturnCheck_jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 27, 145, -1));
+        returnVehicles.add(ReturnCheck_jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 145, -1));
 
         ReturnFuelReading_jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -608,17 +608,17 @@ public class SuperRent extends javax.swing.JFrame {
 
         ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Confirmation No", "First Name", "Last Name", "Vin", "Status"
+                "Confirmation No", "First Name", "Last Name", "Phone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -627,8 +627,9 @@ public class SuperRent extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(ReturnDisplay_jTable2);
 
-        returnVehicles.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 26, 710, 57));
+        returnVehicles.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 710, 40));
 
+        ReturnDisplayFee_jTable2.setFont(new java.awt.Font("Lucida Console", 0, 15)); // NOI18N
         ReturnDisplayFee_jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -651,7 +652,7 @@ public class SuperRent extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(ReturnDisplayFee_jTable2);
 
-        returnVehicles.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 131, 710, 272));
+        returnVehicles.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 53, 880, 350));
 
         ReturnRedeem_jCheckBox1.setText("Reedem");
         ReturnRedeem_jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -672,7 +673,7 @@ public class SuperRent extends javax.swing.JFrame {
                 ReturnPay_jButton2ActionPerformed(evt);
             }
         });
-        returnVehicles.add(ReturnPay_jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 560, 145, -1));
+        returnVehicles.add(ReturnPay_jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 570, 145, -1));
 
         ReturnCreditCard_jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1222,6 +1223,7 @@ public class SuperRent extends javax.swing.JFrame {
                 if( userField.getText().contains(ConnectDB.resultSet().getString("username")) && 
                         pwdField.getText().contains(ConnectDB.resultSet().getString("password"))){
                     System.out.println("Login success");
+                    CommonFunc.username = userField.getText(); // Yaoyao Added
                     loginpanel.setVisible(false);
                     modulepane.setVisible(true);
                 }else{
@@ -1881,8 +1883,8 @@ public class SuperRent extends javax.swing.JFrame {
                         "Entry" , "Details","Cost"
                     }));
                     TableColumn firsetColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(0);
-                    firsetColumn.setMaxWidth(150);
-                    firsetColumn.setMinWidth(150);
+                    firsetColumn.setMaxWidth(200);
+                    firsetColumn.setMinWidth(200);
                     //            TableColumn SecColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(1);
                     //            SecColumn.setMinWidth(200);
                     TableColumn ThirdColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(2);
@@ -1906,10 +1908,19 @@ public class SuperRent extends javax.swing.JFrame {
     private void ReturnCheck_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCheck_jButton2ActionPerformed
         // TODO add your handling code here:
         String vin = ReturnVin_jTextField8.getText();
+        String[][] ReserInfo = new String[1][7];
+        ReserInfo = Return.getResrInfo(vin);
+        
+        String[][] InfoDisplay = new String[1][4];
+        InfoDisplay[0][0] = ReserInfo[0][0];
+        InfoDisplay[0][1] = ReserInfo[0][4];
+        InfoDisplay[0][2] = ReserInfo[0][5];
+        InfoDisplay[0][3] = ReserInfo[0][6];
+        
         if (!vin.isEmpty()){
-            ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel (MyReturn.getResrInfo(vin),
+            ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel (InfoDisplay,
                 new String[]{
-                    "Confirmation No" , "Customer ID", "Vin", "Status"
+                    "Confirmation No" , "First Name", "Last Name", "Phone"
                 }))
                 ;
 
@@ -1959,7 +1970,7 @@ public class SuperRent extends javax.swing.JFrame {
             RoadStar = ReturnRoadStar_jCheckBox2.isSelected();
             Reedeem = ReturnRedeem_jCheckBox1.isSelected();
             try {
-                String[][] ReserInfo = new String[1][4];
+                String[][] ReserInfo = new String[1][7];
                 ReserInfo=Return.getResrInfo(vin);
                 car_status = ReserInfo[0][3];
                 confirmationID = ReserInfo[0][0];
@@ -1996,11 +2007,10 @@ public class SuperRent extends javax.swing.JFrame {
                     staff_id = MyReturn.getStaffInfo(username)[0];
                     branch_id = MyReturn.getStaffInfo(username)[1];
 
-                    //update reserve table.
+                    
                     Date dropOffDate_upd = CommonFunc.changeDateFormat(ReturnDate_jDateChooser3);
                     String dropOffTime = CommonFunc.sqlTime(ReturnTimeHH_jSpinner1, ReturnTimeMM_jSpinner1);
-                    ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
-                    ConnectDB.clearResultSet();
+                    
 
                     //update fleet table.
                     ConnectDB.exeUpdate("update fleet set odometer = '"+ReturnOdometer_jTextField9.getText()+"', branch_id = '"+branch_id+"'"
@@ -2022,8 +2032,8 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.exeUpdate("insert into dropoff (confirmation_no, passed_odometer, gas_rate, gas_not_filled_by_liter, road_star)"
                         + "values ('"+confirmationID+"','"+OdeReading+"','"+FeeRate[7]+"','"+FuelReading+"',"+RoadStar+")");
                     ConnectDB.clearResultSet();
+                    
                     //update member table: points
-
                     int pointsEX = MyReturn.getVechilePointsEX(vin);
                     int[] pointsInfo = MyReturn.getRedeemInfo(vin);
                     int remainPoints = pointsInfo[0] - pointsEX*pointsInfo[1] + (int)(Double.parseDouble(CalcuResult[14][2])/5);
@@ -2038,19 +2048,23 @@ public class SuperRent extends javax.swing.JFrame {
                     if(equ_length == 4){
                         int equ_pre_num = MyReturn.getEquipNum(EquipInfo[0], branch_id);
                         ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[3]))+"' "
-                            + "where equipment_type = '"+EquipInfo[0]+"'");
+                            + "where equipment_type = '"+EquipInfo[0]+"' and branch_id = '"+branch_id+"'");
                         ConnectDB.clearResultSet();
                     }else if(equ_length==8){
                         int equ_pre_num = MyReturn.getEquipNum(EquipInfo[0], branch_id);
                         ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[3]))+"' "
-                            + "where equipment_type = '"+EquipInfo[0]+"'");
+                            + "where equipment_type = '"+EquipInfo[0]+"' and branch_id = '"+branch_id+"'");
                         ConnectDB.clearResultSet();
 
                         equ_pre_num = MyReturn.getEquipNum(EquipInfo[4], branch_id);
                         ConnectDB.exeUpdate("update equipment set Units = '"+(equ_pre_num + Integer.parseInt(EquipInfo[7]))+"' "
-                            + "where equipment_type = '"+EquipInfo[4]+"'");
+                            + "where equipment_type = '"+EquipInfo[4]+"' and branch_id = '"+branch_id+"'");
                         ConnectDB.clearResultSet();
                     }
+                    
+                    //update reserve table
+                    ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
+                    ConnectDB.clearResultSet();
 
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);

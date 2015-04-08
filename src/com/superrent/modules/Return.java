@@ -75,7 +75,7 @@ public class Return {
 //    
     
     public static String[][] getResrInfo(String vin){
-          String[][] ReserInfo = new String [1][4];
+          String[][] ReserInfo = new String [1][7];
         try {
        //int  IntFleetID = Integer.parseInt(vin);
         ConnectDB.exeQuery("select confirmation_no, customer_id, vin, status from reserve where vin ='" +vin+ "'"
@@ -90,6 +90,13 @@ public class Return {
         }
         ConnectDB.clearResultSet();
         
+        ConnectDB.exeQuery("select firstname, lastname, phone from customer where customer_id = '"+ReserInfo[0][1]+"'");
+        if(ConnectDB.resultSet().next()){
+            for(int i =1; i<4 ; i++){
+                ReserInfo[0][i+3] = ConnectDB.resultSet().getString(i);
+            }
+        }
+        ConnectDB.clearResultSet();
           }catch (ClassNotFoundException | SQLException | IOException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -189,22 +196,25 @@ public class Return {
             String[][] DisplayFee = new String[15][3];
 
             DisplayFee[0][0] = "Normal:";
-            DisplayFee[0][1] = "Weeks: " + Double.parseDouble(FeeRate[0]) + " x " + num_weeks
-                    + ". Days: " + Double.parseDouble(FeeRate[1]) + " x " + num_days + ". Hours: " + Double.parseDouble(FeeRate[2]) + " x " + num_hours;
+            DisplayFee[0][1] = Double.parseDouble(FeeRate[0]) + " x " + num_weeks
+                    + "W " + Double.parseDouble(FeeRate[1]) + " x " + num_days + "D " + Double.parseDouble(FeeRate[2]) + " x " + num_hours+"H.";
             tempFee = ((Double.parseDouble(FeeRate[0]) * num_weeks) + (Double.parseDouble(FeeRate[1]) * num_days) + (Double.parseDouble(FeeRate[2]) * num_hours));
             DisplayFee[0][2] = "" + tempFee;
             totalFee += tempFee;
             
             if (NumHour_OverDue > 0) {
-                DisplayFee[1][0] = "Over Due:";
-                DisplayFee[1][1] = "Hours:" + NumHour_OverDue + " x " + Double.parseDouble(FeeRate[2]);
+                DisplayFee[1][0] = "(Over Due):";
+                DisplayFee[1][1] = NumHour_OverDue + " x " + Double.parseDouble(FeeRate[2])+"H.";
                 DisplayFee[1][2] = "" + NumHour_OverDue * Double.parseDouble(FeeRate[2]);
                 totalFee += NumHour_OverDue * Double.parseDouble(FeeRate[2]);
             }
-
+            
+            num_weeks = getNumberofWeeks(Pickup_Date_Date, Drop);
+            num_days = getNumberofDays(Pickup_Date_Date, Drop) - 7 * num_weeks;
+            num_hours = getNumberofhours(Pickup_Date_Date, Drop) - 24 * num_days - 24 * 7 * num_weeks;
             DisplayFee[2][0] = "Insurance:";
-            DisplayFee[2][1] = "Weeks: " + Double.parseDouble(FeeRate[3]) + " x " + num_weeks
-                    + ". Days: " + Double.parseDouble(FeeRate[4]) + " x " + num_days + ". Hours: " + Double.parseDouble(FeeRate[5]) + " x " + num_hours;
+            DisplayFee[2][1] = Double.parseDouble(FeeRate[3]) + " x " + num_weeks
+                    + "W " + Double.parseDouble(FeeRate[4]) + " x " + num_days + "D " + Double.parseDouble(FeeRate[5]) + " x " + num_hours+"H.";
             InsuranceFee = ((Double.parseDouble(FeeRate[3]) * num_weeks) + (Double.parseDouble(FeeRate[4]) * num_days) + (Double.parseDouble(FeeRate[5]) * num_hours));
             DisplayFee[2][2] = "" + InsuranceFee;
              totalFee += InsuranceFee;
@@ -214,22 +224,24 @@ public class Return {
             String[] EquipInfo = new String[equ_length];
             EquipInfo = getEquipInfo(Vin);
             
+            num_days = getNumberofDays(Pickup_Date_Date, Drop);
+            num_hours = getNumberofhours(Pickup_Date_Date, Drop) - 24 * num_days;
             DisplayFee[4][0] = "Equipment:";
             if(equ_length == 0){
                 DisplayFee[4][1] = "NA";
             }else if(equ_length == 4){
-                DisplayFee[4][1] = "("+EquipInfo[0] + ": "+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours+") x " + EquipInfo[3];
+                DisplayFee[4][1] = "("+EquipInfo[0] + ": "+ EquipInfo[1]+" x "+num_days+"D + "+EquipInfo[2]+" x "+num_hours+"H ) x " + EquipInfo[3];
                 tempFee = (Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours)*Double.parseDouble(EquipInfo[3]);
                 DisplayFee[4][2] =""+ tempFee;
                 totalFee +=tempFee;
                 
             }else if(equ_length==8){
-                         DisplayFee[4][1] = EquipInfo[0] + ": ("+ EquipInfo[1]+" x "+num_days+" + "+EquipInfo[2]+" x "+num_hours+") x " + EquipInfo[3];
+                         DisplayFee[4][1] = EquipInfo[0] + ": ("+ EquipInfo[1]+" x "+num_days+"D + "+EquipInfo[2]+" x "+num_hours+"H ) x " + EquipInfo[3];
                 tempFee = (Double.parseDouble(EquipInfo[1])*num_days+Double.parseDouble(EquipInfo[2])*num_hours)*Double.parseDouble(EquipInfo[3]);
                 DisplayFee[4][2] =""+ tempFee;
                 totalFee +=tempFee;
                 
-                DisplayFee[5][1] = EquipInfo[4] + ": ("+ EquipInfo[5]+" x "+num_days+" + "+EquipInfo[6]+" x "+num_hours+") x " + EquipInfo[7];
+                DisplayFee[5][1] = EquipInfo[4] + ": ("+ EquipInfo[5]+" x "+num_days+"D + "+EquipInfo[6]+" x "+num_hours+"H ) x " + EquipInfo[7];
                 tempFee = (Double.parseDouble(EquipInfo[5])*num_days+Double.parseDouble(EquipInfo[6])*num_hours)*Double.parseDouble(EquipInfo[7]);
                 DisplayFee[5][2] =""+ tempFee;
                 totalFee +=tempFee;
@@ -242,7 +254,7 @@ public class Return {
              totalFee += tempFee;
 
             DisplayFee[8][0] = "Extended Distance: ";
-            DisplayFee[8][1] = "" + DistanceRate + " x " + getExtendedDistance(Vin, Distance);
+            DisplayFee[8][1] = "" + DistanceRate + " x " + getExtendedDistance(Vin, Distance)+"Miles";
             tempFee = getExtendedDistance(Vin, Distance) * Double.parseDouble(DistanceRate);
             DisplayFee[8][2] = "" + tempFee;
             totalFee +=tempFee;
@@ -251,7 +263,7 @@ public class Return {
             if(Reedem){
                 int[] reedemInfo =new int[3];
                reedemInfo = getRedeemInfo(Vin);
-            DisplayFee[10][1] = "You have: "+reedemInfo[0]+" points, and you can reedem "+reedemInfo[1]+" days";
+            DisplayFee[10][1] = "You have: "+reedemInfo[0]+" points, and you can reedem "+reedemInfo[1]+" D";
              tempFee = reedemInfo[1]*Double.parseDouble(FeeRate[1]);
             DisplayFee[10][2] = "-"+tempFee;
              totalFee -= tempFee;
