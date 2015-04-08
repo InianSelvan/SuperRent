@@ -60,6 +60,7 @@ public class SuperRent extends javax.swing.JFrame {
 
         initRent();
         initReturn();
+        initEmployee();
         //initReserve();
         
 
@@ -205,12 +206,11 @@ public class SuperRent extends javax.swing.JFrame {
         emailIdField = new javax.swing.JTextField();
         passwordLbl = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
-        managerRadio = new javax.swing.JRadioButton();
-        clerkRadio = new javax.swing.JRadioButton();
         addEmployeeBtn = new javax.swing.JButton();
         branchIdCombo = new javax.swing.JComboBox();
         branchIdLbl = new javax.swing.JLabel();
         roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -800,24 +800,6 @@ public class SuperRent extends javax.swing.JFrame {
         userNamepanel.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
         userNamepanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
 
-        roleGroupRadio.add(managerRadio);
-        managerRadio.setText("Manager");
-        managerRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                managerRadioActionPerformed(evt);
-            }
-        });
-        userNamepanel.add(managerRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
-
-        roleGroupRadio.add(clerkRadio);
-        clerkRadio.setText("Clerk");
-        clerkRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkRadioActionPerformed(evt);
-            }
-        });
-        userNamepanel.add(clerkRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
-
         addEmployeeBtn.setText("Add Employee");
         addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -826,7 +808,6 @@ public class SuperRent extends javax.swing.JFrame {
         });
         userNamepanel.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
 
-        branchIdCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         userNamepanel.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
 
         branchIdLbl.setText("Branch ID*      :");
@@ -834,6 +815,14 @@ public class SuperRent extends javax.swing.JFrame {
 
         roleLbl.setText("Role*            :");
         userNamepanel.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        userNamepanel.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
 
         ModulesTab.addTab("New Employee", userNamepanel);
 
@@ -1313,12 +1302,6 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailIdFieldActionPerformed
 
-    private void managerRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerRadioActionPerformed
-        if(managerRadio.isSelected()){
-            role = managerRadio.getText();
-        }
-    }//GEN-LAST:event_managerRadioActionPerformed
-
     private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
             Encrypt en = new Encrypt();
             String firstName = firstNameField.getText();
@@ -1327,19 +1310,21 @@ public class SuperRent extends javax.swing.JFrame {
             String email = emailIdField.getText();
             String password = en.encryptPwd(passwordField);
             String branchId = branchIdCombo.getSelectedItem().toString();
+            String role = clerkComboBox.getSelectedItem().toString();;
             int countusers = 0;
             if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
                     && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
                 try {
-                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM USER WHERE USERNAME = '"+userName+"'");
+                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
                     while(ConnectDB.resultSet().next()){
                         System.out.println("**"+ConnectDB.resultSet().getString(1));
                         countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
                     }
                     System.out.println(role);
                     if(countusers==0){               
-                        ConnectDB.exeUpdate("INSERT INTO `superrent`.`user` (`firstname`, `lastname`, `username`, `email`, `password`, `role`, `branch`, `location`) "
-                            + "VALUES ('"+firstName+"', '"+lastName+"', '"+userName+"', '"+email+"', '"+password+"', '"+role+"', '"+branchId+"', 'Vancouver');");                    
+                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
+//                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
+                        
                     }else{
                         JOptionPane.showMessageDialog(null, "This user name has been used already");
                     }
@@ -1356,12 +1341,6 @@ public class SuperRent extends javax.swing.JFrame {
             } 
             
     }//GEN-LAST:event_addEmployeeBtnActionPerformed
-
-    private void clerkRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkRadioActionPerformed
-        if(clerkRadio.isSelected()){
-            role = clerkRadio.getText();
-        }
-    }//GEN-LAST:event_clerkRadioActionPerformed
 
     private void ModulesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModulesTabMouseClicked
 
@@ -2138,6 +2117,10 @@ public class SuperRent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clerkComboBoxActionPerformed
         
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
@@ -2148,6 +2131,12 @@ public class SuperRent extends javax.swing.JFrame {
        
     }
    
+    private void initEmployee() throws ClassNotFoundException, SQLException, IOException{
+
+       rt.fillBranchIDCombo(branchIdCombo);
+       
+    }
+    
     private void initReturn() throws ClassNotFoundException, SQLException, IOException{
         ReturnTimeHH_jSpinner1.setValue(now.get(Calendar.HOUR_OF_DAY));
         ReturnDate_jDateChooser3.setDate(now.getTime()); 
@@ -2197,6 +2186,7 @@ public class SuperRent extends javax.swing.JFrame {
     Calendar now = Calendar.getInstance();
     private Reserve rt = new Reserve();
     private String role;
+    // Alex added
     // Yaoyao added
     private Return MyReturn = new Return();
     private ArrayList<String> equipSelected = new ArrayList<String>();
@@ -2243,7 +2233,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField ccNumField;
     private javax.swing.JLabel ccNumLbl;
     private javax.swing.JTextField cityTextField;
-    private javax.swing.JRadioButton clerkRadio;
+    private javax.swing.JComboBox clerkComboBox;
     private javax.swing.JTextField confirmationNoDisplayField;
     private javax.swing.JTextField cusFristNameField;
     private javax.swing.JTextField cusLastNameField;
@@ -2332,7 +2322,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JPanel loginpanel;
     private javax.swing.JPanel manageCustomer;
     private javax.swing.JPanel manageFleet;
-    private javax.swing.JRadioButton managerRadio;
     private javax.swing.JPanel mfaddpanel;
     private javax.swing.JComboBox mfbranchCombo;
     private javax.swing.JCheckBox mfcarCheckBox;
