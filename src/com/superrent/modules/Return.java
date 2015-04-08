@@ -162,6 +162,17 @@ public class Return {
         return OverDueInfo;
     }
 
+    public int getEstimateFee(String Vin, Date drop){
+        String totalFee = "";
+   
+        try {
+            totalFee = getCalculateFee(null, false, "0", "0", false, drop)[14][2];
+        } catch (ParseException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return  Integer.parseInt(totalFee);
+    }
+    
     public String[][] getCalculateFee(String Vin, boolean roadStar, String Fuel, String Distance, boolean Reedem, Date Drop) throws ParseException {
 
         if (!Vin.isEmpty()) {
