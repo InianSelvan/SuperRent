@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -198,5 +199,25 @@ public class ManageFleet {
             //System.out.println(info[i]);
         }
         ConnectDB.exeUpdate("update fleet set status = 'rent' where vin='"+info[0]+"'");
+    }
+    
+    
+    public void showerror(String s){
+        JOptionPane.showMessageDialog(null, s);
+    }
+    
+    public void changepoint(double cash) throws ClassNotFoundException, IOException, SQLException{
+        ConnectDB.exeUpdate("update cash_points set cash = "+cash);
+        ConnectDB.exeUpdate("update cash_points set points = 1");
+        
+    }
+
+    public void managepoint(int i, int j) throws ClassNotFoundException, SQLException, IOException {
+        System.out.println(i);
+        ConnectDB.exeUpdate("update points_exchange set points ="+i+" where category = 'Economy'  OR category = 'Compact' OR category = 'Mid-size' OR category = 'Standard' OR category = 'Full-size' OR category = 'Mid-size' OR category = 'Standard' OR category = 'Premium'   ");
+        
+             ConnectDB.exeUpdate("update points_exchange set points ="+j+" where category = '24-foot'  OR category = '15-foot' OR category = '12-foot' OR category = 'Box-Trucks' OR category = 'Cargo-Vans' OR category = 'Luxury' OR category = 'SUV'  OR category = 'Van'  ");
+       
+      //  ConnectDB.exeUpdate("update points_exchange set points = "+j+"where");
     }
 }
