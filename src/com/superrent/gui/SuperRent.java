@@ -1335,7 +1335,15 @@ public class SuperRent extends javax.swing.JFrame {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    try {
+                        ConnectDB.clearResultSet();
+                    } catch (SQLException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                JOptionPane.showMessageDialog(null, "Employee Created!");
                 }
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
             } 
