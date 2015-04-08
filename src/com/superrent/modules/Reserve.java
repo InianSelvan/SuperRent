@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 package com.superrent.modules;
-
+ 
 import com.superrent.DataBase.ConnectDB;
 import com.superrent.gui.SuperRent;
+import com.toedter.calendar.JDateChooser;
 import java.io.IOException;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -97,6 +99,8 @@ public class Reserve {
             return cusID;
         }
     }
+    
+
         
     public static long genUniqueID(){
         Calendar now = Calendar.getInstance();
@@ -110,14 +114,18 @@ public class Reserve {
         return Long.valueOf(random);
     }
 
-    public DefaultTableModel getAvailableVehicles(String vehicleCat, int branchId, String VehicleType) throws ClassNotFoundException, SQLException, IOException{
+    public DefaultTableModel getAvailableVehicles(String vehicleCat, int branchId, String VehicleType, Date pickup, Date dropoff) throws ClassNotFoundException, SQLException, IOException{
         int num = countAvailableVehicles(vehicleCat, branchId, VehicleType);
         String[][] VehicleInfo=null;
         String[] col = new String[5];
         
         try{
-            ConnectDB.exeQuery("select v.vin, v.category, v.color, v.doors, v.branch_id  from fleet as v where vin not in\n" +
-                               "(select vin from reserve where status = 'reserved' or status = 'rented' ) and branch_id ='"+branchId+"' and category = '"+vehicleCat+"' and car_or_truck = '"+VehicleType+"'");
+            ConnectDB.exeQuery("select v.vin, v.category, v.color, v.doors, v.branch_id  from fleet as v where vin not in (select vin from reserve where \n" +
+                "(('"+pickup+"' < pickup_time and  '"+dropoff+"' < dropoff_time) or \n" +
+                "('"+pickup+"'<dropoff_time and '"+dropoff+"' < dropoff_time) or\n" +
+                "('"+pickup+"' < dropoff_time and '"+dropoff+"' > dropoff_time) or\n" +
+                "('"+pickup+"' < pickup_time and '"+dropoff+"' > dropoff_time)) and \n" +
+                "(status = 'reserved' or status = 'rented')) and branch_id ='"+branchId+"' and category='"+vehicleCat+"' and car_or_truck = '"+VehicleType+"' ");
 
         
         ResultSetMetaData md = ConnectDB.resultSet().getMetaData();

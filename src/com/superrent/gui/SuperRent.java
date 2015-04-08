@@ -7,13 +7,14 @@ package com.superrent.gui;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack;
 import com.superrent.DataBase.ConnectDB;
-import com.superrent.modules.Encrypt;
+
 import com.superrent.modules.CommonFunc;
 import com.superrent.modules.ManageFleet;
 import com.superrent.modules.Rent;
 import com.superrent.modules.Reserve;
 
 import com.superrent.modules.Return;
+import com.superrent.modules.crypt;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 
@@ -32,6 +33,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.IllegalBlockSizeException;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -56,15 +58,11 @@ public class SuperRent extends javax.swing.JFrame {
     public SuperRent() throws ClassNotFoundException, SQLException, IOException {
         initComponents();
 
-        //initReserve();
 
         initRent();
         initReturn();
-        //initReserve();
-        
-
-
         initManageFleet();
+        modulepane.setVisible(false);
 
     }
 
@@ -89,7 +87,7 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         modulepane = new javax.swing.JPanel();
         ModulesTab = new javax.swing.JTabbedPane();
-        RentVehicles = new javax.swing.JPanel();
+        Rent = new javax.swing.JPanel();
         cusNumLbl = new javax.swing.JLabel();
         RentcusNumField = new javax.swing.JTextField();
         dlNumLbl = new javax.swing.JLabel();
@@ -102,6 +100,7 @@ public class SuperRent extends javax.swing.JFrame {
         cardTypeCombo = new javax.swing.JComboBox();
         rentConfirmationNO = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         reservePanel = new javax.swing.JPanel();
         brnchIdLbl = new javax.swing.JLabel();
         brnchIdCombo = new javax.swing.JComboBox();
@@ -142,6 +141,8 @@ public class SuperRent extends javax.swing.JFrame {
         cancelConfirmation = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         confirmationNoDisplayField = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        estimatePrice = new javax.swing.JTextField();
         returnVehicles = new javax.swing.JPanel();
         ReturnCustomerPnobeNum_jLabel9 = new javax.swing.JLabel();
         ReturnVin_jTextField8 = new javax.swing.JTextField();
@@ -193,8 +194,8 @@ public class SuperRent extends javax.swing.JFrame {
         cityTextField = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        userNamepanel = new javax.swing.JPanel();
+        Reports = new javax.swing.JPanel();
+        NewEmployee = new javax.swing.JPanel();
         firstnameLbl = new javax.swing.JLabel();
         firstNameField = new javax.swing.JTextField();
         lastNameLbl = new javax.swing.JLabel();
@@ -289,7 +290,7 @@ public class SuperRent extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        loginpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 160, -1));
+        loginpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 160, -1));
         loginpanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 340, 10));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -305,35 +306,43 @@ public class SuperRent extends javax.swing.JFrame {
             }
         });
 
-        RentVehicles.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Rent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cusNumLbl.setText("Customer Phone Number* :");
-        RentVehicles.add(cusNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
-        RentVehicles.add(RentcusNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
+        Rent.add(cusNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        Rent.add(RentcusNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 130, -1));
 
         dlNumLbl.setText("Driver License*  :");
-        RentVehicles.add(dlNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
-        RentVehicles.add(dlNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, -1));
-        RentVehicles.add(ccNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 130, -1));
+        Rent.add(dlNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, -1));
+        Rent.add(dlNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, -1));
+        Rent.add(ccNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 130, -1));
 
         ccNumLbl.setText("Credit Card Number*        :");
-        RentVehicles.add(ccNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        Rent.add(ccNumLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         expDateLbl.setText("Expiry Date*      :");
-        RentVehicles.add(expDateLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
-        RentVehicles.add(expDateCh, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 160, -1));
+        Rent.add(expDateLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+        Rent.add(expDateCh, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 160, -1));
 
         cardTypeLbl.setText("Card type*  :");
-        RentVehicles.add(cardTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, -1, -1));
+        Rent.add(cardTypeLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, -1, -1));
 
         cardTypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "American Express", "MasterCard", "Visa" }));
-        RentVehicles.add(cardTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 150, -1));
-        RentVehicles.add(rentConfirmationNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
+        Rent.add(cardTypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 150, -1));
+        Rent.add(rentConfirmationNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
 
         jLabel14.setText("Confirmation Number         :");
-        RentVehicles.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        Rent.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
-        ModulesTab.addTab("Rent", RentVehicles);
+        jButton3.setText("Rent");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        Rent.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
+
+        ModulesTab.addTab("Rent", Rent);
 
         reservePanel.setMinimumSize(new java.awt.Dimension(1000, 615));
         reservePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -485,8 +494,8 @@ public class SuperRent extends javax.swing.JFrame {
         reservePanel.add(cusNumField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 130, -1));
 
         jLabel11.setText("Cancel Reservation              :");
-        reservePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 110, -1, -1));
-        reservePanel.add(cancelReservationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 110, 170, -1));
+        reservePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 180, -1, -1));
+        reservePanel.add(cancelReservationField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 170, -1));
 
         cancelConfirmation.setText("cancel");
         cancelConfirmation.addActionListener(new java.awt.event.ActionListener() {
@@ -494,11 +503,15 @@ public class SuperRent extends javax.swing.JFrame {
                 cancelConfirmationActionPerformed(evt);
             }
         });
-        reservePanel.add(cancelConfirmation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 170, -1, -1));
+        reservePanel.add(cancelConfirmation, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 240, -1, -1));
 
         jLabel17.setText("Confirmation Number          :");
         reservePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, -1, -1));
         reservePanel.add(confirmationNoDisplayField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 50, 170, -1));
+
+        jLabel25.setText("Estimated Price                :");
+        reservePanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 120, -1, -1));
+        reservePanel.add(estimatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 120, 170, -1));
 
         ModulesTab.addTab("Reserve", reservePanel);
 
@@ -753,52 +766,52 @@ public class SuperRent extends javax.swing.JFrame {
 
         ModulesTab.addTab("Manage Customer", manageCustomer);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
+        Reports.setLayout(ReportsLayout);
+        ReportsLayout.setHorizontalGroup(
+            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1375, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 764, Short.MAX_VALUE)
+        ReportsLayout.setVerticalGroup(
+            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
 
-        ModulesTab.addTab("Reports", jPanel5);
+        ModulesTab.addTab("Reports", Reports);
 
-        userNamepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         firstnameLbl.setText("First Name*   :");
-        userNamepanel.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         firstNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameFieldActionPerformed(evt);
             }
         });
-        userNamepanel.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
 
         lastNameLbl.setText("Last Name*    :");
-        userNamepanel.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-        userNamepanel.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
 
         userNameLbl.setText("User Name*    :");
-        userNamepanel.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
-        userNamepanel.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
 
         emailIdLbl.setText("Email ID*        :");
-        userNamepanel.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         emailIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailIdFieldActionPerformed(evt);
             }
         });
-        userNamepanel.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
 
         passwordLbl.setText("Password*      :");
-        userNamepanel.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        userNamepanel.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
 
         roleGroupRadio.add(managerRadio);
         managerRadio.setText("Manager");
@@ -807,7 +820,7 @@ public class SuperRent extends javax.swing.JFrame {
                 managerRadioActionPerformed(evt);
             }
         });
-        userNamepanel.add(managerRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
+        NewEmployee.add(managerRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
 
         roleGroupRadio.add(clerkRadio);
         clerkRadio.setText("Clerk");
@@ -816,7 +829,7 @@ public class SuperRent extends javax.swing.JFrame {
                 clerkRadioActionPerformed(evt);
             }
         });
-        userNamepanel.add(clerkRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
+        NewEmployee.add(clerkRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, -1, -1));
 
         addEmployeeBtn.setText("Add Employee");
         addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -824,18 +837,18 @@ public class SuperRent extends javax.swing.JFrame {
                 addEmployeeBtnActionPerformed(evt);
             }
         });
-        userNamepanel.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
 
         branchIdCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        userNamepanel.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
 
         branchIdLbl.setText("Branch ID*      :");
-        userNamepanel.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         roleLbl.setText("Role*            :");
-        userNamepanel.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
-        ModulesTab.addTab("New Employee", userNamepanel);
+        ModulesTab.addTab("New Employee", NewEmployee);
 
         jButton2.setText("Add New Car");
         jButton2.setActionCommand("");
@@ -1229,34 +1242,48 @@ public class SuperRent extends javax.swing.JFrame {
 
             ConnectDB.exeQuery("select * from Accounts");
 
-            Encrypt en = new Encrypt();
-            en.encryptPwd(pwdField);
-            en.decryptPwd();
-
-        try {
             while(ConnectDB.resultSet().next()){
-                if( userField.getText().contains(ConnectDB.resultSet().getString("username")) && 
-                        pwdField.getText().contains(ConnectDB.resultSet().getString("password"))){
-                    System.out.println("Login success");
+                
+                if( userField.getText().contains(ConnectDB.resultSet().getString("username")) & 
+                        pwdField.getText().contains(crypt.decrypt(ConnectDB.resultSet().getString("password").toString()))){
+                    
                     CommonFunc.username = userField.getText(); // Yaoyao Added
-                    loginpanel.setVisible(false);
-                    modulepane.setVisible(true);
+                    System.out.println("ER TRUE");
+
+                  if(ConnectDB.resultSet().getString("role").contains("CLERK")){
+                      System.out.println("ITS TRUE");
+                      NewEmployee.setVisible(false);
+                      Reports.setVisible(false);
+                      loginpanel.setVisible(false);
+                      modulepane.setVisible(true);
+                  }else{
+                      loginpanel.setVisible(false);
+                      modulepane.setVisible(true);                      
+                  }
                 }else{
-                   // System.out.println(ConnectDB.resultSet().getString("username"));
-                    //System.out.println(ConnectDB.resultSet().getString("password"));
+                   JOptionPane.showMessageDialog(null, "Wrong username or password");
+                   return;
                 }
                 
             }   
+
+        
+        
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ConnectDB.clearResultSet();
-                } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        finally {
+            try {
+                ConnectDB.clearResultSet();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1270,15 +1297,15 @@ public class SuperRent extends javax.swing.JFrame {
             String cat = vehicleCatCombo.getSelectedItem().toString();
             String type = vehicleTypeCombo.getSelectedItem().toString();
 
-            unreservedVehiTable = new JTable(rt.getAvailableVehicles(cat, Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), type));
+            unreservedVehiTable = new JTable(rt.getAvailableVehicles(cat, Integer.parseInt(brnchIdCombo.getSelectedItem().toString()), type, pickupDate,dropoffDate));
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         jScrollPane1.setViewportView(unreservedVehiTable);
     }//GEN-LAST:event_searchBtnActionPerformed
@@ -1320,40 +1347,40 @@ public class SuperRent extends javax.swing.JFrame {
     }//GEN-LAST:event_managerRadioActionPerformed
 
     private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
-            Encrypt en = new Encrypt();
-            String firstName = firstNameField.getText();
-            String lastName = lastNameField.getText();
-            String userName = userNameField.getText();
-            String email = emailIdField.getText();
-            String password = en.encryptPwd(passwordField);
-            String branchId = branchIdCombo.getSelectedItem().toString();
-            int countusers = 0;
-            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
-                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
-                try {
-                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM USER WHERE USERNAME = '"+userName+"'");
-                    while(ConnectDB.resultSet().next()){
-                        System.out.println("**"+ConnectDB.resultSet().getString(1));
-                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
-                    }
-                    System.out.println(role);
-                    if(countusers==0){               
-                        ConnectDB.exeUpdate("INSERT INTO `superrent`.`user` (`firstname`, `lastname`, `username`, `email`, `password`, `role`, `branch`, `location`) "
-                            + "VALUES ('"+firstName+"', '"+lastName+"', '"+userName+"', '"+email+"', '"+password+"', '"+role+"', '"+branchId+"', 'Vancouver');");                    
-                    }else{
-                        JOptionPane.showMessageDialog(null, "This user name has been used already");
-                    }
-                    ConnectDB.clearResultSet();
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
-            } 
+//            
+//            String firstName = firstNameField.getText();
+//            String lastName = lastNameField.getText();
+//            String userName = userNameField.getText();
+//            String email = emailIdField.getText();
+//            //String password = en.encryptPwd(passwordField);
+//            String branchId = branchIdCombo.getSelectedItem().toString();
+//            int countusers = 0;
+////            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
+////                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+////                try {
+////                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM USER WHERE USERNAME = '"+userName+"'");
+////                    while(ConnectDB.resultSet().next()){
+////                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+////                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
+////                    }
+////                    System.out.println(role);
+////                    if(countusers==0){               
+////                        ConnectDB.exeUpdate("INSERT INTO `superrent`.`user` (`firstname`, `lastname`, `username`, `email`, `password`, `role`, `branch`, `location`) "
+////                            + "VALUES ('"+firstName+"', '"+lastName+"', '"+userName+"', '"+email+"', '"+password+"', '"+role+"', '"+branchId+"', 'Vancouver');");                    
+////                    }else{
+////                        JOptionPane.showMessageDialog(null, "This user name has been used already");
+////                    }
+//                    ConnectDB.clearResultSet();
+//                } catch (ClassNotFoundException ex) {
+//                    JOptionPane.showMessageDialog(null, ex);
+//                } catch (SQLException ex) {
+//                    JOptionPane.showMessageDialog(null, ex);
+//                } catch (IOException ex) {
+//                    JOptionPane.showMessageDialog(null, ex);
+//                }
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+//            } 
             
     }//GEN-LAST:event_addEmployeeBtnActionPerformed
 
@@ -1375,11 +1402,11 @@ public class SuperRent extends javax.swing.JFrame {
 
            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         clearEqupList(); 
     }//GEN-LAST:event_brnchIdComboItemStateChanged
@@ -1429,22 +1456,25 @@ public class SuperRent extends javax.swing.JFrame {
                         rentConfirmationNO.setText(String.valueOf(ReservationID));
                         RentcusNumField.setText(cusNumField1.getText());
                     }
+                    
                     JOptionPane.showMessageDialog(null, "Resvervation done successfully and the Confirmation No is "+ReservationID);
+                    Return ret = new Return(); 
+                    estimatePrice.setText(ret.getEstimateFee(vehicleId,dropoffDate));
                 }               
                 
             }else{
                 JOptionPane.showMessageDialog(null, "Not a valid customer phone number");
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }finally{
-        clearEqupList(); 
+            clearEqupList(); 
         }
     }//GEN-LAST:event_rentBtnActionPerformed
 
@@ -1461,11 +1491,11 @@ public class SuperRent extends javax.swing.JFrame {
             try {
                 rt.fillVehicleCatCombo(vehicleCatCombo, brnchIdCombo, vehicleTypeCombo);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             }           
         }
         clearEqupList(); 
@@ -1489,13 +1519,13 @@ public class SuperRent extends javax.swing.JFrame {
             try {
                 ar = rt.fillEquipmentList(equipmentsList, vehicleTypeCombo, brnchIdCombo);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (InterruptedException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             }
             equipmentsList = new JList(ar);
             jScrollPane4.setViewportView(equipmentsList);
@@ -1640,11 +1670,11 @@ public class SuperRent extends javax.swing.JFrame {
                 ps.setString(11,vin);
                 ps.executeUpdate();
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             }
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -1690,11 +1720,11 @@ public class SuperRent extends javax.swing.JFrame {
             }
             mf.fillssManufacturer(mfsmanufacturerCombo, cartype);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         //clear the table
         // mf.clearTable(mfremoveTable);
@@ -1726,11 +1756,11 @@ public class SuperRent extends javax.swing.JFrame {
             mf.fillssModel(mfsmodelCombo, manufacturer,cartype);
             System.out.println(manufacturer+cartype);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         mf.settable(2, cartype, manufacturer, role, mfremoveTable);
     }//GEN-LAST:event_mfs2BtnActionPerformed
@@ -1755,11 +1785,11 @@ public class SuperRent extends javax.swing.JFrame {
             DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
             model.removeRow(mfremoveTable.getSelectedRow());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_removeBtnActionPerformed
 
@@ -1771,11 +1801,11 @@ public class SuperRent extends javax.swing.JFrame {
             DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
             model.removeRow(mfremoveTable.getSelectedRow());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_setforrentBtnActionPerformed
 
@@ -1799,11 +1829,11 @@ public class SuperRent extends javax.swing.JFrame {
             }
             mf2.fillssManufacturer(mfsetmanufacturerCombo, cartype);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         //clear the table
         // mf.clearTable(mfremoveTable);
@@ -1826,11 +1856,11 @@ public class SuperRent extends javax.swing.JFrame {
             mf2.fillssModel(mfsetmodelCombo, manufacturer,cartype);
             //System.out.println(manufacturer+cartype);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         mf2.settable(2, cartype, manufacturer, role, mfremoveTable);
     }//GEN-LAST:event_mfset2BtnActionPerformed
@@ -1854,11 +1884,11 @@ public class SuperRent extends javax.swing.JFrame {
             DefaultTableModel model =(DefaultTableModel) mfremoveTable.getModel();
             model.removeRow(mfremoveTable.getSelectedRow());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_setforsaleBtnActionPerformed
 
@@ -1907,7 +1937,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ThirdColumn.setMinWidth(120);
 
                 }catch (ParseException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Please input all necessary information.");
@@ -2009,7 +2039,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ThirdColumn.setMinWidth(120);
 
                 }catch (ParseException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Please input all returning information.");
@@ -2033,7 +2063,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.clearResultSet();
 
                     //update payment table
-                    long paymentID =  Rent.genUniqueID();
+                    long paymentID =  Reserve.genUniqueID();
 
                     ConnectDB.exeUpdate("insert into payment ( payment_id, customer_id, purpose, total, cash, credit, points,"
                         + " create_time, id, branch_id, staff_id) "
@@ -2082,7 +2112,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.clearResultSet();
 
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
 
             }else{
@@ -2120,16 +2150,16 @@ public class SuperRent extends javax.swing.JFrame {
                 //ConnectDB.clearResultSet();
                 //JOptionPane.showMessageDialog(null, "Customer Added!");
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
             } finally{
                 try {
                     ConnectDB.clearResultSet();
                 } catch (SQLException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
                 JOptionPane.showMessageDialog(null, "Customer Added!");
             }
@@ -2138,6 +2168,23 @@ public class SuperRent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            int count = rent.validateConfirmationNo(rentConfirmationNO);
+            if (count>0){
+                rent.rentVehicle(dlNumField, rentConfirmationNO);
+                JOptionPane.showMessageDialog(null, "Vehicle rented successfully");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
         
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
 
@@ -2197,6 +2244,7 @@ public class SuperRent extends javax.swing.JFrame {
     Calendar now = Calendar.getInstance();
     private Reserve rt = new Reserve();
     private String role;
+    private Rent rent = new Rent();
     // Yaoyao added
     private Return MyReturn = new Return();
     private ArrayList<String> equipSelected = new ArrayList<String>();
@@ -2206,8 +2254,10 @@ public class SuperRent extends javax.swing.JFrame {
     //private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane ModulesTab;
-    private javax.swing.JPanel RentVehicles;
+    private javax.swing.JPanel NewEmployee;
+    private javax.swing.JPanel Rent;
     private javax.swing.JTextField RentcusNumField;
+    private javax.swing.JPanel Reports;
     private javax.swing.JButton ReturnCalculate_jButton6;
     private javax.swing.JTextField ReturnCash_jTextField2;
     private javax.swing.JTable ReturnCheckOverDueDis_jTable2;
@@ -2259,12 +2309,14 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel emailIdLbl;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JList equipmentsList;
+    private javax.swing.JTextField estimatePrice;
     private com.toedter.calendar.JDateChooser expDateCh;
     private javax.swing.JLabel expDateLbl;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
@@ -2284,6 +2336,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -2318,7 +2371,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2392,7 +2444,6 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JTextField userField;
     private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLbl;
-    private javax.swing.JPanel userNamepanel;
     private javax.swing.JComboBox vehicleCatCombo;
     private javax.swing.JComboBox vehicleTypeCombo;
     private javax.swing.JTextField zipTextField;
