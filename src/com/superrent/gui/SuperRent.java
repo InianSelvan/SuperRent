@@ -1908,6 +1908,7 @@ public class SuperRent extends javax.swing.JFrame {
 
                 }catch (ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                     JOptionPane.showMessageDialog(null, ex);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Please input all necessary information.");
@@ -2007,16 +2008,19 @@ public class SuperRent extends javax.swing.JFrame {
                     TableColumn ThirdColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(2);
                     ThirdColumn.setMaxWidth(120);
                     ThirdColumn.setMinWidth(120);
-
+                    
                 }catch (ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                     JOptionPane.showMessageDialog(null, ex);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Please input all returning information.");
             }
 
             //Update tables;
-            if(!ReturnCash_jTextField2.getText().isEmpty() && !ReturnCreditCard_jTextField1.getText().isEmpty()){
+            if(!ReturnCash_jTextField2.getText().isEmpty() && !ReturnCreditCard_jTextField1.getText().isEmpty() &&
+                    (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) ==
+                            Double.parseDouble(CalcuResult[14][2]))){
                 try {
                     username = CommonFunc.username;
                     staff_id = MyReturn.getStaffInfo(username)[0];
@@ -2080,9 +2084,10 @@ public class SuperRent extends javax.swing.JFrame {
                     //update reserve table
                     ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
                     ConnectDB.clearResultSet();
-
+                    
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, ex);
                 }
 
             }else{
