@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +39,17 @@ public class ManageFleet {
             modelCombo.addItem(modelArray[model_no]);
         }
     }
+    
+    
+        public void fillratetype(JComboBox modelCombo) {
+        String[] modelArray = {"daily_rates", "weekly_rates", "hourly_rates", "weekly_insurance", "daily_insurance", "hourly_insurance", "perkm", "gas_no", "limit"};
+        int model_no;
+        for (model_no = 0; model_no < 9; model_no++) {
+            modelCombo.addItem(modelArray[model_no]);
+        }
+    }
+        
+        
     public void fillBranch(JComboBox branchidCombo) throws ClassNotFoundException, SQLException, IOException {
         ConnectDB.exeQuery("SELECT distinct branch_id FROM branch");
         while (ConnectDB.resultSet().next()) {
@@ -221,5 +233,36 @@ public class ManageFleet {
              ConnectDB.exeUpdate("update points_exchange set points ="+j+" where category = '24-foot'  OR category = '15-foot' OR category = '12-foot' OR category = 'Box-Trucks' OR category = 'Cargo-Vans' OR category = 'Luxury' OR category = 'SUV'  OR category = 'Van'  ");
        
       //  ConnectDB.exeUpdate("update points_exchange set points = "+j+"where");
+    }
+
+    public void filloldvalue(JLabel oldvaluejlabel) {
+
+    }
+
+    public void filloldvalue(JLabel oldvaluejlabel, String cartype, String ratetype,double i) throws ClassNotFoundException, SQLException, IOException {
+        if(i==0){System.out.println(cartype+ ratetype);    
+        String sql = "select "+ratetype+" from feature where category = '"+cartype+"'";
+            //  String sql = "select "+ ratetype+"from feature where category = ' "+cartype+"'";
+                      //     select daily_rates from feature where category = 'Mid-size';
+            Double oldvalue = null;
+            ConnectDB.exeQuery(sql);
+        while (ConnectDB.resultSet().next()) {
+            oldvalue = ConnectDB.resultSet().getDouble(ratetype);
+            System.out.println(oldvalue);
+//
+        }
+        ConnectDB.clearResultSet();
+       
+       
+        oldvaluejlabel.setText(oldvalue.toString());
+        }
+        else {
+            String sql = "update feature set "+ratetype+" = "+i+" where category = '"+cartype+"'";
+            //update feature set daily_rates = 8 where category = 'Economy';
+            ConnectDB.exeUpdate(sql);
+            ConnectDB.clearResultSet();
+        }
+        
+            
     }
 }
