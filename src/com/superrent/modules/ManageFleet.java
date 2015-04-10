@@ -19,8 +19,10 @@ import javax.swing.table.DefaultTableModel;
  * @author miaowu
  */
 public class ManageFleet {
-    int car_or_truck;
+    private int car_or_truck;
     private String function;
+    private String sqlforInfo = new String();
+    
     public ManageFleet(String function) {
         //To change body of generated methods, choose Tools | Templates.
         this.function = function;
@@ -109,7 +111,7 @@ public class ManageFleet {
         }
         ConnectDB.clearResultSet();
     }
-    String sqlforInfo = new String();
+    
     public void setsqlinfo (int i,String cartype, String manufacturer, String model){
         if (cartype=="All")
             cartype = "1=1";

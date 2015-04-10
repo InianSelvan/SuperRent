@@ -24,9 +24,5 @@ public class Gui {
             sr.setVisible(true);
             sr.setLocationRelativeTo(null);
       
-    }
- 
-     
-    
-    
+    }       
 }

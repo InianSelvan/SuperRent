@@ -35,13 +35,7 @@ public class Return {
         }
         return weeks;
     }
-//        public int getNumberofWeeks(Date pickupdt, Date returndt){
-//        int weeks = 0;
-//        if(getNumberofhours(pickupdt, returndt)%7>1){
-//            weeks = getNumberofhours(pickupdt, returndt)%7;            
-//        }
-//        return weeks;
-//    }
+
     
     public int getNumberofDays(Date pickupdt, Date returndt){
         int days = 0;
@@ -50,13 +44,7 @@ public class Return {
         }
         return days;
     }
-//        public int getNumberofDays(Date pickupdt, Date returndt){
-//        int days = 0;
-//        if(getNumberofhours(pickupdt, returndt)%24>1){
-//            days = getNumberofhours(pickupdt, returndt)%24;            
-//        }
-//        return days;
-//    }
+
     
     public int getNumberofhours(Date pickupdt, Date returndt){
         Calendar pickup = Calendar.getInstance();
@@ -69,11 +57,7 @@ public class Return {
         return hours.getHours();
     }
     
-//    public Date getpickupDate(long phoneNum){
-//        return 
-//    }
-//    
-    
+
     public static String[][] getResrInfo(String vin){
           String[][] ReserInfo = new String [1][7];
         try {
