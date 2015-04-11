@@ -14,6 +14,7 @@ import com.superrent.modules.Reserve;
 
 import com.superrent.modules.Return;
 import com.superrent.modules.crypt;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -53,10 +54,10 @@ public class SuperRent extends javax.swing.JFrame {
         initComponents();
 
 
-        //initRent();
+        initRent();
         initReturn();
 
-        //initEmployee();
+        initEmployee();
         //initReserve();
 
         initManageFleet();
@@ -813,6 +814,12 @@ public class SuperRent extends javax.swing.JFrame {
 
         lastNameLbl.setText("Last Name*    :");
         NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameFieldActionPerformed(evt);
+            }
+        });
         NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
 
         userNameLbl.setText("User Name*    :");
@@ -1404,6 +1411,7 @@ public class SuperRent extends javax.swing.JFrame {
                       loginpanel.setVisible(false);
                       modulepane.setVisible(true);                      
                   }
+                  CommonFunc.username = username;
                 }else{
                    JOptionPane.showMessageDialog(null, "Wrong username or password");
                    return;
@@ -2221,12 +2229,13 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.clearResultSet();
                     
                     //update member table: points
+                    if(Reedeem){
                     int pointsEX = MyReturn.getVechilePointsEX(vin);
                     int[] pointsInfo = MyReturn.getRedeemInfo(vin);
                     int remainPoints = pointsInfo[0] - pointsEX*pointsInfo[1] + (int)(Double.parseDouble(CalcuResult[14][2])/5);
                     ConnectDB.exeUpdate("update member set points = "+remainPoints+" where member_id = '"+pointsInfo[2]+"'");
                     ConnectDB.clearResultSet();
-
+                    }
                     //update equipment
                     int equ_length = MyReturn.getEquipInfo(vin).length;
                     String[] EquipInfo = new String[equ_length];
@@ -2252,14 +2261,14 @@ public class SuperRent extends javax.swing.JFrame {
                     //update reserve table
                     ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
                     ConnectDB.clearResultSet();
-                    
+                    JOptionPane.showMessageDialog(null, "Return successful!");
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, ex);
                 }
 
             }else{
-                JOptionPane.showMessageDialog(null, "Please input the payment information. ");
+                JOptionPane.showMessageDialog(null, "Please input the correct payment information. ");
             }
 
     }//GEN-LAST:event_ReturnPay_jButton2ActionPerformed
@@ -2440,7 +2449,15 @@ public class SuperRent extends javax.swing.JFrame {
         mfsetpanel.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-
+    private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameFieldActionPerformed
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
+    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
 
         
     private void initRent() throws ClassNotFoundException, SQLException, IOException{
