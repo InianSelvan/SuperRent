@@ -150,7 +150,7 @@ public class Return {
         String totalFee = "";
    
         try {
-            totalFee = getCalculateFee(null, false, "0", "0", false, drop)[14][2];
+            totalFee = getCalculateFee(Vin, false, "0", "0", false, drop)[14][2];
         } catch (ParseException ex) {
             Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
         }
