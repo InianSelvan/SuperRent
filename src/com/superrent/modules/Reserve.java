@@ -11,6 +11,7 @@ import com.toedter.calendar.JDateChooser;
 import java.io.IOException;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -77,6 +78,7 @@ public class Reserve {
             while(ConnectDB.resultSet().next()){
                 String EquipType = ConnectDB.resultSet().getString("equipment_type");
                 listEquip.addElement(EquipType);
+                
             }
         }finally{
             ConnectDB.clearResultSet();
@@ -114,20 +116,21 @@ public class Reserve {
         return Long.valueOf(random);
     }
 
-    public DefaultTableModel getAvailableVehicles(String vehicleCat, int branchId, String VehicleType, Date pickup, Date dropoff) throws ClassNotFoundException, SQLException, IOException{
-        int num = countAvailableVehicles(vehicleCat, branchId, VehicleType);
+    public DefaultTableModel getAvailableVehicles(String vehicleCat, int branchId, String VehicleType, Date pickup, Date dropoff, String pickuptime, String dropofftime) throws ClassNotFoundException, SQLException, IOException{
+        
+        int num = countAvailableVehicles(vehicleCat, branchId, VehicleType, pickup, dropoff, pickuptime, dropofftime);
+        
         String[][] VehicleInfo=null;
         String[] col = new String[5];
         
         try{
             ConnectDB.exeQuery("select v.vin, v.category, v.color, v.doors, v.branch_id  from fleet as v where vin not in (select vin from reserve where \n" +
-                "(('"+pickup+"' < pickup_time and  '"+dropoff+"' < dropoff_time) or \n" +
-                "('"+pickup+"'<dropoff_time and '"+dropoff+"' < dropoff_time) or\n" +
-                "('"+pickup+"' < dropoff_time and '"+dropoff+"' > dropoff_time) or\n" +
-                "('"+pickup+"' < pickup_time and '"+dropoff+"' > dropoff_time)) and \n" +
+                "(('"+pickup+" "+pickuptime+"' <= pickup_time and '"+dropoff+" "+dropofftime+"' >= pickup_time and '"+dropoff+" "+dropofftime+"' <= dropoff_time) or \n" +
+                "('"+pickup+" "+pickuptime+"'>=pickup_time and '"+pickup+" "+pickuptime+"'<=dropoff_time and '"+dropoff+" "+dropofftime+"' <= dropoff_time and '"+dropoff+" "+dropofftime+"' >= pickup_time) or\n" +
+                "('"+pickup+" "+pickuptime+"' <= dropoff_time and '"+dropoff+" "+dropofftime+"' >= dropoff_time)) and\n" +
                 "(status = 'reserved' or status = 'rented')) and branch_id ='"+branchId+"' and category='"+vehicleCat+"' and car_or_truck = '"+VehicleType+"' ");
 
-        
+           
         ResultSetMetaData md = ConnectDB.resultSet().getMetaData();
         
         col[0] = md.getColumnName(1);
@@ -136,10 +139,12 @@ public class Reserve {
         col[3] = md.getColumnName(4);
         col[4] = md.getColumnName(5);
             
-        VehicleInfo= new String[num][5];
+        VehicleInfo= new String[100][5];
             for(int i=0; ConnectDB.resultSet().next(); i++){
                 for(int j=1; j<=5; j++){
+
                     VehicleInfo[i][j-1]= ConnectDB.resultSet().getString(j); 
+                    
                 }
             }        
         }
@@ -149,11 +154,15 @@ public class Reserve {
         return new DefaultTableModel(VehicleInfo, col); 
     }
     
-    public  int countAvailableVehicles(String vehicleCat, int branchId, String VehicleType) throws ClassNotFoundException, SQLException, IOException{
+    public  int countAvailableVehicles(String vehicleCat, int branchId, String VehicleType, Date pickup, Date dropoff, String pickuptime, String dropofftime) throws ClassNotFoundException, SQLException, IOException{
         int countVehi=0;
         try{
-            ConnectDB.exeQuery("select count(v.vin)  from fleet as v where vin not in\n" +
-                               "(select vin from reserve where status = 'reserved' or status = 'rented' ) and branch_id ='"+branchId+"' and category = '"+vehicleCat+"' and car_or_truck = '"+VehicleType+"'");
+            
+            ConnectDB.exeQuery("select v.vin, v.category, v.color, v.doors, v.branch_id  from fleet as v where vin not in (select vin from reserve where \n" +
+                "(('"+pickup+" "+pickuptime+"' <= pickup_time and '"+dropoff+" "+dropofftime+"' >= pickup_time and '"+dropoff+" "+dropofftime+"' <= dropoff_time) or \n" +
+                "('"+pickup+" "+pickuptime+"'>=pickup_time and '"+pickup+" "+pickuptime+"'<=dropoff_time and '"+dropoff+" "+dropofftime+"' <= dropoff_time and '"+dropoff+" "+dropofftime+"' >= pickup_time) or\n" +
+                "('"+pickup+" "+pickuptime+"' <= dropoff_time and '"+dropoff+" "+dropofftime+"' >= dropoff_time)) and\n" +
+                "(status = 'reserved' or status = 'rented')) and branch_id ='"+branchId+"' and category='"+vehicleCat+"' and car_or_truck = '"+VehicleType+"' ");
            while(ConnectDB.resultSet().next()){
                countVehi = Integer.parseInt(ConnectDB.resultSet().getString(1));
            }
@@ -162,34 +171,37 @@ public class Reserve {
         }
         return countVehi;
     }
-    
-    public void cancelReservation(JTextField confirmationNo){
-        int count = 0;
+
+    public void cancelReservation(JTextField confirmationNo, JTextField phone, JDateChooser pickup, JDateChooser dropoff) throws ParseException{
+        long count = 0;
+   
         try {
-                ConnectDB.exeQuery("SELECT Count(confirmation_no) FROM reserve WHERE confirmation_no ="+Long.parseLong(confirmationNo.getText().toString()));
+            if((confirmationNo.getText().length()!=0 || phone.getText().length()!=0) && pickup.getDate()!=null && dropoff.getDate()!=null ){
+                String pick = CommonFunc.changeDateFormat(pickup).toString();
+                String drop = CommonFunc.changeDateFormat(dropoff).toString();
+                ConnectDB.exeQuery("SELECT confirmation_no FROM reserve WHERE pickup_time like '"+pick+"%' "
+                        + "and dropoff_time LIKE '"+drop+"%' and status = 'reserved' and "
+                        + "(phone = '"+phone.getText()+"' or  confirmation_no ='"+confirmationNo.getText()+"')");
                 
                 while(ConnectDB.resultSet().next()){
-                    count = Integer.parseInt(ConnectDB.resultSet().getString(1));
+                    count = Long.parseLong(ConnectDB.resultSet().getString(1));
                 }
                 ConnectDB.clearResultSet();
                 if(count>0){
-                    ConnectDB.exeUpdate("DELETE FROM reserve WHERE confirmation_no ="+Long.parseLong(confirmationNo.getText().toString()));
+                    ConnectDB.exeUpdate("DELETE FROM reserve WHERE confirmation_no ="+count);
                     ConnectDB.clearResultSet();
-                    ConnectDB.exeUpdate("DELETE FROM equipment_reserved WHERE confirmation_no = "+Long.parseLong(confirmationNo.getText().toString()) );
+                    ConnectDB.exeUpdate("DELETE FROM equipment_reserved WHERE confirmation_no = "+count );
                     ConnectDB.clearResultSet();
-                    JOptionPane.showMessageDialog(null, "Reservation cancelled for "+confirmationNo.getText().toString());
+                    JOptionPane.showMessageDialog(null, "Reservation cancelled for "+count);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Not a valid confirmation_no");
+                    JOptionPane.showMessageDialog(null, "Not a valid confirmation number/phone number");
                 }
-            } catch (ClassNotFoundException ex) {
+            }else{
+                JOptionPane.showMessageDialog(null, "Make sure all the required fields are filled");
+            }
+            } catch (ClassNotFoundException | SQLException | IOException | NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, ex);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            } catch (NumberFormatException e){
-                JOptionPane.showMessageDialog(null, e);
-                
+                ex.printStackTrace();
             }
     }
     
