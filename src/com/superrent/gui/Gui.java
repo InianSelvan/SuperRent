@@ -5,7 +5,7 @@
  */
 package com.superrent.gui;
 
-import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+//import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.swing.UIManager;

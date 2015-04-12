@@ -210,22 +210,6 @@ public class SuperRent extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
         Reports = new javax.swing.JPanel();
-        NewEmployee = new javax.swing.JPanel();
-        firstnameLbl = new javax.swing.JLabel();
-        firstNameField = new javax.swing.JTextField();
-        lastNameLbl = new javax.swing.JLabel();
-        lastNameField = new javax.swing.JTextField();
-        userNameLbl = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
-        emailIdLbl = new javax.swing.JLabel();
-        emailIdField = new javax.swing.JTextField();
-        passwordLbl = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        addEmployeeBtn = new javax.swing.JButton();
-        branchIdCombo = new javax.swing.JComboBox();
-        branchIdLbl = new javax.swing.JLabel();
-        roleLbl = new javax.swing.JLabel();
-        clerkComboBox = new javax.swing.JComboBox();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -303,6 +287,23 @@ public class SuperRent extends javax.swing.JFrame {
         newvalue = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         oldvaluejlabel = new javax.swing.JLabel();
+        NewEmployee = new javax.swing.JPanel();
+        firstnameLbl = new javax.swing.JLabel();
+        firstNameField = new javax.swing.JTextField();
+        lastNameLbl = new javax.swing.JLabel();
+        lastNameField = new javax.swing.JTextField();
+        userNameLbl = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        emailIdLbl = new javax.swing.JLabel();
+        emailIdField = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        addEmployeeBtn = new javax.swing.JButton();
+        branchIdCombo = new javax.swing.JComboBox();
+        branchIdLbl = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
+        jButton8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -862,76 +863,10 @@ public class SuperRent extends javax.swing.JFrame {
         );
         ReportsLayout.setVerticalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 973, Short.MAX_VALUE)
+            .addGap(0, 780, Short.MAX_VALUE)
         );
 
         ModulesTab.addTab("Reports", Reports);
-
-        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        firstnameLbl.setText("First Name*   :");
-        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        firstNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
-
-        lastNameLbl.setText("Last Name*    :");
-        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-
-        lastNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
-
-        userNameLbl.setText("User Name*    :");
-        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
-        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
-
-        emailIdLbl.setText("Email ID*        :");
-        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        emailIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailIdFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
-
-        passwordLbl.setText("Password*      :");
-        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
-
-        addEmployeeBtn.setText("Add Employee");
-        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
-
-        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
-
-        branchIdLbl.setText("Branch ID*      :");
-        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        roleLbl.setText("Role*            :");
-        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
-
-        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
-        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkComboBoxActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
-
-        ModulesTab.addTab("New Employee", NewEmployee);
 
         jButton2.setText("Add New Car");
         jButton2.setActionCommand("");
@@ -1416,6 +1351,81 @@ public class SuperRent extends javax.swing.JFrame {
 
         ModulesTab.addTab("Manage Fleet", manageFleet);
 
+        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstnameLbl.setText("First Name*   :");
+        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+
+        lastNameLbl.setText("Last Name*    :");
+        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+
+        userNameLbl.setText("User Name*    :");
+        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+
+        emailIdLbl.setText("Email ID*        :");
+        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        emailIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailIdFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+
+        passwordLbl.setText("Password*      :");
+        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+
+        addEmployeeBtn.setText("Add Employee");
+        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, -1, -1));
+
+        branchIdCombo.setName(""); // NOI18N
+        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+
+        branchIdLbl.setText("Branch ID*      :");
+        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        roleLbl.setText("Role*            :");
+        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
+
+        jButton8.setText("jButton8");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, -1, -1));
+
+        ModulesTab.addTab("New Employee", NewEmployee);
+
         modulepane.add(ModulesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
         ModulesTab.getAccessibleContext().setAccessibleName("Reservation");
 
@@ -1560,54 +1570,6 @@ public class SuperRent extends javax.swing.JFrame {
         cancelReservationField.setText("");
         resetTable();
 	}
-    private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
-        try{
-            //Encrypt en = new Encrypt();
-            String firstName = firstNameField.getText();
-            String lastName = lastNameField.getText();
-            String userName = userNameField.getText();
-            String email = emailIdField.getText();
-            String password = crypt.encrypt(passwordField.getText());
-            String branchId = branchIdCombo.getSelectedItem().toString();
-            String role = clerkComboBox.getSelectedItem().toString();;
-            int countusers = 0;
-            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty() 
-                    && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
-                try {
-                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
-                    while(ConnectDB.resultSet().next()){
-                        System.out.println("**"+ConnectDB.resultSet().getString(1));
-                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
-                    }
-                    System.out.println(role);
-                    if(countusers==0){               
-                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
-//                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
-                        
-                    }else{
-                        JOptionPane.showMessageDialog(null, "This user name has been used already");
-                    }
-                    ConnectDB.clearResultSet();
-                } catch (ClassNotFoundException | SQLException | IOException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                }finally{
-                    try {
-                        ConnectDB.clearResultSet();
-                    } catch (SQLException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                JOptionPane.showMessageDialog(null, "Employee Created!");
-                }
-                
-            }else{
-                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
-            } 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-            
-    }//GEN-LAST:event_addEmployeeBtnActionPerformed
-
     private void ModulesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModulesTabMouseClicked
 
     }//GEN-LAST:event_ModulesTabMouseClicked
@@ -2434,10 +2396,6 @@ public class SuperRent extends javax.swing.JFrame {
 
     }//GEN-LAST:event_rentbtnActionPerformed
 
-    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clerkComboBoxActionPerformed
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -2575,16 +2533,77 @@ public class SuperRent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameFieldActionPerformed
 
     private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameFieldActionPerformed
-    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {                                              
+
+    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailIdFieldActionPerformed
         // TODO add your handling code here:
-    }  
-    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    }//GEN-LAST:event_emailIdFieldActionPerformed
+
+    private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
+        try{
+            //Encrypt en = new Encrypt();
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = userNameField.getText();
+            String email = emailIdField.getText();
+            String password = crypt.encrypt(passwordField.getText());
+            String branchId = branchIdCombo.getSelectedItem().toString();
+            String role = clerkComboBox.getSelectedItem().toString();;
+            int countusers = 0;
+            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty()
+                && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+                try {
+                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
+                    while(ConnectDB.resultSet().next()){
+                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
+                    }
+                    System.out.println(role);
+                    if(countusers==0){
+                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
+                        //                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "This user name has been used already");
+                    }
+                    ConnectDB.clearResultSet();
+                } catch (ClassNotFoundException | SQLException | IOException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    try {
+                        ConnectDB.clearResultSet();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(null, "Employee Created!");
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_addEmployeeBtnActionPerformed
+
+    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
         // TODO add your handling code here:
-    }  
+    }//GEN-LAST:event_clerkComboBoxActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        // SOME CODE
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+
 
 
     private void rentRemove(){
@@ -2757,6 +2776,7 @@ public class SuperRent extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
