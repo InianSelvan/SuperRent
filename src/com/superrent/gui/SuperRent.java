@@ -2338,7 +2338,7 @@ private String user;
 
             //Update tables;
             if(!ReturnCash_jTextField2.getText().isEmpty() && !ReturnCreditCard_jTextField1.getText().isEmpty() &&
-                    (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) ==
+                    (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) >=
                             Double.parseDouble(CalcuResult[14][2]))){
                 try {
                     username = CommonFunc.username;
