@@ -10,6 +10,7 @@ import com.toedter.calendar.JDateChooser;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.Locale;
 import java.util.Properties;
@@ -24,6 +25,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 /**
  *
@@ -35,21 +40,27 @@ public class CommonFunc {
     public static Date changeDateFormat(JDateChooser jdate) throws ParseException{
         Date dt = jdate.getDate();
         java.sql.Date sqldate = new java.sql.Date(dt.getTime());
-        return sqldate;
+        return   sqldate;
     }
-    public static int compareDates(Date first, Date second){
-        DateTime firstdt = new DateTime(first);
+    public static int compareDates(String first, String second) throws ParseException{
+        
+        DateTimeFormatter f = DateTimeFormat.forPattern("yyyy-mm-dd HH:mm:ss");
+        DateTime firstdt = f.parseDateTime(first);
         Date fdt = firstdt.toLocalDate().toDate();
-        DateTime seconddt = new DateTime(second);
+        DateTime seconddt = f.parseDateTime(second);
         Date sdt = seconddt.toLocalDate().toDate();        
-       return fdt.compareTo(sdt);
+       return firstdt.compareTo(seconddt);
     }
+    
+
     public static String sqlTime(JSpinner HH, JSpinner MM){
         String hh = String.valueOf(HH.getValue());
         String mm = String.valueOf(MM.getValue());
         String ss = "00";
         String time = hh+":"+mm+":"+ss;
-        return time;
+        DateTimeFormatter f = DateTimeFormat.forPattern("HH:mm:ss");
+        LocalTime tim = f.parseLocalTime(time);
+        return tim.toString().substring(0, 8);
     }
     
     public static Date StringToDate(String MyDate) throws ParseException{
