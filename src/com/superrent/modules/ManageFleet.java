@@ -201,10 +201,14 @@ public class ManageFleet {
             info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
             //System.out.println(info[i]);
         }
-        if(function =="sale")
+        if(function =="sale"){
             ConnectDB.exeUpdate("update fleet set status = 'sold' where vin='"+info[0]+"'");
-        else if(function == "rent")
+         ConnectDB.clearResultSet();
+        }
+        else if(function == "rent"){
             ConnectDB.exeUpdate("update fleet set status = 'sale' where vin='"+info[0]+"'");
+         ConnectDB.clearResultSet();
+        }
         
        
     }
@@ -215,6 +219,7 @@ public class ManageFleet {
             //System.out.println(info[i]);
         }
         ConnectDB.exeUpdate("update fleet set status = 'rent' where vin='"+info[0]+"'");
+         ConnectDB.clearResultSet();
     }
     
     
@@ -225,6 +230,8 @@ public class ManageFleet {
     public void changepoint(double cash) throws ClassNotFoundException, IOException, SQLException{
         ConnectDB.exeUpdate("update cash_points set cash = "+cash);
         ConnectDB.exeUpdate("update cash_points set points = 1");
+         ConnectDB.clearResultSet();
+          ConnectDB.clearResultSet();
         
     }
 
@@ -232,7 +239,7 @@ public class ManageFleet {
         System.out.println(i);
         ConnectDB.exeUpdate("update points_exchange set points ="+i+" where category = 'Economy'  OR category = 'Compact' OR category = 'Mid-size' OR category = 'Standard' OR category = 'Full-size' OR category = 'Mid-size' OR category = 'Standard' OR category = 'Premium'   ");
         
-             ConnectDB.exeUpdate("update points_exchange set points ="+j+" where category = '24-foot'  OR category = '15-foot' OR category = '12-foot' OR category = 'Box-Trucks' OR category = 'Cargo-Vans' OR category = 'Luxury' OR category = 'SUV'  OR category = 'Van'  ");
+        ConnectDB.exeUpdate("update points_exchange set points ="+j+" where category = '24-foot'  OR category = '15-foot' OR category = '12-foot' OR category = 'Box-Trucks' OR category = 'Cargo-Vans' OR category = 'Luxury' OR category = 'SUV'  OR category = 'Van'  ");
        
       //  ConnectDB.exeUpdate("update points_exchange set points = "+j+"where");
     }
@@ -263,8 +270,17 @@ public class ManageFleet {
             //update feature set daily_rates = 8 where category = 'Economy';
             ConnectDB.exeUpdate(sql);
             ConnectDB.clearResultSet();
+            
         }
         
             
+    }
+
+    public void filleqp(JComboBox mfeqpcombo) {
+         mfeqpcombo.addItem("ski_rack");
+         mfeqpcombo.addItem("child_seat");
+         mfeqpcombo.addItem("lift_gate");
+         mfeqpcombo.addItem("car_tow");
+         
     }
 }

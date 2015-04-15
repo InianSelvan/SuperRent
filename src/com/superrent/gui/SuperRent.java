@@ -246,13 +246,20 @@ private String user;
         mfotoTextField = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         mfvinTextField = new javax.swing.JTextField();
-        jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         mfothermnfTextField = new javax.swing.JTextField();
         mfotherclTextField = new javax.swing.JTextField();
         mfcolorCombo = new javax.swing.JComboBox();
         mfbranchCombo = new javax.swing.JComboBox();
         mfyearTextField = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
+        mfeqpcombo = new javax.swing.JComboBox();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        mfbranch = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        mfnumber = new javax.swing.JTextField();
         mfremovepanel = new javax.swing.JPanel();
         mfs1Btn = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
@@ -872,11 +879,11 @@ private String user;
         Reports.setLayout(ReportsLayout);
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1384, Short.MAX_VALUE)
+            .addGap(0, 1372, Short.MAX_VALUE)
         );
         ReportsLayout.setVerticalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 952, Short.MAX_VALUE)
+            .addGap(0, 1267, Short.MAX_VALUE)
         );
 
         ModulesTab.addTab("Reports", Reports);
@@ -1030,9 +1037,6 @@ private String user;
         mfaddpanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
         mfaddpanel.add(mfvinTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 180, -1));
 
-        jLabel45.setText("Branch*              :");
-        mfaddpanel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-
         jLabel46.setText("Color                 :");
         mfaddpanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
         mfaddpanel.add(mfothermnfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 80, -1));
@@ -1049,6 +1053,31 @@ private String user;
         mfbranchCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfaddpanel.add(mfbranchCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 180, -1));
         mfaddpanel.add(mfyearTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 180, -1));
+
+        jButton11.setText("add");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        mfaddpanel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
+
+        mfeqpcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mfaddpanel.add(mfeqpcombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
+
+        jLabel67.setText("Branch*              :");
+        mfaddpanel.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+
+        jLabel68.setText("Branch*              :");
+        mfaddpanel.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        jLabel69.setText("equipmentm      :");
+        mfaddpanel.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
+        mfaddpanel.add(mfbranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, -1));
+
+        jLabel45.setText("number              :");
+        mfaddpanel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        mfaddpanel.add(mfnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 60, -1));
 
         mfremovepanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Car"));
         mfremovepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1427,7 +1456,7 @@ private String user;
                                     .addComponent(mfsetpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(1642, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(manageFleetLayout.createSequentialGroup()
                         .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(manageFleetLayout.createSequentialGroup()
@@ -1461,7 +1490,7 @@ private String user;
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(managepointjpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ModulesTab.addTab("Manage Fleet", manageFleet);
@@ -2690,6 +2719,31 @@ private String user;
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+//        int branch_id = Integer.getInteger(mfbranch.getText().toString());
+         String sbranch_id = mfbranch.getText().toString();
+
+         String snum = mfnumber.getText().toString()   ;  
+         int branch_id = Integer.parseInt(sbranch_id);
+         int num = Integer.parseInt(snum);
+                          System.out.println(branch_id);       
+
+        String eqp = mfeqpcombo.getSelectedItem().toString();
+        
+    try {
+        ConnectDB.exeUpdate("update equipment set Units = Units +"+num+" where equipment_type = '"+eqp+"' and branch_id ='"+branch_id+"'"  );
+        ConnectDB.clearResultSet();
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    }
+            
+    }//GEN-LAST:event_jButton11ActionPerformed
+
 
 
 
@@ -2744,6 +2798,7 @@ private String user;
         mfsetmodelCombo.removeAllItems();
         mfmanufacturerCombo3.removeAllItems();
         mfcartypeCombo3.removeAllItems();
+        mfeqpcombo.removeAllItems();
         mfothermnfTextField.setVisible(false);
         mfotherclTextField.setVisible(false);
         mfaddpanel.setVisible(false);
@@ -2751,6 +2806,7 @@ private String user;
         mfsetpanel.setVisible(false);
         jScrollPane7.setVisible(false);
         managepointjpanel.setVisible(false);
+        
         
         mf.fillManufacturer(mfmanufacturerCombo);
         mf.fillBranch(mfbranchCombo);
@@ -2760,6 +2816,7 @@ private String user;
         mf2.fillBranch(mfbranchCombo);
         mf2.fillColor(mfcolorCombo);
         mf3.fillratetype(mfmanufacturerCombo3);
+        mf.filleqp(mfeqpcombo);
         if(mfcarCheckBox.isSelected()){
             mf.getCar_or_truck(0);
         }else if(mftruckCheckBox.isSelected()){
@@ -2859,6 +2916,7 @@ private String user;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2931,6 +2989,9 @@ private String user;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2962,6 +3023,7 @@ private String user;
     private javax.swing.JSpinner mfTimeHH_jSpinner;
     private javax.swing.JSpinner mfTimeMM_jSpinner;
     private javax.swing.JPanel mfaddpanel;
+    private javax.swing.JTextField mfbranch;
     private javax.swing.JComboBox mfbranchCombo;
     private javax.swing.JCheckBox mfcarCheckBox;
     private javax.swing.JCheckBox mfcarCheckBox3;
@@ -2971,9 +3033,11 @@ private String user;
     private javax.swing.JComboBox mfcolorCombo;
     private javax.swing.JTextField mfcredit;
     private javax.swing.JTextField mfcsh;
+    private javax.swing.JComboBox mfeqpcombo;
     private javax.swing.JComboBox mfmanufacturerCombo;
     private javax.swing.JComboBox mfmanufacturerCombo3;
     private javax.swing.JTextField mfmodelTextField;
+    private javax.swing.JTextField mfnumber;
     private javax.swing.JTextField mfotherclTextField;
     private javax.swing.JTextField mfothermnfTextField;
     private javax.swing.JTextField mfotoTextField;
