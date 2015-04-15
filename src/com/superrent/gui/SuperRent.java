@@ -2195,7 +2195,7 @@ public class SuperRent extends javax.swing.JFrame {
 
             //Update tables;
             if(!ReturnCash_jTextField2.getText().isEmpty() && !ReturnCreditCard_jTextField1.getText().isEmpty() &&
-                    (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) ==
+                    (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) >=
                             Double.parseDouble(CalcuResult[14][2]))){
                 try {
                     username = CommonFunc.username;
@@ -2218,7 +2218,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.exeUpdate("insert into payment ( payment_id, customer_id, purpose, total, cash, credit, points,"
                         + " create_time, id, branch_id, staff_id) "
                         + "values ( "+paymentID+",'"+customeID+"','rent','"+CalcuResult[14][2]+"','"+ReturnCash_jTextField2.getText()+"','"+ReturnCreditCard_jTextField1.getText()+"',"
-                        + "'"+Double.parseDouble(CalcuResult[14][2])/5+"','"+dropOffDate_upd+" "+dropOffTime+"','111','"+branch_id+"','"+staff_id+"')");
+                        + "'"+Double.parseDouble(CalcuResult[14][2])/5+"','"+dropOffDate_upd+" "+dropOffTime+"','"+confirmationID+"','"+branch_id+"','"+staff_id+"')");
                     ConnectDB.clearResultSet();
                     //update dropoff table ???
                     String[] FeeRate = new String[8];
