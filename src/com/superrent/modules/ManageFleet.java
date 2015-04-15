@@ -205,6 +205,8 @@ public class ManageFleet {
             ConnectDB.exeUpdate("update fleet set status = 'sold' where vin='"+info[0]+"'");
         else if(function == "rent")
             ConnectDB.exeUpdate("update fleet set status = 'sale' where vin='"+info[0]+"'");
+        
+       
     }
     public void sendback(JTable mfremoveTable) throws ClassNotFoundException, SQLException, IOException {
         String info[] = new String[6];
