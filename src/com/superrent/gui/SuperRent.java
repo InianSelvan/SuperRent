@@ -192,28 +192,6 @@ private String user;
         ReturnCash_jTextField2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        NewEmployee = new javax.swing.JPanel();
-        firstnameLbl = new javax.swing.JLabel();
-        firstNameField = new javax.swing.JTextField();
-        lastNameLbl = new javax.swing.JLabel();
-        lastNameField = new javax.swing.JTextField();
-        userNameLbl = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
-        emailIdLbl = new javax.swing.JLabel();
-        emailIdField = new javax.swing.JTextField();
-        passwordLbl = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        addEmployeeBtn = new javax.swing.JButton();
-        branchIdCombo = new javax.swing.JComboBox();
-        branchIdLbl = new javax.swing.JLabel();
-        roleLbl = new javax.swing.JLabel();
-        clerkComboBox = new javax.swing.JComboBox();
-        jButton12 = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        allEmployeeTbl = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         manageCustomer = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
@@ -235,6 +213,28 @@ private String user;
         jLabel23 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
         Reports = new javax.swing.JPanel();
+        NewEmployee = new javax.swing.JPanel();
+        firstnameLbl = new javax.swing.JLabel();
+        firstNameField = new javax.swing.JTextField();
+        lastNameLbl = new javax.swing.JLabel();
+        lastNameField = new javax.swing.JTextField();
+        userNameLbl = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        emailIdLbl = new javax.swing.JLabel();
+        emailIdField = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        addEmployeeBtn = new javax.swing.JButton();
+        branchIdCombo = new javax.swing.JComboBox();
+        branchIdLbl = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
+        jButton11 = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        allEmployeeTbl = new javax.swing.JTable();
+        jButton8 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -259,7 +259,7 @@ private String user;
         mfcolorCombo = new javax.swing.JComboBox();
         mfbranchCombo = new javax.swing.JComboBox();
         mfyearTextField = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         mfeqpcombo = new javax.swing.JComboBox();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
@@ -822,121 +822,6 @@ private String user;
 
         ModulesTab.addTab("Return", returnVehicles);
 
-        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        firstnameLbl.setText("First Name*   :");
-        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        firstNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
-
-        lastNameLbl.setText("Last Name*    :");
-        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-
-        lastNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
-
-        userNameLbl.setText("User Name*    :");
-        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
-
-        userNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
-
-        emailIdLbl.setText("Email ID*        :");
-        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        emailIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailIdFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
-
-        passwordLbl.setText("Password*      :");
-        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
-
-        addEmployeeBtn.setText("Add Employee");
-        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
-
-        branchIdCombo.setName(""); // NOI18N
-        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
-
-        branchIdLbl.setText("Branch ID*      :");
-        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        roleLbl.setText("Role*            :");
-        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
-
-        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
-        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkComboBoxActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
-
-        jButton12.setText("Remove Employee");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
-
-        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
-            new String [100][7],
-            new String [] {
-                "staff_id", "email","username","lastname","firstname","role","branch_id"
-            }
-        ));
-        jScrollPane9.setViewportView(allEmployeeTbl);
-
-        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
-
-        jButton8.setText("Search");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
-
-        jButton13.setText("Modify");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
-
-        jButton14.setText("<<");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
-
-        ModulesTab.addTab("New Employee", NewEmployee);
-
         manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
@@ -1014,6 +899,121 @@ private String user;
         );
 
         ModulesTab.addTab("Reports", Reports);
+
+        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstnameLbl.setText("First Name*   :");
+        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+
+        lastNameLbl.setText("Last Name*    :");
+        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+
+        userNameLbl.setText("User Name*    :");
+        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+
+        emailIdLbl.setText("Email ID*        :");
+        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        emailIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailIdFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+
+        passwordLbl.setText("Password*      :");
+        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+
+        addEmployeeBtn.setText("Add Employee");
+        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+
+        branchIdCombo.setName(""); // NOI18N
+        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+
+        branchIdLbl.setText("Branch ID*      :");
+        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        roleLbl.setText("Role*            :");
+        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
+
+        jButton11.setText("Remove Employee");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
+
+        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new String [100][7],
+            new String [] {
+                "staff_id", "email","username","lastname","firstname","role","branch_id"
+            }
+        ));
+        jScrollPane9.setViewportView(allEmployeeTbl);
+
+        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
+
+        jButton8.setText("Search");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
+
+        jButton12.setText("Modify");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+
+        jButton13.setText("<<");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+
+        ModulesTab.addTab("New Employee", NewEmployee);
 
         jButton2.setText("Add New Car");
         jButton2.setActionCommand("");
@@ -1106,13 +1106,13 @@ private String user;
         mfaddpanel.add(mfbranchCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 180, -1));
         mfaddpanel.add(mfyearTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 180, -1));
 
-        jButton11.setText("add");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButton15.setText("add");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jButton15ActionPerformed(evt);
             }
         });
-        mfaddpanel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
+        mfaddpanel.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
 
         mfeqpcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfaddpanel.add(mfeqpcombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
@@ -1889,410 +1889,6 @@ private String user;
   
     }//GEN-LAST:event_cancelConfirmationActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        mfaddpanel.setVisible(true);
-        mfremovepanel.setVisible(false);
-        jScrollPane7.setVisible(false);
-        // removeBtn.setVisible(false);
-        mfsetpanel.setVisible(false);
-        managepointjpanel.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void mfremoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtnActionPerformed
-        // TODO add your handling code here:
-        mfremovepanel.setVisible(true);
-        mfaddpanel.setVisible(false);
-        mfsetpanel.setVisible(false);
-        jScrollPane7.setVisible(true);
-        managepointjpanel.setVisible(false);
-        mf.settable(0,null, null, null,cz);
-    }//GEN-LAST:event_mfremoveBtnActionPerformed
-
-    private void mfmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfmanufacturerComboActionPerformed
-        // TODO add your handling code here:
-        if(mfmanufacturerCombo.getSelectedItem()=="other")
-        mfothermnfTextField.setVisible(true);
-    }//GEN-LAST:event_mfmanufacturerComboActionPerformed
-
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        try {
-            // TODO add your handling code here:{
-                String category = null;
-                if(!mfcartypeCombo.getSelectedItem().toString().isEmpty()){
-                    category = mfcartypeCombo.getSelectedItem().toString();
-                }
-                else {mf.showerror("car type cannot be empty"); return;}
-                
-                String maker = null;
-                
-                if(!mfmanufacturerCombo.getSelectedItem().toString().isEmpty()){
-                    maker = mfmanufacturerCombo.getSelectedItem().toString();
-                }
-                
-                if(mfmanufacturerCombo.getSelectedItem()=="other"){
-                    if(!mfothermnfTextField.getText().isEmpty())
-                        maker = mfothermnfTextField.getText();
-                    else {mf.showerror("manufacturer cannot be empty"); return;}
-                }
-          
-                
-                
-                
-                String model = null;
-                if(!mfmodelTextField.getText().isEmpty()){
-                    model = mfmodelTextField.getText();
-                }
-                else  {
-//                    System.out.println(mfmodelTextField.getText());
-                    mf.showerror("please fill in the model");
-                    return;
-                }
-                
-                
-                String branch = null;
-                if(!mfbranchCombo.getSelectedItem().toString().isEmpty()){
-                    branch = mfbranchCombo.getSelectedItem().toString(); //category, car_or_truck, branc
-                }
-                else {mf.showerror("please fill branch ID"); return;}
-                int branch_id = Integer.parseInt(branch);
-                
-                String car_or_truck = null;
-                if(mfcarCheckBox.isSelected()){
-                    car_or_truck = "car";
-                }else if(mftruckCheckBox.isSelected()){
-                    car_or_truck = "truck";
-                }
-                else{mf.showerror("Select car or truck"); return;}
-                
-                String year = null;
-                if(!mfyearTextField.getText().isEmpty()){
-                    year = mfyearTextField.getText();
-                }
-                else {mf.showerror("please fill in year");return;}
-                
-                String oto = null;
-                if(!mfotoTextField.getText().isEmpty()){
-                    oto = mfotoTextField.getText();
-                }
-                else {mf.showerror("please fill in otometer");return;}
-                double otometer = Double.parseDouble(oto);
-                
-                
-                String color = null;
-                if(mfcolorCombo.getSelectedItem()!= null){
-                    color = mfcolorCombo.getSelectedItem().toString();
-                }
-                if(mfcolorCombo.getSelectedItem()=="other"){
-                    if(!mfotherclTextField.getText().isEmpty())
-                    color = mfotherclTextField.getText();
-                    else {mf.showerror("please fill in the color");return;}
-                    
-                }
-                String vin = null;
-                if(!mfvinTextField.getText().isEmpty()){
-                    vin = mfvinTextField.getText();
-                }
-                else {mf.showerror("please fill in vin"); return;}
-                // String SQL =
-                PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO fleet (category, car_or_truck, branch_id,year, odometer,color, maker, model, doors, status, description,vin) VALUES (?, ?, ?, ? ,?, ?, ?,?, 4, ?,?,?);");
-                ps.setString(1, category);
-                ps.setString(2, car_or_truck);
-                ps.setInt(3,branch_id);
-                //System.out.println(year);
-                ps.setString(4,year);
-                ps.setDouble(5,otometer);
-                ps.setString(6, color);
-                ps.setString(7, maker);
-                ps.setString(8,model);
-                ps.setString(9,"rent");
-                ps.setString(10,null);
-                ps.setString(11,vin);
-                ps.executeUpdate();
-            } catch (ClassNotFoundException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        mf.showerror("Added succefully!");
-    }//GEN-LAST:event_addBtnActionPerformed
-
-    private void mfcarCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBoxActionPerformed
-        // TODO add your handling code here:
-        if(mfcarCheckBox.isSelected()){
-            mftruckCheckBox.setEnabled(false);
-            mf.getCar_or_truck(0);
-            mfcartypeCombo.removeAllItems();
-            mf.fillCarType(mfcartypeCombo);
-        }else if(!mfcarCheckBox.isSelected()){
-            mfcartypeCombo.removeAllItems();
-            mftruckCheckBox.setEnabled(true);
-        }
-    }//GEN-LAST:event_mfcarCheckBoxActionPerformed
-
-    private void mftruckCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mftruckCheckBoxActionPerformed
-        // TODO add your handling code here:
-        if(mftruckCheckBox.isSelected()){
-            mfcarCheckBox.setEnabled(false);
-            mf.getCar_or_truck(1);
-            mfcartypeCombo.removeAllItems();
-            mf.fillCarType(mfcartypeCombo);
-        }else if(!mftruckCheckBox.isSelected()){
-            mfcartypeCombo.removeAllItems();
-            mfcarCheckBox.setEnabled(true);
-        }
-    }//GEN-LAST:event_mftruckCheckBoxActionPerformed
-
-    private void mfcolorComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcolorComboActionPerformed
-        // TODO add your handling code here:
-        if(mfcolorCombo.getSelectedItem()=="other")
-        mfotherclTextField.setVisible(true);
-    }//GEN-LAST:event_mfcolorComboActionPerformed
-
-    private void mfs1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs1BtnActionPerformed
-        // TODO add your handling code here:
-        String cartype = null;
-        try {
-            // TODO add your handling code here:
-            if(mfscartypeCombo.getSelectedItem()!= null){
-                cartype = mfscartypeCombo.getSelectedItem().toString();
-            }
-            mf.fillssManufacturer(mfsmanufacturerCombo, cartype);
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        //clear the table
-        // mf.clearTable(mfremoveTable);
-        // mf.setsqlinfo(0,cartype, null, null);
-        mf.settable(1,cartype, null, null, cz);
-    }//GEN-LAST:event_mfs1BtnActionPerformed
-
-    private void mfscartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfscartypeComboActionPerformed
-        mfsmanufacturerCombo.removeAllItems();
-    }//GEN-LAST:event_mfscartypeComboActionPerformed
-
-    private void mfsmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsmanufacturerComboActionPerformed
-        mfsmodelCombo.removeAllItems();
-    }//GEN-LAST:event_mfsmanufacturerComboActionPerformed
-
-    private void mfs2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs2BtnActionPerformed
-        // TODO add your handling code here:
-        // TODO add your handling code here:
-        String manufacturer = null;
-        String cartype = null;
-        try {
-            // TODO add your handling code here:
-            if(mfsmanufacturerCombo.getSelectedItem()!= null){
-                manufacturer = mfsmanufacturerCombo.getSelectedItem().toString();
-            }
-            if(mfscartypeCombo.getSelectedItem()!= null){
-                cartype = mfscartypeCombo.getSelectedItem().toString();
-            }
-            mf.fillssModel(mfsmodelCombo, manufacturer,cartype);
-            System.out.println(manufacturer+cartype);
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        mf.settable(2, cartype, manufacturer, role, cz);
-    }//GEN-LAST:event_mfs2BtnActionPerformed
-
-    private void mfs3BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs3BtnActionPerformed
-        // TODO add your handling code here:
-        //clear the table
-        String cartype = null;
-        String manufacturer = null;
-        String model = null;
-        cartype = mfscartypeCombo.getSelectedItem().toString();
-        manufacturer = mfsmanufacturerCombo.getSelectedItem().toString();
-        model = mfsmodelCombo.getSelectedItem().toString();
-        mf.settable(3, cartype, manufacturer, model, cz);
-    }//GEN-LAST:event_mfs3BtnActionPerformed
-
-    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-           if(cz.getSelectedRow()==-1){
-           JOptionPane.showMessageDialog(null, "Please select a vehicle");
-           return;
-        }
-            mf.remove(cz);
-            DefaultTableModel model =(DefaultTableModel) cz.getModel();
-
-            
-            
-            
-          long paymentID =  Reserve.genUniqueID();
-          int customeID=0;
-          String phonenum = mfphonenum.getText().toString();
-          double cash = Double.parseDouble(mfcsh.getText().toString());
-          double credit = Double.parseDouble(mfcredit.getText().toString());
-          double total = cash + credit;
-          Date mfDate_upd = CommonFunc.changeDateFormat(mfchooer);
-          String dropOffTime = CommonFunc.sqlTime(mfTimeHH_jSpinner, mfTimeMM_jSpinner);
-          int id=0;
-          int branch_id=0;
-          int staff_id=0;
-          ConnectDB.exeQuery("select customer_id from customer where phone ="+ phonenum);
-          while (ConnectDB.resultSet().next()) {
-              customeID = ConnectDB.resultSet().getInt("customer_id");
-          }
-          ConnectDB.clearResultSet();
-
-          ConnectDB.exeQuery("select staff_id from Accounts where username='"+user+"'");
-          while (ConnectDB.resultSet().next()) {
-              staff_id = ConnectDB.resultSet().getInt("staff_id");
-          }
-          ConnectDB.clearResultSet();
-          
-          ConnectDB.exeQuery("select branch_id from Accounts where username='"+user+"'");
-          while (ConnectDB.resultSet().next()) {
-              branch_id = ConnectDB.resultSet().getInt("branch_id");
-          }
-          ConnectDB.clearResultSet();
-
-           int row = cz.getSelectedRow();
-        //   System.out.println(row);
-                String vin = cz.getValueAt(row, 0).toString();
-        //        System.out.println(vin);
-                
-          ConnectDB.exeUpdate("insert into payment ( payment_id, customer_id, purpose, total, cash, credit, points,"
-                        + " create_time, id, branch_id, staff_id) "
-                        + "values ( "+paymentID+",'"+customeID+"','buyout','"+total+"','"+cash+"','"+credit+"',"
-                        + "'0','"+mfDate_upd+" "+dropOffTime+"','"+vin+"','"+branch_id+"','"+staff_id+"')");
-          ConnectDB.clearResultSet();
-           model.removeRow(cz.getSelectedRow());
-            
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (ParseException ex) { 
-        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-    } 
-        mf.showerror("Remove succefully!");
-    }//GEN-LAST:event_removeBtnActionPerformed
-
-    private void setforrentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforrentBtnActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-           if(cz.getSelectedRow()==-1){
-           JOptionPane.showMessageDialog(null, "Please select a vehicle");
-           return;
-        }
-            mf.sendback(cz);
-            DefaultTableModel model =(DefaultTableModel) cz.getModel();
-            model.removeRow(cz.getSelectedRow());
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        mf.showerror("back to rent succefully!");
-    }//GEN-LAST:event_setforrentBtnActionPerformed
-
-    private void mfsetcartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetcartypeComboActionPerformed
-        // TODO add your handling code here:
-        mfsetmanufacturerCombo.removeAllItems();
-    }//GEN-LAST:event_mfsetcartypeComboActionPerformed
-
-    private void mfsetmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetmanufacturerComboActionPerformed
-        // TODO add your handling code here:
-        mfsetmodelCombo.removeAllItems();
-    }//GEN-LAST:event_mfsetmanufacturerComboActionPerformed
-
-    private void mfset1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset1BtnActionPerformed
-        // TODO add your handling code here:
-        String cartype = null;
-        try {
-            // TODO add your handling code here:
-            if(mfsetcartypeCombo.getSelectedItem()!= null){
-                cartype = mfsetcartypeCombo.getSelectedItem().toString();
-            }
-            mf2.fillssManufacturer(mfsetmanufacturerCombo, cartype);
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        //clear the table
-        // mf.clearTable(mfremoveTable);
-        // mf.setsqlinfo(0,cartype, null, null);
-        mf2.settable(1,cartype, null, null, cz);
-    }//GEN-LAST:event_mfset1BtnActionPerformed
-
-    private void mfset2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset2BtnActionPerformed
-        // TODO add your handling code here:
-        String manufacturer = null;
-        String cartype = null;
-        try {
-            // TODO add your handling code here:
-            if(mfsetmanufacturerCombo.getSelectedItem()!= null){
-                manufacturer = mfsetmanufacturerCombo.getSelectedItem().toString();
-            }
-            if(mfsetcartypeCombo.getSelectedItem()!= null){
-                cartype = mfsetcartypeCombo.getSelectedItem().toString();
-            }
-            mf2.fillssModel(mfsetmodelCombo, manufacturer,cartype);
-            //System.out.println(manufacturer+cartype);
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        mf2.settable(2, cartype, manufacturer, role, cz);
-    }//GEN-LAST:event_mfset2BtnActionPerformed
-
-    private void mfset3BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset3BtnActionPerformed
-        // TODO add your handling code here:
-        String cartype = null;
-        String manufacturer = null;
-        String model = null;
-        cartype = mfsetcartypeCombo.getSelectedItem().toString();
-        manufacturer = mfsetmanufacturerCombo.getSelectedItem().toString();
-        model = mfsetmodelCombo.getSelectedItem().toString();
-        mf2.settable(3, cartype, manufacturer, model, cz);
-    }//GEN-LAST:event_mfset3BtnActionPerformed
-
-    private void setforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforsaleBtnActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-           if(cz.getSelectedRow()==-1){
-           JOptionPane.showMessageDialog(null, "Please select a vehicle");
-           return;
-        }
-            mf2.remove(cz);
-            DefaultTableModel model =(DefaultTableModel) cz.getModel();
-            model.removeRow(cz.getSelectedRow());
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        
-        mf.showerror("Set for sale succefully!");
-    }//GEN-LAST:event_setforsaleBtnActionPerformed
-
-    private void mfremoveBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtn1ActionPerformed
-        // TODO add your handling code here:
-        mfsetpanel.setVisible(true);
-        mfremovepanel.setVisible(false);
-        mfaddpanel.setVisible(false);
-        jScrollPane7.setVisible(true);
-        managepointjpanel.setVisible(false);
-        mf2.settable(0,null, null, null,cz);
-    }//GEN-LAST:event_mfremoveBtn1ActionPerformed
-
     private void ReturnVin_jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnVin_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnVin_jTextField8ActionPerformed
@@ -2547,120 +2143,6 @@ private String user;
 
     }//GEN-LAST:event_rentbtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try {
-            // TODO add your handling code here:
-            mf.changepoint( Double.parseDouble(jTextField2.getText()));
-        } catch (ClassNotFoundException | IOException | SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        int i = Integer.parseInt(jTextField1.getText());
-        int j = Integer.parseInt(jTextField3.getText());
-        try {
-            mf.managepoint(i,j);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void mftruckCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mftruckCheckBox3ActionPerformed
-        // TODO add your handling code here:
-        if(mftruckCheckBox3.isSelected()){
-            mfcarCheckBox3.setEnabled(false);
-            mf3.getCar_or_truck(1);
-            mfcartypeCombo3.removeAllItems();
-            mf3.fillCarType(mfcartypeCombo3);
-        }else if(!mftruckCheckBox3.isSelected()){
-            mfcartypeCombo3.removeAllItems();
-            mfcarCheckBox3.setEnabled(true);
-        }
-    }//GEN-LAST:event_mftruckCheckBox3ActionPerformed
-
-    private void mfcarCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBox3ActionPerformed
-        // TODO add your handling code here:
-      //  System.out.println("@@@@@@@@@@@@@");
-        if(mfcarCheckBox3.isSelected()){
-            mftruckCheckBox3.setEnabled(false);
-            mf3.getCar_or_truck(0);
-            mfcartypeCombo3.removeAllItems();
-            mf3.fillCarType(mfcartypeCombo3);
-        }else if(!mfcarCheckBox3.isSelected()){
-            mfcartypeCombo3.removeAllItems();
-            mftruckCheckBox3.setEnabled(true);
-        }
-    }//GEN-LAST:event_mfcarCheckBox3ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-      //  System.out.println("'@@@@@@@!!!");
-
-        String cartype = mfcartypeCombo3.getSelectedItem().toString();
-        String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
-        try {
-            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,0);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void newvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newvalueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newvalueActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        String cartype = mfcartypeCombo3.getSelectedItem().toString();
-        String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
-        double n = Double.parseDouble(newvalue.getText());
-        try {
-            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,n);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void mfcartypeCombo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcartypeCombo3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mfcartypeCombo3ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-         managepointjpanel.setVisible(true);
-         mfaddpanel.setVisible(false);
-        mfremovepanel.setVisible(false);
-        jScrollPane7.setVisible(false);
-        // removeBtn.setVisible(false);
-        mfsetpanel.setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
 
     private void brnchIdComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnchIdComboActionPerformed
         // TODO add your handling code here:
@@ -2689,7 +2171,7 @@ private String user;
 //        int branch_id = Integer.getInteger(mfbranch.getText().toString());
          String sbranch_id = mfbranch.getText().toString();
 
-         String snum = mfnumber.getText().toString()   ;  
+         String snum = mfnumber.getText().toString()   ; 
          if(sbranch_id.isEmpty()) 
             {mf.showerror("Please specify the branch"); return;}
          if(snum.isEmpty()) 
@@ -3023,6 +2505,544 @@ private String user;
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        mfaddpanel.setVisible(true);
+        mfremovepanel.setVisible(false);
+        jScrollPane7.setVisible(false);
+        // removeBtn.setVisible(false);
+        mfsetpanel.setVisible(false);
+        managepointjpanel.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void mfremoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtnActionPerformed
+        // TODO add your handling code here:
+        mfremovepanel.setVisible(true);
+        mfaddpanel.setVisible(false);
+        mfsetpanel.setVisible(false);
+        jScrollPane7.setVisible(true);
+        managepointjpanel.setVisible(false);
+        mf.settable(0,null, null, null,cz);
+    }//GEN-LAST:event_mfremoveBtnActionPerformed
+
+    private void mfmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfmanufacturerComboActionPerformed
+        // TODO add your handling code here:
+        if(mfmanufacturerCombo.getSelectedItem()=="other")
+        mfothermnfTextField.setVisible(true);
+    }//GEN-LAST:event_mfmanufacturerComboActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        try {
+            // TODO add your handling code here:{
+
+                String car_or_truck = null;
+                if(mfcarCheckBox.isSelected()){
+                    car_or_truck = "car";
+                }else if(mftruckCheckBox.isSelected()){
+                    car_or_truck = "truck";
+                }
+                else{mf.showerror("Select car or truck"); return;}
+
+                String category = null;
+                if(!mfcartypeCombo.getSelectedItem().toString().isEmpty()){
+                    category = mfcartypeCombo.getSelectedItem().toString();
+                }
+                else {mf.showerror("car type cannot be empty"); return;}
+
+                String maker = null;
+
+                if(!mfmanufacturerCombo.getSelectedItem().toString().isEmpty()){
+                    maker = mfmanufacturerCombo.getSelectedItem().toString();
+                }
+
+                if(mfmanufacturerCombo.getSelectedItem()=="other"){
+                    if(!mfothermnfTextField.getText().isEmpty())
+                    maker = mfothermnfTextField.getText();
+                    else {mf.showerror("manufacturer cannot be empty"); return;}
+                }
+
+                String model = null;
+                if(!mfmodelTextField.getText().isEmpty()){
+                    model = mfmodelTextField.getText();
+                }
+                else  {
+                    //                    System.out.println(mfmodelTextField.getText());
+                    mf.showerror("please fill in the model");
+                    return;
+                }
+
+                String branch = null;
+                if(!mfbranchCombo.getSelectedItem().toString().isEmpty()){
+                    branch = mfbranchCombo.getSelectedItem().toString(); //category, car_or_truck, branc
+                }
+                else {mf.showerror("please fill branch ID"); return;}
+                int branch_id = Integer.parseInt(branch);
+
+                String year = null;
+                if(!mfyearTextField.getText().isEmpty()){
+                    year = mfyearTextField.getText();
+                }
+                else {mf.showerror("please fill in year");return;}
+
+                String oto = null;
+                if(!mfotoTextField.getText().isEmpty()){
+                    oto = mfotoTextField.getText();
+                }
+                else {mf.showerror("please fill in otometer");return;}
+                double otometer = Double.parseDouble(oto);
+
+                String color = null;
+                if(mfcolorCombo.getSelectedItem()!= null){
+                    color = mfcolorCombo.getSelectedItem().toString();
+                }
+                if(mfcolorCombo.getSelectedItem()=="other"){
+                    if(!mfotherclTextField.getText().isEmpty())
+                    color = mfotherclTextField.getText();
+                    else {mf.showerror("please fill in the color");return;}
+
+                }
+                String vin = null;
+                if(!mfvinTextField.getText().isEmpty()){
+                    vin = mfvinTextField.getText();
+                }
+                else {mf.showerror("please fill in vin"); return;}
+                // String SQL =
+                PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO fleet (category, car_or_truck, branch_id,year, odometer,color, maker, model, doors, status, description,vin) VALUES (?, ?, ?, ? ,?, ?, ?,?, 4, ?,?,?);");
+                ps.setString(1, category);
+                ps.setString(2, car_or_truck);
+                ps.setInt(3,branch_id);
+                //System.out.println(year);
+                ps.setString(4,year);
+                ps.setDouble(5,otometer);
+                ps.setString(6, color);
+                ps.setString(7, maker);
+                ps.setString(8,model);
+                ps.setString(9,"rent");
+                ps.setString(10,null);
+                ps.setString(11,vin);
+                ps.executeUpdate();
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+            mf.showerror("Added succefully!");
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void mfcarCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if(mfcarCheckBox.isSelected()){
+            mftruckCheckBox.setEnabled(false);
+            mf.getCar_or_truck(0);
+            mfcartypeCombo.removeAllItems();
+            mf.fillCarType(mfcartypeCombo);
+        }else if(!mfcarCheckBox.isSelected()){
+            mfcartypeCombo.removeAllItems();
+            mftruckCheckBox.setEnabled(true);
+        }
+    }//GEN-LAST:event_mfcarCheckBoxActionPerformed
+
+    private void mftruckCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mftruckCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if(mftruckCheckBox.isSelected()){
+            mfcarCheckBox.setEnabled(false);
+            mf.getCar_or_truck(1);
+            mfcartypeCombo.removeAllItems();
+            mf.fillCarType(mfcartypeCombo);
+        }else if(!mftruckCheckBox.isSelected()){
+            mfcartypeCombo.removeAllItems();
+            mfcarCheckBox.setEnabled(true);
+        }
+    }//GEN-LAST:event_mftruckCheckBoxActionPerformed
+
+    private void mfcolorComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcolorComboActionPerformed
+        // TODO add your handling code here:
+        if(mfcolorCombo.getSelectedItem()=="other")
+        mfotherclTextField.setVisible(true);
+    }//GEN-LAST:event_mfcolorComboActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        //        int branch_id = Integer.getInteger(mfbranch.getText().toString());
+        String sbranch_id = mfbranch.getText().toString();
+
+        String snum = mfnumber.getText().toString()   ;
+        if(sbranch_id.isEmpty())
+        {mf.showerror("Please specify the branch"); return;}
+        if(snum.isEmpty())
+        {mf.showerror("Please specify number"); return;}
+        int branch_id = Integer.parseInt(sbranch_id);
+        int num = Integer.parseInt(snum);
+        System.out.println(branch_id);
+
+        String eqp = mfeqpcombo.getSelectedItem().toString();
+
+        try {
+            ConnectDB.exeUpdate("update equipment set Units = Units +"+num+" where equipment_type = '"+eqp+"' and branch_id ='"+branch_id+"'"  );
+            ConnectDB.clearResultSet();
+            mf.showerror("add successfully!");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void mfs1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs1BtnActionPerformed
+        // TODO add your handling code here:
+        String cartype = null;
+        try {
+            // TODO add your handling code here:
+            if(mfscartypeCombo.getSelectedItem()!= null){
+                cartype = mfscartypeCombo.getSelectedItem().toString();
+            }
+            mf.fillssManufacturer(mfsmanufacturerCombo, cartype);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        //clear the table
+        // mf.clearTable(mfremoveTable);
+        // mf.setsqlinfo(0,cartype, null, null);
+        mf.settable(1,cartype, null, null, cz);
+    }//GEN-LAST:event_mfs1BtnActionPerformed
+
+    private void mfscartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfscartypeComboActionPerformed
+        mfsmanufacturerCombo.removeAllItems();
+    }//GEN-LAST:event_mfscartypeComboActionPerformed
+
+    private void mfsmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsmanufacturerComboActionPerformed
+        mfsmodelCombo.removeAllItems();
+    }//GEN-LAST:event_mfsmanufacturerComboActionPerformed
+
+    private void mfs2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs2BtnActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        String manufacturer = null;
+        String cartype = null;
+        try {
+            // TODO add your handling code here:
+            if(mfsmanufacturerCombo.getSelectedItem()!= null){
+                manufacturer = mfsmanufacturerCombo.getSelectedItem().toString();
+            }
+            if(mfscartypeCombo.getSelectedItem()!= null){
+                cartype = mfscartypeCombo.getSelectedItem().toString();
+            }
+            mf.fillssModel(mfsmodelCombo, manufacturer,cartype);
+            System.out.println(manufacturer+cartype);
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        mf.settable(2, cartype, manufacturer, role, cz);
+    }//GEN-LAST:event_mfs2BtnActionPerformed
+
+    private void mfs3BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs3BtnActionPerformed
+        // TODO add your handling code here:
+        //clear the table
+        String cartype = null;
+        String manufacturer = null;
+        String model = null;
+        cartype = mfscartypeCombo.getSelectedItem().toString();
+        manufacturer = mfsmanufacturerCombo.getSelectedItem().toString();
+        model = mfsmodelCombo.getSelectedItem().toString();
+        mf.settable(3, cartype, manufacturer, model, cz);
+    }//GEN-LAST:event_mfs3BtnActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(cz.getSelectedRow()==-1){
+                JOptionPane.showMessageDialog(null, "Please select a vehicle");
+                return;
+            }
+            mf.remove(cz);
+            DefaultTableModel model =(DefaultTableModel) cz.getModel();
+
+            long paymentID =  Reserve.genUniqueID();
+            int customeID=0;
+            String phonenum = mfphonenum.getText().toString();
+            double cash = Double.parseDouble(mfcsh.getText().toString());
+            double credit = Double.parseDouble(mfcredit.getText().toString());
+            double total = cash + credit;
+            Date mfDate_upd = CommonFunc.changeDateFormat(mfchooer);
+            String dropOffTime = CommonFunc.sqlTime(mfTimeHH_jSpinner, mfTimeMM_jSpinner);
+            int id=0;
+            int branch_id=0;
+            int staff_id=0;
+            ConnectDB.exeQuery("select customer_id from customer where phone ="+ phonenum);
+            while (ConnectDB.resultSet().next()) {
+                customeID = ConnectDB.resultSet().getInt("customer_id");
+            }
+            ConnectDB.clearResultSet();
+
+            ConnectDB.exeQuery("select staff_id from Accounts where username='"+user+"'");
+            while (ConnectDB.resultSet().next()) {
+                staff_id = ConnectDB.resultSet().getInt("staff_id");
+            }
+            ConnectDB.clearResultSet();
+
+            ConnectDB.exeQuery("select branch_id from Accounts where username='"+user+"'");
+            while (ConnectDB.resultSet().next()) {
+                branch_id = ConnectDB.resultSet().getInt("branch_id");
+            }
+            ConnectDB.clearResultSet();
+
+            int row = cz.getSelectedRow();
+            //   System.out.println(row);
+            String vin = cz.getValueAt(row, 0).toString();
+            //        System.out.println(vin);
+
+            ConnectDB.exeUpdate("insert into payment ( payment_id, customer_id, purpose, total, cash, credit, points,"
+                + " create_time, id, branch_id, staff_id) "
+                + "values ( "+paymentID+",'"+customeID+"','buyout','"+total+"','"+cash+"','"+credit+"',"
+                + "'0','"+mfDate_upd+" "+dropOffTime+"','"+vin+"','"+branch_id+"','"+staff_id+"')");
+            ConnectDB.clearResultSet();
+            model.removeRow(cz.getSelectedRow());
+
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mf.showerror("Remove succefully!");
+    }//GEN-LAST:event_removeBtnActionPerformed
+
+    private void setforrentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforrentBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(cz.getSelectedRow()==-1){
+                JOptionPane.showMessageDialog(null, "Please select a vehicle");
+                return;
+            }
+            mf.sendback(cz);
+            DefaultTableModel model =(DefaultTableModel) cz.getModel();
+            model.removeRow(cz.getSelectedRow());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        mf.showerror("back to rent succefully!");
+    }//GEN-LAST:event_setforrentBtnActionPerformed
+
+    private void mfremoveBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtn1ActionPerformed
+        // TODO add your handling code here:
+        mfsetpanel.setVisible(true);
+        mfremovepanel.setVisible(false);
+        mfaddpanel.setVisible(false);
+        jScrollPane7.setVisible(true);
+        managepointjpanel.setVisible(false);
+        mf2.settable(0,null, null, null,cz);
+    }//GEN-LAST:event_mfremoveBtn1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        managepointjpanel.setVisible(true);
+        mfaddpanel.setVisible(false);
+        mfremovepanel.setVisible(false);
+        jScrollPane7.setVisible(false);
+        // removeBtn.setVisible(false);
+        mfsetpanel.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            // TODO add your handling code here:
+            mf.changepoint( Double.parseDouble(jTextField2.getText()));
+        } catch (ClassNotFoundException | IOException | SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        mf.showerror("Confirmed!");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int i = Integer.parseInt(jTextField1.getText());
+        int j = Integer.parseInt(jTextField3.getText());
+        try {
+            mf.managepoint(i,j);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mf.showerror("Confirmed!");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void mftruckCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mftruckCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        if(mftruckCheckBox3.isSelected()){
+            mfcarCheckBox3.setEnabled(false);
+            mf3.getCar_or_truck(1);
+            mfcartypeCombo3.removeAllItems();
+            mf3.fillCarType(mfcartypeCombo3);
+        }else if(!mftruckCheckBox3.isSelected()){
+            mfcartypeCombo3.removeAllItems();
+            mfcarCheckBox3.setEnabled(true);
+        }
+    }//GEN-LAST:event_mftruckCheckBox3ActionPerformed
+
+    private void mfcarCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        //  System.out.println("@@@@@@@@@@@@@");
+        if(mfcarCheckBox3.isSelected()){
+            mftruckCheckBox3.setEnabled(false);
+            mf3.getCar_or_truck(0);
+            mfcartypeCombo3.removeAllItems();
+            mf3.fillCarType(mfcartypeCombo3);
+        }else if(!mfcarCheckBox3.isSelected()){
+            mfcartypeCombo3.removeAllItems();
+            mftruckCheckBox3.setEnabled(true);
+        }
+    }//GEN-LAST:event_mfcarCheckBox3ActionPerformed
+
+    private void mfcartypeCombo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcartypeCombo3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mfcartypeCombo3ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        //  System.out.println("'@@@@@@@!!!");
+
+        String cartype = mfcartypeCombo3.getSelectedItem().toString();
+        String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
+        try {
+            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,0);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void newvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newvalueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newvalueActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        String cartype = mfcartypeCombo3.getSelectedItem().toString();
+        String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
+        double n = Double.parseDouble(newvalue.getText());
+        try {
+            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,n);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mf.showerror("Confirmed!");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void mfsetcartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetcartypeComboActionPerformed
+        // TODO add your handling code here:
+        mfsetmanufacturerCombo.removeAllItems();
+    }//GEN-LAST:event_mfsetcartypeComboActionPerformed
+
+    private void mfsetmanufacturerComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetmanufacturerComboActionPerformed
+        // TODO add your handling code here:
+        mfsetmodelCombo.removeAllItems();
+    }//GEN-LAST:event_mfsetmanufacturerComboActionPerformed
+
+    private void mfset1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset1BtnActionPerformed
+        // TODO add your handling code here:
+        String cartype = null;
+        try {
+            // TODO add your handling code here:
+            if(mfsetcartypeCombo.getSelectedItem()!= null){
+                cartype = mfsetcartypeCombo.getSelectedItem().toString();
+            }
+            mf2.fillssManufacturer(mfsetmanufacturerCombo, cartype);
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        //clear the table
+        // mf.clearTable(mfremoveTable);
+        // mf.setsqlinfo(0,cartype, null, null);
+        mf2.settable(1,cartype, null, null, cz);
+    }//GEN-LAST:event_mfset1BtnActionPerformed
+
+    private void mfset2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset2BtnActionPerformed
+        // TODO add your handling code here:
+        String manufacturer = null;
+        String cartype = null;
+        try {
+            // TODO add your handling code here:
+            if(mfsetmanufacturerCombo.getSelectedItem()!= null){
+                manufacturer = mfsetmanufacturerCombo.getSelectedItem().toString();
+            }
+            if(mfsetcartypeCombo.getSelectedItem()!= null){
+                cartype = mfsetcartypeCombo.getSelectedItem().toString();
+            }
+            mf2.fillssModel(mfsetmodelCombo, manufacturer,cartype);
+            //System.out.println(manufacturer+cartype);
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        mf2.settable(2, cartype, manufacturer, role, cz);
+    }//GEN-LAST:event_mfset2BtnActionPerformed
+
+    private void mfset3BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfset3BtnActionPerformed
+        // TODO add your handling code here:
+        String cartype = null;
+        String manufacturer = null;
+        String model = null;
+        cartype = mfsetcartypeCombo.getSelectedItem().toString();
+        manufacturer = mfsetmanufacturerCombo.getSelectedItem().toString();
+        model = mfsetmodelCombo.getSelectedItem().toString();
+        mf2.settable(3, cartype, manufacturer, model, cz);
+    }//GEN-LAST:event_mfset3BtnActionPerformed
+
+    private void setforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforsaleBtnActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            // TODO add your handling code here:
+            mf2.remove(cz);
+            DefaultTableModel model =(DefaultTableModel) cz.getModel();
+            model.removeRow(cz.getSelectedRow());
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        mf.showerror("Set for sale succefully!");
+    }//GEN-LAST:event_setforsaleBtnActionPerformed
+
 
 
 
@@ -3200,7 +3220,7 @@ private String user;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
