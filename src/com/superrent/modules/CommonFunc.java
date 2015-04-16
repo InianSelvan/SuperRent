@@ -5,7 +5,10 @@
  */
 package com.superrent.modules;
 
+import com.superrent.DataBase.ConnectDB;
 import com.toedter.calendar.JDateChooser;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -14,6 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.Session;
 import javax.swing.JSpinner;
 import javax.mail.Message;
@@ -43,16 +48,21 @@ public class CommonFunc {
         return   sqldate;
     }
     public static int compareDates(String first, String second) throws ParseException{
-        
+        System.out.println(first);
         DateTimeFormatter f = DateTimeFormat.forPattern("yyyy-mm-dd HH:mm:ss");
-        DateTime firstdt = f.parseDateTime(first);
+        DateTime firstdt = f.parseDateTime("2015-08-17 00:00:00");
+        System.out.println(firstdt);
         Date fdt = firstdt.toLocalDate().toDate();
+        System.out.println(fdt);
         DateTime seconddt = f.parseDateTime(second);
-        Date sdt = seconddt.toLocalDate().toDate();        
+        Date sdt = seconddt.toLocalDate().toDate(); 
+        System.out.println("");
        return firstdt.compareTo(seconddt);
     }
-    
-
+//    public static void main(String args[]) throws ParseException
+//    {
+//        System.out.println(compareDates("2015-08-17 00:00:00","2015-05-17 00:00:00"));
+//    }
     public static String sqlTime(JSpinner HH, JSpinner MM){
         String hh = String.valueOf(HH.getValue());
         String mm = String.valueOf(MM.getValue());
@@ -116,4 +126,23 @@ public class CommonFunc {
             throw new RuntimeException(e);
       }
    }
+     public static String getEmail(String confirmationNo) throws SQLException{
+         String email = "";
+         try{ 
+                 ConnectDB.exeQuery("SELECT email FROM customer where customer_id in (select distinct(customer_id) from reserve where"
+                         + " confirmation_no = '"+confirmationNo+"')");
+                         while(ConnectDB.resultSet().next()){
+                email = ConnectDB.resultSet().getString("email");
+             }
+               
+             
+             } catch (ClassNotFoundException | SQLException | IOException ex) {
+                 Logger.getLogger(CommonFunc.class.getName()).log(Level.SEVERE, null, ex);
+             }finally{
+                 ConnectDB.clearResultSet();
+             }
+        return email;
+     }
+     
+     
 }

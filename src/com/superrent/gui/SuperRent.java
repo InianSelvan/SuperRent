@@ -1639,10 +1639,18 @@ public class SuperRent extends javax.swing.JFrame {
                     resetTable();
                     Return ret = new Return(); 
                     estimatePrice.setText(ret.getEstimateFee(vehicleId,dropoffDate));
+                    CommonFunc.triggerMail(CommonFunc.getEmail(String.valueOf(ReservationID)),"Super Rent Confimation","Dear customr,\n\n Thank you for choosing SuperRent. Reservation details are below: \n\n"
+                            + "    Confimation NO:    "+ReservationID+"\n\n"
+                            + "    Pick up time:        "+pickupDate+" "+pickuptime+" \n\n"
+                            + "    Drop off time:       "+dropoffDate+" "+dropofftime+"\n\n"
+                            + "    Estimated price:    $ "+estimatePrice.getText()+"\n\n"
+                            + "\n\n\n                                                                   "
+                            + "                                             Super Rent");
                 }               
                 
             }else{
                 JOptionPane.showMessageDialog(null, "Not a valid customer phone number");
+
             }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -2318,6 +2326,7 @@ public class SuperRent extends javax.swing.JFrame {
                     ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
                     ConnectDB.clearResultSet();
                     JOptionPane.showMessageDialog(null, "Return successful!");
+                    CommonFunc.triggerMail(CommonFunc.getEmail(confirmationID),"Super Rent Status", "Thanks for choosing Super Rent !!!");
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, ex);

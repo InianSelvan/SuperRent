@@ -28,6 +28,10 @@ public class ManageFleet {
         //To change body of generated methods, choose Tools | Templates.
         this.function = function;
     }
+
+    ManageFleet() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public void getCar_or_truck(int car_or_truck) {
         //car is 0 and truck is 1
         this.car_or_truck = car_or_truck;
