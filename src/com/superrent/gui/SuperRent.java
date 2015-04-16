@@ -16,6 +16,7 @@ import com.superrent.modules.Reserve;
 import com.superrent.modules.Return;
 import com.superrent.modules.crypt;
 import java.awt.event.ActionEvent;
+import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -40,6 +41,7 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import static org.bouncycastle.asn1.cms.CMSObjectIdentifiers.data;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -2237,11 +2239,16 @@ private String user;
 
     private void ReturnCalculate_jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnCalculate_jButton6ActionPerformed
         // TODO add your handling code here:
+        String vin = ReturnVin_jTextField8.getText();
+        String OdeReading = ReturnOdometer_jTextField9.getText();
+        
+        double previous_ode = MyReturn.getOde(vin);
+        
         if(!ReturnVin_jTextField8.getText().isEmpty() && !ReturnOdoRead_jLabel23.getText().isEmpty() &&
-            !ReturnFuelReading_jTextField2.getText().isEmpty()){
-            String vin = ReturnVin_jTextField8.getText();
+            !ReturnFuelReading_jTextField2.getText().isEmpty() && previous_ode < Double.parseDouble(OdeReading)){
+            vin = ReturnVin_jTextField8.getText();
             String[] ResrTime = new String [2];
-            String OdeReading = ReturnOdometer_jTextField9.getText();
+             OdeReading = ReturnOdometer_jTextField9.getText();
             String FuelReading = ReturnFuelReading_jTextField2.getText();
             boolean RoadStar = ReturnRoadStar_jCheckBox2.isSelected();
             boolean Reedeem = ReturnRedeem_jCheckBox1.isSelected();
@@ -2260,12 +2267,18 @@ private String user;
                     //            SecColumn.setMinWidth(200);
                     TableColumn ThirdColumn = ReturnDisplayFee_jTable2.getColumnModel().getColumn(2);
                     ThirdColumn.setMaxWidth(120);
-                    ThirdColumn.setMinWidth(120);
-
+                    ThirdColumn.setMinWidth(120);  
+                System.out.println("Dear customr,\n\n Thank you for choosing SuperRent. The receipt is as follows: \n\n"
+                            + "    Payment ID:    \n\n"
+                            + "'"+ReturnDisplayFee_jTable2.print(JTable.PrintMode.NORMAL)+"'"
+                            + "\n\n\n                                                                   "
+                            + "                                             Super Rent");
                 }catch (ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                      JOptionPane.showMessageDialog(null, ex);
-                }
+                } catch (PrinterException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }else{
                 JOptionPane.showMessageDialog(null, "Please input all necessary information.");
             }
@@ -2282,17 +2295,18 @@ private String user;
         String vin = ReturnVin_jTextField8.getText();
         String[][] ReserInfo = new String[1][7];
         ReserInfo = Return.getResrInfo(vin);
-        
-        String[][] InfoDisplay = new String[1][4];
+        double previous_ode = MyReturn.getOde(vin);
+        String[][] InfoDisplay = new String[1][5];
         InfoDisplay[0][0] = ReserInfo[0][0];
         InfoDisplay[0][1] = ReserInfo[0][4];
         InfoDisplay[0][2] = ReserInfo[0][5];
         InfoDisplay[0][3] = ReserInfo[0][6];
+        InfoDisplay[0][4] = String.valueOf(previous_ode);
         
         if (!vin.isEmpty()){
             ReturnDisplay_jTable2.setModel(new javax.swing.table.DefaultTableModel (InfoDisplay,
                 new String[]{
-                    "Confirmation No" , "First Name", "Last Name", "Phone"
+                    "Confirmation No" , "First Name", "Last Name", "Phone", "Previous Ode"
                 }))
                 ;
 
@@ -2333,9 +2347,13 @@ private String user;
         String car_status = "";
         String confirmationID = "";
         String customeID = "";
-
+        
+        OdeReading = ReturnOdometer_jTextField9.getText();
+        
+        double previous_ode = MyReturn.getOde(vin);
+        
         if(!ReturnVin_jTextField8.getText().isEmpty() && !ReturnOdoRead_jLabel23.getText().isEmpty() &&
-            !ReturnFuelReading_jTextField2.getText().isEmpty()){
+            !ReturnFuelReading_jTextField2.getText().isEmpty() && previous_ode < Double.parseDouble(OdeReading)){
             vin = ReturnVin_jTextField8.getText();
             OdeReading = ReturnOdometer_jTextField9.getText();
             FuelReading = ReturnFuelReading_jTextField2.getText();
@@ -2376,7 +2394,7 @@ private String user;
             //Update tables;
             if(!ReturnCash_jTextField2.getText().isEmpty() && !ReturnCreditCard_jTextField1.getText().isEmpty() &&
                     (Double.parseDouble(ReturnCash_jTextField2.getText()) + Double.parseDouble(ReturnCreditCard_jTextField1.getText()) >=
-                            Double.parseDouble(CalcuResult[14][2]))){
+                            Double.parseDouble(CalcuResult[14][2])) && previous_ode < Double.parseDouble(OdeReading)){
                 try {
                     username = CommonFunc.username;
                     staff_id = MyReturn.getStaffInfo(username)[0];
@@ -2442,7 +2460,11 @@ private String user;
                     ConnectDB.exeUpdate("update reserve set status = 'returned', dropoff_time = '"+dropOffDate_upd+" "+dropOffTime+"' where vin = '"+vin+"' and status = 'rented' ");
                     ConnectDB.clearResultSet();
                     JOptionPane.showMessageDialog(null, "Return successful!");
-                    CommonFunc.triggerMail(CommonFunc.getEmail(confirmationID),"Super Rent Status", "Thanks for choosing Super Rent !!!");
+                    CommonFunc.triggerMail(CommonFunc.getEmail(confirmationID),"Super Rent Status", "Dear customr,\n\n Thank you for choosing SuperRent. The receipt is as follows: \n\n"
+                            + "    Payment ID:    "+paymentID+"\n\n"
+                            + "'"+ReturnDisplayFee_jTable2+"'"
+                            + "\n\n\n                                                                   "
+                            + "                                             Super Rent");
                 } catch (ClassNotFoundException | SQLException | IOException | ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, ex);
