@@ -2120,6 +2120,10 @@ private String user;
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+           if(cz.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(null, "Please select a vehicle");
+           return;
+        }
             mf.remove(cz);
             DefaultTableModel model =(DefaultTableModel) cz.getModel();
 
@@ -2183,6 +2187,10 @@ private String user;
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+           if(cz.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(null, "Please select a vehicle");
+           return;
+        }
             mf.sendback(cz);
             DefaultTableModel model =(DefaultTableModel) cz.getModel();
             model.removeRow(cz.getSelectedRow());
@@ -2259,6 +2267,10 @@ private String user;
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+           if(cz.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(null, "Please select a vehicle");
+           return;
+        }
             mf2.remove(cz);
             DefaultTableModel model =(DefaultTableModel) cz.getModel();
             model.removeRow(cz.getSelectedRow());
