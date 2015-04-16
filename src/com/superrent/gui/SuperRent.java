@@ -1922,7 +1922,7 @@ private String user;
                 if(!mfcartypeCombo.getSelectedItem().toString().isEmpty()){
                     category = mfcartypeCombo.getSelectedItem().toString();
                 }
-                else mf.showerror("car type cannot be empty");
+                else {mf.showerror("car type cannot be empty"); return;}
                 
                 String maker = null;
                 
@@ -1933,7 +1933,7 @@ private String user;
                 if(mfmanufacturerCombo.getSelectedItem()=="other"){
                     if(!mfothermnfTextField.getText().isEmpty())
                         maker = mfothermnfTextField.getText();
-                    else mf.showerror("manufacturer cannot be empty");
+                    else {mf.showerror("manufacturer cannot be empty"); return;}
                 }
           
                 
@@ -1946,6 +1946,7 @@ private String user;
                 else  {
 //                    System.out.println(mfmodelTextField.getText());
                     mf.showerror("please fill in the model");
+                    return;
                 }
                 
                 
@@ -1953,7 +1954,7 @@ private String user;
                 if(!mfbranchCombo.getSelectedItem().toString().isEmpty()){
                     branch = mfbranchCombo.getSelectedItem().toString(); //category, car_or_truck, branc
                 }
-                else mf.showerror("please fill branch ID");
+                else {mf.showerror("please fill branch ID"); return;}
                 int branch_id = Integer.parseInt(branch);
                 
                 String car_or_truck = null;
@@ -1962,18 +1963,19 @@ private String user;
                 }else if(mftruckCheckBox.isSelected()){
                     car_or_truck = "truck";
                 }
+                else{mf.showerror("Select car or truck"); return;}
                 
                 String year = null;
                 if(!mfyearTextField.getText().isEmpty()){
                     year = mfyearTextField.getText();
                 }
-                else mf.showerror("please fill in year");
+                else {mf.showerror("please fill in year");return;}
                 
                 String oto = null;
                 if(!mfotoTextField.getText().isEmpty()){
                     oto = mfotoTextField.getText();
                 }
-                else mf.showerror("please fill in otometer");
+                else {mf.showerror("please fill in otometer");return;}
                 double otometer = Double.parseDouble(oto);
                 
                 
@@ -1984,14 +1986,14 @@ private String user;
                 if(mfcolorCombo.getSelectedItem()=="other"){
                     if(!mfotherclTextField.getText().isEmpty())
                     color = mfotherclTextField.getText();
-                    else mf.showerror("please fill in the color");
+                    else {mf.showerror("please fill in the color");return;}
                     
                 }
                 String vin = null;
                 if(!mfvinTextField.getText().isEmpty()){
                     vin = mfvinTextField.getText();
                 }
-                else mf.showerror("please fill in vin");
+                else {mf.showerror("please fill in vin"); return;}
                 // String SQL =
                 PreparedStatement ps = ConnectDB.exeUpdateprestatement("INSERT INTO fleet (category, car_or_truck, branch_id,year, odometer,color, maker, model, doors, status, description,vin) VALUES (?, ?, ?, ? ,?, ?, ?,?, 4, ?,?,?);");
                 ps.setString(1, category);
@@ -2688,6 +2690,10 @@ private String user;
          String sbranch_id = mfbranch.getText().toString();
 
          String snum = mfnumber.getText().toString()   ;  
+         if(sbranch_id.isEmpty()) 
+            {mf.showerror("Please specify the branch"); return;}
+         if(snum.isEmpty()) 
+            {mf.showerror("Please specify number"); return;}
          int branch_id = Integer.parseInt(sbranch_id);
          int num = Integer.parseInt(snum);
                           System.out.println(branch_id);       
@@ -2697,6 +2703,7 @@ private String user;
     try {
         ConnectDB.exeUpdate("update equipment set Units = Units +"+num+" where equipment_type = '"+eqp+"' and branch_id ='"+branch_id+"'"  );
         ConnectDB.clearResultSet();
+        mf.showerror("add successfully!");
     } catch (ClassNotFoundException ex) {
         Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
