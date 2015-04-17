@@ -238,36 +238,36 @@ private String user;
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         manageFleet = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        mfaddnewcar = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
         mfaddpanel = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
+        mfjLabel34 = new javax.swing.JLabel();
         mfcartypeCombo = new javax.swing.JComboBox();
-        jLabel35 = new javax.swing.JLabel();
+        mfjLabel35 = new javax.swing.JLabel();
         mfmanufacturerCombo = new javax.swing.JComboBox();
-        addBtn = new javax.swing.JButton();
+        mfaddBtn = new javax.swing.JButton();
         mfcarCheckBox = new javax.swing.JCheckBox();
         mftruckCheckBox = new javax.swing.JCheckBox();
-        jLabel22 = new javax.swing.JLabel();
+        mfjLabel22 = new javax.swing.JLabel();
         mfmodelTextField = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        mfjLabel18 = new javax.swing.JLabel();
+        mfjLabel19 = new javax.swing.JLabel();
         mfotoTextField = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
+        mfjLabel29 = new javax.swing.JLabel();
         mfvinTextField = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
+        mfjLabel46 = new javax.swing.JLabel();
         mfothermnfTextField = new javax.swing.JTextField();
         mfotherclTextField = new javax.swing.JTextField();
         mfcolorCombo = new javax.swing.JComboBox();
         mfbranchCombo = new javax.swing.JComboBox();
         mfyearTextField = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
+        mfaddbtn = new javax.swing.JButton();
         mfeqpcombo = new javax.swing.JComboBox();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
+        mfjLabel67 = new javax.swing.JLabel();
+        mfjLabel68 = new javax.swing.JLabel();
+        mfjLabel69 = new javax.swing.JLabel();
         mfbranch = new javax.swing.JTextField();
-        jLabel45 = new javax.swing.JLabel();
+        mfjLabel45 = new javax.swing.JLabel();
         mfnumber = new javax.swing.JTextField();
         mfremovepanel = new javax.swing.JPanel();
         mfs1Btn = new javax.swing.JButton();
@@ -282,8 +282,8 @@ private String user;
         jLabel41 = new javax.swing.JLabel();
         mfs2Btn = new javax.swing.JButton();
         mfs3Btn = new javax.swing.JButton();
-        removeBtn = new javax.swing.JButton();
-        setforrentBtn = new javax.swing.JButton();
+        mfremoveBtn2 = new javax.swing.JButton();
+        mfsetbtn = new javax.swing.JButton();
         jLabel61 = new javax.swing.JLabel();
         mfcredit = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
@@ -296,43 +296,43 @@ private String user;
         jLabel65 = new javax.swing.JLabel();
         mfTimeMM_jSpinner = new javax.swing.JSpinner();
         jLabel66 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
+        mfjScrollPane7 = new javax.swing.JScrollPane();
         cz = new javax.swing.JTable();
         mfremoveBtn1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        mfmanagepointbtn = new javax.swing.JButton();
         managepointjpanel = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel36 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel49 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel50 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        mfjTextField2 = new javax.swing.JTextField();
+        mfjLabel51 = new javax.swing.JLabel();
+        mfjLabel52 = new javax.swing.JLabel();
+        mfconfirmpoint = new javax.swing.JButton();
+        mfjLabel36 = new javax.swing.JLabel();
+        mfjTextField1 = new javax.swing.JTextField();
+        mfjLabel49 = new javax.swing.JLabel();
+        mfjTextField3 = new javax.swing.JTextField();
+        mfjLabel50 = new javax.swing.JLabel();
+        mfconfirmredeem = new javax.swing.JButton();
         mftruckCheckBox3 = new javax.swing.JCheckBox();
         mfcarCheckBox3 = new javax.swing.JCheckBox();
-        jLabel53 = new javax.swing.JLabel();
+        mfjLabel53 = new javax.swing.JLabel();
         mfcartypeCombo3 = new javax.swing.JComboBox();
         mfmanufacturerCombo3 = new javax.swing.JComboBox();
-        jLabel54 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
-        jLabel56 = new javax.swing.JLabel();
-        newvalue = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        oldvaluejlabel = new javax.swing.JLabel();
+        mfjLabel54 = new javax.swing.JLabel();
+        mfjButton10 = new javax.swing.JButton();
+        mfjLabel56 = new javax.swing.JLabel();
+        mfnewvalue = new javax.swing.JTextField();
+        mfconfirmvalue = new javax.swing.JButton();
+        mfoldvaluejlabel = new javax.swing.JLabel();
         mfsetpanel = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
+        mfjLabel40 = new javax.swing.JLabel();
+        mfjLabel47 = new javax.swing.JLabel();
+        mfjLabel48 = new javax.swing.JLabel();
         mfsetcartypeCombo = new javax.swing.JComboBox();
         mfsetmanufacturerCombo = new javax.swing.JComboBox();
         mfsetmodelCombo = new javax.swing.JComboBox();
         mfset1Btn = new javax.swing.JButton();
         mfset2Btn = new javax.swing.JButton();
         mfset3Btn = new javax.swing.JButton();
-        setforsaleBtn = new javax.swing.JButton();
+        mfsetforsaleBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -1017,11 +1017,11 @@ private String user;
 
         ModulesTab.addTab("New Employee", NewEmployee);
 
-        jButton2.setText("Add New Car");
-        jButton2.setActionCommand("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        mfaddnewcar.setText("Add New Car");
+        mfaddnewcar.setActionCommand("");
+        mfaddnewcar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                mfaddnewcarActionPerformed(evt);
             }
         });
 
@@ -1035,14 +1035,14 @@ private String user;
         mfaddpanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Add New Car"));
         mfaddpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel34.setText("Car Type*            :");
-        mfaddpanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 120, -1));
+        mfjLabel34.setText("Car Type*            :");
+        mfaddpanel.add(mfjLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 120, -1));
 
         mfcartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfaddpanel.add(mfcartypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 180, -1));
 
-        jLabel35.setText("Manufacturer*     :");
-        mfaddpanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 120, -1));
+        mfjLabel35.setText("Manufacturer*     :");
+        mfaddpanel.add(mfjLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 120, -1));
 
         mfmanufacturerCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfmanufacturerCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -1052,13 +1052,13 @@ private String user;
         });
         mfaddpanel.add(mfmanufacturerCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 180, -1));
 
-        addBtn.setText("Add");
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
+        mfaddBtn.setText("Add");
+        mfaddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+                mfaddBtnActionPerformed(evt);
             }
         });
-        mfaddpanel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+        mfaddpanel.add(mfaddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
         mfcarCheckBox.setText("Car");
         mfcarCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1076,23 +1076,23 @@ private String user;
         });
         mfaddpanel.add(mftruckCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        jLabel22.setText("Model                 :");
-        mfaddpanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        mfjLabel22.setText("Model                 :");
+        mfaddpanel.add(mfjLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
         mfaddpanel.add(mfmodelTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 180, -1));
 
-        jLabel18.setText("Year                    :");
-        mfaddpanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        mfjLabel18.setText("Year                    :");
+        mfaddpanel.add(mfjLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
-        jLabel19.setText("Otometer            :");
-        mfaddpanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        mfjLabel19.setText("Otometer            :");
+        mfaddpanel.add(mfjLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
         mfaddpanel.add(mfotoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 180, -1));
 
-        jLabel29.setText("Vin                     :");
-        mfaddpanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        mfjLabel29.setText("Vin                     :");
+        mfaddpanel.add(mfjLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
         mfaddpanel.add(mfvinTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 180, -1));
 
-        jLabel46.setText("Color                 :");
-        mfaddpanel.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        mfjLabel46.setText("Color                 :");
+        mfaddpanel.add(mfjLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
         mfaddpanel.add(mfothermnfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 80, -1));
         mfaddpanel.add(mfotherclTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 80, -1));
 
@@ -1108,29 +1108,29 @@ private String user;
         mfaddpanel.add(mfbranchCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 180, -1));
         mfaddpanel.add(mfyearTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 180, -1));
 
-        jButton15.setText("add");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        mfaddbtn.setText("add");
+        mfaddbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                mfaddbtnActionPerformed(evt);
             }
         });
-        mfaddpanel.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
+        mfaddpanel.add(mfaddbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
 
         mfeqpcombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfaddpanel.add(mfeqpcombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
-        jLabel67.setText("Branch*              :");
-        mfaddpanel.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+        mfjLabel67.setText("Branch*              :");
+        mfaddpanel.add(mfjLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
 
-        jLabel68.setText("Branch*              :");
-        mfaddpanel.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        mfjLabel68.setText("Branch*              :");
+        mfaddpanel.add(mfjLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        jLabel69.setText("equipmentm      :");
-        mfaddpanel.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
+        mfjLabel69.setText("equipmentm      :");
+        mfaddpanel.add(mfjLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
         mfaddpanel.add(mfbranch, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, -1));
 
-        jLabel45.setText("number              :");
-        mfaddpanel.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        mfjLabel45.setText("number              :");
+        mfaddpanel.add(mfjLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
         mfaddpanel.add(mfnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 60, -1));
 
         mfremovepanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Remove Car"));
@@ -1195,21 +1195,21 @@ private String user;
         });
         mfremovepanel.add(mfs3Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 100, -1));
 
-        removeBtn.setText("Remove");
-        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+        mfremoveBtn2.setText("Remove");
+        mfremoveBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeBtnActionPerformed(evt);
+                mfremoveBtn2ActionPerformed(evt);
             }
         });
-        mfremovepanel.add(removeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
+        mfremovepanel.add(mfremoveBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
 
-        setforrentBtn.setText("Back to Rent");
-        setforrentBtn.addActionListener(new java.awt.event.ActionListener() {
+        mfsetbtn.setText("Back to Rent");
+        mfsetbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setforrentBtnActionPerformed(evt);
+                mfsetbtnActionPerformed(evt);
             }
         });
-        mfremovepanel.add(setforrentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, -1, -1));
+        mfremovepanel.add(mfsetbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, -1, -1));
 
         jLabel61.setText("Credit card:");
         mfremovepanel.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, -1, -1));
@@ -1253,7 +1253,7 @@ private String user;
                 return types [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(cz);
+        mfjScrollPane7.setViewportView(cz);
 
         mfremoveBtn1.setText("Set Car for Sale");
         mfremoveBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -1262,65 +1262,65 @@ private String user;
             }
         });
 
-        jButton6.setText("Manage Points");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        mfmanagepointbtn.setText("Manage Points");
+        mfmanagepointbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                mfmanagepointbtnActionPerformed(evt);
             }
         });
 
         managepointjpanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         managepointjpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setText("5.00");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        mfjTextField2.setText("5.00");
+        mfjTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                mfjTextField2ActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 30, 84, -1));
+        managepointjpanel.add(mfjTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 30, 84, -1));
 
-        jLabel51.setText("Please set the strategy of points");
-        managepointjpanel.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 337, -1));
+        mfjLabel51.setText("Please set the strategy of points");
+        managepointjpanel.add(mfjLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 337, -1));
 
-        jLabel52.setText("Dollors per point");
-        managepointjpanel.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 36, -1, -1));
+        mfjLabel52.setText("Dollors per point");
+        managepointjpanel.add(mfjLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 36, -1, -1));
 
-        jButton5.setText("Confirm");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        mfconfirmpoint.setText("Confirm");
+        mfconfirmpoint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                mfconfirmpointActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 41, -1, -1));
+        managepointjpanel.add(mfconfirmpoint, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 41, -1, -1));
 
-        jLabel36.setText("Please enter the number of Points to redeem one day");
-        managepointjpanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, -1, -1));
+        mfjLabel36.setText("Please enter the number of Points to redeem one day");
+        managepointjpanel.add(mfjLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, -1, -1));
 
-        jTextField1.setText("1000");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        mfjTextField1.setText("1000");
+        mfjTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                mfjTextField1ActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 86, 84, -1));
+        managepointjpanel.add(mfjTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 86, 84, -1));
 
-        jLabel49.setText("premium or lower-ranking car");
-        managepointjpanel.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 92, -1, -1));
+        mfjLabel49.setText("premium or lower-ranking car");
+        managepointjpanel.add(mfjLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 92, -1, -1));
 
-        jTextField3.setText("1500");
-        managepointjpanel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 120, 84, -1));
+        mfjTextField3.setText("1500");
+        managepointjpanel.add(mfjTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 120, 84, -1));
 
-        jLabel50.setText("Luxury car, SUV, van or truck");
-        managepointjpanel.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 126, -1, -1));
+        mfjLabel50.setText("Luxury car, SUV, van or truck");
+        managepointjpanel.add(mfjLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 126, -1, -1));
 
-        jButton4.setText("Confirm");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        mfconfirmredeem.setText("Confirm");
+        mfconfirmredeem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                mfconfirmredeemActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 154, -1, -1));
+        managepointjpanel.add(mfconfirmredeem, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 154, -1, -1));
 
         mftruckCheckBox3.setText("Truck");
         mftruckCheckBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -1338,8 +1338,8 @@ private String user;
         });
         managepointjpanel.add(mfcarCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 218, -1, -1));
 
-        jLabel53.setText("Car Type*            :");
-        managepointjpanel.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 263, 120, -1));
+        mfjLabel53.setText("Car Type*            :");
+        managepointjpanel.add(mfjLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 263, 120, -1));
 
         mfcartypeCombo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfcartypeCombo3.addActionListener(new java.awt.event.ActionListener() {
@@ -1352,45 +1352,45 @@ private String user;
         mfmanufacturerCombo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         managepointjpanel.add(mfmanufacturerCombo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 298, 180, -1));
 
-        jLabel54.setText("Rate Type*          :");
-        managepointjpanel.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 302, 120, -1));
+        mfjLabel54.setText("Rate Type*          :");
+        managepointjpanel.add(mfjLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 302, 120, -1));
 
-        jButton10.setText("Check oldvalue: ");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        mfjButton10.setText("Check oldvalue: ");
+        mfjButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                mfjButton10ActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        managepointjpanel.add(mfjButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
-        jLabel56.setText("New Value   :");
-        managepointjpanel.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+        mfjLabel56.setText("New Value   :");
+        managepointjpanel.add(mfjLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
-        newvalue.addActionListener(new java.awt.event.ActionListener() {
+        mfnewvalue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newvalueActionPerformed(evt);
+                mfnewvalueActionPerformed(evt);
             }
         });
-        managepointjpanel.add(newvalue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 90, -1));
+        managepointjpanel.add(mfnewvalue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 90, -1));
 
-        jButton7.setText("Confirm");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        mfconfirmvalue.setText("Confirm");
+        mfconfirmvalue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                mfconfirmvalueActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 380, 80, -1));
+        managepointjpanel.add(mfconfirmvalue, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 380, 80, -1));
 
-        oldvaluejlabel.setText(" ");
-        managepointjpanel.add(oldvaluejlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, -1));
+        mfoldvaluejlabel.setText(" ");
+        managepointjpanel.add(mfoldvaluejlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 100, -1));
 
         mfsetpanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Set Car for Sale"));
 
-        jLabel40.setText("Car Type*       :");
+        mfjLabel40.setText("Car Type*       :");
 
-        jLabel47.setText("Manufacturer*     :");
+        mfjLabel47.setText("Manufacturer*     :");
 
-        jLabel48.setText("Model *  :");
+        mfjLabel48.setText("Model *  :");
 
         mfsetcartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfsetcartypeCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -1429,10 +1429,10 @@ private String user;
             }
         });
 
-        setforsaleBtn.setText("Set for Sale");
-        setforsaleBtn.addActionListener(new java.awt.event.ActionListener() {
+        mfsetforsaleBtn.setText("Set for Sale");
+        mfsetforsaleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                setforsaleBtnActionPerformed(evt);
+                mfsetforsaleBtnActionPerformed(evt);
             }
         });
 
@@ -1443,9 +1443,9 @@ private String user;
             .addGroup(mfsetpanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel48))
+                    .addComponent(mfjLabel40)
+                    .addComponent(mfjLabel47)
+                    .addComponent(mfjLabel48))
                 .addGap(18, 18, 18)
                 .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mfsetcartypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1455,7 +1455,7 @@ private String user;
                 .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mfsetpanelLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(setforsaleBtn))
+                        .addComponent(mfsetforsaleBtn))
                     .addComponent(mfset1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mfset2Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mfset3Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1467,11 +1467,11 @@ private String user;
                 .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mfsetpanelLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(jLabel40)
+                        .addComponent(mfjLabel40)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel47)
+                        .addComponent(mfjLabel47)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel48))
+                        .addComponent(mfjLabel48))
                     .addGroup(mfsetpanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(mfsetpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1486,7 +1486,7 @@ private String user;
                             .addComponent(mfsetmodelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mfset3Btn))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(setforsaleBtn)
+                .addComponent(mfsetforsaleBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1509,18 +1509,18 @@ private String user;
                                     .addGap(6, 6, 6)
                                     .addComponent(mfsetpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mfjScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(manageFleetLayout.createSequentialGroup()
                         .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(manageFleetLayout.createSequentialGroup()
                                 .addGap(120, 120, 120)
                                 .addComponent(mfremoveBtn))
-                            .addComponent(jButton2))
+                            .addComponent(mfaddnewcar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mfremoveBtn1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
+                        .addComponent(mfmanagepointbtn)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         manageFleetLayout.setVerticalGroup(
@@ -1531,8 +1531,8 @@ private String user;
                     .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(mfremoveBtn)
                         .addComponent(mfremoveBtn1)
-                        .addComponent(jButton6))
-                    .addComponent(jButton2))
+                        .addComponent(mfmanagepointbtn))
+                    .addComponent(mfaddnewcar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(manageFleetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(manageFleetLayout.createSequentialGroup()
@@ -1541,7 +1541,7 @@ private String user;
                         .addComponent(mfaddpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(mfremovepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mfjScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(managepointjpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2547,22 +2547,22 @@ private String user;
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void mfaddnewcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfaddnewcarActionPerformed
         // TODO add your handling code here:
         mfaddpanel.setVisible(true);
         mfremovepanel.setVisible(false);
-        jScrollPane7.setVisible(false);
+        mfjScrollPane7.setVisible(false);
         // removeBtn.setVisible(false);
         mfsetpanel.setVisible(false);
         managepointjpanel.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_mfaddnewcarActionPerformed
 
     private void mfremoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtnActionPerformed
         // TODO add your handling code here:
         mfremovepanel.setVisible(true);
         mfaddpanel.setVisible(false);
         mfsetpanel.setVisible(false);
-        jScrollPane7.setVisible(true);
+        mfjScrollPane7.setVisible(true);
         managepointjpanel.setVisible(false);
         mf.settable(0,null, null, null,cz);
     }//GEN-LAST:event_mfremoveBtnActionPerformed
@@ -2573,7 +2573,7 @@ private String user;
         mfothermnfTextField.setVisible(true);
     }//GEN-LAST:event_mfmanufacturerComboActionPerformed
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+    private void mfaddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfaddBtnActionPerformed
         try {
             // TODO add your handling code here:{
 
@@ -2671,7 +2671,7 @@ private String user;
                 JOptionPane.showMessageDialog(null, ex);
             }
             mf.showerror("Added succefully!");
-    }//GEN-LAST:event_addBtnActionPerformed
+    }//GEN-LAST:event_mfaddBtnActionPerformed
 
     private void mfcarCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfcarCheckBoxActionPerformed
         // TODO add your handling code here:
@@ -2705,7 +2705,7 @@ private String user;
         mfotherclTextField.setVisible(true);
     }//GEN-LAST:event_mfcolorComboActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void mfaddbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfaddbtnActionPerformed
         // TODO add your handling code here:
         //        int branch_id = Integer.getInteger(mfbranch.getText().toString());
         String sbranch_id = mfbranch.getText().toString();
@@ -2733,7 +2733,7 @@ private String user;
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_mfaddbtnActionPerformed
 
     private void mfs1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfs1BtnActionPerformed
         // TODO add your handling code here:
@@ -2802,7 +2802,7 @@ private String user;
         mf.settable(3, cartype, manufacturer, model, cz);
     }//GEN-LAST:event_mfs3BtnActionPerformed
 
-    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+    private void mfremoveBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtn2ActionPerformed
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
@@ -2864,9 +2864,9 @@ private String user;
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
         mf.showerror("Remove succefully!");
-    }//GEN-LAST:event_removeBtnActionPerformed
+    }//GEN-LAST:event_mfremoveBtn2ActionPerformed
 
-    private void setforrentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforrentBtnActionPerformed
+    private void mfsetbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetbtnActionPerformed
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
@@ -2885,51 +2885,51 @@ private String user;
             JOptionPane.showMessageDialog(null, ex);
         }
         mf.showerror("back to rent succefully!");
-    }//GEN-LAST:event_setforrentBtnActionPerformed
+    }//GEN-LAST:event_mfsetbtnActionPerformed
 
     private void mfremoveBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfremoveBtn1ActionPerformed
         // TODO add your handling code here:
         mfsetpanel.setVisible(true);
         mfremovepanel.setVisible(false);
         mfaddpanel.setVisible(false);
-        jScrollPane7.setVisible(true);
+        mfjScrollPane7.setVisible(true);
         managepointjpanel.setVisible(false);
         mf2.settable(0,null, null, null,cz);
     }//GEN-LAST:event_mfremoveBtn1ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void mfmanagepointbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfmanagepointbtnActionPerformed
         // TODO add your handling code here:
         managepointjpanel.setVisible(true);
         mfaddpanel.setVisible(false);
         mfremovepanel.setVisible(false);
-        jScrollPane7.setVisible(false);
+        mfjScrollPane7.setVisible(false);
         // removeBtn.setVisible(false);
         mfsetpanel.setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_mfmanagepointbtnActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void mfjTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfjTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_mfjTextField2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void mfconfirmpointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfconfirmpointActionPerformed
         try {
             // TODO add your handling code here:
-            mf.changepoint( Double.parseDouble(jTextField2.getText()));
+            mf.changepoint( Double.parseDouble(mfjTextField2.getText()));
         } catch (ClassNotFoundException | IOException | SQLException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_mfconfirmpointActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void mfjTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfjTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_mfjTextField1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void mfconfirmredeemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfconfirmredeemActionPerformed
         // TODO add your handling code here:
-        int i = Integer.parseInt(jTextField1.getText());
-        int j = Integer.parseInt(jTextField3.getText());
+        int i = Integer.parseInt(mfjTextField1.getText());
+        int j = Integer.parseInt(mfjTextField3.getText());
         try {
             mf.managepoint(i,j);
         } catch (ClassNotFoundException ex) {
@@ -2940,7 +2940,7 @@ private String user;
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
         mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_mfconfirmredeemActionPerformed
 
     private void mftruckCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mftruckCheckBox3ActionPerformed
         // TODO add your handling code here:
@@ -2973,14 +2973,14 @@ private String user;
         // TODO add your handling code here:
     }//GEN-LAST:event_mfcartypeCombo3ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void mfjButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfjButton10ActionPerformed
         // TODO add your handling code here:
         //  System.out.println("'@@@@@@@!!!");
 
         String cartype = mfcartypeCombo3.getSelectedItem().toString();
         String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
         try {
-            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,0);
+            mf3.filloldvalue(mfoldvaluejlabel,cartype,ratetype,0);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -2988,19 +2988,19 @@ private String user;
         } catch (IOException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_mfjButton10ActionPerformed
 
-    private void newvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newvalueActionPerformed
+    private void mfnewvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfnewvalueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newvalueActionPerformed
+    }//GEN-LAST:event_mfnewvalueActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void mfconfirmvalueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfconfirmvalueActionPerformed
         // TODO add your handling code here:
         String cartype = mfcartypeCombo3.getSelectedItem().toString();
         String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
-        double n = Double.parseDouble(newvalue.getText());
+        double n = Double.parseDouble(mfnewvalue.getText());
         try {
-            mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,n);
+            mf3.filloldvalue(mfoldvaluejlabel,cartype,ratetype,n);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -3009,7 +3009,7 @@ private String user;
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
         mf.showerror("Confirmed!");
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_mfconfirmvalueActionPerformed
 
     private void mfsetcartypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetcartypeComboActionPerformed
         // TODO add your handling code here:
@@ -3070,7 +3070,7 @@ private String user;
         mf2.settable(3, cartype, manufacturer, model, cz);
     }//GEN-LAST:event_mfset3BtnActionPerformed
 
-    private void setforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforsaleBtnActionPerformed
+    private void mfsetforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mfsetforsaleBtnActionPerformed
         // TODO add your handling code here:
 
         try {
@@ -3083,7 +3083,7 @@ private String user;
         }
 
         mf.showerror("Set for sale succefully!");
-    }//GEN-LAST:event_setforsaleBtnActionPerformed
+    }//GEN-LAST:event_mfsetforsaleBtnActionPerformed
 
 
 
@@ -3145,7 +3145,7 @@ private String user;
         mfaddpanel.setVisible(false);
         mfremovepanel.setVisible(false);
         mfsetpanel.setVisible(false);
-        jScrollPane7.setVisible(false);
+        mfjScrollPane7.setVisible(false);
         managepointjpanel.setVisible(false);
         
         
@@ -3217,7 +3217,6 @@ private String user;
     private javax.swing.JLabel ReturnTime_jLabel20;
     private javax.swing.JLabel ReturnTime_jLabel21;
     private javax.swing.JTextField ReturnVin_jTextField8;
-    private javax.swing.JButton addBtn;
     private javax.swing.JButton addEmployeeBtn;
     private javax.swing.JButton addEquipBtn;
     private javax.swing.JTable allEmployeeTbl;
@@ -3258,17 +3257,10 @@ private String user;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -3280,49 +3272,30 @@ private String user;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -3334,9 +3307,6 @@ private String user;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3352,13 +3322,9 @@ private String user;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLbl;
     private javax.swing.JButton loginBtn;
@@ -3368,6 +3334,9 @@ private String user;
     private javax.swing.JPanel managepointjpanel;
     private javax.swing.JSpinner mfTimeHH_jSpinner;
     private javax.swing.JSpinner mfTimeMM_jSpinner;
+    private javax.swing.JButton mfaddBtn;
+    private javax.swing.JButton mfaddbtn;
+    private javax.swing.JButton mfaddnewcar;
     private javax.swing.JPanel mfaddpanel;
     private javax.swing.JTextField mfbranch;
     private javax.swing.JComboBox mfbranchCombo;
@@ -3377,19 +3346,53 @@ private String user;
     private javax.swing.JComboBox mfcartypeCombo3;
     private com.toedter.calendar.JDateChooser mfchooer;
     private javax.swing.JComboBox mfcolorCombo;
+    private javax.swing.JButton mfconfirmpoint;
+    private javax.swing.JButton mfconfirmredeem;
+    private javax.swing.JButton mfconfirmvalue;
     private javax.swing.JTextField mfcredit;
     private javax.swing.JTextField mfcsh;
     private javax.swing.JComboBox mfeqpcombo;
+    private javax.swing.JButton mfjButton10;
+    private javax.swing.JLabel mfjLabel18;
+    private javax.swing.JLabel mfjLabel19;
+    private javax.swing.JLabel mfjLabel22;
+    private javax.swing.JLabel mfjLabel29;
+    private javax.swing.JLabel mfjLabel34;
+    private javax.swing.JLabel mfjLabel35;
+    private javax.swing.JLabel mfjLabel36;
+    private javax.swing.JLabel mfjLabel40;
+    private javax.swing.JLabel mfjLabel45;
+    private javax.swing.JLabel mfjLabel46;
+    private javax.swing.JLabel mfjLabel47;
+    private javax.swing.JLabel mfjLabel48;
+    private javax.swing.JLabel mfjLabel49;
+    private javax.swing.JLabel mfjLabel50;
+    private javax.swing.JLabel mfjLabel51;
+    private javax.swing.JLabel mfjLabel52;
+    private javax.swing.JLabel mfjLabel53;
+    private javax.swing.JLabel mfjLabel54;
+    private javax.swing.JLabel mfjLabel56;
+    private javax.swing.JLabel mfjLabel67;
+    private javax.swing.JLabel mfjLabel68;
+    private javax.swing.JLabel mfjLabel69;
+    private javax.swing.JScrollPane mfjScrollPane7;
+    private javax.swing.JTextField mfjTextField1;
+    private javax.swing.JTextField mfjTextField2;
+    private javax.swing.JTextField mfjTextField3;
+    private javax.swing.JButton mfmanagepointbtn;
     private javax.swing.JComboBox mfmanufacturerCombo;
     private javax.swing.JComboBox mfmanufacturerCombo3;
     private javax.swing.JTextField mfmodelTextField;
+    private javax.swing.JTextField mfnewvalue;
     private javax.swing.JTextField mfnumber;
+    private javax.swing.JLabel mfoldvaluejlabel;
     private javax.swing.JTextField mfotherclTextField;
     private javax.swing.JTextField mfothermnfTextField;
     private javax.swing.JTextField mfotoTextField;
     private javax.swing.JTextField mfphonenum;
     private javax.swing.JButton mfremoveBtn;
     private javax.swing.JButton mfremoveBtn1;
+    private javax.swing.JButton mfremoveBtn2;
     private javax.swing.JPanel mfremovepanel;
     private javax.swing.JButton mfs1Btn;
     private javax.swing.JButton mfs2Btn;
@@ -3398,7 +3401,9 @@ private String user;
     private javax.swing.JButton mfset1Btn;
     private javax.swing.JButton mfset2Btn;
     private javax.swing.JButton mfset3Btn;
+    private javax.swing.JButton mfsetbtn;
     private javax.swing.JComboBox mfsetcartypeCombo;
+    private javax.swing.JButton mfsetforsaleBtn;
     private javax.swing.JComboBox mfsetmanufacturerCombo;
     private javax.swing.JComboBox mfsetmodelCombo;
     private javax.swing.JPanel mfsetpanel;
@@ -3409,8 +3414,6 @@ private String user;
     private javax.swing.JTextField mfvinTextField;
     private javax.swing.JTextField mfyearTextField;
     private javax.swing.JPanel modulepane;
-    private javax.swing.JTextField newvalue;
-    private javax.swing.JLabel oldvaluejlabel;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLbl;
     private javax.swing.JTextField phoneTextField;
@@ -3419,7 +3422,6 @@ private String user;
     private javax.swing.JSpinner pickupMin;
     private javax.swing.JComboBox provinceComboBox;
     private javax.swing.JTextField pwdField;
-    private javax.swing.JButton removeBtn;
     private javax.swing.JButton removeEquipBtn;
     private javax.swing.JButton rentBtn;
     private javax.swing.JTextField rentConfirmationNO;
@@ -3434,8 +3436,6 @@ private String user;
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton searchEqupBtn;
     private javax.swing.JList selectedList;
-    private javax.swing.JButton setforrentBtn;
-    private javax.swing.JButton setforsaleBtn;
     private javax.swing.JTextField streetAddField;
     private javax.swing.JTable unreservedVehiTable;
     private javax.swing.JTextField userField;
