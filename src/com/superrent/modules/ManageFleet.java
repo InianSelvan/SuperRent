@@ -84,10 +84,10 @@ public class ManageFleet {
         }
     }
     public void fillsCarType(JComboBox cartypeCombo) throws ClassNotFoundException, SQLException, IOException {
-        ConnectDB.exeQuery("SELECT distinct category FROM fleet where status = '"+function+"'");
+        ConnectDB.exeQuery("SELECT distinct year FROM fleet where status = '"+function+"' order by year" );
         cartypeCombo.addItem("All");
         while (ConnectDB.resultSet().next()) {
-            String scategory = ConnectDB.resultSet().getString("category");
+            String scategory = ConnectDB.resultSet().getString("year");
             cartypeCombo.addItem(scategory);
         }
         ConnectDB.clearResultSet();
@@ -96,17 +96,17 @@ public class ManageFleet {
         if (cartype=="All")
             cartype = "1=1";
         else
-            cartype = "category ='" + cartype + "'";
+            cartype = "F.year <='" + cartype + "'";
         if(manufacturer == "All")
             manufacturer = "1=1";
         else
-            manufacturer = "maker ='"+manufacturer + "'";
+            manufacturer = "F.category ='"+manufacturer + "'";
         String sql = new String();
-        sql="SELECT distinct model FROM fleet where status = '"+function+"' and "+ manufacturer +" and " +cartype;
+        sql="SELECT distinct city FROM fleet F,branch B where F.branch_id = B.branch_id and F.status = '"+function+"' and "+ manufacturer +" and " +cartype;
         ConnectDB.exeQuery(sql);
         modelCombo.addItem("All");
         while (ConnectDB.resultSet().next()) {
-            String smodel = ConnectDB.resultSet().getString("model");
+            String smodel = ConnectDB.resultSet().getString("city");
             System.out.println(smodel);
             modelCombo.addItem(smodel);
         }
@@ -117,12 +117,12 @@ public class ManageFleet {
         if (cartype=="All")
             cartype = "1=1";
         else
-            cartype = "category ='" + cartype + "'";
-        sql = "SELECT distinct maker FROM fleet where status = '"+function+"' and "+cartype ;
+            cartype = "year <='" + cartype + "'";
+        sql = "SELECT distinct category FROM fleet where status = '"+function+"' and "+cartype ;
         ConnectDB.exeQuery(sql);
         manufacturerpeCombo.addItem("All");
         while (ConnectDB.resultSet().next()) {
-            String smanufacturer = ConnectDB.resultSet().getString("maker");
+            String smanufacturer = ConnectDB.resultSet().getString("category");
             manufacturerpeCombo.addItem(smanufacturer);
         }
         ConnectDB.clearResultSet();
@@ -132,14 +132,14 @@ public class ManageFleet {
         if (cartype=="All")
             cartype = "1=1";
         else
-            cartype = "category ='" + cartype + "'";
+            cartype = "year <='" + cartype + "'";
         if(manufacturer == "All")
             manufacturer = "1=1";
         else
-            manufacturer = "maker ='"+manufacturer + "'";
+            manufacturer = "category ='"+manufacturer + "'";
         if(model == "All")
             model = "1=1";
-        else model = "model='"+model+"'";
+        else model = "city='"+model+"'";
         if(i==0){
             sqlforInfo = "select vin, branch_id, category, maker, model, year from fleet where status ='"+function+"'";
         }
@@ -159,7 +159,7 @@ public class ManageFleet {
         }
         else if(i==3){
             // if(model != "All"){
-            sqlforInfo = "SELECT vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"' and " + model + " and " + manufacturer + " and " + cartype;
+            sqlforInfo = "SELECT F.vin, F.branch_id, F.category, F.maker, F.model, F.year FROM fleet F, branch B where F.branch_id = B.branch_id and F.status = '"+function+"' and B." + model + " and F." + manufacturer + " and F." + cartype;
             // }
             // else
             // sqlforInfo = "SELECT vin, branch_id, category, maker, model, year FROM fleet where status = '"+function+"'and maker = '" + manufacturer + "'"+"and category = '" + cartype + "'";

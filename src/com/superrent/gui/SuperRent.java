@@ -94,48 +94,6 @@ private String user;
         jLabel4 = new javax.swing.JLabel();
         modulepane = new javax.swing.JPanel();
         ModulesTab = new javax.swing.JTabbedPane();
-        NewEmployee = new javax.swing.JPanel();
-        firstnameLbl = new javax.swing.JLabel();
-        firstNameField = new javax.swing.JTextField();
-        lastNameLbl = new javax.swing.JLabel();
-        lastNameField = new javax.swing.JTextField();
-        userNameLbl = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
-        emailIdLbl = new javax.swing.JLabel();
-        emailIdField = new javax.swing.JTextField();
-        passwordLbl = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        AddEmployeeBtn = new javax.swing.JButton();
-        branchIdCombo = new javax.swing.JComboBox();
-        branchIdLbl = new javax.swing.JLabel();
-        roleLbl = new javax.swing.JLabel();
-        clerkComboBox = new javax.swing.JComboBox();
-        RemoveEmployeeBtn = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        allEmployeeTbl = new javax.swing.JTable();
-        SearchEmployeeBtn = new javax.swing.JButton();
-        ModifyEmployeeBtn = new javax.swing.JButton();
-        MoveEmployeeBtn = new javax.swing.JButton();
-        manageCustomer = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        cusFristNameField = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        cusLastNameField = new javax.swing.JTextField();
-        streetAddField = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        provinceComboBox = new javax.swing.JComboBox();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        zipTextField = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        phoneTextField = new javax.swing.JTextField();
-        clubMemberCheckBox = new javax.swing.JCheckBox();
-        Customer_RegisterBtn = new javax.swing.JButton();
-        cityTextField = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        emailTextField = new javax.swing.JTextField();
         Rent = new javax.swing.JPanel();
         dlNumLbl = new javax.swing.JLabel();
         dlNumField = new javax.swing.JTextField();
@@ -152,8 +110,8 @@ private String user;
         rentPhoneNo = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         reservedVehiTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        serachRnt = new javax.swing.JButton();
+        resetAll = new javax.swing.JButton();
         reservePanel = new javax.swing.JPanel();
         brnchIdLbl = new javax.swing.JLabel();
         brnchIdCombo = new javax.swing.JComboBox();
@@ -235,6 +193,26 @@ private String user;
         ReturnCash_jTextField2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        manageCustomer = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        cusFristNameField = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        cusLastNameField = new javax.swing.JTextField();
+        streetAddField = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        provinceComboBox = new javax.swing.JComboBox();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        zipTextField = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        phoneTextField = new javax.swing.JTextField();
+        clubMemberCheckBox = new javax.swing.JCheckBox();
+        Customer_RegisterBtn = new javax.swing.JButton();
+        cityTextField = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
         Reports = new javax.swing.JPanel();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -332,6 +310,28 @@ private String user;
         mfset2Btn = new javax.swing.JButton();
         mfset3Btn = new javax.swing.JButton();
         setforsaleBtn = new javax.swing.JButton();
+        NewEmployee = new javax.swing.JPanel();
+        firstnameLbl = new javax.swing.JLabel();
+        firstNameField = new javax.swing.JTextField();
+        lastNameLbl = new javax.swing.JLabel();
+        lastNameField = new javax.swing.JTextField();
+        userNameLbl = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        emailIdLbl = new javax.swing.JLabel();
+        emailIdField = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        AddEmployeeBtn = new javax.swing.JButton();
+        branchIdCombo = new javax.swing.JComboBox();
+        branchIdLbl = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
+        RemoveEmployeeBtn = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        allEmployeeTbl = new javax.swing.JTable();
+        SearchEmployeeBtn = new javax.swing.JButton();
+        ModifyEmployeeBtn = new javax.swing.JButton();
+        MoveEmployeeBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -372,186 +372,6 @@ private String user;
             }
         });
 
-        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        firstnameLbl.setText("First Name*   :");
-        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        firstNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
-
-        lastNameLbl.setText("Last Name*    :");
-        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-
-        lastNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
-
-        userNameLbl.setText("User Name*    :");
-        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
-
-        userNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
-
-        emailIdLbl.setText("Email ID*        :");
-        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        emailIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailIdFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
-
-        passwordLbl.setText("Password*      :");
-        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
-
-        AddEmployeeBtn.setText("Add Employee");
-        AddEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(AddEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
-
-        branchIdCombo.setName(""); // NOI18N
-        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
-
-        branchIdLbl.setText("Branch ID*      :");
-        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        roleLbl.setText("Role*            :");
-        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
-
-        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
-        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkComboBoxActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
-
-        RemoveEmployeeBtn.setText("Remove Employee");
-        RemoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(RemoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
-
-        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
-            new String [100][7],
-            new String [] {
-                "staff_id", "email","username","lastname","firstname","role","branch_id"
-            }
-        ));
-        jScrollPane9.setViewportView(allEmployeeTbl);
-
-        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
-
-        SearchEmployeeBtn.setText("Search");
-        SearchEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(SearchEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, -1, -1));
-
-        ModifyEmployeeBtn.setText("Modify");
-        ModifyEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModifyEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(ModifyEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
-
-        MoveEmployeeBtn.setText("<<");
-        MoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MoveEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(MoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
-
-        ModulesTab.addTab("New Employee", NewEmployee);
-
-        manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setText("First Name*       :");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-        jPanel1.add(cusFristNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
-
-        jLabel27.setText("Last Name*    :");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
-        jPanel1.add(cusLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, -1));
-        jPanel1.add(streetAddField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
-
-        jLabel28.setText("Street Address* :");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        jLabel30.setText("Province*           :");
-        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
-
-        provinceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "On", "Qc", "Ns", "Nb", "Mb", "Bc", "Pe", "Sk", "Ab", "Nl", "Nt", "Yt", "Nu" }));
-        jPanel1.add(provinceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
-
-        jLabel31.setText("City*   :");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-
-        jLabel32.setText("Zip Code*   :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
-
-        zipTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(zipTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 130, -1));
-
-        jLabel33.setText("Phone No*         :");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
-
-        clubMemberCheckBox.setText("Club Member");
-        clubMemberCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clubMemberCheckBoxActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clubMemberCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-
-        Customer_RegisterBtn.setText("Register");
-        Customer_RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Customer_RegisterBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Customer_RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
-        jPanel1.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
-
-        jLabel23.setText("email:");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
-        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
-
-        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
-
-        ModulesTab.addTab("Manage Customer", manageCustomer);
-
         Rent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dlNumLbl.setText("Driver License*                 :");
@@ -586,6 +406,12 @@ private String user;
 
         jLabel55.setText("or  Phone Number     :");
         Rent.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+
+        rentPhoneNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentPhoneNoActionPerformed(evt);
+            }
+        });
         Rent.add(rentPhoneNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 150, -1));
 
         reservedVehiTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -598,21 +424,21 @@ private String user;
 
         Rent.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 1160, 100));
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        serachRnt.setText("Search");
+        serachRnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                serachRntActionPerformed(evt);
             }
         });
-        Rent.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, -1, -1));
+        Rent.add(serachRnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, -1, -1));
 
-        jButton3.setText("Reset");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        resetAll.setText("Reset");
+        resetAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                resetAllActionPerformed(evt);
             }
         });
-        Rent.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
+        Rent.add(resetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
         ModulesTab.addTab("Rent", Rent);
 
@@ -1003,15 +829,80 @@ private String user;
 
         ModulesTab.addTab("Return", returnVehicles);
 
+        manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setText("First Name*       :");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jPanel1.add(cusFristNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
+
+        jLabel27.setText("Last Name*    :");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        jPanel1.add(cusLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, -1));
+        jPanel1.add(streetAddField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
+
+        jLabel28.setText("Street Address* :");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jLabel30.setText("Province*           :");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
+
+        provinceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "On", "Qc", "Ns", "Nb", "Mb", "Bc", "Pe", "Sk", "Ab", "Nl", "Nt", "Yt", "Nu" }));
+        jPanel1.add(provinceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
+
+        jLabel31.setText("City*   :");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+
+        jLabel32.setText("Zip Code*   :");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
+
+        zipTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zipTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(zipTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 130, -1));
+
+        jLabel33.setText("Phone No*         :");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
+
+        clubMemberCheckBox.setText("Club Member");
+        clubMemberCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clubMemberCheckBoxActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clubMemberCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        Customer_RegisterBtn.setText("Register");
+        Customer_RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Customer_RegisterBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Customer_RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+        jPanel1.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
+
+        jLabel23.setText("email:");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
+
+        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
+
+        ModulesTab.addTab("Manage Customer", manageCustomer);
+
         javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
         Reports.setLayout(ReportsLayout);
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1372, Short.MAX_VALUE)
+            .addGap(0, 1379, Short.MAX_VALUE)
         );
         ReportsLayout.setVerticalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1267, Short.MAX_VALUE)
+            .addGap(0, 1279, Short.MAX_VALUE)
         );
 
         ModulesTab.addTab("Reports", Reports);
@@ -1057,7 +948,7 @@ private String user;
                 addBtnActionPerformed(evt);
             }
         });
-        mfaddpanel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+        mfaddpanel.add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, -1, -1));
 
         mfcarCheckBox.setText("Car");
         mfcarCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -1143,7 +1034,7 @@ private String user;
         });
         mfremovepanel.add(mfs1Btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 100, 30));
 
-        jLabel37.setText("Car Type*       :");
+        jLabel37.setText("Year          *       :");
         mfremovepanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         mfscartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1154,7 +1045,7 @@ private String user;
         });
         mfremovepanel.add(mfscartypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 180, -1));
 
-        jLabel38.setText("Manufacturer*     :");
+        jLabel38.setText("Car Type            :");
         mfremovepanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         mfsmanufacturerCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1165,7 +1056,7 @@ private String user;
         });
         mfremovepanel.add(mfsmanufacturerCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 180, -1));
 
-        jLabel39.setText("Model *  :");
+        jLabel39.setText("Location            :");
         mfremovepanel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         mfsmodelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1291,7 +1182,7 @@ private String user;
                 jButton5ActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 41, -1, -1));
+        managepointjpanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         jLabel36.setText("Please enter the number of Points to redeem one day");
         managepointjpanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, -1, -1));
@@ -1319,7 +1210,7 @@ private String user;
                 jButton4ActionPerformed(evt);
             }
         });
-        managepointjpanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 154, -1, -1));
+        managepointjpanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         mftruckCheckBox3.setText("Truck");
         mftruckCheckBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -1385,11 +1276,11 @@ private String user;
 
         mfsetpanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Set Car for Sale"));
 
-        jLabel40.setText("Car Type*       :");
+        jLabel40.setText("Year*            :");
 
-        jLabel47.setText("Manufacturer*     :");
+        jLabel47.setText("Car Type*     :");
 
-        jLabel48.setText("Model *  :");
+        jLabel48.setText("Location *     :");
 
         mfsetcartypeCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         mfsetcartypeCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -1548,6 +1439,121 @@ private String user;
 
         ModulesTab.addTab("Manage Fleet", manageFleet);
 
+        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstnameLbl.setText("First Name*   :");
+        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+
+        lastNameLbl.setText("Last Name*    :");
+        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+
+        userNameLbl.setText("User Name*    :");
+        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+
+        emailIdLbl.setText("Email ID*        :");
+        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        emailIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailIdFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+
+        passwordLbl.setText("Password*      :");
+        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+
+        AddEmployeeBtn.setText("Add Employee");
+        AddEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(AddEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+
+        branchIdCombo.setName(""); // NOI18N
+        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+
+        branchIdLbl.setText("Branch ID*      :");
+        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        roleLbl.setText("Role*            :");
+        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
+
+        RemoveEmployeeBtn.setText("Remove Employee");
+        RemoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(RemoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
+
+        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new String [100][7],
+            new String [] {
+                "staff_id", "email","username","lastname","firstname","role","branch_id"
+            }
+        ));
+        jScrollPane9.setViewportView(allEmployeeTbl);
+
+        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
+
+        SearchEmployeeBtn.setText("Search");
+        SearchEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(SearchEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, -1, -1));
+
+        ModifyEmployeeBtn.setText("Modify");
+        ModifyEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(ModifyEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+
+        MoveEmployeeBtn.setText("<<");
+        MoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoveEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(MoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+
+        ModulesTab.addTab("New Employee", NewEmployee);
+
         modulepane.add(ModulesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
         ModulesTab.getAccessibleContext().setAccessibleName("Reservation");
 
@@ -1607,9 +1613,13 @@ private String user;
                       ModulesTab.setEnabledAt(4, false);
                       ModulesTab.setEnabledAt(5, false);
                       ModulesTab.setEnabledAt(6, false);
-                  }else{
+                  }else if(ConnectDB.resultSet().getString("role").contains("MANAGER")){
                       loginpanel.setVisible(false);
+                      ModulesTab.setEnabledAt(6, false);
                       modulepane.setVisible(true);                      
+                  }else if(ConnectDB.resultSet().getString("role").contains("SYSTEM")){
+                      loginpanel.setVisible(false);
+                      modulepane.setVisible(true); 
                   }
                   CommonFunc.username = username;
                 }else{
@@ -2169,7 +2179,7 @@ private String user;
         // TODO add your handling code here:
     }//GEN-LAST:event_brnchIdComboActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void serachRntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serachRntActionPerformed
         try {
             
             reservedVehiTable = new JTable(rent.getReservedVehicles(rentConfirmationNO.getText(), rentPhoneNo.getText()));
@@ -2181,11 +2191,24 @@ private String user;
         } catch (IOException ex) {
             Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_serachRntActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void resetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAllActionPerformed
+        rentConfirmationNO.setText("");
+        rentPhoneNo.setText("");
+        dlNumField.setText("");
+        ccNumField.setText("");
+        expDateCh.setDate(null);
+        
+    }//GEN-LAST:event_resetAllActionPerformed
+    public void clearRentFields(){
+        rentConfirmationNO.setText("");
+        rentPhoneNo.setText("");
+        dlNumField.setText("");
+        ccNumField.setText("");
+        expDateCh.setDate(null);
+    }
+    
     public void clearEmpFields(){
         emailIdField.setText("");
         userNameField.setText("");
@@ -2659,9 +2682,16 @@ private String user;
     }//GEN-LAST:event_newvalueActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
         // TODO add your handling code here:
+                if(newvalue.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "please enter a value!");
+            return;
+        }
+        
         String cartype = mfcartypeCombo3.getSelectedItem().toString();
         String ratetype = mfmanufacturerCombo3.getSelectedItem().toString();
+
         double n = Double.parseDouble(newvalue.getText());
         try {
             mf3.filloldvalue(oldvaluejlabel,cartype,ratetype,n);
@@ -2735,7 +2765,11 @@ private String user;
     }//GEN-LAST:event_mfset3BtnActionPerformed
 
     private void setforsaleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setforsaleBtnActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code he
+        if(cz.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(null, "please select a vehicle!");
+            return;
+        }
 
         try {
             // TODO add your handling code here:
@@ -3049,6 +3083,10 @@ private String user;
         }
     }//GEN-LAST:event_Customer_RegisterBtnActionPerformed
 
+    private void rentPhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentPhoneNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentPhoneNoActionPerformed
+
 
 
 
@@ -3226,11 +3264,9 @@ private String user;
     private javax.swing.JLabel expDateLbl;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstnameLbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -3391,6 +3427,7 @@ private String user;
     private javax.swing.JButton rentbtn;
     private javax.swing.JPanel reservePanel;
     private javax.swing.JTable reservedVehiTable;
+    private javax.swing.JButton resetAll;
     private javax.swing.JButton resetBtn;
     private javax.swing.JPanel returnVehicles;
     private javax.swing.ButtonGroup roleGroupRadio;
@@ -3398,6 +3435,7 @@ private String user;
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton searchEqupBtn;
     private javax.swing.JList selectedList;
+    private javax.swing.JButton serachRnt;
     private javax.swing.JButton setforrentBtn;
     private javax.swing.JButton setforsaleBtn;
     private javax.swing.JTextField streetAddField;
