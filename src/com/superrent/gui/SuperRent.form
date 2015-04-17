@@ -1833,7 +1833,7 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jScrollPane7" min="-2" pref="543" max="-2" attributes="0"/>
+                                      <Component id="mfjScrollPane7" min="-2" pref="543" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1842,12 +1842,12 @@
                                               <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
                                               <Component id="mfremoveBtn" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mfaddnewcar" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="mfremoveBtn1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mfmanagepointbtn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1862,9 +1862,9 @@
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="mfremoveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="mfremoveBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mfmanagepointbtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mfaddnewcar" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1875,7 +1875,7 @@
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Component id="mfremovepanel" min="-2" pref="234" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mfjScrollPane7" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="managepointjpanel" min="-2" pref="469" max="-2" attributes="0"/>
@@ -1885,13 +1885,13 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="jButton2">
+                    <Component class="javax.swing.JButton" name="mfaddnewcar">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add New Car"/>
                         <Property name="actionCommand" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfaddnewcarActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="mfremoveBtn">
@@ -1915,7 +1915,7 @@
                         <Property name="useNullLayout" type="boolean" value="false"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel34">
+                        <Component class="javax.swing.JLabel" name="mfjLabel34">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Car Type*            :"/>
                           </Properties>
@@ -1942,7 +1942,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel35">
+                        <Component class="javax.swing.JLabel" name="mfjLabel35">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Manufacturer*     :"/>
                           </Properties>
@@ -1972,12 +1972,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="addBtn">
+                        <Component class="javax.swing.JButton" name="mfaddBtn">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Add"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfaddBtnActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2011,7 +2011,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel22">
+                        <Component class="javax.swing.JLabel" name="mfjLabel22">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Model                 :"/>
                           </Properties>
@@ -2028,7 +2028,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel18">
+                        <Component class="javax.swing.JLabel" name="mfjLabel18">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Year                    :"/>
                           </Properties>
@@ -2038,7 +2038,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel19">
+                        <Component class="javax.swing.JLabel" name="mfjLabel19">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Otometer            :"/>
                           </Properties>
@@ -2055,7 +2055,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel29">
+                        <Component class="javax.swing.JLabel" name="mfjLabel29">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Vin                     :"/>
                           </Properties>
@@ -2072,7 +2072,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel46">
+                        <Component class="javax.swing.JLabel" name="mfjLabel46">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Color                 :"/>
                           </Properties>
@@ -2140,12 +2140,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton15">
+                        <Component class="javax.swing.JButton" name="mfaddbtn">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="add"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfaddbtnActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2170,7 +2170,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel67">
+                        <Component class="javax.swing.JLabel" name="mfjLabel67">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Branch*              :"/>
                           </Properties>
@@ -2180,7 +2180,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel68">
+                        <Component class="javax.swing.JLabel" name="mfjLabel68">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Branch*              :"/>
                           </Properties>
@@ -2190,7 +2190,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel69">
+                        <Component class="javax.swing.JLabel" name="mfjLabel69">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="equipmentm      :"/>
                           </Properties>
@@ -2207,7 +2207,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel45">
+                        <Component class="javax.swing.JLabel" name="mfjLabel45">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="number              :"/>
                           </Properties>
@@ -2392,12 +2392,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="removeBtn">
+                        <Component class="javax.swing.JButton" name="mfremoveBtn2">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Remove"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeBtnActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfremoveBtn2ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2405,12 +2405,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="setforrentBtn">
+                        <Component class="javax.swing.JButton" name="mfsetbtn">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Back to Rent"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setforrentBtnActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfsetbtnActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2525,7 +2525,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                    <Container class="javax.swing.JScrollPane" name="mfjScrollPane7">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
@@ -2559,12 +2559,12 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfremoveBtn1ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton6">
+                    <Component class="javax.swing.JButton" name="mfmanagepointbtn">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Manage Points"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfmanagepointbtnActionPerformed"/>
                       </Events>
                     </Component>
                     <Container class="javax.swing.JPanel" name="managepointjpanel">
@@ -2580,12 +2580,12 @@
                         <Property name="useNullLayout" type="boolean" value="false"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JTextField" name="jTextField2">
+                        <Component class="javax.swing.JTextField" name="mfjTextField2">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="5.00"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfjTextField2ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2593,7 +2593,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel51">
+                        <Component class="javax.swing.JLabel" name="mfjLabel51">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Please set the strategy of points"/>
                           </Properties>
@@ -2603,7 +2603,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel52">
+                        <Component class="javax.swing.JLabel" name="mfjLabel52">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Dollors per point"/>
                           </Properties>
@@ -2613,12 +2613,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton5">
+                        <Component class="javax.swing.JButton" name="mfconfirmpoint">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Confirm"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfconfirmpointActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2626,7 +2626,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel36">
+                        <Component class="javax.swing.JLabel" name="mfjLabel36">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Please enter the number of Points to redeem one day"/>
                           </Properties>
@@ -2636,12 +2636,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField1">
+                        <Component class="javax.swing.JTextField" name="mfjTextField1">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="1000"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfjTextField1ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2649,7 +2649,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel49">
+                        <Component class="javax.swing.JLabel" name="mfjLabel49">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="premium or lower-ranking car"/>
                           </Properties>
@@ -2659,7 +2659,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField3">
+                        <Component class="javax.swing.JTextField" name="mfjTextField3">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="1500"/>
                           </Properties>
@@ -2669,7 +2669,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel50">
+                        <Component class="javax.swing.JLabel" name="mfjLabel50">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Luxury car, SUV, van or truck"/>
                           </Properties>
@@ -2679,12 +2679,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton4">
+                        <Component class="javax.swing.JButton" name="mfconfirmredeem">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Confirm"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfconfirmredeemActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2718,7 +2718,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel53">
+                        <Component class="javax.swing.JLabel" name="mfjLabel53">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Car Type*            :"/>
                           </Properties>
@@ -2765,7 +2765,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel54">
+                        <Component class="javax.swing.JLabel" name="mfjLabel54">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Rate Type*          :"/>
                           </Properties>
@@ -2775,12 +2775,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton10">
+                        <Component class="javax.swing.JButton" name="mfjButton10">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Check oldvalue: "/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfjButton10ActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2788,7 +2788,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel56">
+                        <Component class="javax.swing.JLabel" name="mfjLabel56">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="New Value   :"/>
                           </Properties>
@@ -2798,9 +2798,9 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="newvalue">
+                        <Component class="javax.swing.JTextField" name="mfnewvalue">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newvalueActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfnewvalueActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2808,12 +2808,12 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JButton" name="jButton7">
+                        <Component class="javax.swing.JButton" name="mfconfirmvalue">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Confirm"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfconfirmvalueActionPerformed"/>
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2821,7 +2821,7 @@
                             </Constraint>
                           </Constraints>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="oldvaluejlabel">
+                        <Component class="javax.swing.JLabel" name="mfoldvaluejlabel">
                           <Properties>
                             <Property name="text" type="java.lang.String" value=" "/>
                           </Properties>
@@ -2848,9 +2848,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel48" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mfjLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mfjLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mfjLabel48" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2862,7 +2862,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="setforsaleBtn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mfsetforsaleBtn" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="mfset1Btn" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                       <Component id="mfset2Btn" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
@@ -2878,11 +2878,11 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mfjLabel40" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mfjLabel47" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mfjLabel48" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -2903,24 +2903,24 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="setforsaleBtn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mfsetforsaleBtn" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel40">
+                        <Component class="javax.swing.JLabel" name="mfjLabel40">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Car Type*       :"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel47">
+                        <Component class="javax.swing.JLabel" name="mfjLabel47">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Manufacturer*     :"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel48">
+                        <Component class="javax.swing.JLabel" name="mfjLabel48">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Model *  :"/>
                           </Properties>
@@ -2991,12 +2991,12 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfset3BtnActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="setforsaleBtn">
+                        <Component class="javax.swing.JButton" name="mfsetforsaleBtn">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Set for Sale"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setforsaleBtnActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mfsetforsaleBtnActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>

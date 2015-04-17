@@ -237,9 +237,9 @@ public class ManageFleet {
     
     public void changepoint(double cash) throws ClassNotFoundException, IOException, SQLException{
         ConnectDB.exeUpdate("update cash_points set cash = "+cash);
-        ConnectDB.exeUpdate("update cash_points set points = 1");
+        //ConnectDB.exeUpdate("update cash_points set points = 1");
          ConnectDB.clearResultSet();
-          ConnectDB.clearResultSet();
+        //  ConnectDB.clearResultSet();
         
     }
 
