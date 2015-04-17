@@ -38,11 +38,17 @@ public class ConnectDB extends ReadProperties{
      */
     
     public static void connect() throws IOException, ClassNotFoundException, SQLException{
-        jdbc_driver = getPropValue("driver");
-        db_url = getPropValue("connectionUrl");
-        db_name = getPropValue("databaseName");
-        user = getPropValue("userName");
-        pswd = getPropValue("password");
+//        jdbc_driver = getPropValue("driver");
+//        db_url = getPropValue("connectionUrl");
+//        db_name = getPropValue("databaseName");
+//        user = getPropValue("userName");
+//        pswd = getPropValue("password");
+        
+         jdbc_driver = "com.mysql.jdbc.Driver";
+        db_url = "jdbc:mysql://dbserver.mss.icics.ubc.ca/";
+        db_name = "team01";
+        user = "team01";
+        pswd = "d@t@b@se";
                 
         Class.forName(jdbc_driver);
         conn = (Connection) DriverManager.getConnection(db_url+db_name,user,pswd);

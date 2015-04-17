@@ -301,7 +301,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="590" y="420" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="770" y="230" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -591,7 +591,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="660" y="700" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="660" y="520" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1046,7 +1046,7 @@
                     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="6" y="415" width="682" height="182"/>
+                          <AbsoluteConstraints x="10" y="440" width="682" height="182"/>
                         </Constraint>
                       </Constraints>
 
@@ -1126,7 +1126,7 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="390" y="10" width="710" height="40"/>
+                          <AbsoluteConstraints x="390" y="10" width="710" height="60"/>
                         </Constraint>
                       </Constraints>
 
@@ -1179,7 +1179,7 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="388" y="53" width="880" height="350"/>
+                          <AbsoluteConstraints x="390" y="80" width="880" height="350"/>
                         </Constraint>
                       </Constraints>
 
@@ -1530,28 +1530,6 @@
                       </SubComponents>
                     </Container>
                   </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="Reports">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Reports">
-                        <Property name="tabTitle" type="java.lang.String" value="Reports"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1379" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1279" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
                 </Container>
                 <Container class="javax.swing.JPanel" name="manageFleet">
                   <Constraints>
@@ -3003,6 +2981,141 @@
                           <AbsoluteConstraints x="440" y="200" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="reportGenerate">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Reports">
+                        <Property name="tabTitle" type="java.lang.String" value="Reports"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel73" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="branchReportReturnAll" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="branchReportReturn" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="branchNameReturn" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel70" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="branchReportRentAll" alignment="0" pref="130" max="32767" attributes="0"/>
+                                          <Component id="branchReportRent" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="branchNameRent" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="951" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="jLabel70" pref="294" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel71" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="branchReportRent" alignment="0" pref="35" max="32767" attributes="0"/>
+                                  <Component id="branchNameRent" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="branchReportRentAll" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jLabel73" pref="295" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel72" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="branchReportReturn" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="branchNameReturn" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="branchReportReturnAll" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="418" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel70">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Daily Rentals"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="branchReportRent">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Branch Report"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchReportRentActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="branchNameRent">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchNameRentActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="branchReportRentAll">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="All Branch Report"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchReportRentAllActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel71">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="(Branch Name)"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="branchReportReturnAll">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="All Branch Report"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchReportReturnAllActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel72">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="(Branch Name)"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel73">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Daily Returns"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="branchReportReturn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Branch Report"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchReportReturnActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="branchNameReturn">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="branchNameReturnActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

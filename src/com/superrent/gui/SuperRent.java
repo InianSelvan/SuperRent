@@ -7,7 +7,7 @@
 package com.superrent.gui;
 
 import com.superrent.DataBase.ConnectDB;
-
+import com.superrent.modules.Report1;
 import com.superrent.modules.CommonFunc;
 import com.superrent.modules.Customer;
 import com.superrent.modules.ManageFleet;
@@ -46,7 +46,16 @@ import javax.swing.table.TableColumn;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import static org.eclipse.persistence.config.QueryType.Report;
 
 /**
  *
@@ -213,7 +222,6 @@ private String user;
         cityTextField = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        Reports = new javax.swing.JPanel();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -332,6 +340,17 @@ private String user;
         SearchEmployeeBtn = new javax.swing.JButton();
         ModifyEmployeeBtn = new javax.swing.JButton();
         MoveEmployeeBtn = new javax.swing.JButton();
+        reportGenerate = new javax.swing.JPanel();
+        jLabel70 = new javax.swing.JLabel();
+        branchReportRent = new javax.swing.JButton();
+        branchNameRent = new javax.swing.JTextField();
+        branchReportRentAll = new javax.swing.JButton();
+        jLabel71 = new javax.swing.JLabel();
+        branchReportReturnAll = new javax.swing.JButton();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        branchReportReturn = new javax.swing.JButton();
+        branchNameReturn = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -402,7 +421,7 @@ private String user;
                 rentbtnActionPerformed(evt);
             }
         });
-        Rent.add(rentbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, -1, -1));
+        Rent.add(rentbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, -1, -1));
 
         jLabel55.setText("or  Phone Number     :");
         Rent.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
@@ -540,7 +559,7 @@ private String user;
                 rentBtnActionPerformed(evt);
             }
         });
-        reservePanel.add(rentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 700, -1, -1));
+        reservePanel.add(rentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 520, -1, -1));
 
         jLabel13.setText("Vehicle Category*             :");
         reservePanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
@@ -716,7 +735,7 @@ private String user;
         });
         jScrollPane2.setViewportView(ReturnCheckOverDueDis_jTable2);
 
-        returnVehicles.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 415, 682, 182));
+        returnVehicles.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 682, 182));
 
         ReturnCheck_jButton2.setText("Check");
         ReturnCheck_jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -765,7 +784,7 @@ private String user;
         });
         jScrollPane3.setViewportView(ReturnDisplay_jTable2);
 
-        returnVehicles.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 710, 40));
+        returnVehicles.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 710, 60));
 
         ReturnDisplayFee_jTable2.setFont(new java.awt.Font("Lucida Console", 0, 15)); // NOI18N
         ReturnDisplayFee_jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -790,7 +809,7 @@ private String user;
         });
         jScrollPane6.setViewportView(ReturnDisplayFee_jTable2);
 
-        returnVehicles.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 53, 880, 350));
+        returnVehicles.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 880, 350));
 
         ReturnRedeem_jCheckBox1.setText("Reedem");
         ReturnRedeem_jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -893,19 +912,6 @@ private String user;
         manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
 
         ModulesTab.addTab("Manage Customer", manageCustomer);
-
-        javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
-        Reports.setLayout(ReportsLayout);
-        ReportsLayout.setHorizontalGroup(
-            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1379, Short.MAX_VALUE)
-        );
-        ReportsLayout.setVerticalGroup(
-            ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1279, Short.MAX_VALUE)
-        );
-
-        ModulesTab.addTab("Reports", Reports);
 
         jButton2.setText("Add New Car");
         jButton2.setActionCommand("");
@@ -1554,6 +1560,107 @@ private String user;
 
         ModulesTab.addTab("New Employee", NewEmployee);
 
+        jLabel70.setText("Daily Rentals");
+
+        branchReportRent.setText("Branch Report");
+        branchReportRent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchReportRentActionPerformed(evt);
+            }
+        });
+
+        branchNameRent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchNameRentActionPerformed(evt);
+            }
+        });
+
+        branchReportRentAll.setText("All Branch Report");
+        branchReportRentAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchReportRentAllActionPerformed(evt);
+            }
+        });
+
+        jLabel71.setText("(Branch Name)");
+
+        branchReportReturnAll.setText("All Branch Report");
+        branchReportReturnAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchReportReturnAllActionPerformed(evt);
+            }
+        });
+
+        jLabel72.setText("(Branch Name)");
+
+        jLabel73.setText("Daily Returns");
+
+        branchReportReturn.setText("Branch Report");
+        branchReportReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchReportReturnActionPerformed(evt);
+            }
+        });
+
+        branchNameReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchNameReturnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout reportGenerateLayout = new javax.swing.GroupLayout(reportGenerate);
+        reportGenerate.setLayout(reportGenerateLayout);
+        reportGenerateLayout.setHorizontalGroup(
+            reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportGenerateLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(reportGenerateLayout.createSequentialGroup()
+                        .addGroup(reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(branchReportReturnAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(branchReportReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(branchNameReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel72))
+                    .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(reportGenerateLayout.createSequentialGroup()
+                        .addGroup(reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(branchReportRentAll, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(branchReportRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(branchNameRent, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel71)))
+                .addContainerGap(951, Short.MAX_VALUE))
+        );
+        reportGenerateLayout.setVerticalGroup(
+            reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportGenerateLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(branchReportRent, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(branchNameRent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(branchReportRentAll, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel73, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(reportGenerateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(branchReportReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(branchNameReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(branchReportReturnAll, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(418, 418, 418))
+        );
+
+        ModulesTab.addTab("Reports", reportGenerate);
+
         modulepane.add(ModulesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 810));
         ModulesTab.getAccessibleContext().setAccessibleName("Reservation");
 
@@ -1701,6 +1808,12 @@ private String user;
         dropoffMMSpin.setValue(0);
 
         cancelReservationField.setText("");
+        confirmationNoDisplayField.setText("");
+        estimatePrice.setText("");
+        cancelPhoneField.setText("");
+        cancelReservationField.setText("");
+        cancelPickupDt.setDate(null);
+        cancelDropoff.setDate(null);
         resetTable();
 	}
     private void ModulesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModulesTabMouseClicked
@@ -1732,10 +1845,10 @@ private String user;
                 String pickuptime = CommonFunc.sqlTime(pickupHour, pickupMin);
                 String dropofftime = CommonFunc.sqlTime(dropoffHHSpin, dropoffMMSpin);
                 DateTime dt = new DateTime();
-                DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-mm-dd HH:mm:ss");
+                DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
                 String now = format.print(dt);
                 
-               
+                
                 
                 if(CommonFunc.compareDates(pickupDate+" "+pickuptime, now)<0 || CommonFunc.compareDates(pickupDate+" "+pickuptime, dropoffDate+" "+dropofftime)>0){
                     JOptionPane.showMessageDialog(null, "Pickup date should be greater than or equal to current date \n\n "
@@ -1833,7 +1946,7 @@ private String user;
         DefaultListModel ar = null;
         if(!brnchIdCombo.getSelectedItem().toString().equals("Select")){
             try {
-                System.out.println("printing");
+                
                 ar = rt.fillEquipmentList(equipmentsList, vehicleTypeCombo, brnchIdCombo);
             } catch (ClassNotFoundException | SQLException | IOException | InterruptedException ex) {
                 JOptionPane.showMessageDialog(null, ex);
@@ -2223,7 +2336,7 @@ private String user;
         for(int i =0; i<7 ; i++){
 
             col[i] = allEmployeeTbl.getValueAt(row, i).toString();
-            System.out.println(col[i]);
+            
         }
         emailIdField.setText(col[1]);
         userNameField.setText(col[2]);
@@ -2404,7 +2517,7 @@ private String user;
         {mf.showerror("Please specify number"); return;}
         int branch_id = Integer.parseInt(sbranch_id);
         int num = Integer.parseInt(snum);
-        System.out.println(branch_id);
+        
 
         String eqp = mfeqpcombo.getSelectedItem().toString();
 
@@ -2466,7 +2579,7 @@ private String user;
                 cartype = mfscartypeCombo.getSelectedItem().toString();
             }
             mf.fillssModel(mfsmodelCombo, manufacturer,cartype);
-            System.out.println(manufacturer+cartype);
+            
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex);
         } catch (SQLException ex) {
@@ -2815,7 +2928,7 @@ private String user;
                 try {
                     ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
                     while(ConnectDB.resultSet().next()){
-                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+                        
                         countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
                     }
                     ConnectDB.clearResultSet();
@@ -2852,7 +2965,7 @@ private String user;
                 int row = allEmployeeTbl.getSelectedRow();
 
                 String staff_id = allEmployeeTbl.getValueAt(row, 0).toString();
-                System.out.println(staff_id);
+                
                 ne.delEmployee(staff_id);
 
                 allEmployeeTbl = new JTable(ne.getAllEmployee());
@@ -2910,7 +3023,7 @@ private String user;
         for(int i =0; i<7 ; i++){
 
             col[i] = allEmployeeTbl.getValueAt(row, i).toString();
-            System.out.println(col[i]);
+            
         }
         staffid = col[0];
         emailIdField.setText(col[1]);
@@ -3009,7 +3122,7 @@ private String user;
                     ConnectDB.exeQuery("SELECT customer_id FROM customer WHERE phone ='"+phone+"'");
                     if(ConnectDB.resultSet().next())
                     customer_id = Integer.parseInt(ConnectDB.resultSet().getString("customer_id"));
-                    System.out.println("customer id: "+customer_id);
+                    
 
                     //JOptionPane.showMessageDialog(null, "STEP 2");
                     ConnectDB.clearResultSet();
@@ -3023,7 +3136,7 @@ private String user;
                     ConnectDB.exeQuery("SELECT fee_per_year FROM membership_fee");
                     if(ConnectDB.resultSet().next())
                     total = (Double)ConnectDB.resultSet().getObject("fee_per_year");
-                    System.out.println("cost: "+total);
+                    
 
                     //JOptionPane.showMessageDialog(null, "STEP 3");
                     ConnectDB.clearResultSet();
@@ -3053,8 +3166,7 @@ private String user;
 
                     ConnectDB.clearResultSet();
 
-                    System.out.println("branch id: "+branch_id);
-                    System.out.println("staff id: "+staff_id);
+                    
 
                     ConnectDB.exeUpdate("INSERT INTO payment VALUES (0, '"+customer_id+"', '"+purpose+"', '"+total+"', '0', '"+total+"', '"+points+"', '"+create_time+"', '"+customer_id+"', '"+branch_id+"', '"+staff_id+"');");
 
@@ -3086,6 +3198,144 @@ private String user;
     private void rentPhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentPhoneNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rentPhoneNoActionPerformed
+
+    private void branchReportRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchReportRentActionPerformed
+        //Report1 ret = new Report1();
+        Report1 ret = new Report1();
+        //String query=ret.generateReportBranch(branchNameRent);
+        String query="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id='"+ret.generateReportBranch(branchNameRent)+"') order by branch_id desc,category";
+        //String uniinque = ret.generateReportBranch(branchNameRent);
+
+        try
+        {
+            //String Report = "C:\\Users\\mohammad\\Documents\\NetBeansProjects\\JavaApplication1\\src\\report2.jrxml";
+            JasperDesign jd=JRXmlLoader.load(System.getProperty("user.dir")+"\\src\\report3.jrxml");
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent') order by branch_id desc,category";
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id=unique) order by branch_id desc,category";
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id like '%"+unique.toString()+"%') order by branch_id desc,category";
+
+            JRDesignQuery newQuery= new JRDesignQuery();
+            newQuery.setText(query);
+            jd.setQuery(newQuery);
+            JasperReport JASP_REP = JasperCompileManager.compileReport(jd);
+
+            ConnectDB.connect();
+            JasperPrint JASP_PRINT = JasperFillManager.fillReport(JASP_REP, null, ConnectDB.conn);
+            JasperViewer.viewReport(JASP_PRINT,false);
+
+        } catch (JRException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (IOException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (ClassNotFoundException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException ex) {
+        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_branchReportRentActionPerformed
+
+    private void branchNameRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchNameRentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_branchNameRentActionPerformed
+
+    private void branchReportRentAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchReportRentAllActionPerformed
+
+        Report1 ret = new Report1();
+        //String query=ret.generateReportBranch(branchNameRent);
+        String query="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id='"+ret.generateReportBranch(branchNameRent)+"') order by branch_id desc,category";
+        //String uniinque = ret.generateReportBranch(branchNameRent);
+
+        try
+        {
+            String Report = System.getProperty("user.dir")+"\\src\\report2.jrxml";
+            //String Report = "C:\\Users\\mohammad\\Documents\\NetBeansProjects\\JavaApplication1\\src\\report1.jrxml";
+            JasperReport JASP_REP = JasperCompileManager.compileReport(Report);
+
+            ConnectDB.connect();
+            JasperPrint JASP_PRINT = JasperFillManager.fillReport(JASP_REP, null, ConnectDB.conn);
+            JasperViewer.viewReport(JASP_PRINT,false);
+
+        } catch (JRException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_branchReportRentAllActionPerformed
+
+    private void branchReportReturnAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchReportReturnAllActionPerformed
+        Report1 ret = new Report1();
+        //String query=ret.generateReportBranch(branchNameRent);
+        String query="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id='"+ret.generateReportBranch(branchNameRent)+"') order by branch_id desc,category";
+        //String uniinque = ret.generateReportBranch(branchNameRent);
+
+        try
+        {
+            String Report_new = System.getProperty("user.dir")+"\\src\\report4.jrxml";
+            //String Report = "C:\\Users\\mohammad\\Documents\\NetBeansProjects\\JavaApplication1\\src\\report1.jrxml";
+            JasperReport JASP_REP = JasperCompileManager.compileReport(Report_new);
+
+            ConnectDB.connect();
+            JasperPrint JASP_PRINT = JasperFillManager.fillReport(JASP_REP, null, ConnectDB.conn);
+            JasperViewer.viewReport(JASP_PRINT,false);
+
+        } catch (JRException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_branchReportReturnAllActionPerformed
+
+    private void branchReportReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchReportReturnActionPerformed
+        //Report1 ret = new Report1();
+        Report1 ret = new Report1();
+        //String query=ret.generateReportBranch(branchNameRent);
+        //String query="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id='"+ret.generateReportBranch(branchNameRent)+"') order by branch_id desc,category";
+        String query1="select res.status, res.vin, res.branch_id, fl.category from reserve as res inner join fleet as fl on res.vin=fl.vin where (res.status= 'returned' and res.branch_id=1) order by fl.category";
+        //String uniinque = ret.generateReportBranch(branchNameRent);
+
+        try
+        {
+            //String Report = "C:\\Users\\mohammad\\Documents\\NetBeansProjects\\JavaApplication1\\src\\report2.jrxml";
+            JasperDesign jd=JRXmlLoader.load(System.getProperty("user.dir")+"\\src\\report5.jrxml");
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent') order by branch_id desc,category";
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id=unique) order by branch_id desc,category";
+            //query ="select status,vin,category,branch_id from fleet WHERE (status='rent' and branch_id like '%"+unique.toString()+"%') order by branch_id desc,category";
+
+            JRDesignQuery newQuery= new JRDesignQuery();
+            newQuery.setText(query1);
+            jd.setQuery(newQuery);
+            JasperReport JASP_REP = JasperCompileManager.compileReport(jd);
+
+            ConnectDB.connect();
+            JasperPrint JASP_PRINT = JasperFillManager.fillReport(JASP_REP, null, ConnectDB.conn);
+            JasperViewer.viewReport(JASP_PRINT,false);
+
+        } catch (JRException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_branchReportReturnActionPerformed
+
+    private void branchNameReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchNameReturnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_branchNameReturnActionPerformed
 
 
 
@@ -3201,7 +3451,6 @@ private String user;
     private javax.swing.JPanel NewEmployee;
     private javax.swing.JButton RemoveEmployeeBtn;
     private javax.swing.JPanel Rent;
-    private javax.swing.JPanel Reports;
     private javax.swing.JButton ReturnCalculate_jButton6;
     private javax.swing.JTextField ReturnCash_jTextField2;
     private javax.swing.JTable ReturnCheckOverDueDis_jTable2;
@@ -3230,6 +3479,12 @@ private String user;
     private javax.swing.JTable allEmployeeTbl;
     private javax.swing.JComboBox branchIdCombo;
     private javax.swing.JLabel branchIdLbl;
+    private javax.swing.JTextField branchNameRent;
+    private javax.swing.JTextField branchNameReturn;
+    private javax.swing.JButton branchReportRent;
+    private javax.swing.JButton branchReportRentAll;
+    private javax.swing.JButton branchReportReturn;
+    private javax.swing.JButton branchReportReturnAll;
     private javax.swing.JComboBox brnchIdCombo;
     private javax.swing.JLabel brnchIdLbl;
     private javax.swing.JButton cancelConfirmation;
@@ -3338,6 +3593,10 @@ private String user;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -3425,6 +3684,7 @@ private String user;
     private javax.swing.JTextField rentConfirmationNO;
     private javax.swing.JTextField rentPhoneNo;
     private javax.swing.JButton rentbtn;
+    private javax.swing.JPanel reportGenerate;
     private javax.swing.JPanel reservePanel;
     private javax.swing.JTable reservedVehiTable;
     private javax.swing.JButton resetAll;

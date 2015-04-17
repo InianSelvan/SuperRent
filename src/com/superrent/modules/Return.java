@@ -392,6 +392,8 @@ public class Return {
     // and the third entry is the customerID
     public int[] getRedeemInfo(String Vin){
         String[] points = new String[2];
+        points[0] = "0";
+        points[1] = "0";
         int[] points_int = new int[3];
         int pointsEX = 0;
         int mem_points = 0;
@@ -415,7 +417,7 @@ public class Return {
          mem_points = Integer.parseInt(points[0]);
          daysEX = mem_points/pointsEX;
          
-        } catch (ClassNotFoundException | SQLException | IOException ex) {
+        } catch (ClassNotFoundException | SQLException | IOException | NumberFormatException ex) {
             Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
         }
         

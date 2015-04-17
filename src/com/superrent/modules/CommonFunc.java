@@ -48,21 +48,15 @@ public class CommonFunc {
         return   sqldate;
     }
     public static int compareDates(String first, String second) throws ParseException{
-        System.out.println(first);
-        DateTimeFormatter f = DateTimeFormat.forPattern("yyyy-mm-dd HH:mm:ss");
-        DateTime firstdt = f.parseDateTime("2015-08-17 00:00:00");
-        System.out.println(firstdt);
-        Date fdt = firstdt.toLocalDate().toDate();
-        System.out.println(fdt);
+        
+        DateTimeFormatter f = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+        DateTime firstdt = f.parseDateTime(first);
         DateTime seconddt = f.parseDateTime(second);
-        Date sdt = seconddt.toLocalDate().toDate(); 
-        System.out.println("");
+ 
+        
        return firstdt.compareTo(seconddt);
     }
-//    public static void main(String args[]) throws ParseException
-//    {
-//        System.out.println(compareDates("2015-08-17 00:00:00","2015-05-17 00:00:00"));
-//    }
+
     public static String sqlTime(JSpinner HH, JSpinner MM){
         String hh = String.valueOf(HH.getValue());
         String mm = String.valueOf(MM.getValue());
