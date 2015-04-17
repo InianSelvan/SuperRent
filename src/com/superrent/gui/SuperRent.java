@@ -1937,23 +1937,6 @@ private String user;
 //                    table_content[0][0] = "Entry";
 //                    table_content[0][1] = "Details";
 //                    table_content[0][2] =  "Cost";
-                    String[] table_content = new String[15];
-                    
-                    String format = "|%1$-10s|%2$-10s|%3$-20s|\n"; 
-                    table_content[0] = String.format(format, (Object[]) Fee[0]);
-                    for(int i = 1; i< 15; i++ )
-                     {  
-                         if(Fee[i][0] == null){
-                            table_content[i] = String.format(format, (Object[]) Fee[i]);
-                         }
-                        }
-
-
-                System.out.println("Dear customr,\n\n Thank you for choosing SuperRent. The receipt is as follows: \n\n"
-                            + "    Payment ID:    \n\n"
-                            + "'"+table_content[0]+"'"
-                            + "\n\n\n                                                                   "
-                            + "                                             Super Rent");
                 }catch (ParseException ex) {
                     Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
                      JOptionPane.showMessageDialog(null, ex);

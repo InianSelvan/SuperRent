@@ -477,5 +477,20 @@ public class Return {
         }
         return StaffInfo;
     }
+    
+      public double getOde(String vin){
+        double Ode = 0;
+
+        try {
+            ConnectDB.exeQuery("select odometer from fleet where vin = '"+vin+"'");
+            if(ConnectDB.resultSet().next()){
+                Ode = Double.parseDouble(ConnectDB.resultSet().getString(1));
+            }
+            ConnectDB.clearResultSet();
+        } catch (ClassNotFoundException | SQLException | IOException ex) {
+            Logger.getLogger(Return.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Ode;
+    }  
 }     
 
