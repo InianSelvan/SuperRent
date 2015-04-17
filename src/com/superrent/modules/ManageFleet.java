@@ -201,6 +201,7 @@ public class ManageFleet {
     }
     public void remove(JTable mfremoveTable) throws ClassNotFoundException, SQLException, IOException {
         String info[] = new String[6];
+
         for(int i=0;i<6;i++){
             info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
             //System.out.println(info[i]);
@@ -218,6 +219,9 @@ public class ManageFleet {
     }
     public void sendback(JTable mfremoveTable) throws ClassNotFoundException, SQLException, IOException {
         String info[] = new String[6];
+        if(mfremoveTable.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(null, "Please select a vehicle");
+        }
         for(int i=0;i<6;i++){
             info[i]=(String) mfremoveTable.getValueAt(mfremoveTable.getSelectedRow(),i);
             //System.out.println(info[i]);
