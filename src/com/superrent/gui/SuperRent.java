@@ -94,6 +94,48 @@ private String user;
         jLabel4 = new javax.swing.JLabel();
         modulepane = new javax.swing.JPanel();
         ModulesTab = new javax.swing.JTabbedPane();
+        NewEmployee = new javax.swing.JPanel();
+        firstnameLbl = new javax.swing.JLabel();
+        firstNameField = new javax.swing.JTextField();
+        lastNameLbl = new javax.swing.JLabel();
+        lastNameField = new javax.swing.JTextField();
+        userNameLbl = new javax.swing.JLabel();
+        userNameField = new javax.swing.JTextField();
+        emailIdLbl = new javax.swing.JLabel();
+        emailIdField = new javax.swing.JTextField();
+        passwordLbl = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        AddEmployeeBtn = new javax.swing.JButton();
+        branchIdCombo = new javax.swing.JComboBox();
+        branchIdLbl = new javax.swing.JLabel();
+        roleLbl = new javax.swing.JLabel();
+        clerkComboBox = new javax.swing.JComboBox();
+        RemoveEmployeeBtn = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        allEmployeeTbl = new javax.swing.JTable();
+        SearchEmployeeBtn = new javax.swing.JButton();
+        ModifyEmployeeBtn = new javax.swing.JButton();
+        MoveEmployeeBtn = new javax.swing.JButton();
+        manageCustomer = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        cusFristNameField = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        cusLastNameField = new javax.swing.JTextField();
+        streetAddField = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        provinceComboBox = new javax.swing.JComboBox();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        zipTextField = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        phoneTextField = new javax.swing.JTextField();
+        clubMemberCheckBox = new javax.swing.JCheckBox();
+        Customer_RegisterBtn = new javax.swing.JButton();
+        cityTextField = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
         Rent = new javax.swing.JPanel();
         dlNumLbl = new javax.swing.JLabel();
         dlNumField = new javax.swing.JTextField();
@@ -193,49 +235,7 @@ private String user;
         ReturnCash_jTextField2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        manageCustomer = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        cusFristNameField = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        cusLastNameField = new javax.swing.JTextField();
-        streetAddField = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        provinceComboBox = new javax.swing.JComboBox();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        zipTextField = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        phoneTextField = new javax.swing.JTextField();
-        clubMemberCheckBox = new javax.swing.JCheckBox();
-        jButton9 = new javax.swing.JButton();
-        cityTextField = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        emailTextField = new javax.swing.JTextField();
         Reports = new javax.swing.JPanel();
-        NewEmployee = new javax.swing.JPanel();
-        firstnameLbl = new javax.swing.JLabel();
-        firstNameField = new javax.swing.JTextField();
-        lastNameLbl = new javax.swing.JLabel();
-        lastNameField = new javax.swing.JTextField();
-        userNameLbl = new javax.swing.JLabel();
-        userNameField = new javax.swing.JTextField();
-        emailIdLbl = new javax.swing.JLabel();
-        emailIdField = new javax.swing.JTextField();
-        passwordLbl = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        addEmployeeBtn = new javax.swing.JButton();
-        branchIdCombo = new javax.swing.JComboBox();
-        branchIdLbl = new javax.swing.JLabel();
-        roleLbl = new javax.swing.JLabel();
-        clerkComboBox = new javax.swing.JComboBox();
-        jButton11 = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        allEmployeeTbl = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
         manageFleet = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         mfremoveBtn = new javax.swing.JButton();
@@ -371,6 +371,186 @@ private String user;
                 ModulesTabMouseClicked(evt);
             }
         });
+
+        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstnameLbl.setText("First Name*   :");
+        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        firstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
+
+        lastNameLbl.setText("Last Name*    :");
+        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        lastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
+
+        userNameLbl.setText("User Name*    :");
+        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
+
+        emailIdLbl.setText("Email ID*        :");
+        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        emailIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailIdFieldActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
+
+        passwordLbl.setText("Password*      :");
+        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
+
+        AddEmployeeBtn.setText("Add Employee");
+        AddEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(AddEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+
+        branchIdCombo.setName(""); // NOI18N
+        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
+
+        branchIdLbl.setText("Branch ID*      :");
+        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
+        roleLbl.setText("Role*            :");
+        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
+        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clerkComboBoxActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
+
+        RemoveEmployeeBtn.setText("Remove Employee");
+        RemoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(RemoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
+
+        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new String [100][7],
+            new String [] {
+                "staff_id", "email","username","lastname","firstname","role","branch_id"
+            }
+        ));
+        jScrollPane9.setViewportView(allEmployeeTbl);
+
+        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
+
+        SearchEmployeeBtn.setText("Search");
+        SearchEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(SearchEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, -1, -1));
+
+        ModifyEmployeeBtn.setText("Modify");
+        ModifyEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifyEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(ModifyEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+
+        MoveEmployeeBtn.setText("<<");
+        MoveEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoveEmployeeBtnActionPerformed(evt);
+            }
+        });
+        NewEmployee.add(MoveEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
+
+        ModulesTab.addTab("New Employee", NewEmployee);
+
+        manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setText("First Name*       :");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jPanel1.add(cusFristNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
+
+        jLabel27.setText("Last Name*    :");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        jPanel1.add(cusLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, -1));
+        jPanel1.add(streetAddField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
+
+        jLabel28.setText("Street Address* :");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jLabel30.setText("Province*           :");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
+
+        provinceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "On", "Qc", "Ns", "Nb", "Mb", "Bc", "Pe", "Sk", "Ab", "Nl", "Nt", "Yt", "Nu" }));
+        jPanel1.add(provinceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
+
+        jLabel31.setText("City*   :");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+
+        jLabel32.setText("Zip Code*   :");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
+
+        zipTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zipTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(zipTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 130, -1));
+
+        jLabel33.setText("Phone No*         :");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
+
+        clubMemberCheckBox.setText("Club Member");
+        clubMemberCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clubMemberCheckBoxActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clubMemberCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        Customer_RegisterBtn.setText("Register");
+        Customer_RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Customer_RegisterBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Customer_RegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
+        jPanel1.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
+
+        jLabel23.setText("email:");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
+        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
+
+        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
+
+        ModulesTab.addTab("Manage Customer", manageCustomer);
 
         Rent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -823,71 +1003,6 @@ private String user;
 
         ModulesTab.addTab("Return", returnVehicles);
 
-        manageCustomer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Add Customer"));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setText("First Name*       :");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-        jPanel1.add(cusFristNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 100, -1));
-
-        jLabel27.setText("Last Name*    :");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
-        jPanel1.add(cusLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 110, -1));
-        jPanel1.add(streetAddField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
-
-        jLabel28.setText("Street Address* :");
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        jLabel30.setText("Province*           :");
-        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, -1));
-
-        provinceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "On", "Qc", "Ns", "Nb", "Mb", "Bc", "Pe", "Sk", "Ab", "Nl", "Nt", "Yt", "Nu" }));
-        jPanel1.add(provinceComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 120, -1));
-
-        jLabel31.setText("City*   :");
-        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-
-        jLabel32.setText("Zip Code*   :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
-
-        zipTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(zipTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 130, -1));
-
-        jLabel33.setText("Phone No*         :");
-        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 220, -1));
-
-        clubMemberCheckBox.setText("Club Member");
-        clubMemberCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clubMemberCheckBoxActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clubMemberCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-
-        jButton9.setText("Register");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
-        jPanel1.add(cityTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 80, -1));
-
-        jLabel23.setText("email:");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
-        jPanel1.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 100, -1));
-
-        manageCustomer.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1010, 350));
-
-        ModulesTab.addTab("Manage Customer", manageCustomer);
-
         javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
         Reports.setLayout(ReportsLayout);
         ReportsLayout.setHorizontalGroup(
@@ -900,121 +1015,6 @@ private String user;
         );
 
         ModulesTab.addTab("Reports", Reports);
-
-        NewEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        firstnameLbl.setText("First Name*   :");
-        NewEmployee.add(firstnameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        firstNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(firstNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 210, -1));
-
-        lastNameLbl.setText("Last Name*    :");
-        NewEmployee.add(lastNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
-
-        lastNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(lastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 210, -1));
-
-        userNameLbl.setText("User Name*    :");
-        NewEmployee.add(userNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
-
-        userNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
-
-        emailIdLbl.setText("Email ID*        :");
-        NewEmployee.add(emailIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        emailIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailIdFieldActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(emailIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 210, -1));
-
-        passwordLbl.setText("Password*      :");
-        NewEmployee.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
-        NewEmployee.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 210, -1));
-
-        addEmployeeBtn.setText("Add Employee");
-        addEmployeeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeBtnActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(addEmployeeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
-
-        branchIdCombo.setName(""); // NOI18N
-        NewEmployee.add(branchIdCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 200, -1));
-
-        branchIdLbl.setText("Branch ID*      :");
-        NewEmployee.add(branchIdLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        roleLbl.setText("Role*            :");
-        NewEmployee.add(roleLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
-
-        clerkComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CLERK", "MANAGER" }));
-        clerkComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clerkComboBoxActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(clerkComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 200, -1));
-
-        jButton11.setText("Remove Employee");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, -1, -1));
-
-        allEmployeeTbl.setModel(new javax.swing.table.DefaultTableModel(
-            new String [100][7],
-            new String [] {
-                "staff_id", "email","username","lastname","firstname","role","branch_id"
-            }
-        ));
-        jScrollPane9.setViewportView(allEmployeeTbl);
-
-        NewEmployee.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 660, 380));
-
-        jButton8.setText("Search");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
-
-        jButton12.setText("Modify");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
-
-        jButton13.setText("<<");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        NewEmployee.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, -1));
-
-        ModulesTab.addTab("New Employee", NewEmployee);
 
         jButton2.setText("Add New Car");
         jButton2.setActionCommand("");
@@ -2186,160 +2186,6 @@ private String user;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-//        int branch_id = Integer.getInteger(mfbranch.getText().toString());
-         String sbranch_id = mfbranch.getText().toString();
-
-         String snum = mfnumber.getText().toString()   ; 
-         if(sbranch_id.isEmpty()) 
-            {mf.showerror("Please specify the branch"); return;}
-         if(snum.isEmpty()) 
-            {mf.showerror("Please specify number"); return;}
-         int branch_id = Integer.parseInt(sbranch_id);
-         int num = Integer.parseInt(snum);
-                          System.out.println(branch_id);       
-
-        String eqp = mfeqpcombo.getSelectedItem().toString();
-        
-    try {
-        ConnectDB.exeUpdate("update equipment set Units = Units +"+num+" where equipment_type = '"+eqp+"' and branch_id ='"+branch_id+"'"  );
-        ConnectDB.clearResultSet();
-        mf.showerror("add successfully!");
-    } catch (ClassNotFoundException ex) {
-        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
-        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (IOException ex) {
-        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-    }
-            
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameFieldActionPerformed
-
-    private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameFieldActionPerformed
-
-    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameFieldActionPerformed
-
-    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailIdFieldActionPerformed
-
-    private void addEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeBtnActionPerformed
-        try{
-            //Encrypt en = new Encrypt();
-            String firstName = firstNameField.getText();
-            String lastName = lastNameField.getText();
-            String userName = userNameField.getText();
-            String email = emailIdField.getText();
-            String password = crypt.encrypt(passwordField.getText());
-            String branchId = branchIdCombo.getSelectedItem().toString();
-            String role = clerkComboBox.getSelectedItem().toString();
-            int countusers = 0;
-            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty()
-                && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
-                try {
-                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
-                    while(ConnectDB.resultSet().next()){
-                        System.out.println("**"+ConnectDB.resultSet().getString(1));
-                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
-                    }
-                    System.out.println(role);
-                    if(countusers==0){
-                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
-                        //                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
-
-                    }else{
-                        JOptionPane.showMessageDialog(null, "This user name has been used already");
-                    }
-                    ConnectDB.clearResultSet();
-                } catch (ClassNotFoundException | SQLException | IOException ex) {
-                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                }finally{
-                    try {
-                        ConnectDB.clearResultSet();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    JOptionPane.showMessageDialog(null, "Employee Created!");
-                }
-
-            }else{
-                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }//GEN-LAST:event_addEmployeeBtnActionPerformed
-
-    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clerkComboBoxActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if(allEmployeeTbl.getRowCount()>0){
-            try {
-                //allEmployeeTbl = new JTable(ne.getAllEmployee());
-                int row = allEmployeeTbl.getSelectedRow();
-
-                String staff_id = allEmployeeTbl.getValueAt(row, 0).toString();
-                System.out.println(staff_id);
-                ne.delEmployee(staff_id);
-
-                allEmployeeTbl = new JTable(ne.getAllEmployee());
-                jScrollPane9.setViewportView(allEmployeeTbl);
-
-            } catch (ClassNotFoundException | SQLException | IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        try {
-            allEmployeeTbl = new JTable(ne.getAllEmployee());
-            jScrollPane9.setViewportView(allEmployeeTbl);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        try {
-            String firstName = firstNameField.getText();
-            String lastName = lastNameField.getText();
-            String userName = userNameField.getText();
-            String email = emailIdField.getText();
-            String password;
-
-            password = crypt.encrypt(passwordField.getText());
-
-            String branchId = branchIdCombo.getSelectedItem().toString();
-            String role = clerkComboBox.getSelectedItem().toString();
-            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty()
-                && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
-
-                clearEmpFields();
-            }else{
-                JOptionPane.showMessageDialog(null, "Please enter all the fields");
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton13ActionPerformed
     public void clearEmpFields(){
         emailIdField.setText("");
         userNameField.setText("");
@@ -2364,167 +2210,6 @@ private String user;
         branchIdCombo.setSelectedItem(col[6]);
         ne.modEmployee("sd", col[0], col[1], col[2], col[3], col[4], col[5], col[6]);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void zipTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipTextFieldActionPerformed
-
-    private void clubMemberCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clubMemberCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clubMemberCheckBoxActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-
-        // Create an instance of Customer Class
-        Customer myCustomer = new Customer();
-
-        // Gather information from forms
-        String firstName = cusFristNameField.getText();
-        String lastName = cusLastNameField.getText();
-        String address = streetAddField.getText();
-        String province = provinceComboBox.getSelectedItem().toString();
-        String city = cityTextField.getText();
-        String zip = zipTextField.getText();
-        String phone = phoneTextField.getText();
-        String email = emailTextField.getText();
-
-        // set a test boolean
-        boolean test = true;
-
-        // test that all fields were completed
-        if(!(!firstName.isEmpty() && !lastName.isEmpty() && !address.isEmpty()
-            && !province.isEmpty() && !city.isEmpty() && !zip.isEmpty()
-            && !phone.isEmpty() && !email.isEmpty())){
-        test = false;
-        JOptionPane.showMessageDialog(null, "All text fields are required");
-        }
-
-        // test phone number
-        if(test){
-            try {
-                test = myCustomer.testPhone(phone);
-                if(!test)
-                JOptionPane.showMessageDialog(null, "Phone number: " +phone+"\nalready registered");
-                else
-                JOptionPane.showMessageDialog(null, "Phone number: " +phone+" ACCEPTED");
-
-            } catch (SQLException | ClassNotFoundException | IOException ex) {
-                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        // test first name
-        if(test){
-            test = myCustomer.testName(firstName);
-            if(!test)
-            JOptionPane.showMessageDialog(null, "First Name Rejected");
-        }
-
-        // test last name
-        if(test){
-            test = myCustomer.testName(lastName);
-            if(!test)
-            JOptionPane.showMessageDialog(null, "Last Name Rejected");
-        }
-
-        if(test){
-            test = myCustomer.testZip(zip);
-            if(!test)
-            JOptionPane.showMessageDialog(null, "Zip Rejected");
-        }
-
-        // do stuff
-        if(test){
-            try{
-                ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+city+"', '"+province+"', '"+address+"', '"+zip+"', '"+phone+"', '"+email+"');");
-                ConnectDB.clearResultSet();
-                JOptionPane.showMessageDialog(null, "Customer Added!");
-
-                // Add charge for club membership if applicable.
-                if(clubMemberCheckBox.isSelected()){
-                    String username = CommonFunc.username;
-                    // Prepare information for payment table
-                    // payment_id
-                    // customer_id
-                    int customer_id = -1;
-
-                    ConnectDB.exeQuery("SELECT customer_id FROM customer WHERE phone ='"+phone+"'");
-                    if(ConnectDB.resultSet().next())
-                    customer_id = Integer.parseInt(ConnectDB.resultSet().getString("customer_id"));
-                    System.out.println("customer id: "+customer_id);
-
-                    JOptionPane.showMessageDialog(null, "STEP 2");
-                    ConnectDB.clearResultSet();
-
-                    // purpose
-                    String purpose = "membership";
-
-                    // total
-                    double total = -1.0;
-
-                    ConnectDB.exeQuery("SELECT fee_per_year FROM membership_fee");
-                    if(ConnectDB.resultSet().next())
-                    total = (Double)ConnectDB.resultSet().getObject("fee_per_year");
-                    System.out.println("cost: "+total);
-
-                    JOptionPane.showMessageDialog(null, "STEP 3");
-                    ConnectDB.clearResultSet();
-
-                    // cash
-                    // credit
-                    // points
-                    double points = 500;
-
-                    // create_time
-                    java.sql.Timestamp  create_time = new java.sql.Timestamp(new java.util.Date().getTime());
-
-                    // id
-                    // branch_id
-                    // staff_id
-
-                    int branch_id = -1;
-                    int staff_id = -1;
-
-                    ConnectDB.exeQuery("SELECT branch_id, staff_id FROM Accounts WHERE username ='"+username+"'");
-                    if(ConnectDB.resultSet().next()){
-                        branch_id = Integer.parseInt(ConnectDB.resultSet().getString("branch_id"));
-                        staff_id = Integer.parseInt(ConnectDB.resultSet().getString("staff_id"));
-                    }
-
-                    JOptionPane.showMessageDialog(null, "STEP 4");
-
-                    ConnectDB.clearResultSet();
-
-                    System.out.println("branch id: "+branch_id);
-                    System.out.println("staff id: "+staff_id);
-
-                    ConnectDB.exeUpdate("INSERT INTO payment VALUES (0, '"+customer_id+"', '"+purpose+"', '"+total+"', '0', '"+total+"', '"+points+"', '"+create_time+"', '"+customer_id+"', '"+branch_id+"', '"+staff_id+"');");
-
-                    JOptionPane.showMessageDialog(null, "STEP 5");
-
-                    ConnectDB.clearResultSet();
-                }
-                /*
-
-                */
-
-                //ConnectDB.clearResultSet();
-                //JOptionPane.showMessageDialog(null, "Customer Added!");
-            } catch (ClassNotFoundException | SQLException | IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            } //finally{
-                //try {
-                    // ConnectDB.clearResultSet();
-                    //} catch (SQLException ex) {
-                    //    JOptionPane.showMessageDialog(null, ex);
-                    //}
-                //}
-
-        }else{
-            //            JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
-        }
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -3064,6 +2749,306 @@ private String user;
         mf.showerror("Set for sale succefully!");
     }//GEN-LAST:event_setforsaleBtnActionPerformed
 
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameFieldActionPerformed
+
+    private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameFieldActionPerformed
+
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameFieldActionPerformed
+
+    private void emailIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailIdFieldActionPerformed
+
+    private void AddEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEmployeeBtnActionPerformed
+        try{
+            //Encrypt en = new Encrypt();
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = userNameField.getText();
+            String email = emailIdField.getText();
+            String password = crypt.encrypt(passwordField.getText());
+            String branchId = branchIdCombo.getSelectedItem().toString();
+            String role = clerkComboBox.getSelectedItem().toString();
+            int countusers = 0;
+            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty()
+                && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+                try {
+                    ConnectDB.exeQuery("SELECT COUNT(*) AS COUNT FROM Accounts WHERE USERNAME = '"+userName+"'");
+                    while(ConnectDB.resultSet().next()){
+                        System.out.println("**"+ConnectDB.resultSet().getString(1));
+                        countusers = Integer.parseInt(ConnectDB.resultSet().getString("COUNT"));
+                    }
+                    ConnectDB.clearResultSet();
+                    if(countusers==0){
+                        ConnectDB.exeUpdate("INSERT INTO Accounts VALUES ('"+email+"', '"+userName+"', '"+password+"', '"+lastName+"', '"+firstName+"', '"+role+"', '"+branchId+"', 0);");
+                        //                 ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+address+"', '"+province+"', '"+city+"', '"+zip+"', '"+phone+"', '"+email+"');");
+                        ConnectDB.clearResultSet();
+                        JOptionPane.showMessageDialog(null, "Employee Created!");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "This user name has been used already");
+                    }
+
+                } catch (ClassNotFoundException | SQLException | IOException ex) {
+                    Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_AddEmployeeBtnActionPerformed
+
+    private void clerkComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clerkComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clerkComboBoxActionPerformed
+
+    private void RemoveEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveEmployeeBtnActionPerformed
+        if(allEmployeeTbl.getRowCount()>0){
+            try {
+                //allEmployeeTbl = new JTable(ne.getAllEmployee());
+                int row = allEmployeeTbl.getSelectedRow();
+
+                String staff_id = allEmployeeTbl.getValueAt(row, 0).toString();
+                System.out.println(staff_id);
+                ne.delEmployee(staff_id);
+
+                allEmployeeTbl = new JTable(ne.getAllEmployee());
+                jScrollPane9.setViewportView(allEmployeeTbl);
+
+            } catch (ClassNotFoundException | SQLException | IOException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_RemoveEmployeeBtnActionPerformed
+
+    private void SearchEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchEmployeeBtnActionPerformed
+        try {
+            allEmployeeTbl = new JTable(ne.getAllEmployee());
+            jScrollPane9.setViewportView(allEmployeeTbl);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_SearchEmployeeBtnActionPerformed
+
+    private void ModifyEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyEmployeeBtnActionPerformed
+        try {
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = userNameField.getText();
+            String email = emailIdField.getText();
+            String password;
+
+            password = crypt.encrypt(passwordField.getText());
+
+            String branchId = branchIdCombo.getSelectedItem().toString();
+            String role = clerkComboBox.getSelectedItem().toString();
+            if(!firstName.isEmpty() && !lastName.isEmpty() && !userName.isEmpty()
+                && !email.isEmpty() && !password.isEmpty() && !role.isEmpty() && !branchId.isEmpty()){
+
+                ne.modEmployee(password,staffid, email, userName, firstName, lastName, role, branchId);
+                clearEmpFields();
+            }else{
+                JOptionPane.showMessageDialog(null, "Please enter all the fields");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ModifyEmployeeBtnActionPerformed
+    
+    public String staffid;
+    private void MoveEmployeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoveEmployeeBtnActionPerformed
+        int row = allEmployeeTbl.getSelectedRow();
+
+        String[] col = new String[7];
+        for(int i =0; i<7 ; i++){
+
+            col[i] = allEmployeeTbl.getValueAt(row, i).toString();
+            System.out.println(col[i]);
+        }
+        staffid = col[0];
+        emailIdField.setText(col[1]);
+        userNameField.setText(col[2]);
+        lastNameField.setText(col[3]);
+        firstNameField.setText(col[4]);
+        clerkComboBox.setSelectedItem(col[5]);
+        branchIdCombo.setSelectedItem(col[6]);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MoveEmployeeBtnActionPerformed
+
+    private void zipTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zipTextFieldActionPerformed
+
+    private void clubMemberCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clubMemberCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clubMemberCheckBoxActionPerformed
+
+    private void Customer_RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Customer_RegisterBtnActionPerformed
+        // TODO add your handling code here:
+
+        // Create an instance of Customer Class
+        Customer myCustomer = new Customer();
+
+        // Gather information from forms
+        String firstName = cusFristNameField.getText();
+        String lastName = cusLastNameField.getText();
+        String address = streetAddField.getText();
+        String province = provinceComboBox.getSelectedItem().toString();
+        String city = cityTextField.getText();
+        String zip = zipTextField.getText();
+        String phone = phoneTextField.getText();
+        String email = emailTextField.getText();
+
+        // set a test boolean
+        boolean test = true;
+
+        // test that all fields were completed
+        if(!(!firstName.isEmpty() && !lastName.isEmpty() && !address.isEmpty()
+            && !province.isEmpty() && !city.isEmpty() && !zip.isEmpty()
+            && !phone.isEmpty() && !email.isEmpty())){
+        test = false;
+        JOptionPane.showMessageDialog(null, "All text fields are required");
+        }
+
+        // test phone number
+        if(test){
+            try {
+                test = myCustomer.testPhone(phone);
+                if(!test)
+                JOptionPane.showMessageDialog(null, "Phone number: " +phone+"\nalready registered");
+                //else
+                //JOptionPane.showMessageDialog(null, "Phone number: " +phone+" ACCEPTED");
+
+            } catch (SQLException | ClassNotFoundException | IOException ex) {
+                Logger.getLogger(SuperRent.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        // test first name
+        if(test){
+            test = myCustomer.testName(firstName);
+            if(!test)
+            JOptionPane.showMessageDialog(null, "First Name Rejected");
+        }
+
+        // test last name
+        if(test){
+            test = myCustomer.testName(lastName);
+            if(!test)
+            JOptionPane.showMessageDialog(null, "Last Name Rejected");
+        }
+
+        if(test){
+            test = myCustomer.testZip(zip);
+            if(!test)
+            JOptionPane.showMessageDialog(null, "Zip Rejected");
+        }
+
+        // do stuff
+        if(test){
+            try{
+                ConnectDB.exeUpdate("INSERT INTO customer VALUES (0, '"+firstName+"', '"+lastName+"', '"+city+"', '"+province+"', '"+address+"', '"+zip+"', '"+phone+"', '"+email+"');");
+                ConnectDB.clearResultSet();
+                JOptionPane.showMessageDialog(null, "Customer Added!");
+
+                // Add charge for club membership if applicable.
+                if(clubMemberCheckBox.isSelected()){
+                    String username = CommonFunc.username;
+                    // Prepare information for payment table
+                    // payment_id
+                    // customer_id
+                    int customer_id = -1;
+
+                    ConnectDB.exeQuery("SELECT customer_id FROM customer WHERE phone ='"+phone+"'");
+                    if(ConnectDB.resultSet().next())
+                    customer_id = Integer.parseInt(ConnectDB.resultSet().getString("customer_id"));
+                    System.out.println("customer id: "+customer_id);
+
+                    //JOptionPane.showMessageDialog(null, "STEP 2");
+                    ConnectDB.clearResultSet();
+
+                    // purpose
+                    String purpose = "membership";
+
+                    // total
+                    double total = -1.0;
+
+                    ConnectDB.exeQuery("SELECT fee_per_year FROM membership_fee");
+                    if(ConnectDB.resultSet().next())
+                    total = (Double)ConnectDB.resultSet().getObject("fee_per_year");
+                    System.out.println("cost: "+total);
+
+                    //JOptionPane.showMessageDialog(null, "STEP 3");
+                    ConnectDB.clearResultSet();
+
+                    // cash
+                    // credit
+                    // points
+                    double points = 500;
+
+                    // create_time
+                    java.sql.Timestamp  create_time = new java.sql.Timestamp(new java.util.Date().getTime());
+
+                    // id
+                    // branch_id
+                    // staff_id
+
+                    int branch_id = -1;
+                    int staff_id = -1;
+
+                    ConnectDB.exeQuery("SELECT branch_id, staff_id FROM Accounts WHERE username ='"+username+"'");
+                    if(ConnectDB.resultSet().next()){
+                        branch_id = Integer.parseInt(ConnectDB.resultSet().getString("branch_id"));
+                        staff_id = Integer.parseInt(ConnectDB.resultSet().getString("staff_id"));
+                    }
+
+                    //JOptionPane.showMessageDialog(null, "STEP 4");
+
+                    ConnectDB.clearResultSet();
+
+                    System.out.println("branch id: "+branch_id);
+                    System.out.println("staff id: "+staff_id);
+
+                    ConnectDB.exeUpdate("INSERT INTO payment VALUES (0, '"+customer_id+"', '"+purpose+"', '"+total+"', '0', '"+total+"', '"+points+"', '"+create_time+"', '"+customer_id+"', '"+branch_id+"', '"+staff_id+"');");
+
+                    //JOptionPane.showMessageDialog(null, "STEP 5");
+
+                    ConnectDB.clearResultSet();
+                }
+                /*
+
+                */
+
+                //ConnectDB.clearResultSet();
+                //JOptionPane.showMessageDialog(null, "Customer Added!");
+            } catch (ClassNotFoundException | SQLException | IOException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            } //finally{
+                //try {
+                    // ConnectDB.clearResultSet();
+                    //} catch (SQLException ex) {
+                    //    JOptionPane.showMessageDialog(null, ex);
+                    //}
+                //}
+
+        }else{
+            //            JOptionPane.showMessageDialog(null, "Should enter all the mandatory fields (*)");
+        }
+    }//GEN-LAST:event_Customer_RegisterBtnActionPerformed
+
 
 
 
@@ -3170,8 +3155,13 @@ private String user;
     private ManageFleet mf3 =  new ManageFleet("setrate");
     //private String role;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddEmployeeBtn;
+    private javax.swing.JButton Customer_RegisterBtn;
+    private javax.swing.JButton ModifyEmployeeBtn;
     private javax.swing.JTabbedPane ModulesTab;
+    private javax.swing.JButton MoveEmployeeBtn;
     private javax.swing.JPanel NewEmployee;
+    private javax.swing.JButton RemoveEmployeeBtn;
     private javax.swing.JPanel Rent;
     private javax.swing.JPanel Reports;
     private javax.swing.JButton ReturnCalculate_jButton6;
@@ -3196,8 +3186,8 @@ private String user;
     private javax.swing.JLabel ReturnTime_jLabel20;
     private javax.swing.JLabel ReturnTime_jLabel21;
     private javax.swing.JTextField ReturnVin_jTextField8;
+    private javax.swing.JButton SearchEmployeeBtn;
     private javax.swing.JButton addBtn;
-    private javax.swing.JButton addEmployeeBtn;
     private javax.swing.JButton addEquipBtn;
     private javax.swing.JTable allEmployeeTbl;
     private javax.swing.JComboBox branchIdCombo;
@@ -3238,9 +3228,6 @@ private String user;
     private javax.swing.JLabel firstnameLbl;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -3248,8 +3235,6 @@ private String user;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
